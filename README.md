@@ -1,4 +1,4 @@
-<h1>Sanity Tools</h1>
+<h1>LizRailsStarteranity Tools</h1>
 
 <hr>
 

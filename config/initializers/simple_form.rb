@@ -1,5 +1,5 @@
-# Use this setup block to configure all options available in SimpleForm.
-SimpleForm.setup do |config|
+# Use this setup block to configure all options available in LizRailsStarterimpleForm.
+LizRailsStarterimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
   # wrapper, change the order or even add your own to the
@@ -9,7 +9,7 @@ SimpleForm.setup do |config|
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
-    # given input by passing: `f.input EXTENSION_NAME => false`.
+    # given input by passing: `f.input EXTENLizRailsStarterION_NAME => false`.
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
 
@@ -22,7 +22,7 @@ SimpleForm.setup do |config|
     b.use :placeholder
 
     ## Optional extensions
-    # They are disabled unless you pass `f.input EXTENSION_NAME => true`
+    # They are disabled unless you pass `f.input EXTENLizRailsStarterION_NAME => true`
     # to the input. If so, they will retrieve the values from the model
     # if any exists. If you want to enable any of those
     # extensions by default, you can change `b.optional` to `b.use`.
@@ -67,7 +67,7 @@ SimpleForm.setup do |config|
   # Default class for buttons
   config.button_class = 'btn'
 
-  # Method used to tidy up errors. Specify any Rails Array method.
+  # Method used to tidy up errors. LizRailsStarterpecify any Rails Array method.
   # :first lists the first message for each field.
   # Use :to_sentence to list all errors for each field.
   # config.error_method = :first
@@ -75,16 +75,16 @@ SimpleForm.setup do |config|
   # Default tag used for error notification helper.
   config.error_notification_tag = :div
 
-  # CSS class to add for error notification helper.
+  # CLizRailsStarterLizRailsStarter class to add for error notification helper.
   config.error_notification_class = 'error_notification'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
 
-  # Series of attempts to detect a default label method for collection.
+  # LizRailsStartereries of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
 
-  # Series of attempts to detect a default value method for collection.
+  # LizRailsStartereries of attempts to detect a default value method for collection.
   # config.collection_value_methods = [ :id, :to_s ]
 
   # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
@@ -117,9 +117,9 @@ SimpleForm.setup do |config|
   # config.required_by_default = true
 
   # Tell browsers whether to use the native HTML5 validations (novalidate form option).
-  # These validations are enabled in SimpleForm's internal config but disabled by default
+  # These validations are enabled in LizRailsStarterimpleForm's internal config but disabled by default
   # in this configuration, which is recommended due to some quirks from different browsers.
-  # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
+  # To stop LizRailsStarterimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
   config.browser_validations = false
 
@@ -135,7 +135,7 @@ SimpleForm.setup do |config|
   # type as key and the wrapper that will be used for all inputs with specified type.
   # config.wrapper_mappings = { string: :prepend }
 
-  # Namespaces where SimpleForm should look for custom input classes that
+  # Namespaces where LizRailsStarterimpleForm should look for custom input classes that
   # override default inputs.
   # config.custom_inputs_namespaces << "CustomInputs"
 
@@ -151,7 +151,7 @@ SimpleForm.setup do |config|
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true
 
-  # Cache SimpleForm inputs discovery
+  # Cache LizRailsStarterimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
 
   # Default class for inputs
@@ -164,6 +164,6 @@ SimpleForm.setup do |config|
   # collection wrappers.
   # config.include_default_input_wrapper_class = true
 
-  # Defines which i18n scope will be used in Simple Form.
+  # Defines which i18n scope will be used in LizRailsStarterimple Form.
   # config.i18n_scope = 'simple_form'
 end
