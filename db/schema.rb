@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404184741) do
+ActiveRecord::Schema.define(version: 20170415200046) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -28,16 +28,9 @@ ActiveRecord::Schema.define(version: 20170404184741) do
     t.datetime "updated_at",                             null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "busy",                   default: false
-    t.boolean  "stressed",               default: false
-    t.boolean  "depressed",              default: false
-    t.boolean  "anxious",                default: false
-    t.boolean  "panicked",               default: false
-    t.boolean  "lethargic",              default: false
-    t.boolean  "worried",                default: false
-    t.boolean  "indecisive",             default: false
-    t.boolean  "other_feels",            default: false
     t.boolean  "opt_in",                 default: false
+    t.string   "phone"
+    t.string   "wants"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -15,12 +15,16 @@
                     <%= f.label :last_name %>
                     <%= f.text_field :last_name, class: "form-control" %>
                 </div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-6 col-md-4">
                     <%= f.label :email %>
                     <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
                     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                     <% end %>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <%= f.label :phone %>
+                    <%= f.text_field :phone, required: true, class: "form-control" %>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <%= f.label :current_password %>
@@ -30,38 +34,19 @@
                 <p class="passwordChangeHeader1 linkish">Change My Password</p>
                 <p class="passwordChangeHeader2 linkish hidden">Keep My Current Password</p>
                 <div class="passwordChangeDiv hidden">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-md-4">
                         <%= f.label "New Password" %>
                         <%= f.password_field :password, autocomplete: "off", class: "form-control", required: false %>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-md-4">
                         <%= f.label "Confirm New Password" %>
                         <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
                     </div>
-                </div> <!-- password change -->  
+                </div> <!-- password change -->
 
             <div class="row">
                 <hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 30px 0">
             </div>
-
-            <div class="problems-area row">
-                <h3 style="margin-top: 0">Which of the following describe(s) you?</h3>
-                <div class="col-sm-4">
-                    <%= f.input :busy, label: "Too Busy" %>
-                    <%= f.input :stressed, label: "Stressed" %>
-                    <%= f.input :depressed, label: "Depressed" %>
-                </div>
-                <div class="col-sm-4">
-                    <%= f.input :anxious, label: "Anxious" %>
-                    <%= f.input :panicked, label: "Panic Attacks" %>
-                    <%= f.input :lethargic, label: "Lethargic/Unmotivated" %>
-                </div>
-                <div class="col-sm-4">
-                    <%= f.input :worried, label: "Worried" %>
-                    <%= f.input :indecisive, label: "Indecisive" %>
-                    <%= f.input :other_feels, label: "Other" %>
-                </div>
-            </div> <!-- problems area -->
 
         </div> <!-- form inputs -->
 

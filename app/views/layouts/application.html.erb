@@ -26,9 +26,9 @@
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Home", root_path %></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/products">Listings</a></li>
+                <li><%= link_to "About Us", home_about_path %></li>
+                <li><a href="/contact">Contact Me</a></li>
                 <% if current_user %>
                 	<li><%= link_to "Dashboard", user_path(current_user) %></li>
                 <% else %>
