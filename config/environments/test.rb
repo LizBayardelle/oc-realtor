@@ -1,5 +1,5 @@
 Rails.application.configure do
-  # LizRailsStarterettings specified here will take precedence over those in config/application.rb.
+  # OCRettings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
@@ -16,7 +16,7 @@ Rails.application.configure do
   config.serve_static_files   = true
   config.static_cache_control = 'public, max-age=3600'
 
-  # LizRailsStarterhow full error reports and disable caching.
+  # OCRhow full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 

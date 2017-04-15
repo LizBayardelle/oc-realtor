@@ -29,15 +29,17 @@ Variables
 ==============================================
 */
 
-$font-sans: 'Lato', sans-serif;
-$font-serif: 'Special Elite', sans-serif;
-$blue-dark: #231651;
-$blue-light: #2374AB;
-$blue-green: #4DCCBD;
-$grey-dark: #4F5356;
+$font-decorative: 'Cinzel Decorative', cursive;
+$font-serif: 'Playfair Display', serif;
+$font-cursive: 'Playball', cursive;
+$blue-dark: #031D44;
+$blue-light: #4D7EA8;
+$red: #890E05;
+$grey-dark: #50514F;
 $grey-light: #B2B2B2;
-$text-shadow: 1px 2px 2px #4DCCBD;
-
+$creme: #F4E8C1;
+$creme-background: #F4F0E3;
+$text-shadow: 1px 2px 2px $blue-light;
 
 
 
@@ -52,16 +54,16 @@ Basics
 */
 
 label { text-transform: capitalize; }
-body { font-family: $font-sans; color: $blue-dark }
-h1 { font-family: $font-serif; text-shadow: $text-shadow; font-size: 50px; }
+body { font-family: $font-serif; color: $blue-dark}
+h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
 .linkish { cursor: pointer; text-decoration: underline; color: $blue-light; }
 
 /* BUTTONS */
-.btn, button { 
+.btn, button {
 	border-radius: 1px;
 	font-size: 20px;
-	background-color: $blue-green; 
-	font-weight: 900; 
+	background-color: $red;
+	font-weight: 900;
 	text-transform: capitalize;
   	display: inline-block;
   	vertical-align: middle;
@@ -75,7 +77,7 @@ h1 { font-family: $font-serif; text-shadow: $text-shadow; font-size: 50px; }
   	margin: 10px 0 10px 0;
 }
 
-.btn:hover, .btn:focus, .btn:active, button:hover, button:focus, button:active { 
+.btn:hover, .btn:focus, .btn:active, button:hover, button:focus, button:active {
 	background-color: $grey-light;
     -webkit-transform: scale(1.1);
   	transform: scale(1.1);
@@ -99,7 +101,7 @@ h1 { font-family: $font-serif; text-shadow: $text-shadow; font-size: 50px; }
 }
 
 .alert-success {
-	border-color: $blue-green;
+	border-color: $red;
 }
 
 .alert-info {
@@ -117,6 +119,38 @@ h1 { font-family: $font-serif; text-shadow: $text-shadow; font-size: 50px; }
 
 
 
+/*
+==============================================
+Full Page Background
+==============================================
+*/
+.container { position: relative; }
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+
+
 
 /*
 ==============================================
@@ -125,30 +159,31 @@ Main Nav
 */
 
 #main-nav.navbar-default .navbar-brand {
-    font-family: $font-serif;
-    color: $blue-dark;
+    font-family: $font-decorative;
+    color: $creme;
     font-size: 25px;
     margin-top: 5px;
 }
 
 #main-nav.navbar-default {
     font-size: 14px;
-    background-color: white;
+    background-color: $blue-dark;
     border-bottom-width: 1px;
-    border-color: $blue-green;
+    border-color: $creme;
     border-top: none;
     border-left: none;
     border-right: none;
 }
 
 #main-nav.navbar-default .navbar-nav>li>a {
-    color: $blue-dark;
+    color: $creme;
     font-weight: bolder;
 }
 
 #main-nav.navbar-default .navbar-nav>li>a:hover,
 #main-nav.navbar-default .navbar-nav>li>a:focus {
-    color: $grey-light;
+    font-weight: 900;
+		text-shadow: $text-shadow;
 }
 
 #main-nav.navbar-default .navbar-nav>.active>a,
@@ -157,18 +192,18 @@ Main Nav
     color: rgba(85, 85, 85, 1);
 }
 #main-nav.navbar-default .navbar-toggle {
-    border-color: #ffffff;
+    border-color: $creme;
 }
 #main-nav.navbar-default .navbar-toggle:hover,
 #main-nav.navbar-default .navbar-toggle:focus {
-    background-color: #ffffff;
+    background-color: $creme;
 }
 #main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
+    background-color: $creme;
 }
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #ffffff;
+    background-color: $creme;
 }
 
 
@@ -187,13 +222,3 @@ Login Pages
 .problems-area label {
 	padding-left: 25px !important;
 }
-
-
-
-
-
-
-
-
-
-

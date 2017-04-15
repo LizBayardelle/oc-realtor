@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sanity Tools</title>
+  <title>OC Realtor</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900|Special+Elite" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
 </head>
 
 <body>
 
-                
+  <%= image_tag "background.jpg", class: "bg" %>
+
 
 <!-- MENU GOES HERE -->
 <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-        	<%= link_to "Sanity Tools", root_path, class:"navbar-brand" %>
+        	<%= link_to "OC Realtor", root_path, class:"navbar-brand" %>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
         </div>
@@ -60,7 +61,7 @@
   <% end %>
 </div> <!-- flash notice area -->
 
-  
+
 <%= yield %>
 
 <footer>
