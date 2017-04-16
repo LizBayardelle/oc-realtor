@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415200046) do
+ActiveRecord::Schema.define(version: 20170415234324) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "preferred_contact"
+    t.string   "message"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "purpose"
+    t.boolean  "archived",          default: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -31,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170415200046) do
     t.boolean  "opt_in",                 default: false
     t.string   "phone"
     t.string   "wants"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

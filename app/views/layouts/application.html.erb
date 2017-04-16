@@ -11,61 +11,73 @@
 </head>
 
 <body>
-
+<div class="page-minus-footer">
   <%= image_tag "background.jpg", class: "bg" %>
 
 
-<!-- MENU GOES HERE -->
-<div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-        	<%= link_to "OC Realtor", root_path, class:"navbar-brand" %>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Home", root_path %></li>
-                <li><a href="/products">Listings</a></li>
-                <li><%= link_to "About Us", home_about_path %></li>
-                <li><a href="/contact">Contact Me</a></li>
-                <% if current_user %>
-                	<li><%= link_to "Dashboard", user_path(current_user) %></li>
-                <% else %>
-	                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                <% end %>
-            </ul>
-        </div>
-    </div>
-</div>
+  <!-- MENU GOES HERE -->
+  <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+          <div class="navbar-header">
+          	<%= link_to "OC Realtor", root_path, class:"navbar-brand" %>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+              </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
+                  <li><a href="/products">Listings</a></li>
+                  <li><%= link_to "About Us", home_about_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
+                  <% if current_user %>
+                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
+                  <% else %>
+  	                <li><%= link_to "Sign Up", new_user_registration_path, class: "center-ul-hover" %></li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+  </div>
 
 
 
-<!-- flash notice area -->
-<div class="flash-notice-area">
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:notice] %>
-    </div>
-  <% elsif flash.now[:alert] %>
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash.now[:alert] %>
-    </div>
-  <% elsif flash[:alert] %>
-    <div class="alert alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-</div> <!-- flash notice area -->
+  <!-- flash notice area -->
+  <div class="flash-notice-area">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash.now[:alert] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash.now[:alert] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+  </div> <!-- flash notice area -->
 
 
-<%= yield %>
+  <%= yield %>
+</div> <!-- page minus footer -->
 
 <footer>
-
+  <div class="container text-center">
+    <h1>OC Realtor</h1>
+    <h2>Helping you find the right home.</h2>
+    <div class="row social-row">
+      <i class="icon ion-social-facebook"></i>
+      <i class="icon ion-social-twitter"></i>
+      <i class="icon ion-social-googleplus"></i>
+      <i class="icon ion-social-instagram"></i>
+      <i class="icon ion-social-pinterest"></i>
+    </div> <!-- social row -->
+    <p>Website by Linchpin Industries, LLC</p>
+  </div> <!-- container -->
 </footer>
 
 </body>

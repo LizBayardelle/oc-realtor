@@ -1,0 +1,82 @@
+<h2 class="messagesHeader">Messages</h2>
+<div class="messagesDiv">
+  <% if @contacts.count == 0 %>
+    <p>You currently have no messages.</p>
+  <% else %>
+    <table>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td>
+              <%= contact.first_name %> <%= contact.last_name %><br />
+              <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+              <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
+            </td>
+            <td>
+              <strong>Purpose: <%= contact.purpose %></strong><br />
+              <%= contact.message %>
+            </td>
+            <td>
+              <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="icon ion-trash-a"></i>
+              <% end %>
+              <%= link_to archive_contact_path(contact), method: :post do %>
+                <i class="icon ion-folder"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <% if @archived_contacts.count != 0 %>
+      <p class="linkish archivedHeader">Show archived messages.</p>
+      <div class="archivedDiv">
+        <table>
+          <tbody>
+            <% @archived_contacts.each do |contact| %>
+              <tr>
+                <td>
+                  <%= contact.first_name %> <%= contact.last_name %><br />
+                  <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                  <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
+                </td>
+                <td>
+                  <strong>Purpose: <%= contact.purpose %></strong><br />
+                  <%= contact.message %>
+                </td>
+                <td>
+                  <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="icon ion-trash-a"></i>
+                  <% end %>
+                  <%= link_to unarchive_contact_path(contact), method: :post do %>
+                    <i class="icon ion-folder"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div> <!-- archived div -->
+    <% end %>
+
+
+  <% end %>
+</div> <!-- messages div -->
+
+
+<script>
+	$(document).ready(function(){
+		$(".messagesHeader").click(function(){
+			$(".messagesDiv").toggleClass("hidden");
+		});
+		$("#hideVerdict").click(function(){
+			$(this).addClass("hidden");
+			$("#showVerdict").removeClass("hidden");
+			$("#verdict").addClass("hidden");
+		})
+		$(".saveHeader").click(function(){
+			$(".saveDiv").toggleClass("hidden");
+		})
+	});
+</script>
