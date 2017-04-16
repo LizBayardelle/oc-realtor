@@ -52,6 +52,6 @@
     <a href="https://www.zillow.com/"><%= image_tag "zillow.png", alt: "Real Estate on Zillow", style: "width: 200px" %></a>
   </div> <!-- right zillow logo -->
 
-  <div class="text-center"><%= link_to 'New Listing', new_listing_path %></div>
+  <div class="text-center"><% if current_user && current_user.admin %><%= link_to 'New Listing', new_listing_path %><% end %></div>
   <div class="bottom-buffer"></div>
 </div> <!-- container -->
