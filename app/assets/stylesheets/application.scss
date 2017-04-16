@@ -198,7 +198,8 @@ Main Nav
 }
 
 #main-nav.navbar-default {
-    font-size: 14px;
+    font-size: 16px;
+		font-family: $font-serif;
     background-color: $blue-dark;
     border: none;
 		margin-bottom: 0px;
@@ -268,7 +269,7 @@ Main Nav
 
 /*
 ==============================================
-Hero Images
+IMAGES
 ==============================================
 */
 
@@ -277,6 +278,7 @@ Hero Images
 	width: 100%;
 	overflow: hidden;
 	height: 400px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .image-container img {
@@ -320,6 +322,12 @@ Hero Images
 		margin-top: -400px;
 		height: 400px;
 	}
+}
+
+img.fancy-border {
+	border: solid 1px $blue-dark;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 
@@ -430,10 +438,15 @@ select#contact_preferred_contact, select#contact_purpose {
 
 /*
 ===============================================
-User Show
+Pages
 ===============================================
 */
 
+.container h1 {
+	margin: 30px 0 25px 0;
+}
+
+/* User#show */
 .messagesDiv .icon {
 	font-size: 30px;
 	padding: 0 10px 0 0;

@@ -26,7 +26,7 @@
           <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                  <li><a href="/products">Listings</a></li>
+                  <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "About Us", home_about_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                   <% if current_user %>

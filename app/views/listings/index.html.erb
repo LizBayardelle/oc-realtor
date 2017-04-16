@@ -1,0 +1,43 @@
+<div class="image-container">
+	<%= image_tag "houses.jpg", alt: "Houses on a hill overlooking the ocean in Laguna Beach, California." %>
+</div>
+
+<div class="overlap-image text-center">
+	<h1 style="padding-top: 150px; margin-top: 0px"></h1>
+</div>
+
+<div class="container">
+
+  <h1>Listings</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Zpid</th>
+        <th>Status</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @listings.each do |listing| %>
+        <% property = Rubillow::HomeValuation.zestimate({ zpid: listing.zpid }) %>
+        <tr>
+          <td><%= listing.zpid %></td>
+          <td><%= listing.status %></td>
+          <td><%= listing.location %></td>
+          <td><%= property.price %></td>
+          <td><%= link_to 'Show', listing %></td>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Listing', new_listing_path %>
+</div> <!-- container -->

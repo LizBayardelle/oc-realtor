@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   resources :home, only: [:index]
   get 'home/about'
   root "home#index"
