@@ -6,38 +6,52 @@
 	<h1 style="padding-top: 150px; margin-top: 0px"></h1>
 </div>
 
+
 <div class="container">
+  <h1 class="text-center">Listings</h1>
 
-  <h1>Listings</h1>
+  <% @listings.each do |listing| %>
+    <% property = Rubillow::HomeValuation.zestimate({ zpid: listing.zpid }) %>
+    <% data = Rubillow::PropertyDetails.deep_search_results({ address: listing.address, citystatezip: listing.citystatezip }) %>
+    <%# details = Rubillow::PropertyDetails.updated_property_details({ zpid: listing.zpid }) %>
+    <%= link_to listing do %>
+      <div class="fancy-border property-details">
+        <div class="row">
 
-  <table>
-    <thead>
-      <tr>
-        <th>Zpid</th>
-        <th>Status</th>
-        <th>Location</th>
-        <th>Price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+          <div class="col-sm-3">
+            <%#= details.images[:url] %>
+          </div> <!-- images -->
 
-    <tbody>
-      <% @listings.each do |listing| %>
-        <% property = Rubillow::HomeValuation.zestimate({ zpid: listing.zpid }) %>
-        <tr>
-          <td><%= listing.zpid %></td>
-          <td><%= listing.status %></td>
-          <td><%= listing.location %></td>
-          <td><%= property.price %></td>
-          <td><%= link_to 'Show', listing %></td>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          <div class="col-sm-9">
+            <h2><%= listing.address %></h2>
+            <h4 style="color: green">Zestimate: <%= number_to_currency(property.price) %></h4>
+            <p><%#= data.finishedSqFt %> Square Feet, <%= pluralize(data.bedrooms, "Bedroom") %>, <%= pluralize(data.bathrooms, "Bathroom") %></p>
+            <div class="text-right">
+              <% if current_user && current_user.admin %>
+                <%= link_to edit_listing_path(listing) do %>
+                  <i class="icon ion-edit"></i>
+                <% end %>
+                <%= link_to listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <br />
+              <% end %>
+              ZPID: <%= link_to data.links[:homedetails] do %><span class="linkish"><%= listing.zpid %></span><% end %>
+            </div> <!-- text right -->
+          </div> <!-- col 9 -->
 
-  <br>
+        </div> <!-- row -->
+      </div> <!-- fancy border -->
+    <% end %> <!-- link -->
+  <% end %> <!-- listing each -->
 
-  <%= link_to 'New Listing', new_listing_path %>
+  <div class="bottom-buffer"></div>
+
+  <div class="text-center">
+    <p>Information Courtesy of</p>
+    <a href="https://www.zillow.com/"><%= image_tag "zillow.png", alt: "Real Estate on Zillow", style: "width: 200px" %></a>
+  </div> <!-- right zillow logo -->
+
+  <div class="text-center"><%= link_to 'New Listing', new_listing_path %></div>
+  <div class="bottom-buffer"></div>
 </div> <!-- container -->

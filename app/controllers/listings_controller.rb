@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, except: [:show, :index]
 
   # GET /listings
   def index
@@ -53,6 +54,6 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.require(:listing).permit(:zpid, :status, :location)
+      params.require(:listing).permit(:zpid, :status, :location, :address, :citystatezip)
     end
 end

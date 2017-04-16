@@ -324,11 +324,7 @@ IMAGES
 	}
 }
 
-img.fancy-border {
-	border: solid 1px $blue-dark;
-	background-color: white;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
+
 
 
 
@@ -458,4 +454,39 @@ Pages
 
 .archivedDiv {
 	color: $grey-dark;
+}
+
+.fancy-border {
+	border: solid 1px $blue-dark;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.property-details {
+	padding: 20px;
+}
+
+.property-details a {
+	color: $blue-dark;
+}
+
+.property-details:hover {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.property-details a:hover {
+	text-decoration: none;
+	color: $blue-dark;
+}
+
+.property-details .ion {
+	padding: 0 0 0 10px;
+}
+
+.property-details .ion:hover {
+	color: $grey-dark;
+}
+
+.property-details h2 {
+	font-family: $font-decorative;
 }

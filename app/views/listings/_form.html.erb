@@ -1,7 +1,7 @@
 <%= simple_form_for(@listing) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs text-left">
     <div class="form-group col-sm-4">
       <%= f.label :zpid %>
       <%= f.text_field :zpid, class: "form-control" %>
@@ -13,6 +13,14 @@
     <div class="form-group col-sm-4">
       <%= f.label :location %>
       <%= f.text_field :location, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-6">
+      <%= f.label :citystatezip %>
+      <%= f.text_field :citystatezip, class: "form-control" %>
     </div>
   </div>
 
