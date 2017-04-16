@@ -45,7 +45,29 @@ class ContactsController < ApplicationController
     redirect_to contacts_url, notice: 'Contact was successfully destroyed.'
   end
 
-  private
+    def archive_contact
+        @contact = Contact.find(params[:id])
+        if @contact.update_attributes(archived: true)
+            redirect_to :back
+            flash[:notice] = "That message has been archived!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
+    def unarchive_contact
+        @contact = Contact.find(params[:id])
+        if @contact.update_attributes(archived: false)
+            redirect_to :back
+            flash[:notice] = "That message has been unarchived!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
@@ -53,6 +75,6 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :phone, :email, :preferred_contact, :message, :purpose)
+      params.require(:contact).permit(:first_name, :last_name, :phone, :email, :preferred_contact, :archived, :message, :purpose)
     end
 end

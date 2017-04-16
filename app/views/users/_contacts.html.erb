@@ -1,3 +1,7 @@
+<div class="row">
+	<hr class="col-xs-6 col-xs-push-3">
+</div>
+
 <h2 class="messagesHeader">Messages</h2>
 <div class="messagesDiv">
   <% if @contacts.count == 0 %>
@@ -14,9 +18,7 @@
             </td>
             <td>
               <strong>Purpose: <%= contact.purpose %></strong><br />
-              <%= contact.message %>
-            </td>
-            <td>
+              <%= contact.message %><br />
               <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="icon ion-trash-a"></i>
               <% end %>
@@ -30,8 +32,8 @@
     </table>
 
     <% if @archived_contacts.count != 0 %>
-      <p class="linkish archivedHeader">Show archived messages.</p>
-      <div class="archivedDiv">
+      <p class="linkish archivedHeader text-center">Show Archived Messages</p>
+      <div class="archivedDiv hidden">
         <table>
           <tbody>
             <% @archived_contacts.each do |contact| %>
@@ -43,14 +45,12 @@
                 </td>
                 <td>
                   <strong>Purpose: <%= contact.purpose %></strong><br />
-                  <%= contact.message %>
-                </td>
-                <td>
+                  <%= contact.message %><br />
                   <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
                     <i class="icon ion-trash-a"></i>
                   <% end %>
                   <%= link_to unarchive_contact_path(contact), method: :post do %>
-                    <i class="icon ion-folder"></i>
+                    <i class="icon ion-ios-color-wand"></i>
                   <% end %>
                 </td>
               </tr>
@@ -70,13 +70,8 @@
 		$(".messagesHeader").click(function(){
 			$(".messagesDiv").toggleClass("hidden");
 		});
-		$("#hideVerdict").click(function(){
-			$(this).addClass("hidden");
-			$("#showVerdict").removeClass("hidden");
-			$("#verdict").addClass("hidden");
-		})
-		$(".saveHeader").click(function(){
-			$(".saveDiv").toggleClass("hidden");
-		})
+    $(".archivedHeader").click(function(){
+			$(".archivedDiv").toggleClass("hidden");
+		});
 	});
 </script>

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :contacts
-  post "contact/:id/archive" => "contact#archive", as: "archive_contact"
-  post "contact/:id/unarchive" => "contact#unarchive", as: "unarchive_contact"
+  post "contact/:id/archive" => "contacts#archive_contact", as: "archive_contact"
+  post "contact/:id/unarchive" => "contacts#unarchive_contact", as: "unarchive_contact"
 end
