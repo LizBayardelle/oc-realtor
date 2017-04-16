@@ -1,3 +1,11 @@
+<div class="image-container">
+	<%= image_tag "sunset.jpg", style: "top: 0", alt: "Sunset from a beautiful back terrace overlooking the ocean." %>
+</div>
+
+<div class="overlap-image text-center">
+	<h1 style="padding-top: 150px; margin-top: 0px"></h1>
+</div>
+
 <div class="container">
 	<h1 class="text-center"><%= @user.first_name %>'s Dashboard</h1>
 	<h4 class="text-center"><%= link_to "Edit My Info", edit_user_registration_path %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></h4>
@@ -11,5 +19,7 @@
 	<% else %> <!-- not admin section -->
 
 	<% end %>
+
+	<div class="bottom-buffer"></div>
 
 </div> <!-- container -->
