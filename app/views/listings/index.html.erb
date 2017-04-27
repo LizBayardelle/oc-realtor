@@ -13,7 +13,8 @@
   <% @listings.each do |listing| %>
     <% property = Rubillow::HomeValuation.zestimate({ zpid: listing.zpid }) %>
     <% data = Rubillow::PropertyDetails.deep_search_results({ address: listing.address, citystatezip: listing.citystatezip }) %>
-    <%# details = Rubillow::PropertyDetails.updated_property_details({ zpid: listing.zpid }) %>
+    <% details = Rubillow::PropertyDetails.updated_property_details({ zpid: listing.id }) %>
+    <%= details.to_json %>
     <%= link_to listing do %>
       <div class="fancy-border property-details">
         <div class="row">
