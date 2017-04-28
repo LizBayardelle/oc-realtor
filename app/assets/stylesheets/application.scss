@@ -464,6 +464,13 @@ Pages
 
 .property-details {
 	padding: 20px;
+	position: relative;
+}
+
+.property-details .status-box {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 .property-details a {
@@ -480,7 +487,7 @@ Pages
 }
 
 .property-details .ion {
-	padding: 0 0 0 10px;
+	padding: 0 10px 0 0;
 }
 
 .property-details .ion:hover {
@@ -489,4 +496,9 @@ Pages
 
 .property-details h2 {
 	font-family: $font-decorative;
+	margin-left: 15px;
+}
+
+.property-details img {
+	width: 100%;
 }

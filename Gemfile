@@ -38,3 +38,5 @@ gem 'acts-as-taggable-on'
 gem 'aws-sdk', '~> 2.3'
 gem 'rename'
 gem 'rubillow'
+gem 'rentjuicer'
+gem 'rillow', git: "git@github.com:/hiattp/rillow"
