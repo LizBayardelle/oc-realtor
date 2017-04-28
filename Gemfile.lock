@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:/hiattp/rillow
+  remote: git://github.com/hiattp/rillow.git
   revision: baa82c115e2eab7d62edbab96b97c416a59b73b9
   specs:
     rillow (0.2.1)
