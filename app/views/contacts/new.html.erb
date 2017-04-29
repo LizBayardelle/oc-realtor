@@ -2,12 +2,24 @@
 	<%= image_tag "aerial.jpg", style: "top: 0", alt: "Aerial view of a suburb at the foot of the Porter Ranch hills." %>
 </div>
 
+<div class="blue-stripe">
+	<div class="container">
+		<div class="col-sm-3 text-center">
+			<%= image_tag "portrait.jpg", alt: "Anthony Bayardelle", class: "fancy-border", style: "max-width: 200px; margin: 0 0 15px 0" %>
+		</div>
+		<div class="col-sm-9">
+			<p>Anthony Bayardelle has worked in sales and client relations for over 15 years across several states and has a wealth of knowledge and experience to bring to the table.  A born and raised New Yorker who recently relocated to the West coast, he is excited to bring the skills he has cultivated to Orange County.</p>
+			<p>Anthony is interested in all facets of real estate, from sales and financing to renovations and restoration of old or rundown houses.  In his free time Anthony likes working out, mountain biking, and spending time with his wife and two beautiful daughters.</p>
+		</div>
+	</div> <!-- container -->
+</div> <!-- blue stripe -->
+
 <div class="container text-center">
   <h1>Contact Me</h1>
 
   <%= render 'form' %>
 
   <%= link_to 'Back', contacts_path %>
-  
+
   <div class="bottom-buffer"></div>
 </div> <!-- container -->

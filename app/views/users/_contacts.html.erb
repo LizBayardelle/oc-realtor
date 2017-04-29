@@ -32,8 +32,9 @@
     </table>
 
     <% if @archived_contacts.count != 0 %>
-      <p class="linkish archivedHeader text-center">Show Archived Messages</p>
+      <p class="linkish archivedHeader text-center">Show/Hide Archived Messages</p>
       <div class="archivedDiv hidden">
+				<h3>Archived Messages</h3>
         <table>
           <tbody>
             <% @archived_contacts.each do |contact| %>

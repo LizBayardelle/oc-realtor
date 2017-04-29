@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :blogs
   resources :listings
   resources :home, only: [:index]
-  get 'home/about'
   root "home#index"
 
   devise_for :users, :controllers => { registrations: 'registrations' }

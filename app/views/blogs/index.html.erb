@@ -1,0 +1,45 @@
+<div class="image-container">
+	<%= image_tag "cliff.jpg", style: "top: 0", alt: "Houses on a hill overlooking the ocean in Laguna Beach, California." %>
+</div>
+
+<div class="overlap-image text-center">
+	<h1 style="padding-top: 150px; margin-top: 0px"></h1>
+</div>
+
+<div class="container">
+  <% if current_user && current_user.admin %>
+    <div class="text-right" style="margin-top: 15px"><%= link_to 'New Blog', new_blog_path %></div>
+  <% end %>
+
+  <div class="header-row">
+    <h1>What You Need to Know</h1>
+  </div>
+
+  <div class="row">
+    <% @blogs.each do |blog| %>
+      <%= link_to blog do %>
+        <div class="card">
+          <div class="image-box">
+            <%= image_tag blog.image.url, alt: blog.teaser %>
+          </div> <!-- padding box -->
+          <div class="padding-box">
+            <h1><%= blog.title %></h1>
+            <h4><%= blog.teaser %></h4>
+            <p><%= blog.user.first_name %> <%= blog.user.last_name %></p>
+            <% if current_user && current_user.admin %>
+              <%= link_to 'Edit', edit_blog_path(blog) %>
+              <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div> <!-- padding box -->
+        </div> <!-- card -->
+      <% end %> <!-- link -->
+    <% end %> <!-- blog each do -->
+  </div> <!-- row -->
+
+</div> <!-- container -->
+
+<script>
+  $(function() {
+      $('.card').matchHeight();
+  });
+</script>

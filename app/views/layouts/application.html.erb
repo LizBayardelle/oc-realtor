@@ -8,6 +8,7 @@
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
 </head>
 
 <body>
@@ -26,8 +27,8 @@
           <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to "About Us", home_about_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                   <% if current_user %>
                   	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
