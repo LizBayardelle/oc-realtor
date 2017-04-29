@@ -64,6 +64,7 @@ img { width: 100% }
 .bottom-buffer { height: 70px }
 td { padding: 5px}
 .blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
+.blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
 
