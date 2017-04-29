@@ -11,7 +11,7 @@
   </div> <!-- header row -->
 
   <div class="card no-hover full-width"><div class="padding-box">
-    <p><%= @blog.body %></p>
+    <p><%= @blog.body.html_safe %></p>
   </div></div> <!-- padding box and card -->
 
   <div class="text-center">
