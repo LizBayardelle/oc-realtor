@@ -7,6 +7,7 @@
   <div class="header-row">
     <h1><%= @blog.title %></h1>
     <h3><%= @blog.teaser %></h3>
+    <h4><%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4>
     <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
   </div> <!-- header row -->
 

@@ -3,7 +3,11 @@ class BlogsController < ApplicationController
 
   # GET /blogs
   def index
-    @blogs = Blog.all
+    if params[:tag]
+      @blogs = Blog.tagged_with(params[:tag])
+    else
+      @blogs = Blog.all
+    end
   end
 
   # GET /blogs/1
@@ -54,6 +58,6 @@ class BlogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def blog_params
-      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image)
+      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list)
     end
 end

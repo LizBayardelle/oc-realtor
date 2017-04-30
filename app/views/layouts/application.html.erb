@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+
 <div class="page-minus-footer">
   <%= image_tag "background.jpg", class: "bg" %>
 
@@ -27,7 +29,7 @@
           <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
                   <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                   <% if current_user %>
