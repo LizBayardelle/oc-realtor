@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20170429200713) do
   add_index "blogs", ["slug"], name: "index_blogs_on_slug", unique: true
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
+
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

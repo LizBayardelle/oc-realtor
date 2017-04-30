@@ -27,7 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'friendly_id', '~> 5.1.0'
 gem 'devise'
 gem 'stripe'
-gem 'ckeditor'
+gem 'ckeditor_rails'
 gem 'paperclip', "~> 5.0.0"
 gem 'figaro'
 gem 'magnific-popup-rails', '~> 1.1.0'
