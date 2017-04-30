@@ -18,5 +18,5 @@
 //= require_tree .
 
 $('.ckeditor').ckeditor({
-  // optional config
+  // optional config 
 });
