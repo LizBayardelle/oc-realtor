@@ -32,6 +32,8 @@ Variables
 $font-decorative: 'Cinzel Decorative', cursive;
 $font-serif: 'Playfair Display', serif;
 $font-cursive: 'Playball', cursive;
+$font-sans: 'Nunito Sans', sans-serif;
+
 $blue-dark: #031D44;
 $blue-light: #4D7EA8;
 $red: #890E05;
@@ -67,6 +69,7 @@ td { padding: 5px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
+p { font-family: $font-sans }
 
 /* CARDS */
 .card {
