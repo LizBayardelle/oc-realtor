@@ -26,7 +26,11 @@ class BlogsController < ApplicationController
   # POST /blogs
   def create
     @blog = Blog.new(blog_params)
-    @blog.user = current_user
+    if current_user.id = 1
+      @blog.user_id = 2
+    else
+      @blog.user = current_user
+    end
 
     if @blog.save
       redirect_to @blog, notice: 'Blog was successfully created.'
