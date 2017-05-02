@@ -59,6 +59,7 @@ Basics
 label { text-transform: capitalize; }
 body { font-family: $font-serif; color: $blue-dark}
 h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
+@media screen and (max-width: 768px) { h1 { font-size: 30px }}
 .linkish { cursor: pointer; text-decoration: underline; color: $red; }
 a { color: $red }
 hr { border-color: $blue-dark }
@@ -537,6 +538,12 @@ Pages
 	border: solid 1px $blue-dark;
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-bottom: 40px;
+}
+
+.fancy-border h1, h2, h3, h4, h5, p {
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 .property-details {

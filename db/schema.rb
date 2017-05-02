@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430144154) do
+ActiveRecord::Schema.define(version: 20170502135730) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 20170430144154) do
     t.string   "zpid"
     t.string   "status"
     t.string   "location"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "address"
     t.string   "citystatezip"
     t.text     "notes"
     t.string   "slug"
+    t.boolean  "featured",     default: false
   end
 
   add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
