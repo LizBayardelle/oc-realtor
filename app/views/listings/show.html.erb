@@ -1,5 +1,7 @@
 <% property = Rubillow::HomeValuation.zestimate({ zpid: @listing.zpid }) %>
 <% deep_search_results = Rubillow::PropertyDetails.deep_search_results({ address: @listing.address, citystatezip: @listing.citystatezip }) %>
+<%# updated_property_details = Rubillow::PropertyDetails.updated_property_details({ zpid: @listing.zpid }) %>
+
 <% rillow = Rillow.new('X1-ZWz1frh4ucm4nf_8l13j') %>
 <% result = rillow.get_updated_property_details(@listing.zpid) %>
 
@@ -11,7 +13,8 @@
     <h1><%= @listing.address %></h1>
     <h3><%= @listing.location %>, <%= @listing.status %></h3>
     <div class="row">
-      <%= image_tag result.to_hash['response'].first['images'].first['image'].first['url'].first, class: "fancy-border" %>
+      <%#= updated_property_details %>
+      <%#= image_tag result.to_hash['response'].first['images'].first['image'].first['url'].first, class: "fancy-border" %>
     </div> <!-- img row -->
     <p>Zillow Property ID: <%= link_to deep_search_results.links[:homedetails] do %><span class="linkish"><%= @listing.zpid %></span><% end %></p>
   </div> <!-- header row -->
