@@ -57,7 +57,7 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.require(:listing).permit(:zpid, :status, :location, :address, :citystatezip, :notes, :featured)
+      params.require(:listing).permit(:zpid, :status, :location, :address, :citystatezip, :notes, :featured, :default_image)
     end
 
     def set_props_from_zillow

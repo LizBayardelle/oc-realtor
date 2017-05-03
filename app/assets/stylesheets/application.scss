@@ -546,16 +546,17 @@ Pages
 	padding-right: 25px;
 }
 
-.property-details {
-	padding: 20px;
-	position: relative;
+.fancy-border *:hover {
+	text-decoration: none;
 }
 
-.property-details .status-box {
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 10px;
+.property-details img.fancy-border {
+	margin-bottom: 5px;
+}
+
+.property-details {
+	padding: 0 20px 20px 20px;
+	position: relative;
 }
 
 .property-details a {
@@ -572,7 +573,7 @@ Pages
 }
 
 .property-details .ion {
-	padding: 0 10px 0 0;
+	padding: 0 5px 0 5px;
 }
 
 .property-details .ion:hover {

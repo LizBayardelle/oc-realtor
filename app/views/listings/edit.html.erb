@@ -1,7 +1,47 @@
 <div class="container text-center">
     <h1>Editing Listing</h1>
 
-  <%= render 'form' %>
+    <%= form_for @listing, url: listing_path, html: { multipart: true } do |f| %>
+      <div class="form-inputs text-left">
+        <div class="form-group col-sm-4">
+          <%= f.label :zpid %>
+          <%= f.text_field :zpid, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-4">
+          <%= f.label :status %>
+          <%= f.text_field :status, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-4">
+          <%= f.label :location %>
+          <%= f.text_field :location, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-6">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-6">
+          <%= f.label :citystatezip %>
+          <%= f.text_field :citystatezip, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-12">
+          <%= f.label :notes %>
+          <%= f.text_area :notes, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-12">
+          <%= f.label "Default Image" %>
+          <%= f.file_field :default_image, as: :file %>
+          <p>Sometimes Zillow doesn't allow property images to be shown on third party sites.  Here you can upload an image of your own that will be used in situations where Zillow does not allow their images to be released.</p>
+        </div>
+        <div class="form-group col-sm-12">
+          <%= f.check_box :featured %> <%= f.label "Featured Property" %>
+        </div>
+      </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+
 
   <%= link_to 'Show', @listing %> |  <%= link_to 'Back', listings_path %>
 </div>

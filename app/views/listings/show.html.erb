@@ -3,10 +3,16 @@
     <h1><%= @listing.address %></h1>
     <h3><%= @listing.location %>, <%= @listing.status %></h3>
     <div class="row">
-      <% unless @listing_property_details.error %>
-        <% @listing_property_details.images.each do |image_url| %>
-          <%= image_tag image_url, class: "fancy-border" %>
+      <% if @listing_property_details.images %>
+        <% unless @listing_property_details.error %>
+          <% @listing_property_details.images.each do |image_url| %>
+            <%= image_tag image_url, class: "fancy-border" %>
+          <% end %>
         <% end %>
+      <% elsif @listing.default_image_file_name %>
+        <%= image_tag @listing.default_image.url, alt: @listing.address %>
+      <% else %>
+      <%= image_tag "no_image.jpg", class: "fancy-border" %>
       <% end %>
     </div> <!-- img row -->
     <% unless @listing_search_props.error %>
@@ -17,21 +23,21 @@
   <div class="card no-hover full-width property-details">
     <div class="row">
 
-      <div class="status-box">
-        <% if current_user && current_user.admin %>
-          <%= link_to edit_listing_path(@listing) do %>
-            <i class="icon ion-edit"></i>
-          <% end %>
-          <%= link_to @listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="icon ion-trash-a"></i>
-          <% end %>
-        <% end %>
-      </div>
-
       <div class="col-xs-12">
         <h3 style="color: green">Zestimate: <%= @listing_zestimate.price %></h3>
         <p><%= @listing_search_props.finished_square_feet %> Square Feet, <%= pluralize(@listing_search_props.bedrooms, "Bedroom") %>, <%= pluralize(@listing_search_props.bathrooms, "Bathroom") %></p>
         <p><em><%= @listing.notes %></em></p>
+
+        <div class="text-right">
+          <% if current_user && current_user.admin %>
+          <%= link_to edit_listing_path(@listing) do %>
+          <i class="icon ion-edit"></i>
+          <% end %>
+          <%= link_to @listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="icon ion-trash-a"></i>
+          <% end %>
+          <% end %>
+        </div>
     </div> <!-- col -->
 
     </div> <!-- row -->

@@ -21,10 +21,21 @@
 					<% result = rillow.get_updated_property_details(listing.zpid) %>
 
 					<div class="fancy-border">
-						<%#= image_tag result.to_hash['response'].first['images'].first['image'].first['url'].first %>
+						<% if listing.listing_property_details.images %>
+							<% unless listing.listing_property_details.error %>
+								<%= image_tag listing.listing_property_details.images.first %>
+							<% end %>
+						<% elsif listing.default_image_file_name %>
+			        <%= image_tag listing.default_image.url, alt: listing.address %>
+						<% else %>
+							<%= image_tag "no_image.jpg" %>
+			      <% end %>
 						<h2><%= listing.address %></h2>
-						<h4>
-							<%= listing.status %>
+						<h4 style="color: green">Zestimate: <%= number_to_currency(property.price) %></h4>
+						<p><%= deep_search_results.finished_square_feet %> Square Feet, <%= pluralize(deep_search_results.bedrooms, "Bedroom") %>, <%= pluralize(deep_search_results.bathrooms, "Bathroom") %></p>
+						<p><em><%= listing.notes %></em></p>
+						<h4><%= listing.status %></h4>
+						<div class="text-right" style="margin: 0 5px 5px 0">
 							<% if current_user && current_user.admin %>
 								<%= link_to edit_listing_path(listing) do %>
 									<i class="icon ion-edit"></i>
@@ -33,10 +44,7 @@
 									<i class="icon ion-trash-a"></i>
 								<% end %>
 							<% end %>
-						</h4>
-						<h4 style="color: green">Zestimate: <%= number_to_currency(property.price) %></h4>
-						<p><%= deep_search_results.finished_square_feet %> Square Feet, <%= pluralize(deep_search_results.bedrooms, "Bedroom") %>, <%= pluralize(deep_search_results.bathrooms, "Bathroom") %></p>
-						<p><em><%= listing.notes %></em></p>
+						</div>
 					</div> <!-- fancy border -->
 				<% end %> <!-- link -->
 			</div> <!-- col sm 6 -->
