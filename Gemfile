@@ -39,3 +39,4 @@ gem 'aws-sdk', '~> 2.3'
 gem 'rename'
 gem 'rubillow'
 gem 'rillow', github: "hiattp/rillow"
+gem 'httparty'
