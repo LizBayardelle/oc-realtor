@@ -61,8 +61,8 @@ class ListingsController < ApplicationController
     end
 
     def set_props_from_zillow
-      @listing_property_details =  ZillowApi.new.updated_property_details(@listing.zpid)
-      @listing_zestimate = ZillowApi.new.zestimate(@listing.zpid)
-      @listing_search_props = ZillowApi.new.deep_search_results(citystatezip: @listing.citystatezip, address: @listing.address)
+      @listing_property_details =  @listing.listing_property_details
+      @listing_zestimate = @listing.listing_zestimate
+      @listing_search_props = @listing.listing_search_props
     end
 end
