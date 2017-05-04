@@ -1,66 +1,76 @@
 <div class="container">
-    <h1 class="text-center">Edit My Information</h1>
+    <div class="bottom-buffer"></div>
+    <div class="card full-width padding-box">
+      <h1 class="text-center">Edit My Information</h1>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
 
-        <div class="form-inputs">
-            <div class="basic-info row">
-                <h3>Basic Info</h3>
-                <div class="col-sm-6 col-md-4">
-                    <%= f.label :first_name %>
-                    <%= f.text_field :first_name, class: "form-control" %>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <%= f.label :last_name %>
-                    <%= f.text_field :last_name, class: "form-control" %>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <%= f.label :email %>
-                    <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
-                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-                    <% end %>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <%= f.label :phone %>
-                    <%= f.text_field :phone, required: true, class: "form-control" %>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <%= f.label :current_password %>
-                    <%= f.password_field :current_password, class: "form-control", required: true %>
-                </div>
-            </div> <!-- basic info -->
-                <p class="passwordChangeHeader1 linkish">Change My Password</p>
-                <p class="passwordChangeHeader2 linkish hidden">Keep My Current Password</p>
-                <div class="passwordChangeDiv hidden">
-                    <div class="col-sm-6 col-md-4">
-                        <%= f.label "New Password" %>
-                        <%= f.password_field :password, autocomplete: "off", class: "form-control", required: false %>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <%= f.label "Confirm New Password" %>
-                        <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
-                    </div>
-                </div> <!-- password change -->
-
-            <div class="row">
-                <hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 30px 0">
+          <div class="form-inputs">
+            <div class="form-group col-sm-6 col-md-4 col-xs-12">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: "form-control" %>
             </div>
+            <div class="form-group col-sm-6 col-md-4 col-xs-12">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control" %>
+            </div>
+            <div class="form-group col-sm-6 col-md-4 col-xs-12">
+                <%= f.label :email %>
+                <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+            </div>
+            <div class="form-group col-sm-6 col-md-4 col-xs-12">
+                <%= f.label :phone %>
+                <%= f.text_field :phone, required: true, class: "form-control" %>
+            </div>
+            <div class="form-group col-sm-12">
+              <div class="row">
+                <div class="col-sm-12">
+                  <%= f.label "I'm interested in..." %>
+                </div> <!-- col -->
+              </div>
+              <div class="row">
+                <div class="col-xs-5 col-xs-push-1">
+                  <%= f.input :buyer, label: "Buying a House" %>
+                </div> <!-- col -->
+                <div class="col-xs-5 col-xs-push-1">
+                  <%= f.input :seller, label: "Selling a House"  %>
+                </div> <!-- col -->
+              </div> <!-- row -->
+            </div> <!-- form group -->
+            <div class="form-group col-sm-12 col-md-4 col-xs-12">
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password, class: "form-control", required: true %>
+            </div>
+            <div class="row">
+              <p class="passwordChangeHeader1 linkish text-center">Change My Password</p>
+              <p class="passwordChangeHeader2 linkish hidden text-center">Keep My Current Password</p>
+              <div class="passwordChangeDiv hidden">
+                  <div class="form-group col-sm-6 col-md-4">
+                      <%= f.label "New Password" %>
+                      <%= f.password_field :password, autocomplete: "off", class: "form-control", required: false %>
+                  </div>
+                  <div class="form-group col-sm-6 col-md-4">
+                      <%= f.label "Confirm New Password" %>
+                      <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
+                  </div>
+              </div> <!-- password change -->
+            </div> <!-- row -->
+            <div class="row text-center">
+              <%= f.input :blog_emails, label: "Email me when a new blog post comes out" %>
+            </div>
+          </div> <!-- form inputs -->
 
-        </div> <!-- form inputs -->
+          <div class="form-actions text-center">
+              <%= f.button :submit, "Update" %><br />
+              <%= link_to "Back", :back %>
+          </div> <!-- form actions -->
 
-        <div class="form-actions text-center">
-            <%= f.button :submit, "Update" %><br />
-            <%= link_to "Back", :back %>
-        </div> <!-- form actions -->
-
-    <% end %>
-
-    <h3>Cancel My Account</h3>
-
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+      <% end %>
+    </div> <!-- card -->
 </div> <!-- container -->
 
 <div class="bottom-buffer"></div>

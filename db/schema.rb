@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503195724) do
+ActiveRecord::Schema.define(version: 20170504191929) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -117,10 +117,12 @@ ActiveRecord::Schema.define(version: 20170503195724) do
     t.datetime "updated_at",                             null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "opt_in",                 default: false
     t.string   "phone"
-    t.string   "wants"
     t.boolean  "admin",                  default: false
+    t.boolean  "buyer",                  default: false
+    t.boolean  "seller",                 default: false
+    t.boolean  "blog_emails",            default: false
+    t.string   "preferred_contact"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -42,8 +42,8 @@ $grey-light: #B2B2B2;
 $creme: #F4E8C1;
 $creme-background: #F4F0E3;
 $text-shadow: 1px 2px 2px $blue-light;
-$transparent-white: rgba(255, 255, 255, 0.75);
-
+$transparent-white: rgba(255, 255, 255, 0.5);
+$transparent-white-overlay: rgba(255, 255, 255, 0.75);
 
 
 
@@ -56,8 +56,8 @@ Basics
 ==============================================
 */
 
+body { font-family: $font-serif; color: $blue-dark; max-width: 100%; overflow-x: hidden;}
 label { text-transform: capitalize; }
-body { font-family: $font-serif; color: $blue-dark}
 h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
 @media screen and (max-width: 768px) { h1 { font-size: 30px }}
 .linkish { cursor: pointer; text-decoration: underline; color: $red; }
@@ -65,12 +65,17 @@ a { color: $red }
 hr { border-color: $blue-dark }
 img { width: 100% }
 .bottom-buffer { height: 70px }
+.buffer { height: 50px }
 td { padding: 5px}
 .blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
 p { font-family: $font-sans }
+
+@media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
+.container.bg-white { background-color: $transparent-white }
+
 
 /* CARDS */
 .card {
@@ -97,6 +102,10 @@ p { font-family: $font-sans }
 	padding: 15px;
 }
 
+.card.padding-box {
+	padding: 25px;
+}
+
 .card:hover {
 	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
@@ -108,6 +117,10 @@ p { font-family: $font-sans }
 
 .card h4, p {
 	color: $blue-dark !important;
+}
+
+.card.full-width h1 {
+	font-size: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -176,6 +189,7 @@ p { font-family: $font-sans }
     color: $blue-dark;
 		border-radius: 0;
 		margin: 0;
+		z-index: 30;
 }
 
 .alert-success { border-color: $red; }
@@ -261,6 +275,7 @@ Main Nav
     color: $creme;
     font-size: 25px;
     margin-top: 5px;
+		z-index: 20;
 }
 
 #main-nav.navbar-default {
@@ -346,6 +361,7 @@ IMAGES
 	overflow: hidden;
 	height: 400px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	z-index: 10;
 }
 
 .image-container img {
@@ -354,24 +370,37 @@ IMAGES
 	bottom: 0;
 }
 
-@media screen and (min-width: 1100px) {
-	.image-container img {
-		margin-top: -100px;
-	}
-
-	.image-container {
-			height: 500px;
-	}
-}
-
 .overlap-image {
 	position: relative;
 	margin-top: -400px;
 	height: 400px;
+	z-index: 15;
+}
+
+@media screen and (min-width: 1100px) {
+	.image-container {
+			height: 500px;
+	}
+	.overlap-image {
+		margin-top: -500px;
+		height: 500px;
+	}
+
+}
+
+@media screen and (min-width: 1500px) {
+	.image-container {
+			height: 700px;
+	}
+	.overlap-image {
+		margin-top: -700px;
+		height: 700px;
+		padding-top: 100px;
+	}
 }
 
 .overlap-image .absolute-bottom-transparent {
-	background: $transparent-white;
+	background: $transparent-white-overlay;
 	width: 100%;
 	position: absolute;
 	margin: 0px;
@@ -541,7 +570,12 @@ Pages
 	margin-bottom: 40px;
 }
 
-.fancy-border h1, h2, h3, h4, h5, p {
+.fancy-border h1,
+.fancy-border h2,
+.fancy-border h3,
+.fancy-border h4,
+.fancy-border h5,
+.fancy-border p {
 	padding-left: 25px;
 	padding-right: 25px;
 }
