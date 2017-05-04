@@ -8,6 +8,9 @@ class BlogsController < ApplicationController
     else
       @blogs = Blog.all
     end
+    if current_user
+      @user = current_user
+    end
   end
 
   # GET /blogs/1
@@ -64,4 +67,5 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list)
     end
+
 end
