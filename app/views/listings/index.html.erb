@@ -26,7 +26,6 @@
 						<% else %>
 							<%= image_tag "no_image.jpg", class: "fancy-border" %>
 			      <% end %>
-            ZPID: <%= link_to listing.listing_search_props.links[:homedetails] do %><span class="linkish"><%= listing.zpid %></span><% end %><br />
 						<% if current_user && current_user.admin %>
 							<%= link_to edit_listing_path(listing) do %>
 								<i class="icon ion-edit"></i>

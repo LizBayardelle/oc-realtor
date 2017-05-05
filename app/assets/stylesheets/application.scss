@@ -547,9 +547,20 @@ Pages
 }
 
 /* User#show */
-.messagesDiv .icon {
+.users .icon {
 	font-size: 30px;
 	padding: 0 10px 0 0;
+}
+
+.users h1 {
+	text-align: center;
+}
+
+@media screen and (max-width: 435px) {
+	.users .icon {
+		font-size: 20px;
+		padding: 0 5px 0 0;
+	}
 }
 
 .icon:hover {
@@ -559,6 +570,7 @@ Pages
 .archivedDiv {
 	color: $grey-dark;
 }
+
 
 
 /* listings */
@@ -581,7 +593,7 @@ Pages
 }
 
 .fancy-border *:hover {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .property-details img.fancy-border {

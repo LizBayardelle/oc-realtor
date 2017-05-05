@@ -1,5 +1,7 @@
-<h2 class="messagesHeader">Messages</h2>
+<h1 class="messagesHeader">Messages</h1>
 <div class="messagesDiv">
+  <h3 class="newHeader">New Messages</h3>
+  <div class="newDiv">
   <% if @contacts.count == 0 %>
     <p>You currently have no messages.</p>
   <% else %>
@@ -26,11 +28,11 @@
         <% end %>
       </tbody>
     </table>
+  </div> <!-- new messages div -->
 
     <% if @archived_contacts.count != 0 %>
-      <p class="linkish archivedHeader text-center">Show/Hide Archived Messages</p>
+      <h3 class="archivedHeader">Archived Messages</h3>
       <div class="archivedDiv hidden">
-				<h3>Archived Messages</h3>
         <table>
           <tbody>
             <% @archived_contacts.each do |contact| %>
@@ -59,6 +61,7 @@
 
 
   <% end %>
+
 </div> <!-- messages div -->
 
 
@@ -66,6 +69,9 @@
 	$(document).ready(function(){
 		$(".messagesHeader").click(function(){
 			$(".messagesDiv").toggleClass("hidden");
+		});
+    $(".newHeader").click(function(){
+			$(".newDiv").toggleClass("hidden");
 		});
     $(".archivedHeader").click(function(){
 			$(".archivedDiv").toggleClass("hidden");

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504191929) do
+ActiveRecord::Schema.define(version: 20170505042609) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20170504191929) do
     t.boolean  "seller",                 default: false
     t.boolean  "blog_emails",            default: false
     t.string   "preferred_contact"
+    t.boolean  "status_confirmed",       default: false
+    t.boolean  "archived",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

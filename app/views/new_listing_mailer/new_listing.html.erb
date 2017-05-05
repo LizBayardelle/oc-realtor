@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Cinzel+Decorative:400,900|Playfair+Display:400,900" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1 style="'Cinzel Decorative', cursive">New Listing on OCR.info</h1>
+
+    <h3 style="'Playfair Display', serif">Address: <%= @listing.address %>, <%= @listing.citystatezip %></h3>
+
+    <h3 style="'Playfair Display', serif">Status: <%= @listing.status %></h3>
+
+    <p style="'Nunito Sans', sans-serif"><%= @listing.notes %></p>
+
+    <h3 style="'Playfair Display', serif"><%= link_to "View Property", listing_url(@listing) %></h3>
+  </body>
+</html>

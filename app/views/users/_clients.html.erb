@@ -1,0 +1,111 @@
+<h1 class="clientsHeader">Clients</h1>
+<div class="clientsDiv">
+
+  <h3 class="confirmedHeader">Confirmed Clients</h3>
+  <div class="confirmedDiv">
+    <% if @confirmed_clients.count == 0 %>
+      <p>You currently have no confirmed clients.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @confirmed_clients.each do |client| %>
+            <tr>
+              <td style="width: 40%">
+                <%= client.first_name %> <%= client.last_name %><br />
+                <%= client.phone %> <% if client.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to client.email %> <% if client.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td style="width: 20%">
+                <strong>
+                  <% if client.buyer %>Buying<% end %>
+                  <% if client.seller %>Selling<% end %>
+                  <% if !client.buyer && !client.seller %>Unknown<% end %>
+                </strong><br />
+                <% if client.status_confirmed %>Confirmed<% else %>Unconfirmed<% end %>
+              </td>
+              <td>
+                <% if client.status_confirmed %>
+                  <%= link_to unconfirm_client_path(client), method: :post, remote: true do %>
+                    <i class="icon ion-toggle-filled"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to confirm_client_path(client), method: :post do %>
+                    <i class="icon ion-toggle"></i>
+                  <% end %>
+                <% end %>
+                <%= link_to client, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_client_path(client), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- confirmed clients -->
+
+  <h3 class="unconfirmedHeader">Unconfirmed Clients</h3>
+  <div class="unconfirmedDiv">
+    <% if @unconfirmed_clients.count == 0 %>
+      <p>You currently have no unconfirmed clients.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @unconfirmed_clients.each do |client| %>
+            <tr>
+              <td style="width: 40%">
+                <%= client.first_name %> <%= client.last_name %><br />
+                <%= client.phone %> <% if client.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to client.email %> <% if client.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td style="width: 20%">
+                <strong>
+                  <% if client.buyer %>Buying<% end %>
+                  <% if client.seller %>Selling<% end %>
+                  <% if !client.buyer && !client.seller %>Unknown<% end %>
+                </strong><br />
+                <% if client.status_confirmed %>Confirmed<% else %>Unconfirmed<% end %>
+              </td>
+              <td>
+                <% if client.status_confirmed %>
+                  <%= link_to unconfirm_client_path(client), method: :post do %>
+                    <i class="icon ion-toggle-filled"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to confirm_client_path(client), method: :post do %>
+                    <i class="icon ion-toggle"></i>
+                  <% end %>
+                <% end %>
+                <%= link_to client, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_client_path(client), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- unconfirmed clients div -->
+</div> <!-- all clients div -->
+
+
+
+<script>
+	$(document).ready(function(){
+    $(".clientsHeader").click(function(){
+			$(".clientsDiv").toggleClass("hidden");
+		});
+		$(".confirmedHeader").click(function(){
+			$(".confirmedDiv").toggleClass("hidden");
+		});
+    $(".unconfirmedHeader").click(function(){
+			$(".unconfirmedDiv").toggleClass("hidden");
+		});
+	});
+</script>

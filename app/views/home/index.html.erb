@@ -52,12 +52,12 @@
 					<% result = rillow.get_updated_property_details(listing.zpid) %>
 
 					<div class="fancy-border">
-						<% if listing.listing_property_details.images %>
+						<% if listing.default_image_file_name %>
+							<%= image_tag listing.default_image.url, alt: listing.address %>
+						<% elsif listing.listing_property_details.images %>
 							<% unless listing.listing_property_details.error %>
 								<%= image_tag listing.listing_property_details.images.first %>
 							<% end %>
-						<% elsif listing.default_image_file_name %>
-			        <%= image_tag listing.default_image.url, alt: listing.address %>
 						<% else %>
 							<%= image_tag "no_image.jpg" %>
 			      <% end %>

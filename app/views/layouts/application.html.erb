@@ -30,7 +30,9 @@
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
-                  <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
+                  <% if current_user && (current_user.admin || ( current_user.buyer && current_user.status_confirmed )) %>
+                    <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
+                  <% end %>
                   <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                   <% if current_user %>
                   	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>

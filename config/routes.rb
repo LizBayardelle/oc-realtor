@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
+  post "user/:id/archive" => "users#archive_client", as: "archive_client"
+  post "user/:id/unarchive" => "users#unarchive_client", as: "unarchive_client"
+  post "user/:id/confirm" => "users#confirm_client", as: "confirm_client"
+  post "user/:id/unconfirm" => "users#unconfirm_client", as: "unconfirm_client"
+
 
   resources :contacts
   post "contact/:id/archive" => "contacts#archive_contact", as: "archive_contact"
