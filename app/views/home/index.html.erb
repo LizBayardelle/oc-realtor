@@ -36,11 +36,11 @@
 	</div> <!-- left side -->
 
 
-	<div class="row hidden-md hidden-lg">
-		<hr class="col-xs-6 col-xs-push-3" />
-	</div>
-
 	<% if @listings.count != 0 %>
+		<div class="row hidden-md hidden-lg">
+			<hr class="col-xs-6 col-xs-push-3" />
+		</div>
+
 		<div class="col-md-4">
 			<h1 class="text-center">Previous Listings</h1>
 			<% @listings.each do |listing| %>
