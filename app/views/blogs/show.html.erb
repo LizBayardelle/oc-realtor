@@ -16,7 +16,38 @@
   </div> <!-- header row -->
 
   <div class="card no-hover full-width"><div class="padding-box">
+    <h2 class="text-center"><%= @blog.title %></h2>
     <p><%= @blog.body.html_safe %></p>
+
+    <div class="row">
+      <hr class="col-xs-6 col-xs-push-3" style="border-color: #c0c0c0" />
+    </div>
+
+    <div class="new-comment">
+      <%= simple_form_for [@blog, Comment.new] do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.label "Add a Comment" %>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+
+        <div class="form-actions text-right">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+
+    <h2><%= pluralize(@comments.count, "Comment") %></h2>
+    <div class="old-comment">
+      <% @comments.each do |comment| %>
+        <p style="margin-top: 10px"><strong><%= comment.body %></strong><br />
+          <em>by <%= comment.user.first_name %> on <%= comment.created_at.to_formatted_s(:long) %></em></p>
+      <% end %>
+    </div>
+
+
+
   </div></div> <!-- padding box and card -->
 
   <div class="text-center">

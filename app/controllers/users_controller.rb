@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @confirmed_clients = User.where(admin: false, archived: false, status_confirmed: true)
     @unconfirmed_clients = User.where(admin: false, archived: false, status_confirmed: false)
     @archived_clients = User.where(archived: true)
+    @comments = Comment.where(approved: false)
   end
 
   def confirm_client

@@ -5,16 +5,13 @@
 <div class="container bg-white users">
 	<div class="buffer"></div>
 
-	<h1 class="text-center" style="margin: 0; padding: 0"><%= @user.first_name %>'s Dashboard</h1>
+	<h1 class="text-center" style="margin: 0; padding: 0; border: none"><%= @user.first_name %>'s Dashboard</h1>
 	<h4 class="text-center"><%= link_to "Edit My Info", edit_user_registration_path %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></h4>
-
-	<div class="row">
-		<hr class="col-xs-6 col-xs-push-3" />
-	</div>
 
 	<% if current_user.admin %>
 		<%= render "clients" %>
 		<%= render "contacts" %>
+		<%= render "comments" %>
 	<% else %> <!-- not admin section -->
 
 	<% end %>

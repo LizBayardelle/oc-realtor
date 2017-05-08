@@ -15,6 +15,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1
   def show
+    @comment = @blog.comments.build
+    @comments = Comment.where(blog_id: @blog.id, approved: true)
   end
 
   # GET /blogs/new
