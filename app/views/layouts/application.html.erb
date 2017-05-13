@@ -70,20 +70,26 @@
   <%= yield %>
 </div> <!-- page minus footer -->
 
-<footer>
+<footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
   <div class="container text-center">
     <h1>OC Realtor</h1>
     <h2>Helping you find the right home.</h2>
     <div class="row social-row">
-      <i class="icon ion-social-facebook"></i>
-      <i class="icon ion-social-twitter"></i>
-      <i class="icon ion-social-googleplus"></i>
-      <i class="icon ion-social-instagram"></i>
-      <i class="icon ion-social-pinterest"></i>
+      <a href=""><i class="icon ion-social-facebook" target="_blank"></i></a>
+      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="icon ion-social-linkedin"></i></a>
+      <a href="https://twitter.com/OCCaliRealtor" target="_blank"><i class="icon ion-social-twitter"></i></a>
+      <a href="https://plus.google.com/u/0/117197625945652719096" target="_blank"><i class="icon ion-social-googleplus"></i></a>
+      <a href="https://www.youtube.com/channel/UCmvIhCtIiOOOemG_d6dC3vg" target="_blank"><i class="icon ion-social-youtube"></i></a>
+      <a href="https://www.pinterest.com/orangecountyrealtor/" target="_blank"><i class="icon ion-social-pinterest"></i></a>
     </div> <!-- social row -->
     <p>Website by Linchpin Industries, LLC</p>
   </div> <!-- container -->
 </footer>
+<div class="row text-center" style="padding-bottom: 30px; background-color: none">
+  <div class="container">
+    <%= image_tag "rockstone_realty_logo.png", alt: "Rockstone Realty", style: "max-width: 486px; padding-top: 30px" %>
+  </div>
+</div>
 
 </body>
 </html>

@@ -33,6 +33,7 @@ $font-decorative: 'Cinzel Decorative', cursive;
 $font-serif: 'Playfair Display', serif;
 $font-cursive: 'Playball', cursive;
 $font-sans: 'Nunito Sans', sans-serif;
+.font-sans { font-family: $font-sans }
 
 $blue-dark: #031D44;
 $blue-light: #4D7EA8;
@@ -44,6 +45,8 @@ $creme-background: #F4F0E3;
 $text-shadow: 1px 2px 2px $blue-light;
 $transparent-white: rgba(255, 255, 255, 0.5);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
+.background-creme { background-color: $creme }
+
 .border-grey { border-color: $grey-dark }
 
 
@@ -444,7 +447,7 @@ Footer
 footer {
 	background-color: $blue-dark;
 	color: $creme;
-	padding: 30px 0 20px 0;
+	padding: 30px 0 0 0;
 }
 
 .page-minus-footer {
