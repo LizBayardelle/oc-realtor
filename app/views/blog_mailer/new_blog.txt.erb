@@ -1,0 +1,9 @@
+<%= @blog.title %>
+<%= @blog.teaser %>
+
+=================
+
+<%= @blog.body.html_safe %>
+
+=================
+You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails you can <%= link_to "unsubscribe", edit_user_registration_url(@user) %> here.

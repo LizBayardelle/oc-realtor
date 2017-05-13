@@ -6,9 +6,9 @@
   <body>
     <h1 style="'Cinzel Decorative', cursive"><%= @blog.title %></h1>
 
-    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0">From: <%= @blog.teaser %></h3>
+    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0"><%= @blog.teaser %></h3>
 
-    <p style="'Nunito Sans', sans-serif"><%= @contact.body %></p>
+    <p style="'Nunito Sans', sans-serif"><%= @blog.body.html_safe %></p>
 
     <p><small>You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails you can <%= link_to "unsubscribe", edit_user_registration_url(@user) %> here.</small></p>
   </body>
