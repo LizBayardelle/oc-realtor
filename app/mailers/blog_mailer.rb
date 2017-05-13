@@ -1,5 +1,5 @@
 class BlogMailer < ApplicationMailer
-  default from: "anthony@ocrealtor.info"
+  default from: "Anthony Bayardelle <anthony@ocrealtor.info>"
 
   def new_blog(blog, user)
     @blog = blog
