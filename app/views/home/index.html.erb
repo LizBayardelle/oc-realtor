@@ -2,19 +2,27 @@
 	<%= image_tag "home_aerial.jpg", style: "top: 0", alt: "Aerial view of an Orange County neighborhood." %>
 </div>
 
+<div class="overlap-image">
+	<div class="gradient-overlay slideRight">
+		<%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", class: "fancy-border", style: "max-width: 200px; margin: 0 0 15px 0" %>
+		<div class="text">
+			<h1>Your guide to the<br class="hidden-lg" /> OC housing market</h1>
+			<h4 class="font-sans">Talk to Anthony about buying or selling a house today!</h4>
+		</div>
+	</div> <!-- absolute box -->
+</div> <!-- overlap image -->
 
-<div class="container bg-white">
-	<div class="col-md-8"> <!-- left side -->
-		<h1 class="text-center">Your guide to the OC housing market</h1>
+<div class="blue-stripe">
+	<div class="container">
 		<h4 class="font-sans text-center" style="line-height: 1.25">Having a realtor is important for your house search, even in today's digital age of instant access.
 			A typical person might buy or sell a half dozen houses across their lifetime, but a realtor does it every day.
 		  Combining years of experience and research in the field, an in depth knowledge of the current market conditions, and cultivated negotiating skills, having a realtor will get you a better deal for less money and in less time.
 		</h4>
 		<h3 class="text-center"><strong><%= link_to new_contact_path do %>Contact us today to see how a realtor can&nbsp;help&nbsp;you!<% end %></strong></h3>
-		<div class="row">
-			<hr class="col-xs-6 col-xs-push-3" />
-		</div>
+	</div> <!-- container -->
+</div>
 
+<div class="container bg-white">
 		<h1 class="text-center">What's new in Orange County?</h1>
 		<% @blogs.each do |blog| %>
 			<div class="row">
@@ -40,7 +48,7 @@
 			<hr class="col-xs-6 col-xs-push-3" />
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-4 hidden"> <!-- remove hidden when there are previous listings -->
 			<h1 class="text-center">Previous Listings</h1>
 			<% @listings.each do |listing| %>
 				<div class="col-sm-6 col-md-12">

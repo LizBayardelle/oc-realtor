@@ -38,7 +38,7 @@ $font-sans: 'Nunito Sans', sans-serif;
 $blue-dark: #031D44;
 $blue-light: #4D7EA8;
 $red: #890E05;
-$grey-dark: #727372;
+$grey-dark: #393939;
 $grey-light: #B2B2B2;
 $creme: #F4E8C1;
 $creme-background: #F4F0E3;
@@ -268,6 +268,13 @@ img.bg {
 
 
 
+
+
+
+
+
+
+
 /*
 ==============================================
 Main Nav
@@ -432,7 +439,67 @@ IMAGES
 	}
 }
 
+.gradient-bottom {
+	width: 100%;
+	position: absolute;
+	margin: 0px;
+	padding: 25px;
+	bottom: 0;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Safari 5.1 to 6.0.2 */
+	background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Opera 11.1 to 12.0.1 */
+	background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* Standard syntax (must be last) */
+}
 
+.gradient-overlay {
+	width: 100%;
+	position: absolute;
+	margin: 0px;
+	padding: 25px;
+	top: 0;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Safari 5.1 to 6.0.2 */
+    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Opera 11.1 to 12.0.1 */
+    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* Standard syntax (must be last) */
+}
+
+.gradient-overlay h1 {
+	font-size: 30px;
+}
+
+.gradient-overlay .text {
+	width: 60%;
+	display: inline-block;
+	padding-left: 25px;
+	vertical-align: middle;
+}
+
+.gradient-overlay img {
+	border: solid $blue-dark;
+	border-radius: 50%;
+	width: 125px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+	.gradient-overlay {
+		width: 100%;
+		position: absolute;
+		margin: 0px;
+		padding: 25px;
+		top: 0;
+	    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.25)); /* For Safari 5.1 to 6.0.2 */
+	    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.25)); /* For Opera 11.1 to 12.0.2 */
+	    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.25)); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.25)); /* Standard syntax (must be last) */
+	}
+
+	.gradient-overlay .text {
+		width: 100%;
+		padding-left: 0px;
+	}
+}
 
 
 
@@ -674,4 +741,44 @@ Pages
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+slideRight
+==============================================
+*/
+
+
+.slideRight{
+	animation-name: slideRight;
+	-webkit-animation-name: slideRight;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+
+	visibility: visible !important;
+}
+
+@keyframes slideRight {
+	0% { transform: translateX(-150%); }
+	100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slideRight {
+	0% { -webkit-transform: translateX(-150%); }
+	100% { -webkit-transform: translateX(0%); }
 }
