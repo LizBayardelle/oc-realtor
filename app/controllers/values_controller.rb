@@ -1,4 +1,5 @@
 class ValuesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_value, only: [:show, :edit, :update, :destroy]
   before_action :fetch_results
 
@@ -52,6 +53,28 @@ class ValuesController < ApplicationController
     redirect_to values_url, notice: 'Value was successfully destroyed.'
   end
 
+  def archive_value
+      @value = Value.find(params[:id])
+      if @value.update_attributes(archived: true)
+          redirect_to :back
+          flash[:notice] = "That valuation has been archived!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def unarchive_value
+      @value = Value.find(params[:id])
+      if @value.update_attributes(archived: false)
+          redirect_to :back
+          flash[:notice] = "That valuation has been unarchived!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
   protected
 
   def fetch_results
@@ -72,6 +95,6 @@ class ValuesController < ApplicationController
     end
 
     def value_params
-      params.require(:value).permit(:address, :citystatezip, :sell_timeframe, :user_id)
+      params.require(:value).permit(:address, :citystatezip, :sell_timeframe, :user_id, :archived)
     end
 end

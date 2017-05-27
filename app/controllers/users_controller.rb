@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @unconfirmed_clients = User.where(admin: false, archived: false, status_confirmed: false)
     @archived_clients = User.where(archived: true)
     @comments = Comment.where(approved: false)
+    @values = Value.where(archived: false)
+    @archived_values = Value.where(archived: true)
   end
 
   def confirm_client
@@ -63,4 +65,5 @@ class UsersController < ApplicationController
         flash[:warning] = "Oops! Something went wrong!"
     end
   end
+
 end

@@ -1,0 +1,80 @@
+<h1 class="valuesHeader">Home Valuations</h1>
+<div class="valuesDiv">
+  <h3 class="newValueHeader">New Home Valuations</h3>
+  <div class="newValueDiv">
+    <% if @values.count == 0 %>
+      <p>You currently have no unarchived home valuations.</p>
+    <% else %>
+      <table>
+        <tbody>
+          <% @values.each do |value| %>
+            <tr>
+              <td>
+                <%= value.user.first_name %> <%= value.user.last_name %><br />
+                <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to value.user.email %> <% if value.user.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td>
+                <strong><%= value.address %></strong><br />
+                <%= value.citystatezip %><br />
+                <%= link_to value, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_value_path(value), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %> <!-- values each do -->
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- new values div -->
+
+  <% if @archived_values.count != 0 %>
+    <h3 class="archivedValueHeader">Archived Home Valuations</h3>
+    <div class="archivedValueDiv hidden">
+      <table>
+        <tbody>
+          <% @archived_values.each do |value| %>
+            <tr>
+              <td>
+                <%= value.user.first_name %> <%= value.user.last_name %><br />
+                <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to value.user.email %> <% if value.user.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td>
+                <strong><%= value.address %></strong><br />
+                <%= value.citystatezip %><br />
+                <%= link_to value, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to unarchive_value_path(value), method: :post do %>
+                  <i class="icon ion-ios-color-wand"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %> <!-- archived values each -->
+        </tbody>
+      </table>
+    </div> <!-- archived value div -->
+  <% end %> <!-- if archived -->
+
+
+
+</div> <!-- values div -->
+
+
+<script>
+	$(document).ready(function(){
+		$(".valuesHeader").click(function(){
+			$(".valuesDiv").toggleClass("hidden");
+		});
+    $(".newValueHeader").click(function(){
+			$(".newValueDiv").toggleClass("hidden");
+		});
+    $(".archivedValueHeader").click(function(){
+			$(".archivedValueDiv").toggleClass("hidden");
+		});
+	});
+</script>

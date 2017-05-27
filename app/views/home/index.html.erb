@@ -23,28 +23,28 @@
 </div>
 
 <div class="container bg-white">
+	<div> <!-- left side -->
 		<h1 class="text-center">What's new in Orange County?</h1>
 		<% @blogs.each do |blog| %>
-			<div class="row">
-				<div class="col-sm-3">
-					<%= image_tag blog.image.url, alt: blog.title %>
-				</div> <!-- image -->
-				<div class="col-sm-9">
-					<h2 style="margin-top: 0; padding-top: 0"><%= blog.title %></h2>
-					<p><%= blog.teaser %></p>
-					<p><%= link_to "Read More", blog_path(blog) %></p>
-				</div> <!-- blog text -->
-			</div> <!-- row -->
-			<div class="row">
-				<hr style="border-color: white; margin: 0; padding: 8px" class="col-xs-8 col-xs-push-2" />
-			</div>
+			<%= link_to blog_path(blog) do %>
+				<div class="row blog-list-links">
+					<div class="col-sm-3">
+						<%= image_tag blog.image.url, alt: blog.title %>
+					</div> <!-- col image -->
+					<div class="col-sm-9">
+						<h2 style="margin-top: 0; padding-top: 0"><%= blog.title %></h2>
+						<p><%= blog.teaser %></p>
+						<p><%= link_to "Read More", blog_path(blog) %></p>
+					</div> <!-- col blog text -->
+				</div> <!-- row -->
+			<% end %>
 		<% end %>
 		<h3 class="text-center"><%= link_to "Get more real estate tips and tricks on our blog...", blogs_path %>
 	</div> <!-- left side -->
 
 
 	<% if @listings.count != 0 %>
-		<div class="row hidden-md hidden-lg">
+		<div class="row hidden-md hidden-lg hidden"> <!-- remove hidden when there are previous listings -->
 			<hr class="col-xs-6 col-xs-push-3" />
 		</div>
 

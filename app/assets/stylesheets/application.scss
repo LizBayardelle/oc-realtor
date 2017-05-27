@@ -46,6 +46,7 @@ $creme-background: #F4F0E3;
 $text-shadow: 1px 2px 2px $blue-light;
 $transparent-white: rgba(255, 255, 255, 0.5);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
+$transparent-blue: rgba(3,29,68, 0.5);
 .background-creme { background-color: $creme }
 
 .border-grey { border-color: $grey-dark }
@@ -458,10 +459,10 @@ IMAGES
 	margin: 0px;
 	padding: 25px;
 	top: 0;
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Safari 5.1 to 6.0.2 */
-    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Opera 11.1 to 12.0.1 */
-    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.1)); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Safari 5.2 to 6.0.2 */
+    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Opera 11.2 to 12.0.2 */
+    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* Standard syntax (must be last) */
 }
 
 .gradient-overlay h1 {
@@ -614,6 +615,20 @@ select#contact_preferred_contact, select#contact_purpose, select#value_sell_time
 Pages
 ===============================================
 */
+
+/* INDEX */
+
+.blog-list-links {
+	padding: 15px 0 15px 0;
+}
+
+.blog-list-links:hover * {
+	text-decoration: none !important;
+}
+
+.blog-list-links:hover {
+	background-color: $transparent-blue !important;
+}
 
 .container h1 {
 	margin: 30px 0 25px 0;
