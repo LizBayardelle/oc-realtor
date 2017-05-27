@@ -40,3 +40,6 @@ gem 'rename'
 gem 'rubillow'
 gem 'rillow', github: "hiattp/rillow"
 gem 'httparty'
+gem 'social-share-button'
+gem 'rest-client'
+gem 'nori'

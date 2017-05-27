@@ -1,0 +1,19 @@
+<div class="image-container">
+    <%= image_tag "house.jpg", style: "bottom: 0", alt: "Sunny Orange County house." %>
+</div>
+
+<div class="overlap-image text-center">
+  <div class="gradient-bottom slideRight">
+    <h1>How much is my house worth?</h1>
+  </div> <!-- absolute-bottom-transparent -->
+</div> <!-- overlap-image -->
+
+<div class="container text-center">
+  <div class="buffer"></div>
+
+  <%= render 'form' %>
+
+  <%= link_to 'Back', values_path %>
+  
+  <div class="buffer"></div>
+</div> <!-- container -->

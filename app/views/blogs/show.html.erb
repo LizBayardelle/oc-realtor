@@ -17,6 +17,7 @@
 
   <div class="card no-hover full-width"><div class="padding-box">
     <h2 class="text-center"><%= @blog.title %></h2>
+    <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
     <p><%= @blog.body.html_safe %></p>
 
     <div class="row">

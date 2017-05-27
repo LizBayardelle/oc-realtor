@@ -1,0 +1,42 @@
+<div class="buffer"></div>
+
+<div class="container">
+  <% if @results %>
+    <section class="font-sans">Zillow found <%= pluralize(@results.count, 'result') %> in about <%= @duration %>s...</section>
+    <div id="search-results">
+      <% @results.each do |result| %>
+        <div class="card padding-box full-width font-sans">
+          <%#= raise result %>
+          <div style="position: absolute; right: 25px"><small>Zillow ID #<%= result['zpid'] %></small></div>
+          <%= link_to result['links']['mapthishome'] do %><i class="icon ion-ios-location"></i> Map This!<% end %><br class="visible-xs" /><span style="margin-left: 8px" class="hidden-xs"></span>
+          <%= link_to result['links']['comparables'] do %><i class="icon ion-ios-flask"></i> Comparable to...<% end %>
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 style="font-weight: 700"><%= link_to result['address']['street'], result['links']['homedetails'] %></h2>
+            </div> <!-- col -->
+            <div class="col-sm-6">
+              <h3 style="margin-top: 10px"><small>Zestimate®</small></h3>
+              <h2 style="margin-top: 0px; font-weight: 700">$<%= number_to_human result['zestimate']['amount'] %></h2>
+              <% if result['zestimate']['valueChange'].to_i > 0 %>
+                <h3 style="margin-top: 0px; color: green !important"><i class="icon ion-ios-arrow-up" style="margin-right: 4px"></i><%= number_to_currency result['zestimate']['valueChange'].to_i.abs %></h3>
+              <% else %>
+                <h3 style="margin-top: 0px; color: red"><i class="icon ion-ios-arrow-down" style="margin-right: 4px"></i><%= number_to_currency result['zestimate']['valueChange'].to_i.abs %></h3>
+              <% end %>
+              <small style="position: absolute; right: 25px; bottom: 15px">Last updated <%= time_ago_in_words(Date.strptime(result['zestimate']['last_updated'], "%m/%d/%Y")) rescue result['zestimate']['last_updated'] %> ago</small>
+            </div> <!-- col -->
+          </div> <!-- row -->
+        </div> <!-- card -->
+        <% end %> <!-- each result do -->
+      </div> <!-- search results -->
+  <% elsif @exception %>
+    <div class="text-center">
+      <h2>Uh oh, we couldn't find your house!</h2>
+      <h2><small><%= @exception.message %></small></h2>
+    </div>
+  <% end %>
+
+  <h2 class="text-center" style="margin-top: 50px"><%= link_to "Get advice about selling your home today!", new_contact_path %></h2>
+
+</div> <!-- container -->
+
+<div class="buffer"></div>

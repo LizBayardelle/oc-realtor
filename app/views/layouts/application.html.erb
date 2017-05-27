@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,800,900|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
 </head>
 
@@ -30,6 +30,7 @@
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
                   <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
+                  <li><%= link_to "Home Value", new_value_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
                   <% if current_user && (current_user.admin || ( current_user.buyer && current_user.status_confirmed )) %>
                     <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
                   <% end %>
@@ -87,7 +88,9 @@
 </footer>
 <div class="row text-center" style="padding-bottom: 30px; background-color: none">
   <div class="container">
-    <%= image_tag "rockstone_realty_logo.png", alt: "Rockstone Realty", style: "max-width: 486px; padding-top: 30px" %>
+    <div style="width: 90%; margin-left: 5%">
+      <%= image_tag "rockstone_realty_logo.png", alt: "Rockstone Realty", style: "max-width: 486px; padding-top: 30px" %>
+    </div>
   </div>
 </div>
 

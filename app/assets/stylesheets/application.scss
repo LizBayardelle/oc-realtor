@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require social-share-button
  *= require_self
  */
 
@@ -532,10 +533,11 @@ footer h1 {
 footer .icon {
 	font-size: 40px;
 	padding: 0 10px 0 10px;
+	color: white !important;
 }
 
 footer .icon:hover {
-	color: $blue-light;
+	color: $blue-light !important;
 }
 
 .social-row {
@@ -580,7 +582,7 @@ Forms
 */
 
 /* FAKED FORM CONTROL */
-select#contact_preferred_contact, select#contact_purpose {
+select#contact_preferred_contact, select#contact_purpose, select#value_sell_timeframe {
     display: block;
     width: 100%;
     height: 34px;
@@ -741,6 +743,17 @@ Pages
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+}
+
+$size: 31px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+		margin: 0 3px 0 3px;
+  }
 }
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :values
   get 'tags/:tag', to: 'blogs#index', as: :tag
   resources :listings
   resources :home, only: [:index]
