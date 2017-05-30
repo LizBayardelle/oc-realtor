@@ -372,7 +372,7 @@ IMAGES
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	height: 400px;
+	height: 300px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	z-index: 10;
 }
@@ -385,29 +385,29 @@ IMAGES
 
 .overlap-image {
 	position: relative;
-	margin-top: -400px;
-	height: 400px;
+	margin-top: -300px;
+	height: 300px;
 	z-index: 15;
 }
 
 @media screen and (min-width: 1100px) {
 	.image-container {
-			height: 500px;
+			height: 400px;
 	}
 	.overlap-image {
-		margin-top: -500px;
-		height: 500px;
+		margin-top: -400px;
+		height: 400px;
 	}
 
 }
 
 @media screen and (min-width: 1500px) {
 	.image-container {
-			height: 700px;
+			height: 600px;
 	}
 	.overlap-image {
-		margin-top: -700px;
-		height: 700px;
+		margin-top: -600px;
+		height: 600px;
 		padding-top: 100px;
 	}
 }
@@ -447,10 +447,10 @@ IMAGES
 	margin: 0px;
 	padding: 25px;
 	bottom: 0;
-	background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Safari 5.1 to 6.0.2 */
-	background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Opera 11.1 to 12.0.1 */
-	background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* Standard syntax (must be last) */
+	background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Safari 5.1 to 6.0.4 */
+	background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Opera 11.1 to 12.0.1 */
+	background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* Standard syntax (must be last) */
 }
 
 .gradient-overlay {
@@ -459,10 +459,10 @@ IMAGES
 	margin: 0px;
 	padding: 25px;
 	top: 0;
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Safari 5.2 to 6.0.2 */
-    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Opera 11.2 to 12.0.2 */
-    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2)); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Safari 5.2 to 6.0.2 */
+    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Opera 11.2 to 12.0.2 */
+    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* Standard syntax (must be last) */
 }
 
 .gradient-overlay h1 {
