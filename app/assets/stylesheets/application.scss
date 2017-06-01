@@ -430,14 +430,14 @@ IMAGES
 
 	.image-container img {
 		display: inline-block;
-		height: 400px;
+		height: 300px;
 		width: auto;
 		position: relative;
 	}
 
 	.overlap-image {
-		margin-top: -400px;
-		height: 400px;
+		margin-top: -300px;
+		height: 300px;
 	}
 }
 
@@ -501,6 +501,16 @@ IMAGES
 		width: 100%;
 		padding-left: 0px;
 	}
+}
+
+.profile-pic {
+	max-width: 200px;
+	margin: 0 !important;
+	vertical-align: top;
+}
+
+@media screen and (max-width: 768px) {
+	max-width: 150px !important;
 }
 
 
