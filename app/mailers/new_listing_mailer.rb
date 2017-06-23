@@ -1,5 +1,5 @@
 class NewListingMailer < ApplicationMailer
-  default from: "anthony@ocrealtor.info"
+  default from: "Anthony Bayardelle <anthony@calirealty.org>"
 
   def new_listing(listing, user)
     @listing = listing

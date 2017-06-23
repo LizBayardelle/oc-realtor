@@ -4,12 +4,16 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1 style="'Cinzel Decorative', cursive"><%= @blog.title %></h1>
+    <h1 style="'Cinzel Decorative', cursive"><%= @contact.purpose %></h1>
 
-    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0">From: <%= @blog.teaser %></h3>
+    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0">From: <%= @contact.first_name %> <%= @contact.last_name %></h3>
 
-    <p style="'Nunito Sans', sans-serif"><%= @contact.body %></p>
+    <p style="'Nunito Sans', sans-serif"><%= @contact.message %></p>
 
-    <p><small>You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails you can <%= link_to "unsubscribe", edit_user_registration_url(@user) %> here.</small></p>
+    <p><small>
+      Phone: <%= @contact.phone %><% if @contact.preferred_contact == "Phone" %> (Preferred)<% end %>
+      <br />
+      Email: <%= mail_to @contact.email %><% if @contact.preferred_contact == "Email" %> (Preferred)<% end %>
+    </small></p>
   </body>
 </html>
