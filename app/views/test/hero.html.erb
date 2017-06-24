@@ -1,0 +1,47 @@
+<% if @listings.count != 0 %>
+  <div class="row hidden-md hidden-lg hidden"> <!-- remove hidden when there are previous listings -->
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="col-md-4 hidden"> <!-- remove hidden when there are previous listings -->
+    <h1 class="text-center">Previous Listings</h1>
+    <% @listings.each do |listing| %>
+      <div class="col-sm-6 col-md-12">
+        <% property = Rubillow::HomeValuation.zestimate({ zpid: listing.zpid }) %>
+        <% deep_search_results = Rubillow::PropertyDetails.deep_search_results({ address: listing.address, citystatezip: listing.citystatezip }) %>
+        <% rillow = Rillow.new('X1-ZWz1frh4ucm4nf_8l13j') %>
+
+        <%= link_to listing_path(listing) do %>
+          <% result = rillow.get_updated_property_details(listing.zpid) %>
+
+          <div class="fancy-border">
+            <% if listing.default_image_file_name %>
+              <%= image_tag listing.default_image.url, alt: listing.address %>
+            <% elsif listing.listing_property_details.images %>
+              <% unless listing.listing_property_details.error %>
+                <%= image_tag listing.listing_property_details.images.first %>
+              <% end %>
+            <% else %>
+              <%= image_tag "no_image.jpg" %>
+            <% end %>
+            <h2><%= listing.address %></h2>
+            <h4 style="color: green">Zestimate: <%= number_to_currency(property.price) %></h4>
+            <p><%= deep_search_results.finished_square_feet %> Square Feet, <%= pluralize(deep_search_results.bedrooms, "Bedroom") %>, <%= pluralize(deep_search_results.bathrooms, "Bathroom") %></p>
+            <p><em><%= listing.notes %></em></p>
+            <h4><%= listing.status %></h4>
+            <div class="text-right" style="margin: 0 5px 5px 0">
+              <% if current_user && current_user.admin %>
+                <%= link_to edit_listing_path(listing) do %>
+                  <i class="icon ion-edit"></i>
+                <% end %>
+                <%= link_to listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div> <!-- fancy border -->
+        <% end %> <!-- link -->
+      </div> <!-- col sm 6 -->
+    <% end %> <!-- listing each -->
+  </div> <!-- col md 4 -->
+<% end %>

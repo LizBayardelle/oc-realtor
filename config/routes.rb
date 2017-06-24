@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'test/hero'
+
   get 'tags/:tag', to: 'blogs#index', as: :tag
   resources :listings
   resources :home, only: [:index]
   root "home#index"
+  get "test/hero"
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
