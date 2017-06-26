@@ -2,15 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <div class="form-group col-sm-6 col-md-5">
+    <div class="form-group col-sm-6 col-md-5 col-lg-6">
       <%= f.label :address %>
       <%= f.text_field :address, class: "form-control" %>
     </div> <!-- col form-group -->
-    <div class="form-group col-sm-6 col-md-5">
+    <div class="form-group col-sm-6 col-md-5 col-lg-6">
       <%= f.label "City, State, Zip Code" %>
       <%= f.text_field :citystatezip, class: "form-control" %>
     </div> <!-- col form-group -->
-    <div class="form-group col-xs-12 col-md-2">
+    <div class="form-group col-xs-12 col-md-2 col-lg-12">
       <%= f.label "Sale Timeframe" %>
       <%= f.select :sell_timeframe, [["ASAP", "ASAP"], ["1 to 3 Months", "1 to 3 Months"], ["4 to 6 Months", "4 to 6 Months"], ["Over 6 Months", "Over 6 Months"]], class: "form-control" %>
     </div> <!-- col form-group -->

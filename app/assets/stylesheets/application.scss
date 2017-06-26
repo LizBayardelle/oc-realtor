@@ -587,6 +587,7 @@ IMAGES
 		margin: 0px;
 		padding: 25px;
 		top: 0;
+		height: auto;
 	    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Safari 5.1 to 6.0.2 */
 	    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Opera 11.1 to 12.0.2 */
 	    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Firefox 3.6 to 15 */
@@ -606,7 +607,7 @@ IMAGES
 }
 
 @media screen and (min-width: 1200px) {
-	.gradient-overlay, .gradient-bottom {
+	.gradient-overlay {
 		position: relative;
 		display: block;
 		width: 800px;

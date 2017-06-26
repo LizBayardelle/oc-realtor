@@ -1,19 +1,29 @@
-<div class="image-container">
-    <%= image_tag "house.jpg", style: "bottom: 0", alt: "Sunny Orange County house." %>
+<div class="responsive-hero-div">
+    <%= image_tag "house.jpg", class: "responsive-hero-img", alt: "Sunny Orange County house." %>
+
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1>How much is my house worth?</h1>
+        <div class="text-center hidden-md hidden-sm" style="width: 100%">
+          <div class="buffer"></div>
+
+          <%= render 'form' %>
+
+          <%= link_to 'Back', values_path %>
+
+          <div class="buffer"></div>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
 </div>
 
-<div class="overlap-image text-center">
-  <div class="gradient-bottom slideRight">
-    <h1>How much is my house worth?</h1>
-  </div> <!-- absolute-bottom-transparent -->
-</div> <!-- overlap-image -->
 
-<div class="container text-center">
+<div class="container text-center visible-md visible-sm">
   <div class="buffer"></div>
 
   <%= render 'form' %>
 
   <%= link_to 'Back', values_path %>
-  
+
   <div class="buffer"></div>
 </div> <!-- container -->
