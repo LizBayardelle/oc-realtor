@@ -1,30 +1,34 @@
-<div class="image-container">
-	<%= image_tag "cliff.jpg", style: "top: 0", alt: "Houses on a hill overlooking the ocean in Laguna Beach, California." %>
-</div>
+<div class="responsive-hero-div">
+	<%= image_tag "cliff.jpg", class: "responsive-hero-img", alt: "Houses on a hill overlooking the ocean in Laguna Beach, California." %>
 
-<div class="overlap-image text-center slideRight">
-	<div class="gradient-bottom">
-		<h1 style="position: relative">What You Need to Know</h1>
-		<div class="row text-center">
-			<div id="tag_cloud">
-				<% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
-				<%= link_to tag.name, tag_path(tag.name), class: css_class %>
-				<% end %>
-			</div> <!-- col -->
-		</div> <!-- row w id -->
-	</div> <!-- absolute box -->
-</div> <!-- overlap image -->
+	<div class="overlap-responsive-image text-center slideRight">
+		<div class="gradient-bottom">
+			<h1>What You Need to Know</h1>
+			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
+
+			<% if current_user %>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), method: :post %></h3>
+			<% else %>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path %></h3>
+			<% end %>
+		</div> <!-- absolute box -->
+	</div> <!-- overlap image -->
+
+	<%= render 'layouts/scroll' %>
+</div> <!-- responsive-hero-div -->
+
+<div class="row blue-stripe text-center">
+	<div id="tag_cloud">
+		<% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+		<% end %>
+	</div> <!-- col -->
+</div> <!-- row w id -->
 
 <div class="container" data-no-turbolink>
   <% if current_user && current_user.admin %>
     <div class="text-right" style="margin-top: 15px"><%= link_to 'New Blog', new_blog_path %></div>
   <% end %>
-
-	<% if current_user %>
-		<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), method: :post %></h3>
-	<% else %>
-		<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path %></h3>
-	<% end %>
 
   <div class="row">
     <% @blogs.each do |blog| %>

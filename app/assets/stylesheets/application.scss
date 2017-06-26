@@ -286,12 +286,25 @@ Main Nav
 ==============================================
 */
 
+#main-nav.navbar-default {
+	height: 70px;
+	z-index: 30;
+}
+
 #main-nav.navbar-default .navbar-brand {
-    font-family: $font-decorative;
-    color: $creme;
-    font-size: 25px;
-    margin-top: 5px;
+    margin-top: -10px;
 		z-index: 20;
+}
+
+#main-nav.navbar-default .navbar-brand img {
+	height: 60px;
+	width: auto;
+}
+
+@media screen and (max-width: 768px) {
+	#main-nav.navbar-default .navbar-brand img {
+		height: 40px;
+	}
 }
 
 #main-nav.navbar-default {
@@ -305,8 +318,18 @@ Main Nav
 
 #main-nav.navbar-default .navbar-nav>li>a {
     color: white;
-		height: 55px;
+		height: 50px;
+		margin-top: 20px;
+		margin-bottom: -20px;
 }
+
+@media screen and (max-width: 768px) {
+	#main-nav.navbar-default .navbar-nav>li>a {
+		background-color: $transparent-white-overlay;
+		color: $blue-dark;
+	}
+}
+
 
 #main-nav.navbar-default .navbar-nav>.active>a,
 #main-nav.navbar-default .navbar-nav>.active>a:hover,
@@ -581,6 +604,34 @@ IMAGES
 	margin: 0 !important;
 	vertical-align: top;
 }
+
+@media screen and (min-width: 1200px) {
+	.gradient-overlay, .gradient-bottom {
+		position: relative;
+		display: block;
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 250px;
+		background: none;
+		background-color: $transparent-white-overlay;
+		padding: 50px 30px 50px 30px;
+		text-align: center;
+	}
+
+	.gradient-overlay h1 {
+		font-size: 40px;
+	}
+
+	.gradient-overlay h4 {
+		font-size: 30px;
+	}
+
+	.profile-pic {
+		max-width: 300px;
+	}
+}
+
 
 @media screen and (max-width: 768px) {
 	max-width: 150px !important;
