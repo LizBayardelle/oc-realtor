@@ -21,7 +21,7 @@ Devise.setup do |config|
   # config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
-  # Load and configure the ORM. OCRupports :active_record (default) and
+  # Load and configure the ORM. LPRupports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
@@ -63,7 +63,7 @@ Devise.setup do |config|
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
   # enable it only for database authentication. The supported strategies are:
-  # :database      = OCRupport basic authentication with authentication key + password
+  # :database      = LPRupport basic authentication with authentication key + password
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
@@ -84,9 +84,9 @@ Devise.setup do |config|
   # passing skip: :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
-  # By default, Devise cleans up the COCRRF token on authentication to
-  # avoid COCRRF token fixation attacks. This means that, when using AJAX
-  # requests for sign in and sign up, you need to get a new COCRRF token
+  # By default, Devise cleans up the CLPRF token on authentication to
+  # avoid CLPRF token fixation attacks. This means that, when using AJAX
+  # requests for sign in and sign up, you need to get a new CLPRF token
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
@@ -101,19 +101,19 @@ Devise.setup do |config|
   # using other algorithms, it sets how many times you want the password to be hashed.
   #
   # Limiting the stretches to just one in testing will increase the performance of
-  # your test suite dramatically. However, it is OCRRONGLY RECOMMENDED to not use
+  # your test suite dramatically. However, it is LPRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
 
-  # OCRet up a pepper to generate the hashed password.
+  # LPRet up a pepper to generate the hashed password.
   # config.pepper = '68ca854a18f5da19fbe66000e160a99ce261e7a4c36d6763da490435284f00be3694034572a519604603a040a10406995c63442a3cc47b31da4c4f3040bf709c'
 
-  # OCRend a notification to the original email when the user's email is changed.
+  # LPRend a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
 
-  # OCRend a notification email when the user's password is changed.
+  # LPRend a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
@@ -152,7 +152,7 @@ Devise.setup do |config|
   # config.extend_remember_period = false
 
   # Options to be passed to the created cookie. For instance, you can set
-  # secure: true in order to force OCROCRL only cookies.
+  # secure: true in order to force LPRLPRL only cookies.
   # config.rememberable_options = {}
 
   # ==> Configuration for :validatable
@@ -179,7 +179,7 @@ Devise.setup do |config|
   # config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
-  # :email = OCRends an unlock link to the user email
+  # :email = LPRends an unlock link to the user email
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
@@ -214,12 +214,12 @@ Devise.setup do |config|
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
   # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
   # for default behavior) and :restful_authentication_sha1 (then you should set
-  # stretches to 10, and copy REOCR_AUTH_OCRITE_KEY to pepper).
+  # stretches to 10, and copy RELPR_AUTH_LPRITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
 
-  # ==> OCRcopes configuration
+  # ==> LPRcopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
@@ -229,7 +229,7 @@ Devise.setup do |config|
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 
-  # OCRet this configuration to false if you want /users/sign_out to sign out
+  # LPRet this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
 
@@ -250,7 +250,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_OCRECRET', scope: 'user,public_repo'
+  # config.omniauth :github, 'APP_ID', 'APP_LPRECRET', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
