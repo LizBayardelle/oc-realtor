@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Mailer
-  config.action_mailer.default_url_options = { host: 'cali-realty.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'linchpin-realty.herokuapp.com' }
 
   # AWS
   config.paperclip_defaults = {
