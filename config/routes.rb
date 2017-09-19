@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :intakes
+  get ':action' => 'static#:action'
+
   get 'test/hero'
 
   get 'tags/:tag', to: 'blogs#index', as: :tag

@@ -1,0 +1,26 @@
+<div class="responsive-hero-div">
+    <%= image_tag "house_pool.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
+
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1>Welcome!</h1>
+        <div class="text-center hidden-md hidden-sm" style="width: 100%">
+          <h2 class="font-sans">In order to provide you with the best possible results, let me get some essential information so I can start researching for you.</h2>
+          <%= link_to new_intake_path do %>
+            <div class="btn">Get Started</div>
+          <% end %>
+          <div class="buffer"></div>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
+
+
+<div class="container text-center visible-md visible-sm">
+  <div class="buffer"></div>
+  <h2 class="font-sans">In order to provide you with the best possible results, let me get some essential information so I can start researching for you.</h2>
+  <%= link_to new_intake_path do %>
+    <div class="btn">Get Started</div>
+  <% end %>
+  <div class="buffer"></div>
+</div> <!-- container -->

@@ -1,0 +1,153 @@
+<%= simple_form_for(@intake) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="intakes form-inputs text-left big-form">
+    <div class="row">
+      <div class="container">
+        <h2>Current Home Details</h2>
+        <div class="form-group col-xs-12">
+          <%= f.label "Current Monthly Payment" %>
+          <%= f.text_field :current_monthly_pay, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-5 col-sm-push-1">
+          <%= f.input :current_own, label: false %>
+          <%= f.label "I own my current home." %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-5 ">
+          <%= f.input :current_rent, label: false %>
+          <%= f.label "I rent my current home." %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <hr class="col-xs-6 col-xs-push-3" style="margin: 25px 0 10px 0; border-color: #c0c0c0"/>
+    </div>
+
+    <div class="row">
+      <div class="container">
+        <h2>Ideal Home Details</h2>
+        <div class="form-group col-xs-6">
+          <%= f.label "What are you looking for?" %>
+          <%= f.text_field :looking_for, placeholder: "e.g. House, townhome, condo, etc.", class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-6">
+          <%= f.label "Cities or areas preferred?" %>
+          <%= f.text_field :areas, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12">
+          <%= f.label "Are there any amenities you want to be close to?" %>
+          <%= f.text_field :amenities, placeholder: "e.g. Good schools, a nice beach, public transportation, etc.", class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-8">
+          <%= f.label "What price range have you been considering?" %>
+          <%= f.text_field :price_range, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-4">
+          <%= f.label "# of bedrooms?" %>
+          <%= f.text_field :bedrooms, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <hr class="col-xs-6 col-xs-push-3" style="margin: 25px 0 10px 0; border-color: #c0c0c0"/>
+    </div>
+
+    <div class="row">
+      <div class="container">
+        <h2>Home Search Details</h2>
+        <div class="form-group col-xs-6">
+          <%= f.label "Reason for buying a house?" %>
+          <%= f.text_field :reason, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-6">
+          <%= f.label "How long have you been looking?" %>
+          <%= f.text_field :looking_time, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12" style="padding-left: 35px">
+          <%= f.input :other_agent, label: false, id: "otherAgent" %>
+          <%= f.label "I am currently working with another agent." %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 hidden" id="agentName">
+          <%= f.label "Agent name" %>
+          <%= f.text_field :other_agent_name, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12" style="padding-left: 35px">
+          <%= f.input :seen_liked, label: false %>
+          <%= f.label "I have already seen houses that I liked." %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 hidden">
+          <%= f.label "Why didn't you buy it?" %>
+          <%= f.text_field :seen_no_buy, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-6">
+          <%= f.label "How soon would you like to be moved?" %>
+          <%= f.text_field :when_moved, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-6">
+          <%= f.label "Best times for you to look at a property?" %>
+          <%= f.text_field :best_times, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <hr class="col-xs-6 col-xs-push-3" style="margin: 25px 0 10px 0; border-color: #c0c0c0"/>
+    </div>
+
+    <div class="row">
+      <div class="container">
+        <h2>Financial Details</h2>
+        <div class="form-group">
+          <div class="col-xs-6">
+            <%= f.label "Minimum Price" %>
+            <%= f.text_field :price_min, class: "form-control" %>
+          </div> <!-- column -->
+          <div class="col-xs-6">
+            <%= f.label "Maximum Price" %>
+            <%= f.text_field :price_max, class: "form-control" %>
+          </div> <!-- column -->
+        </div> <!-- form group -->
+          <div class="form-group col-xs-6 fake-form-control">
+            <%= f.label "Buying With" %>
+            <%= f.input :buying_with, collection: [["Cash", "Cash"], ["Mortgage", "Mortgage"]], label: false %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-6 fake-form-control">
+            <%= f.label "Available Downpayment" %>
+            <%= f.text_field :downpayment, class: "form-control" %>
+          </div> <!-- form group -->
+        <div class="form-group col-xs-12">
+          <%= f.label "Source of Downpayment" %>
+          <%= f.text_field :source, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12">
+          <%= f.label "Monthly Payment Budget" %>
+          <%= f.text_field :budget_monthly, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-6" style="padding-left: 35px">
+          <%= f.input :met_lender, label: false %>
+          <%= f.label "I have already met with a lender about getting preapproved." %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-6" style="padding-left: 35px">
+          <%= f.input :preapproved, label: false %>
+          <%= f.label "I am already preapproved." %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12">
+          <%= f.label "Amount of Preapproval" %>
+          <%= f.text_field :preapproved_amount, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+  </div> <!-- form field -->
+
+  <div class="form-actions">
+    <%= f.button :submit, "Start the Search" %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+
+  });
+</script>

@@ -219,7 +219,7 @@ input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
-input[type="color"]:focus,
+input:active,
 .uneditable-input:focus {
   border-color: rgba(	137, 14, 5, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(	137, 14, 5, 0.6);
@@ -418,6 +418,7 @@ Responsive Hero
 	top:50%;
 	width: auto;
 	min-height:100%;
+	max-width: 150%;
 	display:block;
 	left:50%;
 	-webkit-transform: translate(-50%, -50%);
@@ -439,6 +440,12 @@ Responsive Hero
 		position:relative;
 		display:inline-block;
 		overflow:hidden;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.responsive-hero-img {
+		max-width: none;
 	}
 }
 
@@ -750,7 +757,9 @@ select#contact_preferred_contact, select#contact_purpose, select#value_sell_time
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-
+.big-form h2 {
+	padding-top: 10px !important;
+}
 
 
 
@@ -919,6 +928,19 @@ $size: 31px;
   }
 }
 
+
+
+/* Landing Pages */
+
+.fake-form-control {
+	margin-top: 10px;
+}
+
+.fake-form-control select {
+  height: 35px;
+  background: white;
+  width: 100%;
+}
 
 
 

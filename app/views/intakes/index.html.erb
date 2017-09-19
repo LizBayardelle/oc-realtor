@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Intakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Current own</th>
+      <th>Current rent</th>
+      <th>Current monthly pay</th>
+      <th>Looking for</th>
+      <th>Areas</th>
+      <th>Amenities</th>
+      <th>Price range</th>
+      <th>Bedrooms</th>
+      <th>Reason</th>
+      <th>Looking time</th>
+      <th>Other agent</th>
+      <th>Other agent name</th>
+      <th>Seen liked</th>
+      <th>Seen no buy</th>
+      <th>When moved</th>
+      <th>Best times</th>
+      <th>Price min</th>
+      <th>Price max</th>
+      <th>Buying with</th>
+      <th>Downpayment</th>
+      <th>Source</th>
+      <th>Budget monthly</th>
+      <th>Met lender</th>
+      <th>Preapproved</th>
+      <th>Preapproved amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @intakes.each do |intake| %>
+      <tr>
+        <td><%= intake.user %></td>
+        <td><%= intake.current_own %></td>
+        <td><%= intake.current_rent %></td>
+        <td><%= intake.current_monthly_pay %></td>
+        <td><%= intake.looking_for %></td>
+        <td><%= intake.areas %></td>
+        <td><%= intake.amenities %></td>
+        <td><%= intake.price_range %></td>
+        <td><%= intake.bedrooms %></td>
+        <td><%= intake.reason %></td>
+        <td><%= intake.looking_time %></td>
+        <td><%= intake.other_agent %></td>
+        <td><%= intake.other_agent_name %></td>
+        <td><%= intake.seen_liked %></td>
+        <td><%= intake.seen_no_buy %></td>
+        <td><%= intake.when_moved %></td>
+        <td><%= intake.best_times %></td>
+        <td><%= intake.price_min %></td>
+        <td><%= intake.price_max %></td>
+        <td><%= intake.buying_with %></td>
+        <td><%= intake.downpayment %></td>
+        <td><%= intake.source %></td>
+        <td><%= intake.budget_monthly %></td>
+        <td><%= intake.met_lender %></td>
+        <td><%= intake.preapproved %></td>
+        <td><%= intake.preapproved_amount %></td>
+        <td><%= link_to 'Show', intake %></td>
+        <td><%= link_to 'Edit', edit_intake_path(intake) %></td>
+        <td><%= link_to 'Destroy', intake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intake', new_intake_path %>

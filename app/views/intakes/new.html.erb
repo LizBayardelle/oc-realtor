@@ -1,0 +1,29 @@
+<div class="responsive-hero-div">
+    <%= image_tag "form.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
+
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1>What are you looking for?</h1>
+        <div class="text-center hidden-md hidden-sm" style="width: 100%">
+          <h2 class="font-sans">This information will help me know what you're looking for.</h2>
+            <a href="#form"><div class="btn">Start Form</div></a>
+          <div class="buffer"></div>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
+
+
+<div id="form" class="container text-center bg-white">
+  <%= render 'form' %>
+  <div class="buffer"></div>
+</div> <!-- container -->
+
+<script>
+  $(document).on('click', 'a', function(event){
+      event.preventDefault();
+      $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+  });
+</script>
