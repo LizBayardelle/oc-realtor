@@ -1,6 +1,6 @@
 class IntakesController < ApplicationController
   before_action :set_intake, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :new]
 
   # GET /intakes
   def index
@@ -23,7 +23,9 @@ class IntakesController < ApplicationController
   # POST /intakes
   def create
     @intake = Intake.new(intake_params)
-    @intake.user_id = current_user.id
+    if current_user
+      @intake.user_id = current_user.id
+    end
     if @intake.save
       redirect_to root_path, notice: "I'll start the search and contact you within 24 hours!"
     else
