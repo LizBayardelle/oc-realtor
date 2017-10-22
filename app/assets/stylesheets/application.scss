@@ -34,24 +34,31 @@ $font-decorative: 'Cinzel Decorative', cursive;
 $font-serif: 'Playfair Display', serif;
 $font-cursive: 'Playball', cursive;
 $font-sans: 'Poppins', sans-serif;
+$font-typewriter: 'Inconsolata', monospace;
 .font-sans { font-family: $font-sans }
+.font-serif { font-family: $font-serif }
+.font-cursive { font-family: $font-cursive }
+.font-decorative { font-family: $font-decorative }
 
 $blue-dark: #031D55;
 $blue-light: #4D7EA8;
 $red: #890E05;
 $grey-dark: #393939;
 $grey-light: #B2B2B2;
-$creme: #F4E8C1;
-$creme-background: #F4F0E3;
+$creme: #C0C0C0;
+$creme-background: #acacac;
 $text-shadow: 1px 2px 2px $blue-light;
-$transparent-white: rgba(255, 255, 255, 0.5);
+$transparent-white: rgba(255, 255, 255, 0.7);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
+
 .background-creme { background-color: $creme }
 
 .border-grey { border-color: $grey-dark }
 .transparent-white { background-color: $transparent-white }
 
+.color-creme { color: $creme }
+.color-blue-light { color: $blue-light }
 
 
 
@@ -288,17 +295,15 @@ Main Nav
 */
 
 #main-nav.navbar-default {
-	height: 70px;
+	height: 85px;
 	z-index: 30;
 }
 
 #main-nav.navbar-default .navbar-brand {
-    margin-top: -10px;
 		z-index: 20;
 }
 
 #main-nav.navbar-default .navbar-brand img {
-	height: 60px;
 	width: auto;
 }
 
@@ -310,7 +315,7 @@ Main Nav
 
 #main-nav.navbar-default {
     font-size: 16px;
-		font-family: $font-serif;
+		font-family: $font-sans;
     background-color: $blue-dark;
     border: none;
 		margin-bottom: 0px;
@@ -320,8 +325,7 @@ Main Nav
 #main-nav.navbar-default .navbar-nav>li>a {
     color: white;
 		height: 50px;
-		margin-top: 20px;
-		margin-bottom: -20px;
+		margin-bottom: -35px;
 }
 
 @media screen and (max-width: 768px) {
@@ -406,7 +410,7 @@ Responsive Hero
 
 .responsive-hero-div {
 	width: 100%;
-	height: calc(100vh - 55px);
+	height: 400px;
 	position:relative;
 	display:inline-block;
 	overflow:hidden;
@@ -431,16 +435,6 @@ Responsive Hero
 	width: 100%;
 	top: 0;
 	z-index: 15;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1200px){
-	.responsive-hero-div {
-		width: 100%;
-		height: 400px;
-		position:relative;
-		display:inline-block;
-		overflow:hidden;
-	}
 }
 
 @media screen and (max-width: 768px) {
@@ -558,15 +552,17 @@ IMAGES
 }
 
 .gradient-overlay {
-	width: 100%;
-	position: absolute;
-	margin: 0px;
+	width: 70%;
+	max-width: 500px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 25px;
-	top: 0;
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Safari 5.2 to 6.0.2 */
-    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Opera 11.2 to 12.0.2 */
-    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* Standard syntax (must be last) */
+	margin-top: 50px;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Safari 5.2 to 6.0.2 */
+    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Opera 11.2 to 12.0.2 */
+    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* Standard syntax (must be last) */
 }
 
 .gradient-overlay h1 {
@@ -613,34 +609,6 @@ IMAGES
 	margin: 0 !important;
 	vertical-align: top;
 }
-
-@media screen and (min-width: 1200px) {
-	.gradient-overlay {
-		position: relative;
-		display: block;
-		width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 250px;
-		background: none;
-		background-color: $transparent-white-overlay;
-		padding: 50px 30px 50px 30px;
-		text-align: center;
-	}
-
-	.gradient-overlay h1 {
-		font-size: 40px;
-	}
-
-	.gradient-overlay h4 {
-		font-size: 30px;
-	}
-
-	.profile-pic {
-		max-width: 300px;
-	}
-}
-
 
 @media screen and (max-width: 768px) {
 	max-width: 150px !important;
@@ -724,6 +692,38 @@ Login Pages
 .problems-area label {
 	padding-left: 25px !important;
 }
+
+
+
+
+
+
+
+/*
+===============================================
+HOME
+===============================================
+*/
+
+.typed-type-header {
+	color: white !important;
+	font-family: $font-typewriter;
+	font-weight: 700;
+	text-shadow: 2px 2px 3px rgba(50, 50, 50, 1);
+	z-index: 50;
+}
+
+.typed-type-header h2 {
+	font-size: 50px;
+}
+
+.typed-type-header h3 {
+	font-size: 40px;
+}
+
+
+
+
 
 
 

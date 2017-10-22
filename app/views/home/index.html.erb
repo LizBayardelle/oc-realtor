@@ -3,26 +3,25 @@
 	<%= image_tag "home_aerial.jpg", class: "responsive-hero-img", alt: "Aerial view of an Orange County neighborhood." %>
 
   <div class="overlap-responsive-image">
-  	<div class="gradient-overlay slideRight">
-  		<%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", class: "fancy-border profile-pic" %>
-  		<div class="text">
-  			<h1>Your guide to the<br class="hidden-lg" /> California housing market</h1>
-  			<%= link_to new_contact_path do %><h4 class="font-sans">Talk to Anthony about buying or selling a house today!</h4><% end %>
-  		</div>
-  	</div> <!-- absolute box -->
-  </div> <!-- overlap image -->
 
-	<%= render 'layouts/scroll' %>
+		<div class="typed-type-header text-center" style="margin-top: 100px">
+			<div class="typed_wrap" style="min-height: 120px">
+				<h2>Anthony Bayardelle</h2>
+				<h3><span class="typed"></span></h3>
+			</div>
+		</div>
+  </div> <!-- overlap image -->
 
 </div> <!-- responsive hero div -->
 
 <div class="blue-stripe">
-	<div class="container">
-		<h4 class="font-sans text-center" style="line-height: 1.25">Having a realtor is important for your house search, even in today's digital age of instant access.
+	<div class="container text-center">
+		<h4 class="font-sans" style="line-height: 1.25">Having a realtor is important for your house search, even in today's digital age of instant access.
 			A typical person might buy or sell a half dozen houses across their lifetime, but a realtor does it every day.
 		  Combining years of experience and research in the field, an in depth knowledge of the current market conditions, and cultivated negotiating skills, having a realtor will get you a better deal for less money and in less time.
 		</h4>
-		<h3 class="text-center"><strong><%= link_to new_contact_path do %>Contact us today to see how a realtor can&nbsp;help&nbsp;you!<% end %></strong></h3>
+		<h3><strong><%= link_to new_contact_path do %>Contact us today to see how a realtor can&nbsp;help&nbsp;you!<% end %></strong></h3>
+		<%= image_tag "homesmart_logo_overlay.png", style: "width: 165px; margin: 20px 0 0 -20px" %>
 	</div> <!-- container -->
 </div>
 
@@ -55,7 +54,42 @@
 
 
 <script>
-  $(function() {
-      $('.fancy-border').matchHeight();
-  });
+	$(document).ready(function(){
+		$(function(){
+			$(".typed").typed({
+				strings: ["Expert.", "Advisor.", "REALTOR®.", "Your guide to the OC housing market."],
+				// Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+				stringsElement: null,
+				// typing speed
+				typeSpeed: 30,
+				// time before typing starts
+				startDelay: 1200,
+				// backspacing speed
+				backSpeed: 20,
+				// time before backspacing
+				backDelay: 500,
+				// loop
+				loop: true,
+				// false = infinite
+				loopCount: 1,
+				// show cursor
+				showCursor: false,
+				// character for cursor
+				cursorChar: "|",
+				// attribute to type (null == text)
+				attr: null,
+				// either html or text
+				contentType: 'html',
+				// call when done callback function
+				callback: function() {},
+				// starting callback function before each string
+				preStringTyped: function() {},
+				//callback for every typed string
+				onStringTyped: function() {},
+				// callback for reset
+				resetCallback: function() {}
+			});
+		});
+		$('.fancy-border').matchHeight();
+	})
 </script>

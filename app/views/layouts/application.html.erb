@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Linchpin Realty</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900|Inconsolata:400,700|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
   <meta name="p:domain_verify" content="51675027d07047c4ae82a98a4b64ae0b"/>
 </head>
@@ -23,25 +23,28 @@
   <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container-fluid">
           <div class="navbar-header">
-          	<%= link_to root_path, class:"navbar-brand" do %><%= image_tag "logo_words_light.png", alt: "Linchpin Realty Logo" %><% end %>
+          	<%= link_to root_path, class:"navbar-brand" do %>
+                <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
+                <%= image_tag "logo_words_light.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block" %><br />
+            <% end %>
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
               </button>
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
-              <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
-                  <li><%= link_to "Home Value", new_value_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
-                  <% if current_user && (current_user.admin || ( current_user.buyer && current_user.status_confirmed )) %>
-                    <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
-                  <% end %>
-                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
-                  <% if current_user %>
-                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
-                  <% else %>
-  	                <li><%= link_to "Create Account", new_user_registration_path, class: "center-ul-hover" %></li>
-                  <% end %>
-              </ul>
+            <div class="text-right" style="padding: 10px 5px 0 0">
+              <span class="color-blue-light font-decorative text-right"><strong>Your guide to the OC housing market.</strong></span>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
+                <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
+                <li><%= link_to "Tools", new_value_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
+                <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
+                <% if current_user %>
+                	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
+                <% else %>
+	                <li><%= link_to "Create Account", new_user_registration_path, class: "center-ul-hover" %></li>
+                <% end %>
+            </ul>
           </div>
       </div>
   </div>
