@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
-gem 'pg'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end
 
