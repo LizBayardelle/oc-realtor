@@ -6,12 +6,12 @@
       <div class="container">
         <h2>Basic Information</h2>
           <div class="form-group col-xs-12 col-sm-12">
-            <%= f.label "Buyer Names" %>
-            <%= f.text_field :buyer_name, class: "form-control" %>
+            <%= f.label "Buyer Names*" %>
+            <%= f.text_field :buyer_name, required: true, class: "form-control" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6 col-lg-3">
-            <%= f.label "Mobile Phone" %>
-            <%= f.text_field :phone_mobile, class: "form-control" %>
+            <%= f.label "Mobile Phone*" %>
+            <%= f.text_field :phone_mobile, required: true, class: "form-control" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6 col-lg-3">
             <%= f.label "Home Phone" %>
@@ -26,8 +26,8 @@
             <%= f.text_field :phone_fax, class: "form-control" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6">
-            <%= f.label "Email Address" %>
-            <%= f.text_field :email, class: "form-control" %>
+            <%= f.label "Email Address*" %>
+            <%= f.text_field :email, required: true, class: "form-control" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6">
             <%= f.label "Employer" %>
