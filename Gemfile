@@ -41,4 +41,9 @@ gem 'httparty'
 gem 'social-share-button'
 gem 'rest-client'
 gem 'nori'
-gem "typedjq-rails"
+gem 'typedjq-rails'
+gem 'httpclient'
+gem 'rets'
+gem 'simple_form_extension'
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

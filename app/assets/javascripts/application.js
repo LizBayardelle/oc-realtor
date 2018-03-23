@@ -16,6 +16,7 @@
 //= require ckeditor-jquery
 //= require social-share-button
 //= require typed
+//= require simple_form_extension
 //= require_tree .
 
 

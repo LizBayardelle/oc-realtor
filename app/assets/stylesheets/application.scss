@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require social-share-button
+ *= require simple_form_extension
  *= require_self
  */
 
@@ -44,11 +45,11 @@ $blue-dark: #031D55;
 $blue-light: #4D7EA8;
 $red: #890E05;
 $grey-dark: #393939;
-$grey-light: #B2B2B2;
+$grey-light: #A2A2A2;
 $creme: #C0C0C0;
 $creme-background: #acacac;
 $text-shadow: 1px 2px 2px $blue-light;
-$transparent-white: rgba(255, 255, 255, 0.7);
+$transparent-white: rgba(150, 150, 150, 0.7);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
 
@@ -587,6 +588,7 @@ IMAGES
 @media screen and (max-width: 768px) {
 	.gradient-overlay {
 		width: 100%;
+		max-width: 100%;
 		position: absolute;
 		margin: 0px;
 		padding: 25px;
@@ -608,10 +610,6 @@ IMAGES
 	max-width: 200px;
 	margin: 0 !important;
 	vertical-align: top;
-}
-
-@media screen and (max-width: 768px) {
-	max-width: 150px !important;
 }
 
 

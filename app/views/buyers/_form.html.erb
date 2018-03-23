@@ -1,0 +1,185 @@
+<%= simple_form_for(@buyer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="intakes form-inputs text-left big-form">
+    <div class="row">
+      <div class="container">
+        <h2>Basic Information</h2>
+          <div class="form-group col-xs-12 col-sm-12">
+            <%= f.label "Buyer Names" %>
+            <%= f.text_field :buyer_name, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6 col-lg-3">
+            <%= f.label "Mobile Phone" %>
+            <%= f.text_field :phone_mobile, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6 col-lg-3">
+            <%= f.label "Home Phone" %>
+            <%= f.text_field :phone_home, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6 col-lg-3">
+            <%= f.label "Work Phone" %>
+            <%= f.text_field :phone_work, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6 col-lg-3">
+            <%= f.label "Fax" %>
+            <%= f.text_field :phone_fax, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6">
+            <%= f.label "Email Address" %>
+            <%= f.text_field :email, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6">
+            <%= f.label "Employer" %>
+            <%= f.text_field :employer, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6">
+            <%= f.label "How long have you been looking for a house?" %>
+            <%= f.text_field :search_time, class: "form-control" %>
+          </div> <!-- form group -->
+          <div class="form-group col-xs-12 col-sm-6">
+            <%= f.label "Are you working with another agent?" %>
+            <%= f.text_field :other_agent, class: "form-control" %>
+          </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="container">
+        <h2>Current Home Details</h2>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Current Address" %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "How many people are in your family?" %>
+          <%= f.text_field :family_size, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Do you currently own or rent?" %>
+          <%= f.text_field :own_or_rent, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Rent/Mortgage amount?" %>
+          <%= f.text_field :current_mortgage, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Must you sell or complete the lease period before buying?" %>
+          <%= f.text_field :need_sell, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "If you are leasing, how long is the lease?" %>
+          <%= f.text_field :lease_length, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Have you seen any homes/investment properties that you really liked?" %>
+          <%= f.text_field :really_liked, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "If yes, why didn't you buy?" %>
+          <%= f.text_field :why_not, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "How soon do you need to move?" %>
+          <%= f.text_field :move_time, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Why?" %>
+          <%= f.text_field :why_move_time, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="container">
+        <h2>Financial Information</h2>
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What price range have you been considering?" %>
+          <%= f.text_field :price_range, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "How much has a lender told you that you're qualified for?" %>
+          <%= f.text_field :qualified, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What is the name of the lender that pre-qualified you?" %>
+          <%= f.text_field :lender, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "How much cash do you want to use for the purchase?" %>
+          <%= f.text_field :downpayment, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What is your budget for monthly payments?" %>
+          <%= f.text_field :monthly_budget, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="container">
+        <h2>Home Search Info</h2>
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "How many bedrooms do you want?" %>
+          <%= f.text_field :bedrooms, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Square feet?" %>
+          <%= f.text_field :square_feet, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Units?" %>
+          <%= f.text_field :units, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Is there a particular location in the city you prefer?" %>
+          <%= f.text_field :location, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Is there a particular style that you would prefer?" %>
+          <%= f.text_field :style, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "IF we can find the right property, are you prepared to make a decision now?" %>
+          <%= f.text_field :decision, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Is there anyone else who will be helping you make the decision about buying?" %>
+          <%= f.text_field :helper, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What special requirements do you need in your new property" %>
+          <%= f.text_field :requirements, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "If Anthony meets your needs, are you prepared to buy using him as your agent?" %>
+          <%= f.text_field :use_as_agent, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What times are best for you to look at houses?" %>
+          <%= f.text_field :times, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "How would you prefer for us to communicate?" %>
+          <%= f.text_field :communication, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What are the best times for you to receive phone calls to go over details?" %>
+          <%= f.text_field :best_time, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "What web sites do you use to look at properties?" %>
+          <%= f.text_field :sites, class: "form-control" %>
+        </div> <!-- form group -->
+        <div class="form-group col-xs-12 col-sm-12">
+          <%= f.label "Any other information about the house you're looking for?" %>
+          <%= f.text_field :other_information, class: "form-control" %>
+        </div> <!-- form group -->
+      </div> <!-- container -->
+    </div> <!-- row -->
+  </div> <!-- form inputs -->
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit" %>
+  </div>
+<% end %>

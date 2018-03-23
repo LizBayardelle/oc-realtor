@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :buyers
   resources :intakes
 
   get 'test/hero'
@@ -33,5 +34,5 @@ Rails.application.routes.draw do
   post "value/:id/archive" => "values#archive_value", as: "archive_value"
   post "value/:id/unarchive" => "values#unarchive_value", as: "unarchive_value"
 
-  get ':action' => 'static#:action'
+  get ':action' => 'static#:action', as: "hello"
 end

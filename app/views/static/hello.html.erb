@@ -4,11 +4,8 @@
     <div class="overlap-responsive-image text-center">
       <div class="gradient-overlay slideRight">
         <h1>Welcome!</h1>
-        <div class="text-center hidden-md hidden-sm" style="width: 100%">
-          <h2 class="font-sans">In order to provide you with the best possible results, let me get some essential information so I can start researching for you.</h2>
-          <%= link_to new_intake_path do %>
-            <div class="btn">Looking to Buy a House</div>
-          <% end %>
+        <div class="text-center" style="width: 100%">
+          <h3 class="font-sans">In order to provide you with the best possible results, let me get some essential information so I can start researching for you.</h3>
           <div class="buffer"></div>
         </div> <!-- container -->
       </div> <!-- absolute-bottom-transparent -->
@@ -16,11 +13,14 @@
 </div>
 
 
-<div class="container text-center visible-md visible-sm">
+<div class="container text-center">
   <div class="buffer"></div>
-  <h2 class="font-sans">In order to provide you with the best possible results, let me get some essential information so I can start researching for you.</h2>
+  <h2 class="font-sans">Are you looking to buy a house or sell a house?</h2>
+  <%= link_to new_buyer_path do %>
+    <div class="btn" style="margin-right: 10px">Buy a House</div>
+  <% end %>
   <%= link_to new_intake_path do %>
-    <div class="btn">Looking to Buy a House</div>
+    <div class="btn" style="margin-left: 10px">Sell a House</div>
   <% end %>
   <div class="buffer"></div>
 </div> <!-- container -->
