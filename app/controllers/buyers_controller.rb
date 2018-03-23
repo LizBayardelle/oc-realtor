@@ -24,7 +24,7 @@ class BuyersController < ApplicationController
     @buyer = Buyer.new(buyer_params)
 
     if @buyer.save
-      redirect_to @buyer, notice: 'Buyer was successfully created.'
+      redirect_to root_path, notice: 'Your form has been successfully submitted.  You can expect to hear back from us soon!'
     else
       render :new
     end
