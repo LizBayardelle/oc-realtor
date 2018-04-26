@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   post "value/:id/unarchive" => "values#unarchive_value", as: "unarchive_value"
 
   get ':action' => 'static#:action', as: "hello"
+  get ':action' => 'static#:action', as: "search"
 end

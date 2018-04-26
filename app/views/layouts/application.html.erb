@@ -36,8 +36,15 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
-                <li><%= link_to "Tools", new_value_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
+                <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
+                <li class="dropdown">
+                  <%= link_to 'Tools', new_value_path, class: "center-ul-hover" %>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'Tools', new_value_path %></li>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to 'Tools', new_value_path %></li>
+                  </ul>
+                </li>
                 <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                 <% if current_user %>
                 	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>

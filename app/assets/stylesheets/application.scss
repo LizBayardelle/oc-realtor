@@ -333,6 +333,7 @@ Main Nav
 	#main-nav.navbar-default .navbar-nav>li>a {
 		background-color: $transparent-white-overlay;
 		color: $blue-dark;
+		margin-bottom: 0px;
 	}
 }
 
@@ -355,6 +356,19 @@ Main Nav
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: $blue-dark;
+}
+
+#main-nav .dropdown-menu:li {
+    text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  #main-nav .dropdown:hover .dropdown-menu,
+  #main-nav .dropdown .dropdown-menu:hover {
+      display: block;
+      margin-top: 30px;
+			background-color: $transparent-white-overlay;
+   }
 }
 
 /* Underline From Center */
