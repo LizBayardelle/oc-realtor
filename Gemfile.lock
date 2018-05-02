@@ -114,6 +114,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    high_voltage (3.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httparty (0.16.1)
@@ -280,6 +281,7 @@ DEPENDENCIES
   devise
   figaro
   friendly_id (~> 5.1.0)
+  high_voltage
   httparty
   httpclient
   ionicons-rails

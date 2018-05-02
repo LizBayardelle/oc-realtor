@@ -45,5 +45,6 @@ gem 'typedjq-rails'
 gem 'httpclient'
 gem 'rets'
 gem 'simple_form_extension'
+gem 'high_voltage'
 
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
