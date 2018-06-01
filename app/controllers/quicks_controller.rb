@@ -24,7 +24,7 @@ class QuicksController < ApplicationController
     @quick = Quick.new(quick_params)
 
     if @quick.save
-      redirect_to root_path, notice: 'Thanks! You should hear from us shortly!'
+      redirect_to page_path(quick_submitted), notice: 'Thanks! You should hear from us shortly!'
     else
       render :new
     end
