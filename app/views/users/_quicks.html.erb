@@ -1,0 +1,158 @@
+<h1 class="quicksHeader">Quick Contacts</h1>
+<div class="quicksDiv">
+
+  <h3 class="newHeader">New Submissions</h3>
+  <div class="newDiv">
+    <% if @new_quicks.count == 0 %>
+      <p>You currently have no new quick contact submissions.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @new_quicks.each do |quick| %>
+            <tr>
+              <td style="width: 40%">
+                <%= link_to quick.name, quick_path(quick)%><br />
+                <%= quick.phone %><br />
+                <%= mail_to quick.email %>
+              </td>
+              <td style="width: 20%">
+                <strong>
+                  <% if quick.house == true %>Looking for House<% end %>
+                  <% if quick.house == false %>Looking for Apartment/Condo<% end %>
+                </strong><br />
+                <%= quick.location %>
+              </td>
+              <td>
+                <% if quick.responded %>
+                  <%= link_to make_unresponded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle-filled"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to make_responded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle"></i>
+                  <% end %>
+                <% end %>
+                <%= link_to quick, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_quick_path(quick), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- unresponded div -->
+
+  <h3 class="respondedHeader">Already Responded</h3>
+  <div class="respondedDiv hidden">
+    <% if @old_quicks.count == 0 %>
+      <p>You currently have no previously responded to quick contact submissions.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @old_quicks.each do |quick| %>
+            <tr>
+              <td style="width: 40%">
+                <%= link_to quick.name, quick_path(quick)%><br />
+                <%= quick.phone %><br />
+                <%= mail_to quick.email %>
+              </td>
+              <td style="width: 20%">
+                <strong>
+                  <% if quick.house == true %>Looking for House<% end %>
+                  <% if quick.house == false %>Looking for Apartment/Condo<% end %>
+                </strong><br />
+                <%= quick.location %>
+              </td>
+              <td>
+                <% if quick.responded %>
+                  <%= link_to make_unresponded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle-filled"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to make_responded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle"></i>
+                  <% end %>
+                <% end %>
+                <%= link_to quick, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_quick_path(quick), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- unresponded div -->
+
+  <h3 class="archivedQuickHeader">Archived</h3>
+  <div class="archivedQuickDiv hidden">
+    <% if @archived_quicks.count == 0 %>
+      <p>You currently have no archived quick contact submissions.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @archived_quicks.each do |quick| %>
+            <tr>
+              <td style="width: 40%">
+                <%= link_to quick.name, quick_path(quick)%><br />
+                <%= quick.phone %><br />
+                <%= mail_to quick.email %>
+              </td>
+              <td style="width: 20%">
+                <strong>
+                  <% if quick.house == true %>Looking for House<% end %>
+                  <% if quick.house == false %>Looking for Apartment/Condo<% end %>
+                </strong><br />
+                <%= quick.location %>
+              </td>
+              <td>
+                <% if quick.responded %>
+                  <%= link_to make_unresponded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle-filled"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to make_responded_path(quick), method: :post do %>
+                    <i class="icon ion-toggle"></i>
+                  <% end %>
+                <% end %>
+                <%= link_to quick, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_quick_path(quick), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- archived div -->
+
+</div> <!-- all clients div -->
+
+
+
+<script>
+	$(document).ready(function(){
+    $(".quicksHeader").click(function(){
+			$(".quicksDiv").toggleClass("hidden");
+		});
+    $(".newHeader").click(function(){
+      $(".newDiv").toggleClass("hidden");
+    });
+		$(".respondedHeader").click(function(){
+			$(".respondedDiv").toggleClass("hidden");
+		});
+    $(".archivedQuickHeader").click(function(){
+			$(".archivedQuickDiv").toggleClass("hidden");
+		});
+	});
+</script>

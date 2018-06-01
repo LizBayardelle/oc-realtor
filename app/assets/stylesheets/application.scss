@@ -49,7 +49,7 @@ $grey-light: #A2A2A2;
 $creme: #C0C0C0;
 $creme-background: #acacac;
 $text-shadow: 1px 2px 2px $blue-light;
-$transparent-white: rgba(150, 150, 150, 0.7);
+$transparent-white: rgba(255, 255, 255, 0.6);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
 
@@ -72,7 +72,6 @@ Basics
 */
 
 body { font-family: $font-serif; color: $blue-dark; max-width: 100%; overflow-x: hidden;}
-label { text-transform: capitalize; }
 h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
 @media screen and (max-width: 768px) { h1 { font-size: 30px }}
 .linkish { cursor: pointer; text-decoration: underline; color: $red; }
@@ -90,6 +89,17 @@ p { font-family: $font-sans }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
 .container.bg-white { background-color: $transparent-white }
+
+.between-btn { width: 100px; height: 5px; display: inline}
+
+
+
+/* TEXT */
+.paragraph-spacing {
+	padding-bottom: 15px;
+}
+
+
 
 
 /* CARDS */
@@ -954,8 +964,38 @@ $size: 31px;
   width: 100%;
 }
 
+/* Quicks */
+.quick-form h2 {
+	margin-bottom: 20px;
+}
 
+.progress-bar-item {
+	width: 18%;
+	display: inline-block;
+	padding: 10px;
+}
 
+.progress-bar-item h1 {
+	margin-bottom: 5px;
+	color: $grey-light !important;
+	text-shadow: 1px 2px 2px $grey-light;
+}
+
+.progress-bar-item p {
+	margin-bottom: 5px;
+	color: $grey-light !important;
+}
+
+.progress-bar-item.active h1 {
+	margin-bottom: 5px;
+	color: $blue-dark !important;
+	text-shadow: 1px 2px 2px $blue-light;
+}
+
+.progress-bar-item.active p {
+	margin-bottom: 5px;
+	color: $blue-dark !important;
+}
 
 
 

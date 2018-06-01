@@ -1,0 +1,132 @@
+<%= simple_form_for(@quick) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="progress-bar-item">
+      <h1>1</h1>
+      <p>House Type</p>
+    </div>
+    <div id="pb-details" class="progress-bar-item active">
+      <h1>2</h1>
+      <p>House Details</p>
+    </div>
+    <div id="pb-price" class="progress-bar-item">
+      <h1>3</h1>
+      <p>Financial Info</p>
+    </div>
+    <div id="pb-info" class="progress-bar-item">
+      <h1>4</h1>
+      <p>Contact Info</p>
+    </div>
+  </div> <!-- progress bar row-->
+
+  <div class="form-inputs">
+    <div class="row" id="details">
+      <div class="container quick-form">
+        <h2>What should your house be like?</h2>
+
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "Where do you want to live?" %>
+          <%= f.text_field :location, class: "form-control", placeholder: "e.g. Laguna Niguel, CA"%>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "Square Footage" %>
+          <%= f.text_field :footage, class: "form-control", placeholder: "e.g. 3,000 square feet" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "# of Bedrooms" %>
+          <%= f.text_field :bedrooms, class: "form-control", placeholder: "e.g. 3" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "# of Bathrooms" %>
+          <%= f.text_field :bathrooms, class: "form-control", placeholder: "e.g. 2.5" %>
+        </div> <!-- form group -->
+
+        <%= link_to "Back", page_path('get_report'), class: "btn", style: "margin-right: 10px" %>
+        <div class="btn" id="detailsNext" style="margin-left: 10px">Next</div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- details div -->
+
+    <div id="price" class="hidden row">
+      <div class="container quick-form">
+        <h2>A little about the finances...</h2>
+
+        <div class="form-group text-left col-xs-12 col-sm-6">
+          <%= f.label "What's your overall price range?" %>
+          <%= f.text_field :range, class: "form-control", placeholder: "e.g. $550,000 to $700,000" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6">
+          <%= f.label "What's your monthly budget for rent?" %>
+          <%= f.text_field :budget, class: "form-control", placeholder: "e.g. Under $1,700" %>
+        </div> <!-- form group -->
+
+        <div class="btn" style="margin-right: 10px" id="pricePrev">Back</div>
+        <div class="btn" style="margin-left: 10px" id="priceNext">Next</div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- price div -->
+
+    <div id="info" class="hidden row">
+      <div class="container quick-form">
+        <h2>Now where do we send your listings report?</h2>
+
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Name" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark" %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Phone Number" %>
+            <%= f.text_field :phone, class: "form-control", placeholder: "e.g. (949) 524-1246" %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Email" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com" %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12">
+            <%= f.label "Anything else you want us to know?" %>
+            <%= f.text_area :notes, class: "form-control", placeholder: "e.g. A view is really important to us, we would love a pool, we want to be close to public transportation, nearby schools are important to us, etc." %>
+          </div> <!-- form group -->
+
+        <div class="form-actions">
+          <div class="btn"  style="margin-right: 10px" id="infoPrev">Back</div>
+          <%= f.button :submit, "Submit", style: "margin-left: 10px" %>
+        </div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- info div -->
+
+  </div> <!-- form inputs -->
+
+
+
+<% end %>
+
+<script>
+  $(document).ready(function(){
+      $("#detailsNext").click(function () {
+        $("#details").addClass("hidden");
+        $("#price").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-price").addClass("active");
+      });
+      $("#pricePrev").click(function () {
+        $("#price").addClass("hidden");
+        $("#details").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-details").addClass("active");
+      });
+      $("#priceNext").click(function () {
+        $("#price").addClass("hidden");
+        $("#info").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-info").addClass("active");
+      });
+      $("#infoPrev").click(function () {
+        $("#info").addClass("hidden");
+        $("#price").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-price").addClass("active");
+      });
+  });
+</script>

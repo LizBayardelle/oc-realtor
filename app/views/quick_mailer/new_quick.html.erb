@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Cinzel+Decorative:400,900|Playfair+Display:400,900" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1 style="'Cinzel Decorative', cursive">New Quick Survey Response from <%= @quick.name %></h1>
+
+    <p style="'Nunito Sans', sans-serif"><%= @quick.email %>  |  <%= @quick.phone %></p>
+    <p style="'Nunito Sans', sans-serif"><% if @quick.house == true %>Looking for a House<% else %>Looking for an Apartment/Condo<% end %> in <%= @quick.location %></p>
+
+    <h2 style="'Playfair Display', serif">House Details</h2>
+    <p style="'Nunito Sans', sans-serif">
+      <strong>Square Footage:</strong>  <%= @quick.footage %><br />
+      <strong>Bedrooms:</strong>  <%= @quick.bedrooms %><br />
+      <strong>Bathrooms:</strong>  <%= @quick.bathrooms %>
+    </p>
+
+    <h2 style="'Playfair Display', serif">Financial Information</h2>
+    <p style="'Nunito Sans', sans-serif">
+      <strong>Price Range:</strong>  <%= @quick.range %><br />
+      <strong>Monthly Budget:</strong>  <%= @quick.budget %>
+    </p>
+
+    <h2 style="'Playfair Display', serif">Other Notes</h2>
+    <% if @quick.notes %>
+      <p style="'Nunito Sans', sans-serif"><%= @quick.notes %></p>
+    <% end %>
+
+    <h3 style="'Playfair Display', serif"><%= link_to "View Message on Website", quick_url(@quick) %>here</h3>
+  </body>
+</html>

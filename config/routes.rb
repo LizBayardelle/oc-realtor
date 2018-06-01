@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :buyers
-  resources :intakes
-
-  get 'test/hero'
-
-  get 'tags/:tag', to: 'blogs#index', as: :tag
-  resources :listings
   resources :home, only: [:index]
   root "home#index"
-  get "test/hero"
+
+  resources :quicks
+  post "user/:id/archive" => "quicks#archive_quick", as: "archive_quick"
+  post "user/:id/unarchive" => "quicks#unarchive_quick", as: "unarchive_quick"
+  post "user/:id/make_responded" => "quicks#make_responded", as: "make_responded"
+  post "user/:id/make_unresponded" => "quicks#make_unresponded", as: "make_unresponded"
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
@@ -18,6 +16,11 @@ Rails.application.routes.draw do
   post "user/:id/confirm" => "users#confirm_client", as: "confirm_client"
   post "user/:id/unconfirm" => "users#unconfirm_client", as: "unconfirm_client"
 
+  get 'test/hero'
+
+  resources :buyers
+  resources :intakes
+  resources :listings
 
   resources :contacts
   post "contact/:id/archive" => "contacts#archive_contact", as: "archive_contact"
@@ -26,6 +29,7 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
+  get 'tags/:tag', to: 'blogs#index', as: :tag
   post "users/:id/subscribe_to_blog" => "users#subscribe_to_blog", as: "subscribe_to_blog"
   post "comment/:id/approve" => "comments#approve_comment", as: "approve_comment"
   post "comment/:id/unapprove" => "comments#unapprove_comment", as: "unapprove_comment"

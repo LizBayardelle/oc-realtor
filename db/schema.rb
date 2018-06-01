@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026000614) do
+ActiveRecord::Schema.define(version: 20180531212407) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -162,6 +162,24 @@ ActiveRecord::Schema.define(version: 20171026000614) do
   end
 
   add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
+
+  create_table "quicks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "range"
+    t.string   "budget"
+    t.string   "location"
+    t.string   "bedrooms"
+    t.string   "bathrooms"
+    t.string   "footage"
+    t.text     "notes"
+    t.boolean  "responded",  default: false
+    t.boolean  "archived",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "house",      default: true
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

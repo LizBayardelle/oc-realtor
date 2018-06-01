@@ -15,6 +15,7 @@
 <div class="container bg-white users">
 
 	<% if current_user.admin %>
+		<%= render "quicks" %>
 		<%= render "clients" %>
 		<%= render "contacts" %>
 		<%= render "values" %>

@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     @comments = Comment.where(approved: false)
     @values = Value.where(archived: false)
     @archived_values = Value.where(archived: true)
+    @new_quicks = Quick.where(responded: false, archived: false)
+    @old_quicks = Quick.where(responded: true, archived: false)
+    @archived_quicks = Quick.where(archived: true)
   end
 
   def confirm_client
