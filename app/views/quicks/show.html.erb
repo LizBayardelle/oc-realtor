@@ -1,64 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="responsive-hero-div">
+    <%= image_tag "form.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @quick.name %>
-</p>
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1><%= @quick.name %></h1>
+        <h4><%= mail_to @quick.email %>  |  <%= @quick.phone %></h4>
+        <div class="text-center container" style="width: 100%">
+          <h3 class="font-sans">
+            Looking for
+            <% if @quick.house == true %>a House
+            <% else %>an Apartment or Condo
+            <% end %>
+             <% if @quick.location != nil %>in <%= @quick.location %><% end %>
+          </h3>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @quick.phone %>
-</p>
+          <%= link_to 'Back to Dashboard', user_path(current_user) %>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @quick.email %>
-</p>
 
-<p>
-  <strong>Range:</strong>
-  <%= @quick.range %>
-</p>
+<div id="form" class="container text-left bg-white">
+  <div class="buffer"></div>
 
-<p>
-  <strong>Budget:</strong>
-  <%= @quick.budget %>
-</p>
+  <h3 class="col-sm-6"><strong>Price Range:</strong> <%= @quick.range %></h3>
+  <h3 class="col-sm-6"><strong>Budget:</strong> <%= @quick.budget %></h3>
+  <h3 class="col-sm-6"><strong>Bedrooms:</strong> <%= @quick.bedrooms %></h3>
+  <h3 class="col-sm-6"><strong>Bathrooms:</strong> <%= @quick.bathrooms %></h3>
+  <h3 class="col-sm-12"><strong>Square Footage:</strong> <%= @quick.footage %></h3>
+  <h3 class="col-sm-12"><strong>Notes:</strong> <%= @quick.notes %></h3>
 
-<p>
-  <strong>Location:</strong>
-  <%= @quick.location %>
-</p>
+  <h3 class="col-sm-6"><strong>Responded:</strong> <%= @quick.responded %></h3>
+  <h3 class="col-sm-6"><strong>Archived:</strong> <%= @quick.archived %></h3>
 
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @quick.bedrooms %>
-</p>
-
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @quick.bathrooms %>
-</p>
-
-<p>
-  <strong>Footage:</strong>
-  <%= @quick.footage %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @quick.notes %>
-</p>
-
-<p>
-  <strong>Responded:</strong>
-  <%= @quick.responded %>
-</p>
-
-<p>
-  <strong>Archived:</strong>
-  <%= @quick.archived %>
-</p>
-
-<%= link_to 'Edit', edit_quick_path(@quick) %> |
-<%= link_to 'Back', quicks_path %>
+  <div class="buffer col-sm-12"></div>
+</div> <!-- container -->
