@@ -24,6 +24,7 @@
     <div class="row" id="details">
       <div class="container quick-form">
         <h2>What should your house be like?</h2>
+          <%= f.hidden_field :house, value: params[:house] %>
 
         <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
           <%= f.label "Where do you want to live?" %>
