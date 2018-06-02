@@ -50,7 +50,7 @@ class ValuesController < ApplicationController
 
   def destroy
     @value.destroy
-    redirect_to values_url, notice: 'Value was successfully destroyed.'
+    redirect_to :back, notice: 'Value was successfully destroyed.'
   end
 
   def archive_value

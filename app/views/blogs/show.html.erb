@@ -9,16 +9,15 @@
 </div> <!-- overlap-image -->
 
 <div class="container">
-  <div class="header-row">
-    <h3><%= @blog.teaser %></h3>
-    <h4><%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4>
-    <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
-  </div> <!-- header row -->
 
-  <div class="card no-hover full-width"><div class="padding-box">
-    <h2 class="text-center"><%= @blog.title %></h2>
-    <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
-    <p><%= @blog.body.html_safe %></p>
+  <div class="card no-hover full-width blog"><div class="padding-box">
+    <div class="header-row">
+      <h3><%= @blog.teaser %></h3>
+      <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
+      <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <h4>Tags: <%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4>
+    </div> <!-- header row -->
+    <%= @blog.body.html_safe %>
 
     <div class="row">
       <hr class="col-xs-6 col-xs-push-3" style="border-color: #c0c0c0" />

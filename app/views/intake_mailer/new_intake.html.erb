@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Cinzel+Decorative:400,900|Playfair+Display:400,900" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1 style="'Cinzel Decorative', cursive"><%= @contact.purpose %></h1>
+
+    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0">From: <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+    <p style="'Nunito Sans', sans-serif"><%= @contact.message %></p>
+
+    <p><small>
+      Phone: <%= @contact.phone %><% if @contact.preferred_contact == "Phone" %> (Preferred)<% end %>
+      <br />
+      Email: <%= mail_to @contact.email %><% if @contact.preferred_contact == "Email" %> (Preferred)<% end %>
+    </small></p>
+  </body>
+</html>

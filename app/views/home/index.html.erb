@@ -28,7 +28,7 @@
 
 <div class="container bg-white">
 	<div> <!-- left side -->
-		<h1 class="text-center">What's new in Orange County?</h1>
+		<h1 class="text-center">The Inside Scoop</h1>
 		<% @blogs.each do |blog| %>
 			<%= link_to blog_path(blog) do %>
 				<div class="row blog-list-links">
@@ -36,7 +36,7 @@
 						<%= image_tag blog.image.url, alt: blog.title %>
 					</div> <!-- col image -->
 					<div class="col-sm-9">
-						<h2 style="margin-top: 0; padding-top: 0"><%= blog.title %></h2>
+						<h3 style="margin-top: 0; padding-top: 0"><%= blog.title %></h3>
 						<p><%= blog.teaser %></p>
 						<p><%= link_to "Read More", blog_path(blog) %></p>
 					</div> <!-- col blog text -->

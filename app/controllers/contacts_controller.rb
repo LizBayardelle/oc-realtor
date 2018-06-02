@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1
   def destroy
     @contact.destroy
-    redirect_to root_url, notice: 'Contact was successfully destroyed.'
+    redirect_to :back, notice: 'Contact was successfully destroyed.'
   end
 
   def archive_contact

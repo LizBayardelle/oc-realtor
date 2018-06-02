@@ -41,6 +41,7 @@ $font-typewriter: 'Inconsolata', monospace;
 .font-cursive { font-family: $font-cursive }
 .font-decorative { font-family: $font-decorative }
 
+$white: #FFFFFF;
 $blue-dark: #031D55;
 $blue-light: #4D7EA8;
 $red: #890E05;
@@ -73,6 +74,7 @@ Basics
 
 body { font-family: $font-serif; color: $blue-dark; max-width: 100%; overflow-x: hidden;}
 h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
+h3 { font-family: $font-sans; font-weight: 200 }
 @media screen and (max-width: 768px) { h1 { font-size: 30px }}
 .linkish { cursor: pointer; text-decoration: underline; color: $red; }
 a { color: $grey-dark }
@@ -81,17 +83,17 @@ img { width: 100% }
 .bottom-buffer { height: 70px }
 .buffer { height: 50px }
 td { padding: 5px}
-.blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
+.blue-stripe { background-color: $blue-dark; 		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
-p { font-family: $font-sans }
+p { font-family: $font-serif }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
 .container.bg-white { background-color: $transparent-white }
 
-.between-btn { width: 100px; height: 5px; display: inline}
-
+label { font-family: $font-sans; font-weight: 800}
+::placeholder { font-family: $font-sans; font-weight: 200}
 
 
 /* TEXT */
@@ -260,31 +262,31 @@ input:active,
 Full Page Background
 ==============================================
 */
-.container { position: relative; }
-footer { position: relative }
-
-img.bg {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
+// .container { position: relative; }
+// footer { position: relative }
+//
+// img.bg {
+//   /* Set rules to fill background */
+//   min-height: 100%;
+//   min-width: 1024px;
+//
+//   /* Set up proportionate scaling */
+//   width: 100%;
+//   height: auto;
+//
+//   /* Set up positioning */
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 0;
+// }
+//
+// @media screen and (max-width: 1024px) { /* Specific to this particular image */
+//   img.bg {
+//     left: 50%;
+//     margin-left: -512px;   /* 50% */
+//   }
+// }
 
 
 
@@ -306,7 +308,7 @@ Main Nav
 */
 
 #main-nav.navbar-default {
-	height: 85px;
+	height: 95px;
 	z-index: 30;
 }
 
@@ -316,6 +318,7 @@ Main Nav
 
 #main-nav.navbar-default .navbar-brand img {
 	width: auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 @media screen and (max-width: 768px) {
@@ -326,15 +329,16 @@ Main Nav
 
 #main-nav.navbar-default {
     font-size: 16px;
+		font-weight: 200;
 		font-family: $font-sans;
-    background-color: $blue-dark;
+    background-color: $white;
     border: none;
 		margin-bottom: 0px;
 		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 #main-nav.navbar-default .navbar-nav>li>a {
-    color: white;
+    color: $blue-dark;
 		height: 50px;
 		margin-bottom: -35px;
 }
@@ -354,18 +358,18 @@ Main Nav
     color: rgba(85, 85, 85, 1);
 }
 #main-nav.navbar-default .navbar-toggle {
-    border-color: $creme;
+    border-color: $blue-dark;
 }
 #main-nav.navbar-default .navbar-toggle:hover,
 #main-nav.navbar-default .navbar-toggle:focus {
-    background-color: $creme;
+    background-color: $blue-dark;
 }
 #main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: $creme;
+    background-color: $blue-dark;
 }
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: $blue-dark;
+    background-color: $white;
 }
 
 #main-nav .dropdown-menu:li {
@@ -399,7 +403,7 @@ Main Nav
   right: 50%;
   bottom: 0;
   background: $blue-light;
-  height: 4px;
+  height: 1px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
   -webkit-transition-duration: 0.3s;
@@ -440,6 +444,7 @@ Responsive Hero
 	display:inline-block;
 	overflow:hidden;
 	margin-bottom: -10px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .responsive-hero-img {
@@ -648,8 +653,9 @@ Footer
 
 footer {
 	background-color: $blue-dark;
-	color: $creme;
-	padding: 30px 0 0 0;
+	color: $white;
+	padding: 30px 0 30px 0;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .page-minus-footer {
@@ -679,7 +685,7 @@ footer .icon:hover {
 }
 
 .footer-logo {
-	max-width: 300px;
+	max-width: 250px;
 	width: 45%;
 	padding: 10px 5% 10px 5%;
 	display: inline-block;
@@ -797,6 +803,10 @@ Pages
 
 /* INDEX */
 
+.blog h1 {
+	margin-bottom: 5px !important;
+}
+
 .blog-list-links {
 	padding: 15px 0 15px 0;
 }
@@ -806,7 +816,8 @@ Pages
 }
 
 .blog-list-links:hover {
-	background-color: $transparent-blue !important;
+	border: solid thin $transparent-blue !important;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .container h1 {

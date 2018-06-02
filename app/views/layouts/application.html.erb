@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900|Inconsolata:400,700|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,400,800,900|Inconsolata:400,700|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
   <meta name="p:domain_verify" content="51675027d07047c4ae82a98a4b64ae0b"/>
 </head>
@@ -16,7 +16,7 @@
 
 
 <div class="page-minus-footer">
-  <%= image_tag "background.jpg", class: "bg" %>
+  <!-- <%= image_tag "background.jpg", class: "bg" %> -->
 
 
   <!-- MENU GOES HERE -->
@@ -25,14 +25,14 @@
           <div class="navbar-header">
           	<%= link_to root_path, class:"navbar-brand" do %>
                 <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
-                <%= image_tag "logo_words_light.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block" %><br />
+                <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
             <% end %>
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
               </button>
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
             <div class="text-right" style="padding: 10px 5px 0 0">
-              <span class="color-blue-light font-decorative text-right"><strong>Your guide to the OC housing market.</strong></span>
+              <span class="color-blue-light font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
@@ -87,7 +87,7 @@
 
 <footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
   <div class="container text-center">
-    <%= image_tag "logo_light.png", alt: "Linchpin Realty Logo", style: "width: 50%; max-width: 400px" %>
+    <%= image_tag "logo_light.png", alt: "Linchpin Realty Logo", class: "footer-logo" %>
     <h2>Your guide to the California housing market.</h2>
     <div class="row social-row">
       <a href="mailto:anthony@linchpinrealty.com"><i class="icon ion-email"></i></a>
