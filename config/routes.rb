@@ -34,7 +34,6 @@ Rails.application.routes.draw do
   post "comment/:id/approve" => "comments#approve_comment", as: "approve_comment"
   post "comment/:id/unapprove" => "comments#unapprove_comment", as: "unapprove_comment"
   get "blogs/:id/download_pdf", controller: 'blogs', action:'download_pdf', as: 'download_pdf'
-
   resources :values
   post "value/:id/archive" => "values#archive_value", as: "archive_value"
   post "value/:id/unarchive" => "values#unarchive_value", as: "unarchive_value"

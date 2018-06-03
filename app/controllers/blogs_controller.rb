@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
 
   def download_pdf
     @blog = Blog.friendly.find(params[:id])
-    send_file @blog.link_filename, type: "application/pdf"
+    send_file File.new(Rails.root.join(@blog.link_filename)), type: "application/pdf"
   end
 
   # GET /blogs/new
