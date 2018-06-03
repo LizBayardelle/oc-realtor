@@ -15,7 +15,13 @@
       <h3><%= @blog.teaser %></h3>
       <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
       <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
-      <h4>Tags: <%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4>
+      <h3>
+        <%= link_to download_pdf_path(@blog), type: "application/pdf" do %>
+          <%= @blog.link_text %>
+        <% end %>
+      </h3>
+      <div class="row"><hr class="col-xs-6 col-xs-push-3" /></div>
+      <!-- <h4>Tags: <%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4> -->
     </div> <!-- header row -->
     <%= @blog.body.html_safe %>
 

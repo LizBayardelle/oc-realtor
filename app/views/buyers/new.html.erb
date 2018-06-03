@@ -6,7 +6,7 @@
         <h1>What are you looking for?</h1>
         <div class="text-center container" style="width: 100%">
           <h3 class="font-sans">The more information I have, the better I can find you exactly what you're looking for.</h3>
-          <a href="#form"><div class="btn">Start Form</div></a>
+          <a href="#form" id="form"><div class="btn">Start Form</div></a>
         </div> <!-- container -->
       </div> <!-- absolute-bottom-transparent -->
     </div> <!-- overlap-image -->
@@ -19,7 +19,7 @@
 </div> <!-- container -->
 
 <script>
-  $(document).on('click', 'a', function(event){
+  $(document).on('click', '#form', function(event){
       event.preventDefault();
       $('html, body').animate({
           scrollTop: $( $.attr(this, 'href') ).offset().top

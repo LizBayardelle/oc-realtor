@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531212407) do
+ActiveRecord::Schema.define(version: 20180603014725) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180531212407) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.string   "link_text"
+    t.string   "link_filename"
   end
 
   add_index "blogs", ["slug"], name: "index_blogs_on_slug", unique: true

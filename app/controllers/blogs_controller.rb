@@ -19,6 +19,11 @@ class BlogsController < ApplicationController
     @comments = Comment.where(blog_id: @blog.id, approved: true)
   end
 
+  def download_pdf
+    @blog = Blog.friendly.find(params[:id])
+    send_file @blog.link_filename, type: "application/pdf"
+  end
+
   # GET /blogs/new
   def new
     @blog = Blog.new
@@ -67,7 +72,7 @@ class BlogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def blog_params
-      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list)
+      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list, :link_text, :link_filename)
     end
 
 end
