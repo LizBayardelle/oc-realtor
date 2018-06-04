@@ -1,0 +1,122 @@
+<h1 class="buyersHeader">Buyer Interviews</h1>
+<div class="buyersDiv">
+
+  <h3 class="newBuyerHeader">New Submissions</h3>
+  <div class="newBuyerDiv">
+    <% if @new_buyers.count == 0 %>
+      <p>You currently have no new buyer form submissions.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @new_buyers.each do |buyer| %>
+            <tr>
+              <td style="width: 40%">
+                <% if buyer.buyer_name %>
+                  <%= link_to buyer.buyer_name, buyer_path(buyer)%><br />
+                <% else %>
+                  <%= link_to "No Name Given", buyer_path(buyer)%><br />
+                <% end %>
+
+                <% if buyer.phone_mobile != "" %>
+                  <%= buyer.phone_mobile %> (Mobile)<br />
+                <% end %>
+
+                <% if buyer.phone_home != "" %>
+                  <%= buyer.phone_home %> (Home)<br />
+                <% end %>
+
+                <% if buyer.phone_work != "" %>
+                  <%= buyer.phone_work %> (Work)<br />
+                <% end %>
+
+                <%= mail_to buyer.email %>
+              </td>
+              <td style="width: 20%">
+                <% if buyer.search_time != "" %>
+                  <strong>Searching for <%= buyer.search_time %></strong><br />
+                <% end %>
+                <%= buyer.price_range %>
+              </td>
+              <td>
+                <%= link_to buyer, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_buyer_path(buyer), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- unresponded div -->
+
+  <h3 class="archivedBuyerHeader">Archived</h3>
+  <div class="archivedBuyerDiv hidden">
+    <% if @archived_buyers.count == 0 %>
+      <p>You currently have no new buyer form submissions.</p>
+    <% else %>
+      <table style="width: 100%">
+        <tbody>
+          <% @archived_buyers.each do |buyer| %>
+            <tr>
+              <td style="width: 40%">
+                <% if buyer.buyer_name %>
+                  <%= link_to buyer.buyer_name, buyer_path(buyer)%><br />
+                <% else %>
+                  <%= link_to "No Name Given", buyer_path(buyer)%><br />
+                <% end %>
+
+                <% if buyer.phone_mobile != "" %>
+                  <%= buyer.phone_mobile %> (Mobile)<br />
+                <% end %>
+
+                <% if buyer.phone_home != "" %>
+                  <%= buyer.phone_home %> (Home)<br />
+                <% end %>
+
+                <% if buyer.phone_work != "" %>
+                  <%= buyer.phone_work %> (Work)<br />
+                <% end %>
+
+                <%= mail_to buyer.email %>
+              </td>
+              <td style="width: 20%">
+                <% if buyer.search_time != "" %>
+                  <strong>Searching for <%= buyer.search_time %></strong><br />
+                <% end %>
+                <%= buyer.price_range %>
+              </td>
+              <td>
+                <%= link_to buyer, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to archive_buyer_path(buyer), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div> <!-- archived div -->
+
+</div> <!-- all clients div -->
+
+
+
+<script>
+	$(document).ready(function(){
+    $(".buyersHeader").click(function(){
+			$(".buyersDiv").toggleClass("hidden");
+		});
+    $(".newBuyerHeader").click(function(){
+      $(".newBuyerDiv").toggleClass("hidden");
+    });
+    $(".archivedBuyerHeader").click(function(){
+			$(".archivedBuyerDiv").toggleClass("hidden");
+		});
+	});
+</script>

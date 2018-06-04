@@ -1,0 +1,38 @@
+<div class="responsive-hero-div">
+    <%= image_tag "house_pool.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
+
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1>That's it!</h1>
+        <div class="text-center" style="width: 100%">
+          <h3 class="font-sans">A real, human realtor will get back to you in less than 24 hours.</h3>
+          <div class="buffer"></div>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
+
+
+<div class="container text-center">
+  <div class="buffer"></div>
+  <h2 class="font-sans text-center">In the meantime, you might be interested in some of these articles on finding a house:</h2>
+  <div class="row">
+    <a href="http://www.linchpinrealty.com/blogs/6-keys-to-looking-at-houses">
+      <div class="card padding-box">
+        <h3>6 Keys to Looking at Houses</h3>
+      </div>
+    </a>
+    <a href="http://www.linchpinrealty.com/blogs/relocating-to-orange-county">
+      <div class="card padding-box">
+        <h3>Relocating to Orange County</h3>
+      </div> <!-- card -->
+    </a>
+  </div>
+  <div class="buffer"></div>
+</div> <!-- container -->
+
+<script>
+  $(document).ready(function() {
+  	$('.card').matchHeight();
+  });
+</script>

@@ -114,6 +114,7 @@ label { font-family: $font-sans; font-weight: 800}
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
+	border: solid 1px $blue-dark;
 }
 
 .card *:hover {
@@ -176,6 +177,20 @@ label { font-family: $font-sans; font-weight: 800}
 
 	.card.full-width .padding-box {
 		padding: 35px 50px 35px 50px;
+	}
+
+	.show-cards .card h1 {
+		margin: 0;
+		text-align: center;
+		font-size: 35px;
+	}
+
+	.show-cards .card {
+		margin-bottom: 50px;
+	}
+
+	.show-cards .card h3 {
+		margin: 10px;
 	}
 
 /* BUTTONS */

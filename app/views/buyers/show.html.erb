@@ -1,194 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="responsive-hero-div">
+    <%= image_tag "form.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
 
-<p>
-  <strong>Buyer name:</strong>
-  <%= @buyer.buyer_name %>
-</p>
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1><%= @buyer.buyer_name %></h1>
+        <h4><%= mail_to @buyer.email %></h4>
+        <h4><%= @buyer.phone_mobile %> (Mobile)  |  <%= @buyer.phone_home %> (Home)</h4>
+        <h4><%= @buyer.phone_work %> (Work)  |  <%= @buyer.phone_fax %> (Fax)</h4>
+        <div class="text-center container" style="width: 100%">
+          <h4><% if @buyer.archived %>Archived<% end %></h4>
+          <%= link_to 'Back to Dashboard', user_path(current_user) %>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
 
-<p>
-  <strong>Phone mobile:</strong>
-  <%= @buyer.phone_mobile %>
-</p>
 
-<p>
-  <strong>Phone home:</strong>
-  <%= @buyer.phone_home %>
-</p>
+<div id="form" class="container show-cards">
+  <div class="buffer"></div>
+  <div class="card padding-box full-width">
+    <div class="row">
+      <h1>Basic Information</h1>
+      <h3><strong>Employer:</strong> <%= @buyer.employer %></h3>
+      <h3><strong>Search time:</strong>  <%= @buyer.search_time %></h3>
+      <h3><strong>Other agent:</strong>  <%= @buyer.other_agent %></h3>
+    </div> <!-- card -->
+  </div> <!-- row -->
+  <div class="card padding-box full-width">
+    <div class="row">
+      <h1>Current Home Details</h1>
+      <h3><strong>Address:</strong>  <%= @buyer.address %></h3>
+      <h3><strong>Family size:</strong>  <%= @buyer.family_size %></h3>
+      <h3><strong>Own or rent:</strong>  <%= @buyer.own_or_rent %></h3>
+      <h3><strong>Current mortgage:</strong>  <%= @buyer.current_mortgage %></h3>
+      <h3><strong>Need sell:</strong>  <%= @buyer.need_sell %></h3>
+      <h3><strong>Lease length:</strong>  <%= @buyer.lease_length %></h3>
+      <h3><strong>Really liked:</strong>  <%= @buyer.really_liked %></h3>
+      <h3><strong>Why not:</strong>  <%= @buyer.why_not %></h3>
+      <h3><strong>Move time:</strong>  <%= @buyer.move_time %></h3>
+      <h3><strong>Why move time:</strong>  <%= @buyer.why_move_time %></h3>
+    </div> <!-- card -->
+  </div> <!-- row -->
+  <div class="card padding-box full-width">
+    <div class="row">
+      <h1>Financial Information</h1>
+      <h3><strong>Price range:</strong>  <%= @buyer.price_range %></h3>
+      <h3><strong>Qualified:</strong>  <%= @buyer.qualified %></h3>
+      <h3><strong>Lender:</strong>  <%= @buyer.lender %></h3>
+      <h3><strong>Downpayment:</strong>  <%= @buyer.downpayment %></h3>
+      <h3><strong>Monthly budget:</strong>  <%= @buyer.monthly_budget %></h3>
+    </div> <!-- card -->
+  </div> <!-- row -->
+  <div class="card padding-box full-width">
+    <div class="row">
+      <h1>Home Search Info</h1>
+      <h3><strong>Bedrooms:</strong>  <%= @buyer.bedrooms %></h3>
+      <h3><strong>Square feet:</strong>  <%= @buyer.square_feet %></h3>
+      <h3><strong>Units:</strong>  <%= @buyer.units %></h3>
+      <h3><strong>Location:</strong>  <%= @buyer.location %></h3>
+      <h3><strong>Style:</strong>  <%= @buyer.style %></h3>
+      <h3><strong>Decision:</strong>  <%= @buyer.decision %></h3>
+      <h3><strong>Requirements:</strong>  <%= @buyer.requirements %></h3>
+      <h3><strong>Times:</strong>  <%= @buyer.times %></h3>
+      <h3><strong>Communication:</strong>  <%= @buyer.communication %></h3>
+      <h3><strong>Best time:</strong>  <%= @buyer.best_time %></h3>
+      <h3><strong>Sites:</strong>  <%= @buyer.sites %></h3>
+      <h3><strong>Other information:</strong>  <%= @buyer.other_information %></h3>
+    </div> <!-- card -->
+  </div> <!-- row -->
 
-<p>
-  <strong>Phone work:</strong>
-  <%= @buyer.phone_work %>
-</p>
-
-<p>
-  <strong>Phone fax:</strong>
-  <%= @buyer.phone_fax %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @buyer.email %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @buyer.employer %>
-</p>
-
-<p>
-  <strong>Search time:</strong>
-  <%= @buyer.search_time %>
-</p>
-
-<p>
-  <strong>Other agent:</strong>
-  <%= @buyer.other_agent %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @buyer.address %>
-</p>
-
-<p>
-  <strong>Family size:</strong>
-  <%= @buyer.family_size %>
-</p>
-
-<p>
-  <strong>Own or rent:</strong>
-  <%= @buyer.own_or_rent %>
-</p>
-
-<p>
-  <strong>Current mortgage:</strong>
-  <%= @buyer.current_mortgage %>
-</p>
-
-<p>
-  <strong>Need sell:</strong>
-  <%= @buyer.need_sell %>
-</p>
-
-<p>
-  <strong>Lease length:</strong>
-  <%= @buyer.lease_length %>
-</p>
-
-<p>
-  <strong>Really liked:</strong>
-  <%= @buyer.really_liked %>
-</p>
-
-<p>
-  <strong>Why not:</strong>
-  <%= @buyer.why_not %>
-</p>
-
-<p>
-  <strong>Move time:</strong>
-  <%= @buyer.move_time %>
-</p>
-
-<p>
-  <strong>Why move time:</strong>
-  <%= @buyer.why_move_time %>
-</p>
-
-<p>
-  <strong>Price range:</strong>
-  <%= @buyer.price_range %>
-</p>
-
-<p>
-  <strong>Qualified:</strong>
-  <%= @buyer.qualified %>
-</p>
-
-<p>
-  <strong>Lender:</strong>
-  <%= @buyer.lender %>
-</p>
-
-<p>
-  <strong>Downpayment:</strong>
-  <%= @buyer.downpayment %>
-</p>
-
-<p>
-  <strong>Monthly budget:</strong>
-  <%= @buyer.monthly_budget %>
-</p>
-
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @buyer.bedrooms %>
-</p>
-
-<p>
-  <strong>Square feet:</strong>
-  <%= @buyer.square_feet %>
-</p>
-
-<p>
-  <strong>Units:</strong>
-  <%= @buyer.units %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @buyer.location %>
-</p>
-
-<p>
-  <strong>Style:</strong>
-  <%= @buyer.style %>
-</p>
-
-<p>
-  <strong>Decision:</strong>
-  <%= @buyer.decision %>
-</p>
-
-<p>
-  <strong>Helper:</strong>
-  <%= @buyer.helper %>
-</p>
-
-<p>
-  <strong>Requirements:</strong>
-  <%= @buyer.requirements %>
-</p>
-
-<p>
-  <strong>Use as agent:</strong>
-  <%= @buyer.use_as_agent %>
-</p>
-
-<p>
-  <strong>Times:</strong>
-  <%= @buyer.times %>
-</p>
-
-<p>
-  <strong>Communication:</strong>
-  <%= @buyer.communication %>
-</p>
-
-<p>
-  <strong>Best time:</strong>
-  <%= @buyer.best_time %>
-</p>
-
-<p>
-  <strong>Sites:</strong>
-  <%= @buyer.sites %>
-</p>
-
-<p>
-  <strong>Other information:</strong>
-  <%= @buyer.other_information %>
-</p>
-
-<%= link_to 'Edit', edit_buyer_path(@buyer) %> |
-<%= link_to 'Back', buyers_path %>
+  <div class="buffer col-sm-12"></div>

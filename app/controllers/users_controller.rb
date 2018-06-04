@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @new_quicks = Quick.where(responded: false, archived: false)
     @old_quicks = Quick.where(responded: true, archived: false)
     @archived_quicks = Quick.where(archived: true)
+    @new_buyers = Buyer.where(archived: false)
+    @archived_buyers = Buyer.where(archived: true)
   end
 
   def confirm_client

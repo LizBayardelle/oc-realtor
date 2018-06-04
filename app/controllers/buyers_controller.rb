@@ -42,7 +42,29 @@ class BuyersController < ApplicationController
   # DELETE /buyers/1
   def destroy
     @buyer.destroy
-    redirect_to buyers_url, notice: 'Buyer was successfully destroyed.'
+    redirect_to :back, notice: 'Buyer form was successfully deleted.'
+  end
+
+  def archive_buyer
+      @buyer = Buyer.find(params[:id])
+      if @buyer.update_attributes(archived: true)
+          redirect_to :back
+          flash[:notice] = "That message has been archived!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def unarchive_buyer
+      @buyer = Buyer.find(params[:id])
+      if @buyer.update_attributes(archived: false)
+          redirect_to :back
+          flash[:notice] = "That message has been unarchived!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
   end
 
   private

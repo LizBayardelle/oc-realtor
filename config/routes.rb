@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'test/hero'
 
   resources :buyers
+  post "user/:id/archive" => "users#archive_buyer", as: "archive_buyer"
+  post "user/:id/unarchive" => "users#unarchive_buyer", as: "unarchive_buyer"
+
   resources :intakes
   resources :listings
 

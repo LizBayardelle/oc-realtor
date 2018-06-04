@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New Buyer Interview from <%= @buyer.buyer_name %></h1>
+
+    <p><%= @buyer.email %>  |  <%= @buyer.phone_mobile %></p>
+    <% if @buyer.phone_home %><p><%= @buyer.phone_home %> (Home)</p><% end %>
+    <% if @buyer.phone_work %><p><%= @buyer.phone_work %> (Work)</p><% end %>
+    <% if @buyer.phone_fax %><p><%= @buyer.phone_fax %> (Fax)</p><% end %>
+
+    <h3>Basic Information</h3>
+    <h3><strong>Employer:</strong> <%= @buyer.employer %></h3>
+    <h3><strong>Search time:</strong>  <%= @buyer.search_time %></h3>
+    <h3><strong>Other agent:</strong>  <%= @buyer.other_agent %></h3>
+
+    <h3>Current Home Details</h3>
+    <p><strong>Address:</strong>  <%= @buyer.address %></p>
+    <p><strong>Family size:</strong>  <%= @buyer.family_size %></p>
+    <p><strong>Own or rent:</strong>  <%= @buyer.own_or_rent %></p>
+    <p><strong>Current mortgage:</strong>  <%= @buyer.current_mortgage %></p>
+    <p><strong>Need sell:</strong>  <%= @buyer.need_sell %></p>
+    <p><strong>Lease length:</strong>  <%= @buyer.lease_length %></p>
+    <p><strong>Really liked:</strong>  <%= @buyer.really_liked %></p>
+    <p><strong>Why not:</strong>  <%= @buyer.why_not %></p>
+    <p><strong>Move time:</strong>  <%= @buyer.move_time %></p>
+    <p><strong>Why move time:</strong>  <%= @buyer.why_move_time %></p>
+
+    <h3>Financial Information</h3>
+    <p><strong>Price range:</strong>  <%= @buyer.price_range %></p>
+    <p><strong>Qualified:</strong>  <%= @buyer.qualified %></p>
+    <p><strong>Lender:</strong>  <%= @buyer.lender %></p>
+    <p><strong>Downpayment:</strong>  <%= @buyer.downpayment %></p>
+    <p><strong>Monthly budget:</strong>  <%= @buyer.monthly_budget %></p>
+
+    <h3>Home Search Info</h3>
+    <p><strong>Bedrooms:</strong>  <%= @buyer.bedrooms %></p>
+    <p><strong>Square feet:</strong>  <%= @buyer.square_feet %></p>
+    <p><strong>Units:</strong>  <%= @buyer.units %></p>
+    <p><strong>Location:</strong>  <%= @buyer.location %></p>
+    <p><strong>Style:</strong>  <%= @buyer.style %></p>
+    <p><strong>Decision:</strong>  <%= @buyer.decision %></p>
+    <p><strong>Requirements:</strong>  <%= @buyer.requirements %></p>
+    <p><strong>Times:</strong>  <%= @buyer.times %></p>
+    <p><strong>Communication:</strong>  <%= @buyer.communication %></p>
+    <p><strong>Best time:</strong>  <%= @buyer.best_time %></p>
+    <p><strong>Sites:</strong>  <%= @buyer.sites %></p>
+    <p><strong>Other information:</strong>  <%= @buyer.other_information %></p>
+
+    <h3><%= link_to "View Message on Website", buyer_url(@buyer) %></h3>
+  </body>
+</html>
