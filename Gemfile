@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 
 group :production do
-  gem 'pg', '~> 0.20'
+  gem 'pg', '~> 0.20.0'
   gem 'rails_12factor'
 end
 

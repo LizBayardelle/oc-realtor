@@ -156,7 +156,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pg (0.21.0)
+    pg (0.20.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -289,7 +289,7 @@ DEPENDENCIES
   magnific-popup-rails (~> 1.1.0)
   nori
   paperclip (~> 5.0.0)
-  pg (~> 0.20)
+  pg (~> 0.20.0)
   pry-rails
   quiet_assets
   rails (= 4.2.6)
