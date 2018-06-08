@@ -7,13 +7,21 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Google Tag Manager -->
+    <!-- data layer -->
+    <script>
+      dataLayer = [];
+    </script>
+    
+    <!-- other tag manager snippet -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KG9M4ZW');</script>
   <!-- End Google Tag Manager -->
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,400,800,900|Inconsolata:400,700|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
   <meta name="p:domain_verify" content="51675027d07047c4ae82a98a4b64ae0b"/>
@@ -25,75 +33,75 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<div class="page-minus-footer">
-  <!-- <%= image_tag "background.jpg", class: "bg" %> -->
+  <div class="page-minus-footer">
+    <!-- <%= image_tag "background.jpg", class: "bg" %> -->
 
 
-  <!-- MENU GOES HERE -->
-  <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container-fluid">
-          <div class="navbar-header">
-          	<%= link_to root_path, class:"navbar-brand" do %>
-                <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
-                <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
-            <% end %>
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-              </button>
-          </div>
-          <div class="collapse navbar-collapse navbar-menubuilder">
-            <div class="text-right" style="padding: 10px 5px 0 0">
-              <span class="color-blue-light font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
+    <!-- MENU GOES HERE -->
+    <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            	<%= link_to root_path, class:"navbar-brand" do %>
+                  <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
+                  <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
+              <% end %>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
-                <li><%= link_to 'Home Search', page_path('search'), class: "center-ul-hover" %></li>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+              <div class="text-right" style="padding: 10px 5px 0 0">
+                <span class="color-blue-light font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to 'Home Search', page_path('search'), class: "center-ul-hover" %></li>
 
-                <!-- <li class="dropdown">
-                  <%= link_to 'Home Search', new_value_path, class: "center-ul-hover" %>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to 'Tools', new_value_path %></li>
-                    <li role="separator" class="divider"></li>
-                    <li><%= link_to 'Tools', new_value_path %></li>
-                  </ul>
-                </li>
-                 -->
-                <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
-                <% if current_user %>
-                	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
-                <% else %>
-	                <li><%= link_to "Create Account", new_user_registration_path, class: "center-ul-hover" %></li>
-                <% end %>
-            </ul>
-          </div>
-      </div>
-  </div>
-
-
-
-  <!-- flash notice area -->
-  <div class="flash-notice-area">
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
-      </div>
-    <% elsif flash.now[:alert] %>
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash.now[:alert] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-  </div> <!-- flash notice area -->
+                  <!-- <li class="dropdown">
+                    <%= link_to 'Home Search', new_value_path, class: "center-ul-hover" %>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to 'Tools', new_value_path %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to 'Tools', new_value_path %></li>
+                    </ul>
+                  </li>
+                   -->
+                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
+                  <% if current_user %>
+                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
+                  <% else %>
+  	                <li><%= link_to "Create Account", new_user_registration_path, class: "center-ul-hover" %></li>
+                  <% end %>
+              </ul>
+            </div>
+        </div>
+    </div>
 
 
-  <%= yield %>
-</div> <!-- page minus footer -->
+
+    <!-- flash notice area -->
+    <div class="flash-notice-area">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash.now[:alert] %>
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash.now[:alert] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div> <!-- flash notice area -->
+
+
+    <%= yield %>
+  </div> <!-- page minus footer -->
 
 <footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
   <div class="container text-center">
