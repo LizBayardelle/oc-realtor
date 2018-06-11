@@ -16,7 +16,7 @@
       <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
       <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
       <% if @blog.link_filename %><h3 class="linkish" style="padding: 0 40px 0 40px">
-          <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "dataLayer.push({'category': 'downloads', 'action': 'Downloaded PDF'})" do %>
+          <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Downloaded PDF', 'eventLabel': 'Download Blog PDF'})" do %>
             <%= @blog.link_text %>
           <% end %>
       </h3><% end %>
