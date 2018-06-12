@@ -10,7 +10,7 @@
 				<h3><span class="typed"></span></h3>
 			</div>
 		</div>
-		<button><%= link_to page_path('hello'), class: "btn" do %>Get Started<% end %></button>
+		<button><%= link_to page_path('hello'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Click Homepage Get Started'})" do %>Get Started<% end %></button>
   </div> <!-- overlap image -->
 
 </div> <!-- responsive hero div -->
@@ -30,7 +30,7 @@
 	<div> <!-- left side -->
 		<h1 class="text-center">The Inside Scoop</h1>
 		<% @blogs.each do |blog| %>
-			<%= link_to blog_path(blog) do %>
+			<%= link_to blog_path(blog), onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage Single Blog Link'})" do %>
 				<div class="row blog-list-links">
 					<div class="col-sm-3">
 						<%= image_tag blog.image.url, alt: blog.title %>
@@ -43,7 +43,7 @@
 				</div> <!-- row -->
 			<% end %>
 		<% end %>
-		<h3 class="text-center"><%= link_to "Get more real estate tips and tricks on our blog...", blogs_path %>
+		<h3 class="text-center"><%= link_to "Get more real estate tips and tricks on our blog...", blogs_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage All Blogs Link'})" %>
 	</div> <!-- left side -->
 
 

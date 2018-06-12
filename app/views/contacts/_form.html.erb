@@ -4,7 +4,7 @@
   <div class="form-inputs row text-left">
     <div class="form-group col-sm-6">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name , class: "form-control" %>
+      <%= f.text_field :first_name , class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing First Name'})" %>
     </div> <!-- form group -->
     <div class="form-group col-sm-6">
       <%= f.label :last_name %>
@@ -36,6 +36,6 @@
   </div>
 
   <div class="form-actions row">
-    <%= f.button :submit, "Send Message" %>
+    <%= f.button :submit, "Send Message", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Contact Us Submission'})" %>
   </div>
 <% end %>
