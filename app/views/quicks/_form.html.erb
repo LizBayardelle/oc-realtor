@@ -43,8 +43,8 @@
           <%= f.text_field :bathrooms, class: "form-control", placeholder: "e.g. 2.5" %>
         </div> <!-- form group -->
 
-        <%= link_to "Back", page_path('get_report'), class: "btn", style: "margin-right: 10px" %>
-        <div class="btn" id="detailsNext" style="margin-left: 10px">Next</div>
+        <%= link_to "Back", page_path('get_report'), class: "btn", style: "margin-right: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back', 'eventLabel': 'Quick Back on 2'})" %>
+        <div class="btn" id="detailsNext" style="margin-left: 10px" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Next', 'eventLabel': 'Quick Next on 2'})">Next</div>
         <div class="buffer"></div>
       </div> <!-- container -->
     </div> <!-- details div -->
@@ -62,8 +62,8 @@
           <%= f.text_field :budget, class: "form-control", placeholder: "e.g. Under $1,700" %>
         </div> <!-- form group -->
 
-        <div class="btn" style="margin-right: 10px" id="pricePrev">Back</div>
-        <div class="btn" style="margin-left: 10px" id="priceNext">Next</div>
+        <div class="btn" style="margin-right: 10px" id="pricePrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back', 'eventLabel': 'Quick Back on 3'})">Back</div>
+        <div class="btn" style="margin-left: 10px" id="priceNext" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Next', 'eventLabel': 'Quick Next on 3'})">Next</div>
         <div class="buffer"></div>
       </div> <!-- container -->
     </div> <!-- price div -->
@@ -74,7 +74,7 @@
 
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Name" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", input_html: { required: true} %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Phone Number" %>
@@ -82,7 +82,7 @@
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Email" %>
-            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", input_html: { required: true}  %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12">
             <%= f.label "Anything else you want us to know?" %>
@@ -90,8 +90,8 @@
           </div> <!-- form group -->
 
         <div class="form-actions">
-          <div class="btn"  style="margin-right: 10px" id="infoPrev">Back</div>
-          <%= f.button :submit, "Submit", style: "margin-left: 10px" %>
+          <div class="btn"  style="margin-right: 10px" id="infoPrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back', 'eventLabel': 'Quick Back on 4'})">Back</div>
+          <%= f.button :submit, "Submit", style: "margin-left: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Submit', 'eventLabel': 'Quick Form Submit'})" %>
         </div>
         <div class="buffer"></div>
       </div> <!-- container -->
