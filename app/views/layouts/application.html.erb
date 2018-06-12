@@ -13,7 +13,7 @@
     <script>
       dataLayer = [];
     </script>
-    
+
     <!-- other tag manager snippet -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,12 +53,13 @@
                 <span class="color-blue-light font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to 'Home Search', page_path('search'), class: "center-ul-hover" %></li>
+                  <li><%= link_to "Home", root_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Home'})" %></li>
+                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+                  <li><%= link_to 'Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
 
-                  <!-- <li class="dropdown">
-                    <%= link_to 'Home Search', new_value_path, class: "center-ul-hover" %>
+                  <!--
+                  <li class="dropdown">
+                    <%= link_to 'Tools', new_value_path, class: "center-ul-hover" %>
                     <ul class="dropdown-menu">
                       <li><%= link_to 'Tools', new_value_path %></li>
                       <li role="separator" class="divider"></li>
@@ -66,11 +67,19 @@
                     </ul>
                   </li>
                    -->
-                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
+                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Contact Me'})" %></li>
+
                   <% if current_user %>
-                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
+                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %></li>
                   <% else %>
-  	                <li><%= link_to "Create Account", new_user_registration_path, class: "center-ul-hover" %></li>
+                    <li class="dropdown">
+                      <%= link_to 'My Account', new_user_registration_path, class: "center-ul-hover"onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav My Account'})" %>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to 'Sign In', new_user_session_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Sign In'})" %></li>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to 'Create an Account', new_user_session_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Create Account'})" %></li>
+                      </ul>
+                    </li>
                   <% end %>
               </ul>
             </div>
@@ -108,15 +117,15 @@
     <%= image_tag "logo_light.png", alt: "Linchpin Realty Logo", class: "footer-logo" %>
     <h2>Your guide to the California housing market.</h2>
     <div class="row social-row">
-      <a href="mailto:anthony@linchpinrealty.com"><i class="icon ion-email"></i></a>
-      <a href="https://www.facebook.com/LinchpinRealty" target="_blank"><i class="icon ion-social-facebook" target="_blank"></i></a>
-      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="icon ion-social-linkedin"></i></a>
-      <a href="https://twitter.com/LinchpinRealty" target="_blank"><i class="icon ion-social-twitter"></i></a>
-      <a href="https://plus.google.com/u/2/106755620722304807106" target="_blank"><i class="icon ion-social-googleplus"></i></a>
-      <a href="https://www.youtube.com/channel/UCWgiHPtxXbwJbp7b_EX-QYg" target="_blank"><i class="icon ion-social-youtube"></i></a>
-      <a href="https://www.pinterest.com/LinchpinRealtyCA/" target="_blank"><i class="icon ion-social-pinterest"></i></a>
+      <a href="mailto:anthony@linchpinrealty.com" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Email'})"><i class="icon ion-email"></i></a>
+      <a href="https://www.facebook.com/LinchpinRealty" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Facebook'})"><i class="icon ion-social-facebook" target="_blank"></i></a>
+      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="icon ion-social-linkedin" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer LinkedIn'})"></i></a>
+      <a href="https://twitter.com/LinchpinRealty" target="_blank"><i class="icon ion-social-twitter" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Twitter'})"></i></a>
+      <a href="https://plus.google.com/u/2/106755620722304807106" target="_blank"><i class="icon ion-social-googleplus" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Google'})"></i></a>
+      <a href="https://www.youtube.com/channel/UCWgiHPtxXbwJbp7b_EX-QYg" target="_blank"><i class="icon ion-social-youtube" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer YouTube'})"></i></a>
+      <a href="https://www.pinterest.com/LinchpinRealtyCA/" target="_blank"><i class="icon ion-social-pinterest" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Pinterest'})"></i></a>
     </div> <!-- social row -->
-    <a href="https://www.zillow.com/reviews/write/?s=X1-ZU11qjqez6ipiq1_4zss5" target="_blank">
+    <a href="https://www.zillow.com/reviews/write/?s=X1-ZU11qjqez6ipiq1_4zss5" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Zillow Rate'})">
       <div class="btn btn-cta" style="margin-bottom: 35px">Review me on Zillow!</div>
     </a>
     <h4 style="color: white; position: relative z-index: 100">License #02018158  |  Broker #02018158</h4>

@@ -32,7 +32,7 @@
   <div class="row">
     <% @blogs.each do |blog| %>
       <%= link_to blog do %>
-        <div class="card" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">
+        <div class="card" onclick="ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blogs Individual Blog'})">
           <div class="image-box">
             <%= image_tag blog.image.url, alt: blog.teaser %>
           </div> <!-- padding box -->
