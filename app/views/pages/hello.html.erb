@@ -17,10 +17,10 @@
   <div class="buffer"></div>
   <h2 class="font-sans">Are you looking to buy a house or sell a house?</h2>
   <%= link_to new_buyer_path do %>
-    <div class="btn" style="margin-right: 10px">Buy a House</div>
+    <div class="btn" style="margin-right: 10px" onclick="ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Hello Page Buy'})">Buy a House</div>
   <% end %>
   <%= link_to new_intake_path do %>
-    <div class="btn" style="margin-left: 10px">Sell a House</div>
+    <div class="btn" style="margin-left: 10px" onclick="ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Hello Page Sell'})">Sell a House</div>
   <% end %>
   <div class="buffer"></div>
 </div> <!-- container -->
