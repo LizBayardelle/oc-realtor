@@ -41,7 +41,7 @@
     <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-            	<%= link_to root_path, class:"navbar-brand" do %>
+            	<%= link_to root_path, class:"navbar-brand", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Header Logo Home'})" do %>
                   <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
                   <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
               <% end %>

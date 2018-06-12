@@ -8,16 +8,16 @@
     </div> <!-- form group -->
     <div class="form-group col-sm-6">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name , class: "form-control" %>
+      <%= f.text_field :last_name , class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Last Name'})" %>
     </div> <!-- form group -->
 
     <div class="form-group col-sm-6">
       <%= f.label "Phone Number" %>
-      <%= f.text_field :phone , class: "form-control" %>
+      <%= f.text_field :phone , class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Phone'})" %>
     </div> <!-- form group -->
     <div class="form-group col-sm-6">
       <%= f.label :email %>
-      <%= f.text_field :email , class: "form-control" %>
+      <%= f.text_field :email , class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Email'})" %>
     </div> <!-- form group -->
 
     <div class="form-group col-sm-6">
@@ -31,7 +31,7 @@
 
     <div class="form-group col-sm-12">
       <%= f.label :message %>
-      <%= f.text_area :message, class: "form-control" %>
+      <%= f.text_area :message, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Message'})" %>
     </div> <!-- form group -->
   </div>
 

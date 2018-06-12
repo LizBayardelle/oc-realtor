@@ -28,19 +28,19 @@
 
         <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
           <%= f.label "Where do you want to live?" %>
-          <%= f.text_field :location, class: "form-control", placeholder: "e.g. Laguna Niguel, CA"%>
+          <%= f.text_field :location, class: "form-control", placeholder: "e.g. Laguna Niguel, CA", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Location'})" %>
         </div> <!-- form group -->
         <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
           <%= f.label "Square Footage" %>
-          <%= f.text_field :footage, class: "form-control", placeholder: "e.g. 3,000 square feet" %>
+          <%= f.text_field :footage, class: "form-control", placeholder: "e.g. 3,000 square feet", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Footage'})" %>
         </div> <!-- form group -->
         <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
           <%= f.label "# of Bedrooms" %>
-          <%= f.text_field :bedrooms, class: "form-control", placeholder: "e.g. 3" %>
+          <%= f.text_field :bedrooms, class: "form-control", placeholder: "e.g. 3", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Bedrooms'})" %>
         </div> <!-- form group -->
         <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
           <%= f.label "# of Bathrooms" %>
-          <%= f.text_field :bathrooms, class: "form-control", placeholder: "e.g. 2.5" %>
+          <%= f.text_field :bathrooms, class: "form-control", placeholder: "e.g. 2.5", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Bathrooms'})" %>
         </div> <!-- form group -->
 
         <%= link_to "Back", page_path('get_report'), class: "btn", style: "margin-right: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 2'})" %>
@@ -55,11 +55,11 @@
 
         <div class="form-group text-left col-xs-12 col-sm-6">
           <%= f.label "What's your overall price range?" %>
-          <%= f.text_field :range, class: "form-control", placeholder: "e.g. $550,000 to $700,000" %>
+          <%= f.text_field :range, class: "form-control", placeholder: "e.g. $550,000 to $700,000", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Price Range'})" %>
         </div> <!-- form group -->
         <div class="form-group text-left col-xs-12 col-sm-6">
           <%= f.label "What's your monthly budget for rent?" %>
-          <%= f.text_field :budget, class: "form-control", placeholder: "e.g. Under $1,700" %>
+          <%= f.text_field :budget, class: "form-control", placeholder: "e.g. Under $1,700", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Budget'})" %>
         </div> <!-- form group -->
 
         <div class="btn" style="margin-right: 10px" id="pricePrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 3'})">Back</div>
@@ -74,19 +74,19 @@
 
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Name" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", input_html: { required: true} %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", input_html: { required: true}, , oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Name'})" %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Phone Number" %>
-            <%= f.text_field :phone, class: "form-control", placeholder: "e.g. (949) 524-1246" %>
+            <%= f.text_field :phone, class: "form-control", placeholder: "e.g. (949) 524-1246", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Phone'})" %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Email" %>
-            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", input_html: { required: true}  %>
+            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", input_html: { required: true }, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Email'})"  %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12">
             <%= f.label "Anything else you want us to know?" %>
-            <%= f.text_area :notes, class: "form-control", placeholder: "e.g. A view is really important to us, we would love a pool, we want to be close to public transportation, nearby schools are important to us, etc." %>
+            <%= f.text_area :notes, class: "form-control", placeholder: "e.g. A view is really important to us, we would love a pool, we want to be close to public transportation, nearby schools are important to us, etc.", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Notes'})" %>
           </div> <!-- form group -->
 
         <div class="form-actions">
