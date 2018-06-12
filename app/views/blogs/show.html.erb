@@ -14,7 +14,7 @@
     <div class="header-row">
       <h3><%= @blog.teaser %></h3>
       <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
-      <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <div class="text-center" style="margin-bottom: 25px"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser), onclick: "ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})" %></div>
       <% if @blog.link_filename %><h3 class="linkish" style="padding: 0 40px 0 40px">
           <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'})" do %>
             <%= @blog.link_text %>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-actions text-right">
-          <%= f.button :submit %>
+          <%= f.button :submit, onclick: "ga('send',{'hitType': 'event','eventCategory': 'contribute', 'eventAction': 'Create Blog Comment'})" %>
         </div>
       <% end %>
     </div>

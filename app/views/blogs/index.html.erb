@@ -7,9 +7,9 @@
 			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
 
 			<% if current_user %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), method: :post %></h3>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% else %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path %></h3>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% end %>
 		</div> <!-- absolute box -->
 	</div> <!-- overlap image -->
@@ -19,7 +19,7 @@
 <div class="row blue-stripe text-center">
 	<div id="tag_cloud">
 		<% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
-		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+		<%= link_to tag.name, tag_path(tag.name), class: css_class, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blog Tag'})" %>
 		<% end %>
 	</div> <!-- col -->
 </div> <!-- row w id -->
@@ -31,7 +31,7 @@
 
   <div class="row">
     <% @blogs.each do |blog| %>
-      <%= link_to blog do %>
+      <%= link_to blog, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blogs Individual Blog'})" do %>
         <div class="card">
           <div class="image-box">
             <%= image_tag blog.image.url, alt: blog.teaser %>
