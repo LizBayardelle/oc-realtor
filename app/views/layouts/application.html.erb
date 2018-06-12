@@ -73,7 +73,7 @@
                   	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %></li>
                   <% else %>
                     <li class="dropdown">
-                      <%= link_to 'My Account', new_user_registration_path, class: "center-ul-hover"onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav My Account'})" %>
+                      <%= link_to 'My Account', new_user_registration_path, class: "center-ul-hover" onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav My Account'})" %>
                       <ul class="dropdown-menu">
                         <li><%= link_to 'Sign In', new_user_session_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Sign In'})" %></li>
                         <li role="separator" class="divider"></li>
