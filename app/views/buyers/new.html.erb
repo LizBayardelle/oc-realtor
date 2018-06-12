@@ -20,6 +20,7 @@
 
 <script>
   $(document).on('click', '#scrollToForm', function(event){
+      ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Buyer Form Start Button'})
       event.preventDefault();
       $('html, body').animate({
           scrollTop: $( $.attr(this, 'href') ).offset().top

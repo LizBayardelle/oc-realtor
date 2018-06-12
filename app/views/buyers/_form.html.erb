@@ -7,11 +7,11 @@
         <h2>Basic Information</h2>
           <div class="form-group col-xs-12 col-sm-12">
             <%= f.label "Buyer Names*" %>
-            <%= f.text_field :buyer_name, required: true, class: "form-control" %>
+            <%= f.text_field :buyer_name, required: true, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Buyer Form Typing Names'})" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6 col-lg-3">
             <%= f.label "Mobile Phone*" %>
-            <%= f.text_field :phone_mobile, required: true, class: "form-control" %>
+            <%= f.text_field :phone_mobile, required: true, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Buyer Form Typing Phone'})" %>
           </div> <!-- form group -->
           <div class="form-group col-xs-12 col-sm-6 col-lg-3">
             <%= f.label "Home Phone" %>
@@ -49,7 +49,7 @@
         <h2>Current Home Details</h2>
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label "Current Address" %>
-          <%= f.text_field :address, class: "form-control" %>
+          <%= f.text_field :address, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Buyer Form Typing Current Address'})" %>
         </div> <!-- form group -->
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label "How many people are in your family?" %>
@@ -95,7 +95,7 @@
         <h2>Financial Information</h2>
         <div class="form-group col-xs-12 col-sm-12">
           <%= f.label "What price range have you been considering?" %>
-          <%= f.text_field :price_range, class: "form-control" %>
+          <%= f.text_field :price_range, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Buyer Form Typing Price Range'})" %>
         </div> <!-- form group -->
         <div class="form-group col-xs-12 col-sm-12">
           <%= f.label "How much has a lender told you that you're qualified for?" %>
@@ -121,7 +121,7 @@
         <h2>Home Search Info</h2>
         <div class="form-group col-xs-12 col-sm-12">
           <%= f.label "How many bedrooms do you want?" %>
-          <%= f.text_field :bedrooms, class: "form-control" %>
+          <%= f.text_field :bedrooms, class: "form-control"oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Buyer Form Typing Bedrooms'})" %>
         </div> <!-- form group -->
         <div class="form-group col-xs-12 col-sm-12">
           <%= f.label "Square feet?" %>
@@ -176,6 +176,6 @@
   </div> <!-- form inputs -->
 
   <div class="form-actions">
-    <%= f.button :submit, "Submit" %>
+    <%= f.button :submit, "Submit", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Submit Buyer Form'})"%>
   </div>
 <% end %>
