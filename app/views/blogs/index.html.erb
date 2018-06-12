@@ -31,8 +31,8 @@
 
   <div class="row">
     <% @blogs.each do |blog| %>
-      <%= link_to blog, class: "individualBlogLink" do %>
-        <div class="card">
+      <%= link_to blog do %>
+        <div class="card" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">
           <div class="image-box">
             <%= image_tag blog.image.url, alt: blog.teaser %>
           </div> <!-- padding box -->
@@ -61,8 +61,5 @@
 <script>
   $(function() {
       $('.card').matchHeight();
-			$('.individualBlogLink').click(function (event) {
-			  ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})
-			});
   });
 </script>
