@@ -35,10 +35,10 @@
 
   <div class="row">
     <h2 class="font-sans">What are you looking to buy?</h2>
-    <%= link_to new_quick_path(house: true) do %>
+    <%= link_to new_quick_path(house: true), onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Click House'})" do %>
       <div class="btn" style="margin-right: 10px">House</div>
     <% end %>
-    <%= link_to new_quick_path(house: false) do %>
+    <%= link_to new_quick_path(house: false), onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Click NonHouse'})" do %>
       <div class="btn" style="margin-left: 10px">Apartment or Condo</div>
     <% end %>
     <div class="buffer"></div>
