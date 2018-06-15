@@ -1,3 +1,26 @@
+<!-- page-specific content -->
+  <% title @blog.title %>
+  <%= content_for :head do %>
+    <meta name="description" content="<%= @blog.teaser %>" />
+  <% end %>
+
+  <!-- Event snippet for Download Blog PDF conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-803011261/H0l_CPKTioQBEL318_4C',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+<!-- end page specific content -->
+
 <div class="image-container">
     <%= image_tag @blog.image.url, style: "bottom: 0", alt: @blog.teaser %>
 </div>
@@ -16,7 +39,7 @@
       <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
       <div class="text-center" style="margin-bottom: 25px" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
       <% if @blog.link_filename %><h3 class="linkish" style="padding: 0 40px 0 40px">
-          <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'})" do %>
+          <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
             <%= @blog.link_text %>
           <% end %>
       </h3><% end %>

@@ -1,24 +1,7 @@
 <!-- page-specific content -->
-  <% title "Welcome to Linchpin Realty" %>
+  <% title "Free Listings Report" %>
   <%= content_for :head do %>
-    <meta name="description" content="Start your real estate journey with an expert resouce as your guide.  Whether you're looking to buy or sell, we've got your back.">
-
-    <!-- Event snippet for Quick Form Submit conversion page
-    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-803011261/0dAfCIqkk4QBEL318_4C',
-          'event_callback': callback
-      });
-      return false;
-    }
-    </script>
+    <meta name="description" content="Free personalized report of houses for sale. Quick and easy!">
   <% end %>
 <!-- end page specific content -->
 
