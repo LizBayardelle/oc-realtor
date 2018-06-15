@@ -73,16 +73,16 @@
         <h2>Now where do we send your listings report?</h2>
 
           <div class="form-group text-left col-xs-12 col-sm-4">
-            <%= f.label "Name" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", input_html: { required: true}, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Name'})" %>
+            <%= f.label "Name*" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", required: true, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Name'})" %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
             <%= f.label "Phone Number" %>
             <%= f.text_field :phone, class: "form-control", placeholder: "e.g. (949) 524-1246", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Phone'})" %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12 col-sm-4">
-            <%= f.label "Email" %>
-            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", input_html: { required: true }, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Email'})"  %>
+            <%= f.label "Email*" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", required: true, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Email'})"  %>
           </div> <!-- form group -->
           <div class="form-group text-left col-xs-12">
             <%= f.label "Anything else you want us to know?" %>

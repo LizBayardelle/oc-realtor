@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Linchpin Realty</title>
+  <title>
+    <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+    Linchpin Realty
+  </title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -9,22 +12,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Google Tag Manager -->
-    <!-- data layer -->
     <script>
-      dataLayer = [];
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KG9M4ZW');
+      gtag('config', 'AW-803011261');
     </script>
-
-    <!-- other tag manager snippet -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KG9M4ZW');</script>
   <!-- End Google Tag Manager -->
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,400,800,900|Inconsolata:400,700|Cinzel+Decorative:400,900|Playball|Playfair+Display:400,900" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
   <meta name="p:domain_verify" content="51675027d07047c4ae82a98a4b64ae0b"/>
+
+  <!-- page-specific content -->
+    <%= yield :head %>
+  <!-- end page specific content -->
 </head>
 
 <body>
