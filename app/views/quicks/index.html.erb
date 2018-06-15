@@ -1,49 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Quicks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Range</th>
-      <th>Budget</th>
-      <th>Location</th>
-      <th>Bedrooms</th>
-      <th>Bathrooms</th>
-      <th>Footage</th>
-      <th>Notes</th>
-      <th>Responded</th>
-      <th>Archived</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @quicks.each do |quick| %>
+<div class="container text-left bg-white">
+  <h1 class="text-center">All Quick Contact Submissions</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= quick.name %></td>
-        <td><%= quick.phone %></td>
-        <td><%= quick.email %></td>
-        <td><%= quick.range %></td>
-        <td><%= quick.budget %></td>
-        <td><%= quick.location %></td>
-        <td><%= quick.bedrooms %></td>
-        <td><%= quick.bathrooms %></td>
-        <td><%= quick.footage %></td>
-        <td><%= quick.notes %></td>
-        <td><%= quick.responded %></td>
-        <td><%= quick.archived %></td>
-        <td><%= link_to 'Show', quick %></td>
-        <td><%= link_to 'Edit', edit_quick_path(quick) %></td>
-        <td><%= link_to 'Destroy', quick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><h3>Contact Info</h3></th>
+        <th><h3>Search Details</h3></th>
+        <th><h3>House Details</h3></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @quicks.each do |quick| %>
+        <tr style="border-top: thin solid #c0c0c0">
+          <td><p>
+            <strong><%= quick.name %></strong><br />
+            <%= mail_to quick.email %><br />
+            <%= quick.phone %><br />
+            <%= if quick.responded != "" then "Responded" else "Not Responded" end %>, <%= if quick.archived != "" then "Archived" else "Not Archived" end %><br />
+            <%= link_to 'Show', quick %> | <%= link_to 'Edit', edit_quick_path(quick) %> | <%= link_to 'Destroy', quick, method: :delete, data: { confirm: 'Are you sure you want to delete this quick contact?' } %>
+          </p></td>
+          <td><p>
+            <strong>Location:  </strong><%= if quick.location != "" then quick.location else 'Not Specified' end %></br>
+            <strong>Range:  </strong><%= if quick.range != "" then quick.range else 'Not Specified' end %><br />
+            <strong>Budget:  </strong><%= if quick.budget != "" then quick.budget else 'Not Specified' end %>
+          </p></td>
+          <td><p><strong>Bedrooms: </strong><%= if quick.bedrooms != "" then quick.bedrooms else 'Not Specified' end %><br />
+            <strong>Bathrooms: </strong><%= if quick.bathrooms != "" then quick.bathrooms else 'Not Specified' end %><br />
+            <strong>Square Footage: </strong><%= if quick.footage != "" then quick.footage else 'Not Specified' end %><br />
+            <strong>Notes: </strong><%= if quick.notes != "" then quick.notes else 'None' end %>
+          </p></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Quick', new_quick_path %>
+  <div class="buffer"></div>
+</div> <!-- container -->
