@@ -91,7 +91,7 @@
 
         <div class="form-actions">
           <div class="btn"  style="margin-right: 10px" id="infoPrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 4'})">Back</div>
-          <%= f.button :submit, "Submit", style: "margin-left: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Quick Form Submit'})" %>
+          <%= f.button :submit, "Submit", style: "margin-left: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Quick Form Submit'}); gtag_report_conversion();" %>
         </div>
         <div class="buffer"></div>
       </div> <!-- container -->
