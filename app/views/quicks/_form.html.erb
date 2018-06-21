@@ -54,12 +54,12 @@
         <h2>A little about the finances...</h2>
 
         <div class="form-group text-left col-xs-12 col-sm-6">
-          <%= f.label "What's your overall price range?" %>
-          <%= f.text_field :range, class: "form-control", placeholder: "e.g. $550,000 to $700,000", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Price Range'})" %>
+          <%= f.label "What's your ideal price range?" %>
+          <%= f.input :range, as: :slider, label: false, min: 100000, max: 3000000, step: 100000, range: true, ticks: [500000, 750000, 1000000, 1500000, 2000000, 2500000], onclick: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Price Range'})" %>
         </div> <!-- form group -->
         <div class="form-group text-left col-xs-12 col-sm-6">
           <%= f.label "What's your monthly budget for rent?" %>
-          <%= f.text_field :budget, class: "form-control", placeholder: "e.g. Under $1,700", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Budget'})" %>
+          <%= f.input :budget, as: :slider, label: false, min: 500, max: 5000, step: 100, onclick: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Budget'})" %>
         </div> <!-- form group -->
 
         <div class="btn" style="margin-right: 10px" id="pricePrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 3'})">Back</div>
