@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :quicks
-  post "user/:id/archive" => "quicks#archive_quick", as: "archive_quick"
-  post "user/:id/unarchive" => "quicks#unarchive_quick", as: "unarchive_quick"
-  post "user/:id/make_responded" => "quicks#make_responded", as: "make_responded"
-  post "user/:id/make_unresponded" => "quicks#make_unresponded", as: "make_unresponded"
+  post "quick/:id/archive" => "quicks#archive_quick", as: "archive_quick"
+  post "quick/:id/unarchive" => "quicks#unarchive_quick", as: "unarchive_quick"
+  post "quick/:id/make_responded" => "quicks#make_responded", as: "make_responded"
+  post "quick/:id/make_unresponded" => "quicks#make_unresponded", as: "make_unresponded"
+  post "quick/:id/quick_read" => "quicks#quick_read", as: "quick_read"
+  post "quick/:id/quick_unread" => "quicks#quick_unread", as: "quick_unread"
+
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]

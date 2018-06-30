@@ -95,6 +95,6 @@ class ValuesController < ApplicationController
     end
 
     def value_params
-      params.require(:value).permit(:address, :citystatezip, :sell_timeframe, :user_id, :archived)
+      params.require(:value).permit(:address, :citystatezip, :sell_timeframe, :user_id, :archived, :read, :email)
     end
 end

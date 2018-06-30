@@ -10,10 +10,22 @@
         <tbody>
           <% @new_quicks.each do |quick| %>
             <tr>
+              <td class="read-td">
+                <% if quick.read %>
+                  <%= link_to quick_unread_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to quick_read_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td style="width: 40%">
                 <%= link_to quick.name, quick_path(quick)%><br />
                 <%= quick.phone %><br />
-                <%= mail_to quick.email %>
+                <%= mail_to quick.email %><br />
+                <em><%= quick.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%m/%d/%y %I:%M %p") %></em>
               </td>
               <td style="width: 20%">
                 <strong>
@@ -55,6 +67,17 @@
         <tbody>
           <% @old_quicks.each do |quick| %>
             <tr>
+              <td class="read-td">
+                <% if quick.read %>
+                  <%= link_to quick_unread_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to quick_read_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td style="width: 40%">
                 <%= link_to quick.name, quick_path(quick)%><br />
                 <%= quick.phone %><br />
@@ -100,6 +123,17 @@
         <tbody>
           <% @archived_quicks.each do |quick| %>
             <tr>
+              <td class="read-td">
+                <% if quick.read %>
+                  <%= link_to quick_unread_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to quick_read_path(quick), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td style="width: 40%">
                 <%= link_to quick.name, quick_path(quick)%><br />
                 <%= quick.phone %><br />

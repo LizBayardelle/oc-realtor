@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-    @contacts = Contact.where(archived: false)
-    @archived_contacts = Contact.where(archived: true)
-    @confirmed_clients = User.where(admin: false, archived: false, status_confirmed: true)
-    @unconfirmed_clients = User.where(admin: false, archived: false, status_confirmed: false)
-    @archived_clients = User.where(archived: true)
-    @comments = Comment.where(approved: false)
-    @values = Value.where(archived: false)
-    @archived_values = Value.where(archived: true)
-    @new_quicks = Quick.where(responded: false, archived: false)
-    @old_quicks = Quick.where(responded: true, archived: false)
-    @archived_quicks = Quick.where(archived: true)
-    @new_buyers = Buyer.where(archived: false)
-    @archived_buyers = Buyer.where(archived: true)
+    @contacts = Contact.where(archived: false).order('created_at DESC')
+    @archived_contacts = Contact.where(archived: true).order('created_at DESC')
+    @confirmed_clients = User.where(admin: false, archived: false, status_confirmed: true).order('created_at DESC')
+    @unconfirmed_clients = User.where(admin: false, archived: false, status_confirmed: false).order('created_at DESC')
+    @archived_clients = User.where(archived: true).order('created_at DESC')
+    @comments = Comment.where(approved: false).order('created_at DESC')
+    @values = Value.where(archived: false).order('created_at DESC')
+    @archived_values = Value.where(archived: true).order('created_at DESC')
+    @new_quicks = Quick.where(responded: false, archived: false).order('created_at DESC')
+    @old_quicks = Quick.where(responded: true, archived: false).order('created_at DESC')
+    @archived_quicks = Quick.where(archived: true).order('created_at DESC')
+    @new_buyers = Buyer.where(archived: false).order('created_at DESC')
+    @archived_buyers = Buyer.where(archived: true).order('created_at DESC')
   end
 
   def confirm_client

@@ -89,6 +89,28 @@ class QuicksController < ApplicationController
       end
   end
 
+  def quick_read
+      @quick = Quick.find(params[:id])
+      if @quick.update_attributes(read: true)
+          redirect_to :back
+          flash[:notice] = "That message has been marked read!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def quick_unread
+      @quick = Quick.find(params[:id])
+      if @quick.update_attributes(read: false)
+          redirect_to :back
+          flash[:notice] = "That message has been marked unread!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quick
@@ -97,6 +119,6 @@ class QuicksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def quick_params
-      params.require(:quick).permit(:house, :name, :phone, :email, :range, :budget, :location, :bedrooms, :bathrooms, :footage, :notes, :responded, :archived)
+      params.require(:quick).permit(:house, :name, :phone, :email, :range, :budget, :location, :bedrooms, :bathrooms, :footage, :notes, :responded, :archived, :read)
     end
 end

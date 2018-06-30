@@ -75,6 +75,6 @@ class BuyersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def buyer_params
-      params.require(:buyer).permit(:buyer_name, :phone_mobile, :phone_home, :phone_work, :phone_fax, :email, :employer, :search_time, :other_agent, :address, :family_size, :own_or_rent, :current_mortgage, :need_sell, :lease_length, :really_liked, :why_not, :move_time, :why_move_time, :price_range, :qualified, :lender, :downpayment, :monthly_budget, :bedrooms, :square_feet, :units, :location, :style, :decision, :helper, :requirements, :use_as_agent, :times, :communication, :best_time, :sites, :other_information)
+      params.require(:buyer).permit(:buyer_name, :phone_mobile, :phone_home, :phone_work, :phone_fax, :email, :employer, :search_time, :other_agent, :address, :family_size, :own_or_rent, :current_mortgage, :need_sell, :lease_length, :really_liked, :why_not, :move_time, :why_move_time, :price_range, :qualified, :lender, :downpayment, :monthly_budget, :bedrooms, :square_feet, :units, :location, :style, :decision, :helper, :requirements, :use_as_agent, :times, :communication, :best_time, :sites, :other_information, :read)
     end
 end

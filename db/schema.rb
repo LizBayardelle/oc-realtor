@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604001541) do
+ActiveRecord::Schema.define(version: 20180628201032) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.boolean  "archived",          default: false
+    t.boolean  "read",              default: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -83,6 +84,9 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.boolean  "approved",   default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.boolean  "read",       default: false
+    t.string   "email"
+    t.string   "name"
   end
 
   add_index "comments", ["blog_id"], name: "index_comments_on_blog_id"
@@ -99,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.datetime "updated_at",                        null: false
     t.string   "purpose"
     t.boolean  "archived",          default: false
+    t.boolean  "read",              default: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -182,6 +187,7 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "house",      default: true
+    t.boolean  "read",       default: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -234,6 +240,7 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.string   "preferred_contact"
     t.boolean  "status_confirmed",       default: false
     t.boolean  "archived",               default: false
+    t.boolean  "read",                   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -247,6 +254,8 @@ ActiveRecord::Schema.define(version: 20180604001541) do
     t.datetime "updated_at",                     null: false
     t.string   "sell_timeframe"
     t.boolean  "archived",       default: false
+    t.boolean  "read",           default: false
+    t.string   "email"
   end
 
   add_index "values", ["user_id"], name: "index_values_on_user_id"
