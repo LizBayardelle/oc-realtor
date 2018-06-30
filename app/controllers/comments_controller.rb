@@ -44,6 +44,29 @@ class CommentsController < ApplicationController
       end
   end
 
+  def comment_read
+      @comment = Comment.find(params[:id])
+      if @comment.update_attributes(read: true)
+          redirect_to :back
+          flash[:notice] = "That comment has been marked read!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def comment_unread
+      @comment = Comment.find(params[:id])
+      if @comment.update_attributes(read: false)
+          redirect_to :back
+          flash[:notice] = "That comment has been marked unread!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+
   private
     def set_comment
       @comment = Comment.find(params[:id])

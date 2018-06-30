@@ -8,6 +8,17 @@
       <table>
         <% @comments.each do |comment| %>
           <tr>
+            <td class="read-td">
+              <% if comment.read %>
+                <%= link_to comment_unread_path(comment), method: :post do %>
+                  <span class="glyphicon glyphicon-ok"></span>
+                <% end %>
+              <% else %>
+                <%= link_to comment_read_path(comment), method: :post do %>
+                  <span class="glyphicon glyphicon-comment"></span>
+                <% end %>
+              <% end %>
+            </td>
             <td>
               <%= link_to blog_comment_path(comment.blog, comment), method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="icon ion-trash-a"></i>

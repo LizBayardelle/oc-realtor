@@ -10,7 +10,20 @@
         <tbody>
           <% @new_buyers.each do |buyer| %>
             <tr>
+              <td class="read-td">
+                <% if buyer.read %>
+                  <%= link_to buyer_unread_path(buyer), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to buyer_read_path(buyer), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
+
               <td style="width: 40%">
+
                 <% if buyer.buyer_name %>
                   <%= link_to buyer.buyer_name, buyer_path(buyer)%><br />
                 <% else %>
@@ -61,6 +74,18 @@
         <tbody>
           <% @archived_buyers.each do |buyer| %>
             <tr>
+              <td class="read-td">
+                <% if buyer.read %>
+                  <%= link_to buyer_unread_path(buyer), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to buyer_read_path(buyer), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
+
               <td style="width: 40%">
                 <% if buyer.buyer_name %>
                   <%= link_to buyer.buyer_name, buyer_path(buyer)%><br />

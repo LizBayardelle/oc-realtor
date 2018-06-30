@@ -60,6 +60,28 @@ class UsersController < ApplicationController
       end
   end
 
+  def client_read
+      @client = User.find(params[:id])
+      if @client.update_attributes(read: true)
+          redirect_to :back
+          flash[:notice] = "That client has been marked read!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def client_unread
+      @client = User.find(params[:id])
+      if @client.update_attributes(read: false)
+          redirect_to :back
+          flash[:notice] = "That client has been marked unread!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
   def subscribe_to_blog
     @user = current_user
     if @user.update_attributes(blog_emails: true)

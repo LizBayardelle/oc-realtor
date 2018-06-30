@@ -67,6 +67,29 @@ class ContactsController < ApplicationController
       end
   end
 
+    def contact_read
+        @contact = Contact.find(params[:id])
+        if @contact.update_attributes(read: true)
+            redirect_to :back
+            flash[:notice] = "That message has been marked read!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
+    def contact_unread
+        @contact = Contact.find(params[:id])
+        if @contact.update_attributes(read: false)
+            redirect_to :back
+            flash[:notice] = "That message has been marked unread!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact

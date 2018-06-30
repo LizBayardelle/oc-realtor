@@ -9,6 +9,17 @@
       <tbody>
         <% @contacts.each do |contact| %>
           <tr>
+            <td class="read-td">
+              <% if contact.read %>
+                <%= link_to contact_unread_path(contact), method: :post do %>
+                  <span class="glyphicon glyphicon-ok"></span>
+                <% end %>
+              <% else %>
+                <%= link_to contact_read_path(contact), method: :post do %>
+                  <span class="glyphicon glyphicon-comment"></span>
+                <% end %>
+              <% end %>
+            </td>
             <td>
               <%= contact.first_name %> <%= contact.last_name %><br />
               <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
@@ -37,6 +48,17 @@
           <tbody>
             <% @archived_contacts.each do |contact| %>
               <tr>
+                <td class="read-td">
+                  <% if contact.read %>
+                    <%= link_to contact_unread_path(contact), method: :post do %>
+                      <span class="glyphicon glyphicon-ok"></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to contact_read_path(contact), method: :post do %>
+                      <span class="glyphicon glyphicon-comment"></span>
+                    <% end %>
+                  <% end %>
+                </td>
                 <td>
                   <%= contact.first_name %> <%= contact.last_name %><br />
                   <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />

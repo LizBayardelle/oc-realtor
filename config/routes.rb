@@ -18,12 +18,17 @@ Rails.application.routes.draw do
   post "user/:id/unarchive" => "users#unarchive_client", as: "unarchive_client"
   post "user/:id/confirm" => "users#confirm_client", as: "confirm_client"
   post "user/:id/unconfirm" => "users#unconfirm_client", as: "unconfirm_client"
+  post "user/:id/client_read" => "users#client_read", as: "client_read"
+  post "user/:id/client_unread" => "users#client_unread", as: "client_unread"
+
 
   get 'test/hero'
 
   resources :buyers
-  post "user/:id/archive" => "users#archive_buyer", as: "archive_buyer"
-  post "user/:id/unarchive" => "users#unarchive_buyer", as: "unarchive_buyer"
+  post "buyer/:id/archive" => "buyers#archive_buyer", as: "archive_buyer"
+  post "buyer/:id/unarchive" => "buyers#unarchive_buyer", as: "unarchive_buyer"
+  post "buyer/:id/buyer_read" => "buyers#buyer_read", as: "buyer_read"
+  post "buyer/:id/buyer_unread" => "buyers#buyer_unread", as: "buyer_unread"
 
   resources :intakes
   resources :listings
@@ -31,6 +36,9 @@ Rails.application.routes.draw do
   resources :contacts
   post "contact/:id/archive" => "contacts#archive_contact", as: "archive_contact"
   post "contact/:id/unarchive" => "contacts#unarchive_contact", as: "unarchive_contact"
+  post "contact/:id/contact_read" => "contacts#contact_read", as: "contact_read"
+  post "contact/:id/contact_unread" => "contacts#contact_unread", as: "contact_unread"
+
 
   resources :blogs do
     resources :comments
@@ -39,10 +47,15 @@ Rails.application.routes.draw do
   post "users/:id/subscribe_to_blog" => "users#subscribe_to_blog", as: "subscribe_to_blog"
   post "comment/:id/approve" => "comments#approve_comment", as: "approve_comment"
   post "comment/:id/unapprove" => "comments#unapprove_comment", as: "unapprove_comment"
+  post "comment/:id/comment_read" => "comments#comment_read", as: "comment_read"
+  post "comment/:id/comment_unread" => "comments#comment_unread", as: "comment_unread"
   get "blogs/:id/download_pdf", controller: 'blogs', action:'download_pdf', as: 'download_pdf'
+
   resources :values
   post "value/:id/archive" => "values#archive_value", as: "archive_value"
   post "value/:id/unarchive" => "values#unarchive_value", as: "unarchive_value"
+  post "value/:id/value_read" => "values#value_read", as: "value_read"
+  post "value/:id/value_unread" => "values#value_unread", as: "value_unread"
 
 
 end

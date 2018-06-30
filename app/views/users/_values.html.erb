@@ -9,6 +9,17 @@
         <tbody>
           <% @values.each do |value| %>
             <tr>
+              <td class="read-td">
+                <% if value.read %>
+                  <%= link_to value_unread_path(value), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to value_read_path(value), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td>
                 <%= value.user.first_name %> <%= value.user.last_name %><br />
                 <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
@@ -38,6 +49,17 @@
         <tbody>
           <% @archived_values.each do |value| %>
             <tr>
+              <td class="read-td">
+                <% if value.read %>
+                  <%= link_to value_unread_path(value), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to value_read_path(value), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td>
                 <%= value.user.first_name %> <%= value.user.last_name %><br />
                 <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />

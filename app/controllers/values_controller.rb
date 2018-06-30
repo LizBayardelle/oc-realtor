@@ -75,6 +75,29 @@ class ValuesController < ApplicationController
       end
   end
 
+  def value_read
+      @value = Value.find(params[:id])
+      if @value.update_attributes(read: true)
+          redirect_to :back
+          flash[:notice] = "That value has been marked read!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+  def value_unread
+      @value = Value.find(params[:id])
+      if @value.update_attributes(read: false)
+          redirect_to :back
+          flash[:notice] = "That value has been marked unread!"
+      else
+          redirect_to root_path
+          flash[:warning] = "Oops! Something went wrong!"
+      end
+  end
+
+
   protected
 
   def fetch_results

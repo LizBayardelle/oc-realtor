@@ -67,6 +67,29 @@ class BuyersController < ApplicationController
       end
   end
 
+
+    def buyer_read
+        @buyer = Buyer.find(params[:id])
+        if @buyer.update_attributes(read: true)
+            redirect_to :back
+            flash[:notice] = "That buyer survey has been marked read!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
+    def buyer_unread
+        @buyer = Buyer.find(params[:id])
+        if @buyer.update_attributes(read: false)
+            redirect_to :back
+            flash[:notice] = "That buyer survey has been marked unread!"
+        else
+            redirect_to root_path
+            flash[:warning] = "Oops! Something went wrong!"
+        end
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_buyer

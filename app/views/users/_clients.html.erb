@@ -10,6 +10,17 @@
         <tbody>
           <% @confirmed_clients.each do |client| %>
             <tr>
+              <td class="read-td">
+                <% if client.read %>
+                  <%= link_to client_unread_path(client), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to client_read_path(client), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td style="width: 40%">
                 <%= client.first_name %> <%= client.last_name %><br />
                 <%= client.phone %> <% if client.preferred_contact == "Phone" %>(Preferred)<% end %><br />
@@ -56,6 +67,17 @@
         <tbody>
           <% @unconfirmed_clients.each do |client| %>
             <tr>
+              <td class="read-td">
+                <% if client.read %>
+                  <%= link_to client_unread_path(client), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to client_read_path(client), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
               <td style="width: 40%">
                 <%= client.first_name %> <%= client.last_name %><br />
                 <%= client.phone %> <% if client.preferred_contact == "Phone" %>(Preferred)<% end %><br />
