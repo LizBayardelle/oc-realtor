@@ -17,6 +17,9 @@ class BlogsController < ApplicationController
   def show
     @comment = @blog.comments.build
     @comments = Comment.where(blog_id: @blog.id, approved: true)
+    if current_user
+      @user = current_user
+    end
   end
 
   def download_pdf

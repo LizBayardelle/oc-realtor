@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
-  before_action :authenticate_user!
   before_action :commenter_or_admin, except: [:create]
 
   def create
@@ -27,9 +26,9 @@ class CommentsController < ApplicationController
     @comment = @blog.comments.find(params[:id])
     @comment.destroy
     if current_user.admin
-      redirect_to user_path(current_user), notice: 'Comment has been deleted.'
+      redirect_to :back, notice: 'Comment has been deleted.'
     else
-      redirect_to blog_path(@blog), notice: 'Comment has been deleted.'
+      redirect_to :back, notice: 'Comment has been deleted.'
     end
   end
 

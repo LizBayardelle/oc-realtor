@@ -29,7 +29,7 @@
             </td>
             <td>
               <p><strong><%= comment.body %></strong><br />
-              <em><%= comment.user.first_name %> <%= comment.user.last_name %></em></p>
+              <%= comment.name %> <em>(<%= mail_to comment.email %>)</em></p>
             </td>
           </tr>
         <% end %>
