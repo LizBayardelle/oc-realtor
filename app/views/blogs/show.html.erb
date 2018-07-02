@@ -27,15 +27,15 @@
 
 <div class="overlap-image text-center">
   <div class="gradient-bottom slideRight">
-    <h1><%= @blog.title %></h1>
+    <h2 class="font-sans"><%= @blog.teaser %></h2>
   </div> <!-- absolute-bottom-transparent -->
 </div> <!-- overlap-image -->
 
-<div class="container">
+<div class="container blog-page">
 
   <div class="card no-hover full-width blog"><div class="padding-box">
     <div class="header-row">
-      <h3><%= @blog.teaser %></h3>
+      <h1><%= @blog.title %></h1>
       <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
       <div class="text-center" style="margin-bottom: 25px" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
       <% if @blog.link_filename %><h3 class="linkish" style="padding: 0 40px 0 40px">
@@ -76,7 +76,7 @@
         <% end %>
 
         <div class="form-actions text-right">
-          <%= f.button :submit, onclick: "ga('send',{'hitType': 'event','eventCategory': 'contribute', 'eventAction': 'Create Blog Comment'})" %>
+          <%= f.button :submit, "Submit Comment", onclick: "ga('send',{'hitType': 'event','eventCategory': 'contribute', 'eventAction': 'Create Blog Comment'})" %>
         </div>
       <% end %>
     </div>
