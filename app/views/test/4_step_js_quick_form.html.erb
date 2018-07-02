@@ -1,0 +1,133 @@
+<%= simple_form_for(@quick) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="progress-bar-item">
+      <h1>1</h1>
+      <p>House Type</p>
+    </div>
+    <div id="pb-details" class="progress-bar-item active">
+      <h1>2</h1>
+      <p>House Details</p>
+    </div>
+    <div id="pb-price" class="progress-bar-item">
+      <h1>3</h1>
+      <p>Financial Info</p>
+    </div>
+    <div id="pb-info" class="progress-bar-item">
+      <h1>4</h1>
+      <p>Contact Info</p>
+    </div>
+  </div> <!-- progress bar row-->
+
+  <div class="form-inputs">
+    <div class="row" id="details">
+      <div class="container quick-form">
+        <h2>What should your house be like?</h2>
+          <%= f.hidden_field :house, value: params[:house] %>
+
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "Where do you want to live?" %>
+          <%= f.text_field :location, class: "form-control", placeholder: "e.g. Laguna Niguel, CA", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Location'})" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "Square Footage" %>
+          <%= f.text_field :footage, class: "form-control", placeholder: "e.g. 3,000 square feet", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Footage'})" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "# of Bedrooms" %>
+          <%= f.text_field :bedrooms, class: "form-control", placeholder: "e.g. 3", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Bedrooms'})" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6 col-lg-3">
+          <%= f.label "# of Bathrooms" %>
+          <%= f.text_field :bathrooms, class: "form-control", placeholder: "e.g. 2.5", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Bathrooms'})" %>
+        </div> <!-- form group -->
+
+        <%= link_to "Back", page_path('get_report'), class: "btn", style: "margin-right: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 2'})" %>
+        <div class="btn" id="detailsNext" style="margin-left: 10px" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Next on 2'})">Next</div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- details div -->
+
+    <div id="price" class="hidden row">
+      <div class="container quick-form">
+        <h2>A little about the finances...</h2>
+
+        <div class="form-group text-left col-xs-12 col-sm-6">
+          <%= f.label "What's your ideal price range?" %>
+          <%= f.input :range, as: :slider, label: false, min: 100000, max: 3000000, step: 100000, range: true, ticks: [500000, 750000, 1000000, 1500000, 2000000, 2500000], onclick: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Price Range'})" %>
+        </div> <!-- form group -->
+        <div class="form-group text-left col-xs-12 col-sm-6">
+          <%= f.label "What's your monthly budget for rent?" %>
+          <%= f.input :budget, as: :slider, label: false, min: 500, max: 5000, step: 100, onclick: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Budget'})" %>
+        </div> <!-- form group -->
+
+        <div class="btn" style="margin-right: 10px" id="pricePrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 3'})">Back</div>
+        <div class="btn" style="margin-left: 10px" id="priceNext" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Next on 3'})">Next</div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- price div -->
+
+    <div id="info" class="hidden row">
+      <div class="container quick-form">
+        <h2>Now where do we send your listings report?</h2>
+
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Name*" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Tony Stark", required: true, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Name'})" %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Phone Number" %>
+            <%= f.text_field :phone, class: "form-control", placeholder: "e.g. (949) 524-1246", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Phone'})" %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12 col-sm-4">
+            <%= f.label "Email*" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "e.g. anthony@linchpinrealty.com", required: true, oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Email'})"  %>
+          </div> <!-- form group -->
+          <div class="form-group text-left col-xs-12">
+            <%= f.label "Anything else you want us to know?" %>
+            <%= f.text_area :notes, class: "form-control", placeholder: "e.g. A view is really important to us, we would love a pool, we want to be close to public transportation, nearby schools are important to us, etc.", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Quick Typing Notes'})" %>
+          </div> <!-- form group -->
+
+        <div class="form-actions">
+          <div class="btn"  style="margin-right: 10px" id="infoPrev" onclick="ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Back on 4'})">Back</div>
+          <%= f.button :submit, "Submit", style: "margin-left: 10px", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Quick Form Submit'})" %>
+        </div>
+        <div class="buffer"></div>
+      </div> <!-- container -->
+    </div> <!-- info div -->
+
+  </div> <!-- form inputs -->
+
+
+
+<% end %>
+
+<script>
+  $(document).ready(function(){
+      $("#detailsNext").click(function () {
+        $("#details").addClass("hidden");
+        $("#price").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-price").addClass("active");
+      });
+      $("#pricePrev").click(function () {
+        $("#price").addClass("hidden");
+        $("#details").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-details").addClass("active");
+      });
+      $("#priceNext").click(function () {
+        $("#price").addClass("hidden");
+        $("#info").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-info").addClass("active");
+      });
+      $("#infoPrev").click(function () {
+        $("#info").addClass("hidden");
+        $("#price").removeClass("hidden");
+        $(".progress-bar-item").removeClass("active");
+        $("#pb-price").addClass("active");
+      });
+  });
+</script>
