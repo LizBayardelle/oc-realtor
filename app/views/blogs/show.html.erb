@@ -36,13 +36,18 @@
   <div class="card no-hover full-width blog"><div class="padding-box">
     <div class="header-row">
       <h1><%= @blog.title %></h1>
-      <p>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
-      <div class="text-center" style="margin-bottom: 25px" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
-      <% if @blog.link_filename %><h3 class="linkish" style="padding: 0 40px 0 40px">
+      <% if @blog.pillars_id && @pillar.name != " " %>
+        <h3 style="margin-top: 0px"><%= @pillar.name %></h3>
+      <% end %>
+      <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <% if @blog.link_filename %>
+        <h3 class="linkish" style="padding: 0px 40px 0 40px">
           <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
             <%= @blog.link_text %>
           <% end %>
-      </h3><% end %>
+        </h3>
+      <% end %>
+      <h3>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></h3>
       <div class="row"><hr class="col-xs-6 col-xs-push-3" /></div>
       <!-- <h4>Tags: <%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4> -->
     </div> <!-- header row -->

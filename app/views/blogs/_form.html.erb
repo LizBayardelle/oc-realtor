@@ -21,6 +21,9 @@
       <%= f.input :tag_list, :label => "Tags (seperated by commas)", :input_html => { :class => "form-control", :value => @blog.tag_list.join(", ") } %>
     </div>
     <div class="form-group">
+      <%= f.label "Which category is this for?" %><br />
+      <%= f.collection_select(:pillars_id, Pillar.all, :id, :name) %>
+    <div class="form-group">
       <%= f.label "Picture" %>
       <%= f.file_field :image, as: :file %>
     </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628201032) do
+ActiveRecord::Schema.define(version: 20180703161702) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20180628201032) do
     t.string   "slug"
     t.string   "link_text"
     t.string   "link_filename"
+    t.integer  "pillars_id"
   end
 
+  add_index "blogs", ["pillars_id"], name: "index_blogs_on_pillars_id"
   add_index "blogs", ["slug"], name: "index_blogs_on_slug", unique: true
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
 
@@ -170,6 +172,18 @@ ActiveRecord::Schema.define(version: 20180628201032) do
   end
 
   add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
+
+  create_table "pillars", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "buyer"
+    t.boolean  "seller"
+    t.boolean  "active",      default: false
+    t.boolean  "menu",        default: false
+    t.string   "snippet"
+    t.text     "description"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "quicks", force: :cascade do |t|
     t.string   "name"

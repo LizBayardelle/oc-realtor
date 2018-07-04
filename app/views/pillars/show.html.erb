@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pillar.name %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @pillar.buyer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @pillar.seller %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @pillar.active %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @pillar.menu %>
+</p>
+
+<p>
+  <strong>Snippet:</strong>
+  <%= @pillar.snippet %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pillar.description %>
+</p>
+
+<%= link_to 'Edit', edit_pillar_path(@pillar) %> |
+<%= link_to 'Back', pillars_path %>

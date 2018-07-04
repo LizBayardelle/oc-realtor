@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs
   def index
+    @pillars = Pillar.all
     if params[:tag]
       @blogs = Blog.tagged_with(params[:tag])
     else
@@ -15,6 +16,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1
   def show
+    @pillars = Pillar.all
+    @pillar = Pillar.find_by(id: @blog.pillars_id)
     @comment = @blog.comments.build
     @comments = Comment.where(blog_id: @blog.id, approved: true)
     if current_user
@@ -29,15 +32,18 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
+    @pillars = Pillar.all
     @blog = Blog.new
   end
 
   # GET /blogs/1/edit
   def edit
+    @pillars = Pillar.all
   end
 
   # POST /blogs
   def create
+    @pillars = Pillar.all
     @blog = Blog.new(blog_params)
     if current_user.id = 1
       @blog.user_id = 2
@@ -54,6 +60,7 @@ class BlogsController < ApplicationController
 
   # PATCH/PUT /blogs/1
   def update
+    @pillars = Pillar.all
     if @blog.update(blog_params)
       redirect_to @blog, notice: 'Blog was successfully updated.'
     else
@@ -63,6 +70,7 @@ class BlogsController < ApplicationController
 
   # DELETE /blogs/1
   def destroy
+    @pillars = Pillar.all
     @blog.destroy
     redirect_to blogs_url, notice: 'Blog was successfully destroyed.'
   end
@@ -75,7 +83,7 @@ class BlogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def blog_params
-      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list, :link_text, :link_filename)
+      params.require(:blog).permit(:title, :teaser, :body, :user_id, :image, :tag_list, :link_text, :link_filename, :pillars_id)
     end
 
 end

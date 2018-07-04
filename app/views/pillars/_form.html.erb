@@ -1,0 +1,34 @@
+<%= simple_form_for(@pillar) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div> <!-- form field -->
+    <div class="checkbox">
+      <%= f.input :buyer %>
+    </div> <!-- form field -->
+    <div class="checkbox">
+      <%= f.input :seller %>
+    </div> <!-- form field -->
+    <div class="checkbox">
+      <%= f.input :active %>
+    </div> <!-- form field -->
+    <div class="checkbox">
+      <%= f.input :menu %>
+    </div> <!-- form field -->
+    <div class="form-field">
+      <%= f.label :snippet %>
+      <%= f.text_field :snippet, class: "form-control" %>
+    </div> <!-- form field -->
+    <div class="form-field">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "ckeditor" %>
+    </div> <!-- form field -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
