@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+gem 'rails', '~> 5.0.0'
 
 group :production do
-  gem 'pg', '~> 0.20.0'
+  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -16,24 +16,24 @@ group :development do
   gem 'pry-rails'
 end
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'bcrypt', '~> 3.1.7'
-gem 'friendly_id', '~> 5.1.0'
+gem 'bcrypt'
+gem 'friendly_id'
 gem 'devise'
 gem 'stripe'
 gem 'ckeditor_rails'
-gem 'paperclip', "~> 5.0.0"
+gem 'paperclip'
 gem 'figaro'
-gem 'magnific-popup-rails', '~> 1.1.0'
+gem 'magnific-popup-rails'
 gem 'simple_form'
 gem 'ionicons-rails'
 gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk'
 gem 'rename'
 gem 'rubillow'
 gem 'rillow', github: "hiattp/rillow"

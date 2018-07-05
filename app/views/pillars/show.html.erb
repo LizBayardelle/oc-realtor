@@ -1,39 +1,34 @@
-<p id="notice"><%= notice %></p>
+<!-- page-specific content -->
+  <% title "Free Listings Report" %>
+  <%= content_for :head do %>
+    <meta name="description" content="Free personalized report of houses for sale. Quick and easy!">
+  <% end %>
+<!-- end page specific content -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @pillar.name %>
-</p>
+<div class="responsive-hero-div">
+    <%= image_tag "house_pool.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
 
-<p>
-  <strong>Buyer:</strong>
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1 class="extreme-callout"><%= @pillar.name %></h1>
+        <div class="text-center container" style="width: 100%">
+          <h3 class="font-sans"><%= @pillar.snippet %></h3>
+        </div> <!-- container -->
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
+
+<div class="buffer"></div>
+
+<div class="container text-center">
   <%= @pillar.buyer %>
-</p>
-
-<p>
-  <strong>Seller:</strong>
   <%= @pillar.seller %>
-</p>
-
-<p>
-  <strong>Active:</strong>
   <%= @pillar.active %>
-</p>
-
-<p>
-  <strong>Menu:</strong>
   <%= @pillar.menu %>
-</p>
-
-<p>
-  <strong>Snippet:</strong>
-  <%= @pillar.snippet %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @pillar.description %>
-</p>
 
-<%= link_to 'Edit', edit_pillar_path(@pillar) %> |
-<%= link_to 'Back', pillars_path %>
+  <%= link_to 'Edit', edit_pillar_path(@pillar) %> |
+  <%= link_to 'Back', pillars_path %>
+</div> <!-- container -->
+
+<div class="buffer"></div>
