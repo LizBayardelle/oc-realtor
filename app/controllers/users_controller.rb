@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def confirm_client
       @client = User.find(params[:id])
       if @client.update_attributes(status_confirmed: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been confirmed!"
       else
           redirect_to root_path
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def unconfirm_client
       @client = User.find(params[:id])
       if @client.update_attributes(status_confirmed: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been unconfirmed!"
       else
           redirect_to root_path
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def archive_client
       @client = User.find(params[:id])
       if @client.update_attributes(archived: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been archived!"
       else
           redirect_to root_path
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def unarchive_client
       @client = User.find(params[:id])
       if @client.update_attributes(archived: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been unarchived!"
       else
           redirect_to root_path
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   def client_read
       @client = User.find(params[:id])
       if @client.update_attributes(read: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That client has been marked read!"
       else
           redirect_to root_path
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   def client_unread
       @client = User.find(params[:id])
       if @client.update_attributes(read: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That client has been marked unread!"
       else
           redirect_to root_path
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
   def subscribe_to_blog
     @user = current_user
     if @user.update_attributes(blog_emails: true)
-        redirect_to :back
+        redirect_back fallback_location: root_path
         flash[:notice] = "You'll be the first to know about any new information!"
     else
         redirect_to root_path

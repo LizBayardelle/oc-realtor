@@ -42,13 +42,13 @@ class BuyersController < ApplicationController
   # DELETE /buyers/1
   def destroy
     @buyer.destroy
-    redirect_to :back, notice: 'Buyer form was successfully deleted.'
+    redirect_back fallback_location: root_path, notice: 'Buyer form was successfully deleted.'
   end
 
   def archive_buyer
       @buyer = Buyer.find(params[:id])
       if @buyer.update_attributes(archived: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been archived!"
       else
           redirect_to root_path
@@ -59,7 +59,7 @@ class BuyersController < ApplicationController
   def unarchive_buyer
       @buyer = Buyer.find(params[:id])
       if @buyer.update_attributes(archived: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been unarchived!"
       else
           redirect_to root_path
@@ -71,7 +71,7 @@ class BuyersController < ApplicationController
     def buyer_read
         @buyer = Buyer.find(params[:id])
         if @buyer.update_attributes(read: true)
-            redirect_to :back
+            redirect_back fallback_location: root_path
             flash[:notice] = "That buyer survey has been marked read!"
         else
             redirect_to root_path
@@ -82,7 +82,7 @@ class BuyersController < ApplicationController
     def buyer_unread
         @buyer = Buyer.find(params[:id])
         if @buyer.update_attributes(read: false)
-            redirect_to :back
+            redirect_back fallback_location: root_path
             flash[:notice] = "That buyer survey has been marked unread!"
         else
             redirect_to root_path

@@ -50,13 +50,13 @@ class ValuesController < ApplicationController
 
   def destroy
     @value.destroy
-    redirect_to :back, notice: 'Value was successfully destroyed.'
+    redirect_back fallback_location: root_path, notice: 'Value was successfully destroyed.'
   end
 
   def archive_value
       @value = Value.find(params[:id])
       if @value.update_attributes(archived: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That valuation has been archived!"
       else
           redirect_to root_path
@@ -67,7 +67,7 @@ class ValuesController < ApplicationController
   def unarchive_value
       @value = Value.find(params[:id])
       if @value.update_attributes(archived: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That valuation has been unarchived!"
       else
           redirect_to root_path
@@ -78,7 +78,7 @@ class ValuesController < ApplicationController
   def value_read
       @value = Value.find(params[:id])
       if @value.update_attributes(read: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That value has been marked read!"
       else
           redirect_to root_path
@@ -89,7 +89,7 @@ class ValuesController < ApplicationController
   def value_unread
       @value = Value.find(params[:id])
       if @value.update_attributes(read: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That value has been marked unread!"
       else
           redirect_to root_path

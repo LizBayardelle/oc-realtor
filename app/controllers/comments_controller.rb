@@ -26,16 +26,16 @@ class CommentsController < ApplicationController
     @comment = @blog.comments.find(params[:id])
     @comment.destroy
     if current_user.admin
-      redirect_to :back, notice: 'Comment has been deleted.'
+      redirect_back fallback_location: root_path, notice: 'Comment has been deleted.'
     else
-      redirect_to :back, notice: 'Comment has been deleted.'
+      redirect_back fallback_location: root_path, notice: 'Comment has been deleted.'
     end
   end
 
   def approve_comment
       @comment = Comment.find(params[:id])
       if @comment.update_attributes(approved: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That comment has been approved!"
       else
           redirect_to root_path
@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
   def comment_read
       @comment = Comment.find(params[:id])
       if @comment.update_attributes(read: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That comment has been marked read!"
       else
           redirect_to root_path
@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
   def comment_unread
       @comment = Comment.find(params[:id])
       if @comment.update_attributes(read: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That comment has been marked unread!"
       else
           redirect_to root_path

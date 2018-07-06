@@ -42,13 +42,13 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1
   def destroy
     @contact.destroy
-    redirect_to :back, notice: 'Contact was successfully destroyed.'
+    redirect_back fallback_location: root_path, notice: 'Contact was successfully destroyed.'
   end
 
   def archive_contact
       @contact = Contact.find(params[:id])
       if @contact.update_attributes(archived: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been archived!"
       else
           redirect_to root_path
@@ -59,7 +59,7 @@ class ContactsController < ApplicationController
   def unarchive_contact
       @contact = Contact.find(params[:id])
       if @contact.update_attributes(archived: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been unarchived!"
       else
           redirect_to root_path
@@ -70,7 +70,7 @@ class ContactsController < ApplicationController
     def contact_read
         @contact = Contact.find(params[:id])
         if @contact.update_attributes(read: true)
-            redirect_to :back
+            redirect_back fallback_location: root_path
             flash[:notice] = "That message has been marked read!"
         else
             redirect_to root_path
@@ -81,7 +81,7 @@ class ContactsController < ApplicationController
     def contact_unread
         @contact = Contact.find(params[:id])
         if @contact.update_attributes(read: false)
-            redirect_to :back
+            redirect_back fallback_location: root_path
             flash[:notice] = "That message has been marked unread!"
         else
             redirect_to root_path

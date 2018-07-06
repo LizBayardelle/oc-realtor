@@ -42,13 +42,13 @@ class QuicksController < ApplicationController
   # DELETE /quicks/1
   def destroy
     @quick.destroy
-    redirect_to :back, notice: 'Quick was successfully destroyed.'
+    redirect_back fallback_location: root_path, notice: 'Quick was successfully destroyed.'
   end
 
   def make_responded
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(responded: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been marked responded!"
       else
           redirect_to root_path
@@ -59,7 +59,7 @@ class QuicksController < ApplicationController
   def make_unresponded
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(responded: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been marked unresponded!"
       else
           redirect_to root_path
@@ -70,7 +70,7 @@ class QuicksController < ApplicationController
   def archive_quick
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(archived: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been archived!"
       else
           redirect_to root_path
@@ -81,7 +81,7 @@ class QuicksController < ApplicationController
   def unarchive_quick
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(archived: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been unarchived!"
       else
           redirect_to root_path
@@ -92,7 +92,7 @@ class QuicksController < ApplicationController
   def quick_read
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(read: true)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been marked read!"
       else
           redirect_to root_path
@@ -103,7 +103,7 @@ class QuicksController < ApplicationController
   def quick_unread
       @quick = Quick.find(params[:id])
       if @quick.update_attributes(read: false)
-          redirect_to :back
+          redirect_back fallback_location: root_path
           flash[:notice] = "That message has been marked unread!"
       else
           redirect_to root_path
