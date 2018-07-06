@@ -11,7 +11,7 @@ group :development do
   gem 'sqlite3'
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'quiet_assets'
+  # gem 'quiet_assets' https://rossta.net/blog/quiet-assets-in-rails-5.html
   gem 'byebug'
   gem 'pry-rails'
 end
@@ -33,7 +33,7 @@ gem 'simple_form'
 gem 'ionicons-rails'
 gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
-gem 'aws-sdk'
+gem 'aws-sdk' # potential bottleneck
 gem 'rename'
 gem 'rubillow'
 gem 'rillow', github: "hiattp/rillow"
