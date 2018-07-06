@@ -1,4 +1,4 @@
-class AddIndexToBlogs < ActiveRecord::Migration
+class AddIndexToBlogs < ActiveRecord::Migration[5.2]
   def change
     add_reference :blogs, :pillars, index: true
     change_column :pillars, :active, :boolean, default: false
