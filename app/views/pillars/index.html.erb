@@ -13,7 +13,7 @@
         </h2>
         <h3 style="margin-top: 0px"><%= pillar.snippet %></h3>
         <p style="margin-bottom: 20px">
-            For <% if pillar.buyer && pillar.seller %>Buyers and Sellers<% elsif pillar.buyer%>Buyers<% elsif pillar.seller %>Sellers<% else %>General Information<% end %>
+            For <strong><% if pillar.buyer && pillar.seller %>Buyers and Sellers<% elsif pillar.buyer%>Buyers<% elsif pillar.seller %>Sellers<% else %>General Information<% end %></strong>
             (<% if pillar.active %>Active<% else %>Not Active<% end %> | <% if pillar.menu %>On Main Nav<% else %>Not On Main Nav<% end %>)
         </p>
 

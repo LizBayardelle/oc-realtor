@@ -18,6 +18,8 @@
     </div> <!-- overlap-image -->
 </div>
 
+<%= @blogs %>
+
 <div class="row">
   <div class="container text-center">
     <div class="card padding-10">
@@ -29,7 +31,7 @@
           <p>This pillar is currently <strong>active</strong>.</p>
         <% end %>
 
-          <p>It <% if @pillar.active == false %> will be <% else %>is<% end %> displayed on the main navigation
+          <p>It <% if @pillar.active == false %> will be <% else %>is<% end %> on the main nav
             <% if @pillar.buyer && @pillar.seller %>
               for <strong>both buyers and sellers</strong>.</p>
             <% elsif @pillar.buyer %>
