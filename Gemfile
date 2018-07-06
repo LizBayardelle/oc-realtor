@@ -14,8 +14,10 @@ group :development do
   # gem 'quiet_assets' https://rossta.net/blog/quiet-assets-in-rails-5.html
   gem 'byebug'
   gem 'pry-rails'
+  gem 'listen'
 end
 
+gem 'bootsnap'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'uglifier'
