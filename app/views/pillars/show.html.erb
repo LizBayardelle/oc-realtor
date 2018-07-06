@@ -20,22 +20,25 @@
 
 <div class="row">
   <div class="container text-center">
-    <div class="card">
+    <div class="card padding-10">
       <% if current_user && current_user.admin %>
         <h2>Admin's Corner</h2>
-        <% @pillar.active == false %>
+        <% if @pillar.active == false %>
           <p>This pillar is currently <strong>inactive</strong>.</p>
-        <% if @pillar.menu %>
-          <p>This is displayed on the main navigation
-            <% if @pillar.buyer && @pillar.seller %>
-              for both buyers and sellers
-            <% elsif @pillar.buyer %>
-              for buyers
-            <% elsif @pillar.seller %>
-              for sellers
-            <% end %>
-            .</p>
+        <% else %>
+          <p>This pillar is currently <strong>active</strong>.</p>
         <% end %>
+
+          <p>It <% if @pillar.active == false %> will be <% else %>is<% end %> displayed on the main navigation
+            <% if @pillar.buyer && @pillar.seller %>
+              for <strong>both buyers and sellers</strong>.</p>
+            <% elsif @pillar.buyer %>
+              for <strong>buyers</strong>.</p>
+            <% elsif @pillar.seller %>
+              for <strong>sellers</strong>.</p>
+            <% else %>
+              for <strong>other information</strong>.</p>
+            <% end %>
       <% end %>
 
       <p><%= link_to 'Edit', edit_pillar_path(@pillar) %> | <%= link_to 'Back', pillars_path %></p>

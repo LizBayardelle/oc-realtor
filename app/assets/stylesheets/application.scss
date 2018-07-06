@@ -91,6 +91,7 @@ td { padding: 5px}
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
 p { font-family: $font-sans }
+.padding-10 { padding: 10px }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
 .container.bg-white { background-color: $transparent-white }
