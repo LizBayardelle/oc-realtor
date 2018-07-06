@@ -8,6 +8,7 @@ class PillarsController < ApplicationController
 
   # GET /pillars/1
   def show
+    @blogs = Blog.where(pillars_id: @pillar.id).limit(6)
   end
 
   # GET /pillars/new

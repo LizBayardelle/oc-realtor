@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.2'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.20.0'
   gem 'rails_12factor'
 end
 
@@ -23,14 +23,14 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'bcrypt'
-gem 'friendly_id'
+gem 'bcrypt', '~> 3.1.7'
+gem 'friendly_id', '~> 5.1.0'
 gem 'devise'
 gem 'stripe'
 gem 'ckeditor_rails'
-gem 'paperclip'
+gem 'paperclip', "~> 5.0.0"
 gem 'figaro'
-gem 'magnific-popup-rails'
+gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'simple_form'
 gem 'ionicons-rails'
 gem 'autonumeric-rails'

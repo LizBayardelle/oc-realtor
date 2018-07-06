@@ -1,7 +1,7 @@
 <!-- page-specific content -->
-  <% title "Free Listings Report" %>
+  <% title @pillar.name %>
   <%= content_for :head do %>
-    <meta name="description" content="Free personalized report of houses for sale. Quick and easy!">
+    <meta name="description" content=@pillar.snippet>
   <% end %>
 <!-- end page specific content -->
 
@@ -18,17 +18,59 @@
     </div> <!-- overlap-image -->
 </div>
 
+<div class="row">
+  <div class="container text-center">
+    <div class="card">
+      <% if current_user && current_user.admin %>
+        <h2>Admin's Corner</h2>
+        <% @pillar.active == false %>
+          <p>This pillar is currently <strong>inactive</strong>.</p>
+        <% if @pillar.menu %>
+          <p>This is displayed on the main navigation
+            <% if @pillar.buyer && @pillar.seller %>
+              for both buyers and sellers
+            <% elsif @pillar.buyer %>
+              for buyers
+            <% elsif @pillar.seller %>
+              for sellers
+            <% end %>
+            .</p>
+        <% end %>
+      <% end %>
+
+      <p><%= link_to 'Edit', edit_pillar_path(@pillar) %> | <%= link_to 'Back', pillars_path %></p>
+    </div> <!-- card -->
+  </div> <!-- container -->
+</div> <!-- row -->
+
+<div class="row">
+  <div class="container">
+    <span class="font-sans"><%= @pillar.description.html_safe %></span>
+  </div> <!-- container -->
+</div> <!-- row -->
+
 <div class="buffer"></div>
 
-<div class="container text-center">
-  <%= @pillar.buyer %>
-  <%= @pillar.seller %>
-  <%= @pillar.active %>
-  <%= @pillar.menu %>
-  <%= @pillar.description %>
+<% if @blogs.count != 0 %>
+  <div class="row blue-stripe">
+    <div class="container">
+      <h2 class="text-center">Blogs about <%= @pillar.name %></h2>
+      <% @blogs.each do |blog| %>
+        <%= link_to blog_path(blog) do %>
+          <div class="card blog-card col-xs-6 col-md-3">
+              <%= image_tag blog.image.url, alt: blog.title %>
+              <h3><%= blog.title %></h3>
+              <p><%= blog.teaser %></p>
+              <p><em><%= link_to "Read More", blog_path(blog) %>...</em></p>
+          </div> <!-- card -->
+        <% end %> <!-- link -->
+      <% end %> <!-- blogs each -->
+    </div> <!-- container -->
+  </div> <!-- row -->
+<% end %>
 
-  <%= link_to 'Edit', edit_pillar_path(@pillar) %> |
-  <%= link_to 'Back', pillars_path %>
+
+
 </div> <!-- container -->
 
 <div class="buffer"></div>

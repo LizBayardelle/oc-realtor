@@ -61,6 +61,7 @@ $transparent-blue: rgba(3,29,68, 0.5);
 
 .color-creme { color: $creme }
 .color-blue-light { color: $blue-light }
+.color-blue-dark { color: $blue-dark }
 
 .extreme-callout { font-family: $font-sans; font-weight: bolder }
 
@@ -89,7 +90,7 @@ td { padding: 5px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
-p { font-family: $font-serif }
+p { font-family: $font-sans }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
 .container.bg-white { background-color: $transparent-white }
@@ -1036,6 +1037,31 @@ $size: 31px;
 
 
 
+
+
+
+
+
+
+/*
+==============================================
+Users#show
+==============================================
+*/
+
+.blog-card {
+	padding: 0px;
+}
+
+.blog-card h3, .blog-card p {
+	color: $blue-dark !important;
+	padding: 0 10px 0 10px;
+}
+
+.blog-card p a {
+	color: $grey-dark !important;
+	padding: 0 10px 0 10px;
+}
 
 
 
