@@ -3,7 +3,7 @@ class PillarsController < ApplicationController
 
   # GET /pillars
   def index
-    @pillars = Pillar.all
+    @pillars = Pillar.order('created_at ASC')
   end
 
   # GET /pillars/1

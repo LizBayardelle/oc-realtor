@@ -71,12 +71,12 @@
                   <li class="dropdown">
                     <%= link_to 'For Buyers', class: "center-ul-hover" %>
                     <ul class="dropdown-menu">
-                      <% @pillars = Pillar.where(active: true, menu: true, buyer: true) %>
+                      <% @pillars = Pillar.where(active: true, menu: true, buyer: true).order('created_at ASC') %>
                       <% @pillars.each do |pillar| %>
                         <li><%= link_to pillar.name, pillar_path(pillar) %></li>
                       <% end %>
                       <li role="separator" class="divider"></li>
-                      <li><%= link_to 'Online Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
+                      <li><%= link_to 'TOOL: Online Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
                     </ul>
                   </li>
 

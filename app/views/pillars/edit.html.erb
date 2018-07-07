@@ -1,6 +1,9 @@
-<h1>Editing Pillar</h1>
+<div class="row">
+  <div class="container">
+    <h1 class="text-center">Edit <%= @pillar.name %></h1>
+    <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @pillar %> |
-<%= link_to 'Back', pillars_path %>
+    <%= link_to 'Show', @pillar %> |
+    <%= link_to 'Back', pillars_path %>
+  </div> <!-- container -->
+</div> <!-- row -->
