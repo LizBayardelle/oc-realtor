@@ -56,7 +56,8 @@
 
 <div class="buffer"></div>
 
-<% if @blogs %>
+<%= @blogs.count %>
+<% if @blogs.count != 0 %>
   <div class="row blue-stripe">
     <div class="container">
       <h2 class="text-center">Blogs about <%= @pillar.name %></h2>
