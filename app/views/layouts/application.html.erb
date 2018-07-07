@@ -67,22 +67,27 @@
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Home'})" %></li>
                   <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
-                  <li><%= link_to 'Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
 
-                  <!--
                   <li class="dropdown">
-                    <%= link_to 'Tools', new_value_path, class: "center-ul-hover" %>
+                    <%= link_to 'For Buyers', class: "center-ul-hover" %>
                     <ul class="dropdown-menu">
-                      <li><%= link_to 'Tools', new_value_path %></li>
+                      <% @pillars = Pillar.where(active: true, menu: true, buyer: true) %>
+                      <% @pillars.each do |pillar| %>
+                        <li><%= link_to pillar.name, pillar_path(pillar) %></li>
+                      <% end %>
                       <li role="separator" class="divider"></li>
-                      <li><%= link_to 'Tools', new_value_path %></li>
+                      <li><%= link_to 'Online Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
                     </ul>
                   </li>
-                   -->
+
                   <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Contact Me'})" %></li>
 
                   <% if current_user %>
-                  	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %></li>
+                  	<li class="dropdown"><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to 'Pillars', pillars_path %></li>
+                      </ul>
+                    </li>
                   <% else %>
                     <li class="dropdown">
                       <%= link_to 'My Account', new_user_registration_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav My Account'})" %>
