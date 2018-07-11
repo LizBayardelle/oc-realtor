@@ -18,6 +18,7 @@ class BlogsController < ApplicationController
   def show
     @pillars = Pillar.all
     @pillar = Pillar.find_by(id: @blog.pillars_id)
+    @related = Blog.where(pillars_id: @blog.pillars_id).where.not(id: @blog.id).limit(4)
     @comment = @blog.comments.build
     @comments = Comment.where(blog_id: @blog.id, approved: true)
     if current_user
