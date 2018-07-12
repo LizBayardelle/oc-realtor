@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
   def create
     @pillars = Pillar.all
     @blog = Blog.new(blog_params)
-    if current_user.id = 1
+    if current_user.id == 1
       @blog.user_id = 2
     else
       @blog.user = current_user
