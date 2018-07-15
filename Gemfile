@@ -35,7 +35,8 @@ gem 'simple_form'
 gem 'ionicons-rails'
 gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
-gem 'aws-sdk' # potential bottleneck
+gem 'aws-sdk' , '~> 3' # potential bottleneck
+gem 'aws-sdk-s3', require: false
 gem 'rename'
 gem 'rubillow'
 gem 'rillow', github: "hiattp/rillow"

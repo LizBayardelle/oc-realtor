@@ -23,10 +23,15 @@
     <div class="form-group">
       <%= f.label "Which category is this for?" %><br />
       <%= f.collection_select(:pillars_id, Pillar.all, :id, :name) %>
+    </div>
     <div class="form-group">
       <%= f.label "Picture" %>
-      <%= f.file_field :image, as: :file %>
+      <%= f.file_field :image, direct_upload: true %>
     </div>
+    <!-- <div class="form-group">
+      <%= f.label "Picture" %>
+      <%= f.file_field :image, as: :file %>
+    </div> -->
     <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body, class: "ckeditor" %>
