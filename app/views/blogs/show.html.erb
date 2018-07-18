@@ -22,9 +22,7 @@
 <!-- end page specific content -->
 
 <div class="image-container">
-    <%= if @blog.image do %>
-      <% image_tag url_for(@blog.image), style: "bottom: 0", alt: @blog.teaser %>
-    <% end %>
+    <%= image_tag @blog.image, style: "bottom: 0", alt: @blog.teaser if @blog.image.attached? %>
 </div>
 
 <div class="overlap-image text-center">
@@ -50,7 +48,9 @@
       <% if @blog.pillars_id && @pillar.name != " " %>
         <h3 style="margin-top: 0px"><%= @pillar.name %></h3>
       <% end %>
-      <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: @blog.image.url, 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <% if @blog.image.attached? %>
+        <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: url_for(@blog.image), 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <% end %>
       <% if @blog.link_filename %>
         <h3 class="linkish" style="padding: 0px 40px 0 40px">
           <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
@@ -117,7 +117,7 @@
         <% @related.each do |blog| %>
           <%= link_to blog_path(blog) do %>
             <div class="card blog-card col-xs-6 col-md-3">
-                <%= image_tag blog.image.url, alt: blog.title %>
+                <%= image_tag url_for(blog.image), alt: blog.title if blog.image.attached? %>
                 <h3><%= blog.title %></h3>
                 <p><%= blog.teaser %></p>
                 <p><em><%= link_to "Read More", blog_path(blog) %>...</em></p>
@@ -127,7 +127,6 @@
       </div> <!-- container -->
     </div> <!-- row -->
   <% end %>
-
 
 </div> <!-- container -->
 

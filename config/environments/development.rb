@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # PAPERCLIP
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+  # Paperclip.options[:command_path] = "/usr/local/bin/"
 
   # Do not eager load code on boot.
   config.eager_load = false

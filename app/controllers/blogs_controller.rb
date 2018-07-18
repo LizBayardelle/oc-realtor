@@ -44,14 +44,14 @@ class BlogsController < ApplicationController
 
   # POST /blogs
   def create
-    @pillars = Pillar.all
+    # @pillars = Pillar.all
     @blog = Blog.new(blog_params)
-    @blog.image.attach(params[:blog][:image])
-    if current_user.id == 1
-      @blog.user_id = 2
-    else
+    # @blog.image.attach(params[:blog][:image])
+    # if current_user.id == 1
+    #   @blog.user_id = 2
+    # else
       @blog.user = current_user
-    end
+    # end
 
     if @blog.save
       redirect_to @blog, notice: 'Blog was successfully created.'
@@ -85,7 +85,7 @@ class BlogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def blog_params
-      params.require(:blog).permit(:title, :teaser, :body, :user_id, :tag_list, :link_text, :link_filename, :pillars_id)
+      params.require(:blog).permit(:title, :teaser, :body, :user_id, :tag_list, :link_text, :link_filename, :pillars_id, :image)
     end
 
 end
