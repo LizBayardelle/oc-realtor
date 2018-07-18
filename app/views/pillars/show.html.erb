@@ -61,7 +61,7 @@
       <% @blogs.each do |blog| %>
         <%= link_to blog_path(blog) do %>
           <div class="card blog-card col-xs-6 col-md-3">
-              <%= image_tag blog.image.url, alt: blog.title %>
+              <%= image_tag url_for(blog.image), alt: blog.title %>
               <h3><%= blog.title %></h3>
               <p><%= blog.teaser %></p>
               <p><em><%= link_to "Read More", blog_path(blog) %>...</em></p>
