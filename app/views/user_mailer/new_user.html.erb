@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New Client Account Created</h1>
+
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+
+    <p><%= @user.email %>  |  <%= @user.phone %></p>
+    <% if @user.buyer %><p>Interested in Buying</p><% end %>
+    <% if @user.seller %><p>Interested in Selling</p><% end %>
+  </body>
+</html>
