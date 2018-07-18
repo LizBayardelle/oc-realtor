@@ -669,9 +669,6 @@ GEM
     byebug (10.0.2)
     ckeditor_rails (4.8.0)
       railties (>= 3.0)
-    climate_control (0.2.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -745,12 +742,6 @@ GEM
       mini_portile2 (~> 2.3.0)
     nori (2.6.0)
     orm_adapter (0.5.0)
-    paperclip (5.0.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (~> 0.3.0)
     pg (0.20.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -888,7 +879,6 @@ DEPENDENCIES
   listen
   magnific-popup-rails (~> 1.1.0)
   nori
-  paperclip (~> 5.0.0)
   pg (~> 0.20.0)
   pry-rails
   rails (~> 5.2)
