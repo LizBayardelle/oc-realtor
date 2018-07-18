@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   resources :users, only: [:show]
   post "user/:id/archive" => "users#archive_client", as: "archive_client"
   post "user/:id/unarchive" => "users#unarchive_client", as: "unarchive_client"

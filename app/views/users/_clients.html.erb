@@ -44,7 +44,7 @@
                     <i class="icon ion-toggle"></i>
                   <% end %>
                 <% end %>
-                <%= link_to client, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= link_to admin_destroy_user_path(client), method: :delete, data: { confirm: 'Are you sure you want to delete ' + client.first_name + ' ' + client.last_name + '?' } do %>
                   <i class="icon ion-trash-a"></i>
                 <% end %>
                 <%= link_to archive_client_path(client), method: :post do %>

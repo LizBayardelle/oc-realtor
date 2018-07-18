@@ -21,7 +21,7 @@
                 <% end %>
               </td>
               <td>
-                <%= value.user.first_name %> <%= value.user.last_name %><br />
+                <%= value.user.first_name if value.present? %> <%= value.user.last_name if value.present? %><br />
                 <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
                 <%= mail_to value.user.email %> <% if value.user.preferred_contact == "Email" %>(Preferred)<% end %>
               </td>
@@ -61,9 +61,9 @@
                 <% end %>
               </td>
               <td>
-                <%= value.user.first_name %> <%= value.user.last_name %><br />
-                <%= value.user.phone %> <% if value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
-                <%= mail_to value.user.email %> <% if value.user.preferred_contact == "Email" %>(Preferred)<% end %>
+                <%= value.user.first_name if value.user.present? %> <%= value.user.last_name if value.user.present? %><br />
+                <%= value.user.phone if value.user.present? %> <% if value.user.present? && value.user.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to value.email %> <% if value.user.present? && value.user.preferred_contact == "Email" %>(Preferred)<% end %>
               </td>
               <td>
                 <strong><%= value.address %></strong><br />

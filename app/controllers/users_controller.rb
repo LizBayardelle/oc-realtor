@@ -16,6 +16,18 @@ class UsersController < ApplicationController
     @archived_buyers = Buyer.where(archived: true).order('created_at DESC')
   end
 
+  def destroy
+    user = User.find(params[:id])
+    if current_user != user
+      if user.destroy
+        flash[:success] = "Successfully deleted"
+      else
+        flash[:error] = "Error"
+      end
+     redirect_to user_path(current_user)
+    end
+  end
+
   def confirm_client
       @client = User.find(params[:id])
       if @client.update_attributes(status_confirmed: true)
