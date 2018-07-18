@@ -1,8 +1,7 @@
 class Listing < ActiveRecord::Base
   extend FriendlyId
   friendly_id :address, use: :slugged
-  has_attached_file :default_image
-  validates_attachment_content_type :default_image, content_type: /\Aimage\/.*\z/
+  has_one_attached :default_image
   after_create :send_email
 
   def listing_property_details

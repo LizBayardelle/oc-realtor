@@ -33,7 +33,7 @@
 			<%= link_to blog_path(blog), onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage Single Blog Link'})" do %>
 				<div class="row blog-list-links">
 					<div class="col-sm-3">
-						<%= image_tag blog.image.url, alt: blog.title %>
+						<%= image_tag url_for(blog.image), alt: blog.title %>
 					</div> <!-- col image -->
 					<div class="col-sm-9">
 						<h3 style="margin-top: 0; padding-top: 0"><%= blog.title %></h3>

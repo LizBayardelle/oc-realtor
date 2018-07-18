@@ -34,7 +34,7 @@
       <%= link_to blog do %>
         <div class="card" onclick="ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blogs Individual Blog'})">
           <div class="image-box">
-	            <%#= image_tag blog.image.url, alt: blog.teaser %>
+	            <%= image_tag url_for(blog.image), alt: blog.teaser if blog.image.attached?  %>
           </div> <!-- padding box -->
           <div class="padding-box">
 						<h1><%= blog.title %></h1>
