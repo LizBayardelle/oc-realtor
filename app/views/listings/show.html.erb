@@ -10,7 +10,7 @@
           <% end %>
         <% end %>
       <% elsif @listing.default_image_file_name %>
-        <%= image_tag @listing.default_image.url, alt: @listing.address %>
+        <%= image_tag url_for(@listing.default_image), alt: @listing.address %>
       <% else %>
       <%= image_tag "no_image.jpg", class: "fancy-border" %>
       <% end %>

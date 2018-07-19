@@ -22,7 +22,7 @@
 								<%= image_tag listing.listing_property_details.images.first, class: "fancy-border" %>
 							<% end %>
 						<% elsif listing.default_image_file_name %>
-			        <%= image_tag listing.default_image.url, class: "fancy-border", alt: listing.address %>
+			        <%= image_tag url_for(listing.default_image), class: "fancy-border", alt: listing.address %>
 						<% else %>
 							<%= image_tag "no_image.jpg", class: "fancy-border" %>
 			      <% end %>

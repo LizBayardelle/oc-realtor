@@ -14,13 +14,19 @@
 
 <div class="container text-center">
 
-  <div class="row">
+  <div class="row" style="padding-top: 30px">
     <h2 class="font-sans">What are you looking to buy?</h2>
     <%= link_to new_quick_path(house: true), onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Click House'})" do %>
-      <div class="btn" style="margin-right: 10px">House</div>
+      <div class="card" style="margin-right: 10px">
+        <%= image_tag "img_home_pool_view.jpg", alt: "Beautiful Southern California house with ocean and pool view." %>
+        <h2>House</h2>
+      </div>
     <% end %>
     <%= link_to new_quick_path(house: false), onclick: "ga('send',{'hitType': 'event','eventCategory': 'subnav', 'eventAction': 'Quick Click NonHouse'})" do %>
-      <div class="btn" style="margin-left: 10px">Apartment or Condo</div>
+      <div class="card" style="margin-left: 10px">
+        <%= image_tag "img_condos.jpg", alt: "Beautiful Southern California condos." %>
+        <h2>Apartment or Condo</h2>
+      </div>
     <% end %>
     <div class="buffer"></div>
   </div> <!-- row -->
