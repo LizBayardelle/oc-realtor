@@ -22,8 +22,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
-
-    if @contact.save
+    if verify_recaptcha(model: @contact) && @contact.save
       redirect_to root_path, notice: "Your message has been sent!  We'll get back to you soon."
     else
       render :new

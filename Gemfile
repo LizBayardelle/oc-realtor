@@ -28,14 +28,13 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise'
 gem 'stripe'
 gem 'ckeditor_rails'
-# gem 'paperclip', "~> 5.0.0"
 gem 'figaro'
 gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'simple_form'
 gem 'ionicons-rails'
 gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
-gem 'aws-sdk' , '~> 3' # potential bottleneck
+gem 'aws-sdk' , '~> 3'
 gem 'aws-sdk-s3', require: false
 gem 'rename'
 gem 'rubillow'
@@ -49,5 +48,6 @@ gem 'httpclient'
 gem 'rets'
 gem 'simple_form_extension'
 gem 'high_voltage'
-
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'recaptcha', require: "recaptcha/rails"

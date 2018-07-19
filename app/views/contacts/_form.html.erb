@@ -33,6 +33,8 @@
       <%= f.label :message %>
       <%= f.text_area :message, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Message'})" %>
     </div> <!-- form group -->
+
+    <%= recaptcha_tags %>
   </div>
 
   <div class="form-actions row">
