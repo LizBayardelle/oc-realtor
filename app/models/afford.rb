@@ -1,0 +1,2 @@
+class Afford < ApplicationRecord
+end

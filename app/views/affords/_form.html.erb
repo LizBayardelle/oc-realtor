@@ -1,0 +1,119 @@
+<%= simple_form_for(@afford) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs text-left">
+
+    <h3>Key Information</h3>
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "What's the highest monthly payment you can afford?" %>
+      <%= f.text_field :monthly, class: "form-control", id: "monthly", value: "1500", oninput: "getValues();" %>
+    </div> <!-- form group -->
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "How much do you plan to use for a downpayment?" %>
+      <%= f.text_field :downpayment, class: "form-control", id: "downpayment", value: "20000" %>
+    </div> <!-- form group -->
+
+    <h3>Monthly Costs</h3>
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Monthly Insurance and Other Costs" %>
+      <%= f.text_field :insurance, class: "form-control", id: "insurance", value: "0" %>
+    </div> <!-- form group -->
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Monthy Association Dues" %>
+      <%= f.text_field :dues, class: "form-control", id: "dues", value: "200" %>
+    </div> <!-- form group -->
+
+    <h3>Loan Information</h3>
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Loan Term" %>
+      <%= f.text_field :term, class: "form-control", id: "term", value: "30" %>
+    </div> <!-- form group -->
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Interest Rate" %>
+      <%= f.text_field :interest, class: "form-control", id: "interest", value: ".05" %>
+    </div> <!-- form group -->
+
+    <h3>Tax Information</h3>
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Annual Property Tax" %>
+      <%= f.text_field :tax, class: "form-control", id: "tax" %>
+    </div> <!-- form group -->
+    <div class="form-group col-xs-12 col-sm-6">
+      <%= f.label "Combined State and Federal Tax Rate" %>
+      <%= f.text_field :combined_tax, class: "form-control", id: "combinedTax", value: "0.25" %>
+    </div> <!-- form group -->
+
+    <h2>Cost: $<span id="cost"></span></h2>
+    <div class="button btn" id="sbt">Test it Out</div>
+
+    <p>Monthly: <span id="dispMonthly"></span></p>
+    <p>Downpayment: <span id="dispDownpayment"></span></p>
+    <p>Term: <span id="dispTerm"></span></p>
+    <p>Interest: <span id="dispInterest"></span></p>
+    <p>Cost: <span id="dispCost"></span></p>
+
+    <div class="form-group col-xs-12">
+      <%= f.label "Email Address" %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div> <!-- form group -->
+
+    <%= f.input :contact %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script>
+  var term;
+  var interest;
+  var downpayment;
+  var monthly;
+  var cost;
+
+  window.onload = function()
+  {
+    document.getElementById("interest").focus();
+    document.getElementById("sbt").onclick = getValues;
+  };
+
+
+  //use toFixed(2) to set the precision of the mPayment. Use it on an int.
+  function getValues()
+  {
+    term = document.getElementById("term").value;
+    interest = document.getElementById("interest").value;
+    downpayment = document.getElementById("downpayment").value;
+    monthly = document.getElementById("monthly").value;
+    tax = document.getElementById("tax").value;
+    dues = document.getElementById("dues").value;
+    combinedTax = document.getElementById("combinedTax").value;
+
+    document.getElementById("dispTerm").innerHTML = term;
+    document.getElementById("dispInterest").innerHTML = interest;
+    document.getElementById("dispDownpayment").innerHTML = downpayment;
+    document.getElementById("dispMonthly").innerHTML = monthly;
+    cost = calculateCost();
+    document.getElementById("dispCost").innerHTML = cost;
+    document.getElementById("cost").innerHTML = "$" + cost.toFixed(2);
+  };
+
+  function formatMoney(number, c, d, t) {
+      var n = number,
+      c = isNaN(c = Math.abs(c)) ? 2 : c,
+      d = d == undefined ? "." : d,
+      t = t == undefined ? "," : t,
+      s = n < 0 ? "-" : "",
+      i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+      j = (j = i.length) > 3 ? j % 3 : 0;
+     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+   };
+
+  function calculateCost()
+  {
+  	var cost = downpayment + ( monthly * ( Math.pow( 1 + ( interest / 12 ), term * 12 ) - 1 ) / ( ( interest / 12 ) * ( Math.pow( 1 + ( interest / 12 ), term * 12 ) ) ) );
+    cost = "$" + formatMoney(cost, 2, ".", ",")
+  	return cost;
+  }
+</script>

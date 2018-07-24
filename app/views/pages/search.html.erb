@@ -1,3 +1,10 @@
+<!-- page-specific content -->
+  <% title "Home Search" %>
+  <%= content_for :head do %>
+    <meta name="description" content="Here you can see the most up to date listings in your target area." />
+  <% end %>
+<!-- page-specific content -->
+
 <div class="responsive-hero-div">
     <%= image_tag "house_pool.jpg", class: "responsive-hero-img", alt: "Beautiful backyard, pool, and house." %>
 
@@ -5,7 +12,7 @@
       <div class="gradient-overlay slideRight">
         <h1>Looking for a house?</h1>
         <div class="text-center" style="width: 100%">
-          <h3 class="font-sans">Here you can see the most up to date listings in your area.</h3>
+          <h3 class="font-sans">Here you can see the most up to date listings in your target area.</h3>
           <h3 class="font-sans">Take a look!</h3>
           <div class="buffer"></div>
         </div> <!-- container -->

@@ -1,0 +1,21 @@
+<div class="responsive-hero-div">
+    <%= image_tag "img_house_modern_pool.jpg", class: "responsive-hero-img", alt: "Luxury Orange County house and pool." %>
+
+    <div class="overlap-responsive-image text-center">
+      <div class="gradient-overlay slideRight">
+        <h1>Mortgage Payment Calculator</h1>
+        <h2 class="font-sans">How much house can I afford?</h2>
+      </div> <!-- absolute-bottom-transparent -->
+    </div> <!-- overlap-image -->
+</div>
+
+
+<div class="container text-center">
+  <div class="buffer"></div>
+
+  <%= render 'form', afford: @afford %>
+
+  <%= link_to 'Back', affords_path %>
+
+  <div class="buffer"></div>
+</div> <!-- container -->

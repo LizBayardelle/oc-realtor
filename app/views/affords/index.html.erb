@@ -1,0 +1,49 @@
+<div class="buffer"></div>
+
+<div class="container text-left bg-white">
+  <h1 class="text-center" style="margin-bottom: 0px">How Much Can I Afford?</h1>
+  <h2 class="text-center" style="margin-top: 0px; margin-bottom: 40px">All Queries  |  <%= link_to 'New Query', new_afford_path %></h2>
+  <% if @affords.any? %>
+    <table style="overflow-x: scroll">
+      <thead>
+        <tr>
+          <th>Monthly</th>
+          <th>Insurance</th>
+          <th>Tax</th>
+          <th>Dues</th>
+          <th>Downpayment</th>
+          <th>Term</th>
+          <th>Interest</th>
+          <th>Combined tax</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @affords.each do |afford| %>
+          <tr style="border-top: thin solid #c0c0c0">
+              <td><%= afford.monthly %></td>
+              <td><%= afford.insurance %></td>
+              <td><%= afford.tax %></td>
+              <td><%= afford.dues %></td>
+              <td><%= afford.downpayment %></td>
+              <td><%= afford.term %></td>
+              <td><%= afford.interest %></td>
+              <td><%= afford.combined_tax %></td>
+              <td><%= afford.email %></td>
+              <td><%= afford.contact %></td>
+              <td><%= link_to 'Show', afford %></td>
+              <td><%= link_to 'Edit', edit_afford_path(afford) %></td>
+              <td><%= link_to 'Destroy', afford, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <h4>There haven't been any inquiries into mortgage payments.  Check back later!</h4>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="buffer"></div>
+</div> <!-- container -->

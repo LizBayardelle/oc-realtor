@@ -489,6 +489,7 @@ Responsive Hero
 @media screen and (max-width: 768px) {
 	.responsive-hero-img {
 		max-width: none;
+		height: 400px;
 	}
 }
 
@@ -602,7 +603,7 @@ IMAGES
 
 .gradient-overlay {
 	width: 70%;
-	max-width: 500px;
+	max-width: 900px;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -635,10 +636,9 @@ IMAGES
 
 @media screen and (max-width: 768px) {
 	.gradient-overlay {
-		width: 100%;
-		max-width: 100%;
+		width: 80%;
 		position: absolute;
-		margin: 0px;
+		margin-left: 10%;
 		padding: 25px;
 		top: 0;
 		height: auto;

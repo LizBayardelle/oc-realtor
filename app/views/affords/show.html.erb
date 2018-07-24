@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monthly:</strong>
+  <%= @afford.monthly %>
+</p>
+
+<p>
+  <strong>Insurance:</strong>
+  <%= @afford.insurance %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @afford.tax %>
+</p>
+
+<p>
+  <strong>Dues:</strong>
+  <%= @afford.dues %>
+</p>
+
+<p>
+  <strong>Downpayment:</strong>
+  <%= @afford.downpayment %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @afford.term %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @afford.interest %>
+</p>
+
+<p>
+  <strong>Combined tax:</strong>
+  <%= @afford.combined_tax %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @afford.email %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @afford.contact %>
+</p>
+
+<%= link_to 'Edit', edit_afford_path(@afford) %> |
+<%= link_to 'Back', affords_path %>

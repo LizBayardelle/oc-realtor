@@ -1,5 +1,12 @@
 <%= simple_form_for(@contact) do |f| %>
   <%= f.error_notification %>
+  <% if !@user.errors.empty? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
   <div class="form-inputs row text-left">
     <div class="form-group col-sm-6">
@@ -34,9 +41,11 @@
       <%= f.text_area :message, class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing Message'})" %>
     </div> <!-- form group -->
 
-    <div class="form-group col-sm-12">
-      <%= recaptcha_tags %>
-    </div> <!-- form group -->
+    <% if Rails.env.production? %>
+      <div class="form-group col-sm-12">
+        <%= recaptcha_tags %>
+      </div> <!-- form group -->
+    <% end %>
   </div>
 
   <div class="form-actions row">

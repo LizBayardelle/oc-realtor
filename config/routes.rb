@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :affords
   resources :pillars
   resources :home, only: [:index]
   root "home#index"
