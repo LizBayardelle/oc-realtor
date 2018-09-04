@@ -22,6 +22,12 @@
 //= require_self
 
 
+
+$(document).on("ready page:load", function() {
+  setTimeout(function() { $(".alert").fadeOut(); }, 5000);
+});
+
+
 $('.ckeditor').ckeditor({
   // optional config
 });

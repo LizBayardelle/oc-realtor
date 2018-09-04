@@ -49,7 +49,7 @@ class PillarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pillar
-      @pillar = Pillar.find(params[:id])
+      @pillar = Pillar.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
