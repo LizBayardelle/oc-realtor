@@ -5,9 +5,9 @@ class BlogsController < ApplicationController
   def index
     @pillars = Pillar.all
     if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag])
+      @blogs = Blog.tagged_with(params[:tag]).order("created_at DESC")
     else
-      @blogs = Blog.all
+      @blogs = Blog.all.order("created_at DESC")
     end
     if current_user
       @user = current_user
