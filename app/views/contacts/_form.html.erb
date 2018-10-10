@@ -1,4 +1,12 @@
 <%= simple_form_for(@contact) do |f| %>
+  <%= f.error_notification %>
+  <% if @user && !@user.errors.empty? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
 
   <div class="form-inputs row text-left">
     <div class="form-group col-sm-6">
