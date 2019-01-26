@@ -17,20 +17,50 @@
 				<h3><span class="typed"></span></h3>
 			</div>
 		</div>
-		<button><%= link_to page_path('hello'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Click Homepage Get Started'})" do %>Get Started<% end %></button>
   </div> <!-- overlap image -->
 
 </div> <!-- responsive hero div -->
 
 <div class="blue-stripe">
 	<div class="container text-center">
-		<h4 class="font-sans" style="line-height: 1.25">Having a realtor is important for your house search, even in today's digital age of instant access.
-			A typical person might buy or sell a half dozen houses across their lifetime, but a realtor does it every day.
-		  Combining years of experience and research in the field, an in depth knowledge of the current market conditions, and cultivated negotiating skills, having a realtor will get you a better deal for less money and in less time.
-		</h4>
-		<h3><strong><%= link_to new_contact_path do %>Contact us today to see how a realtor can&nbsp;help&nbsp;you!<% end %></strong></h3>
+    <div class="row">
+
+      <div class="col-xs-6 col-sm-3">
+        <div class="new-card">
+          <h2 class="new-card-header">Buy a Home</h2>
+          <i class="icon ion-key"></i><br />
+          <%= link_to page_path('buy'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Buy a Home'})" do %>Find Your Home<% end %>
+        </div><!-- new card -->
+      </div> <!-- col -->
+
+      <div class="col-xs-6 col-sm-3">
+        <div class="new-card">
+          <h2 class="new-card-header">Sell a Home</h2>
+          <i class="icon ion-cash"></i><br />
+          <%= link_to page_path('sell'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Sell a Home'})" do %>Get Started<% end %>
+        </div><!-- new card -->
+      </div> <!-- col -->
+
+      <div class="col-xs-6 col-sm-3">
+        <div class="new-card">
+          <h2 class="new-card-header">Get a Home Loan</h2>
+          <i class="icon ion-card"></i><br />
+          <%= link_to page_path('loan'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Get a Home Loan'})" do %>Get Prequalified<% end %>
+        </div><!-- new card -->
+      </div> <!-- col -->
+
+      <div class="col-xs-6 col-sm-3">
+        <div class="new-card">
+          <h2 class="new-card-header">Refinance Mortgage</h2>
+          <i class="icon ion-briefcase"></i><br />
+          <%= link_to page_path('mortgage'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Refinance Mortgage'})" do %>Explore Savings<% end %>
+        </div><!-- new card -->
+      </div> <!-- col -->
+
+
+    </div> <!-- row -->
 	</div> <!-- container -->
-</div>
+</div> <!-- blue stripe -->
 
 <div class="container bg-white">
 	<div> <!-- left side -->
@@ -98,5 +128,7 @@
 			});
 		});
 		$('.fancy-border').matchHeight();
+    $('.new-card-header').matchHeight();
+    $('.new-card-icon').matchHeight();
 	})
 </script>
