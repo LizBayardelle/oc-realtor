@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Goal</th>
+      <th>Residence type</th>
+      <th>Residence use</th>
+      <th>Timeframe</th>
+      <th>First time</th>
+      <th>Military</th>
+      <th>Agent</th>
+      <th>Purchase price</th>
+      <th>Downpayment</th>
+      <th>Credit score</th>
+      <th>Late payments</th>
+      <th>Foreclosures</th>
+      <th>Bankruptcy</th>
+      <th>Read</th>
+      <th>Archived</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @infos.each do |info| %>
+      <tr>
+        <td><%= info.first_name %></td>
+        <td><%= info.last_name %></td>
+        <td><%= info.email %></td>
+        <td><%= info.phone %></td>
+        <td><%= info.goal %></td>
+        <td><%= info.residence_type %></td>
+        <td><%= info.residence_use %></td>
+        <td><%= info.timeframe %></td>
+        <td><%= info.first_time %></td>
+        <td><%= info.military %></td>
+        <td><%= info.agent %></td>
+        <td><%= info.purchase_price %></td>
+        <td><%= info.downpayment %></td>
+        <td><%= info.credit_score %></td>
+        <td><%= info.late_payments %></td>
+        <td><%= info.foreclosures %></td>
+        <td><%= info.bankruptcy %></td>
+        <td><%= info.read %></td>
+        <td><%= info.archived %></td>
+        <td><%= link_to 'Show', info %></td>
+        <td><%= link_to 'Edit', edit_info_path(info) %></td>
+        <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Info', new_info_path %>

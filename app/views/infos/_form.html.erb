@@ -1,0 +1,29 @@
+<%= simple_form_for(@info) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :goal %>
+    <%= f.input :residence_type %>
+    <%= f.input :residence_use %>
+    <%= f.input :timeframe %>
+    <%= f.input :first_time %>
+    <%= f.input :military %>
+    <%= f.input :agent %>
+    <%= f.input :purchase_price %>
+    <%= f.input :downpayment %>
+    <%= f.input :credit_score %>
+    <%= f.input :late_payments %>
+    <%= f.input :foreclosures %>
+    <%= f.input :bankruptcy %>
+    <%= f.input :read %>
+    <%= f.input :archived %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

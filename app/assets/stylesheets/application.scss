@@ -55,6 +55,11 @@ $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
 
 .background-creme { background-color: $creme }
+.background-transparent { background-color: $transparent-white }
+.background-blue { background-color: $blue-dark !important }
+.background-red-hover:hover { background-color: $red !important }
+.background-grey-hover:hover { background-color: $grey-dark !important }
+
 
 .border-grey { border-color: $grey-dark }
 .transparent-white { background-color: $transparent-white }
@@ -99,6 +104,41 @@ p { font-family: $font-sans }
 
 label { font-family: $font-sans; font-weight: 800}
 ::placeholder { font-family: $font-sans; font-weight: 200}
+
+.photo-fill { object-fit: fill }
+
+
+
+
+
+/* ------------------------*/
+/* ------------------------*/
+/* -----LANDING PAGE ------*/
+/* ------------------------*/
+/* ------------------------*/
+
+.landing-page .btn {
+	font-family: $font-sans;
+	font-weight: bold;
+}
+
+.landing-page h2 {
+	font-family: $font-sans;
+	font-weight: bold;
+	color: $red;
+}
+
+.landing-page p, .landing-page ul {
+	font-size: 1.6rem;
+	font-style: $font-sans;
+}
+
+
+
+
+
+
+
 
 
 /* TEXT */

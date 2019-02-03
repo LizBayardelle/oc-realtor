@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :infos
   resources :affords
   resources :pillars
   resources :home, only: [:index]

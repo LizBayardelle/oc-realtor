@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_230849) do
+ActiveRecord::Schema.define(version: 2019_02_03_004843) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -151,6 +151,30 @@ ActiveRecord::Schema.define(version: 2018_09_04_230849) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "infos", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "goal"
+    t.string "residence_type"
+    t.string "residence_use"
+    t.string "timeframe"
+    t.string "first_time"
+    t.string "military"
+    t.string "agent"
+    t.integer "purchase_price"
+    t.integer "downpayment"
+    t.integer "credit_score"
+    t.integer "late_payments"
+    t.string "foreclosures"
+    t.string "bankruptcy"
+    t.boolean "read", default: false
+    t.boolean "archived", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "intakes", force: :cascade do |t|
