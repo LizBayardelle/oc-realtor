@@ -69,42 +69,28 @@
       <hr class="col-xs-6 col-xs-push-3" style="border-color: #c0c0c0" />
     </div>
 
-    <div class="new-comment">
-      <%= simple_form_for [@blog, Comment.new] do |f| %>
-        <%= f.error_notification %>
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script>
 
-        <div class="form-inputs col-xs-12" style="margin-bottom: 10px">
-          <%= f.label "Add a Comment" %>
-          <%= f.text_area :body, class: "form-control" %>
-        </div>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://linchpin-realty.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-        <% if @user %>
-          <%= f.hidden_field :name, value: [@user.first_name, @user.last_name].join(' ') %>
-          <%= f.hidden_field :email, value: @user.email %>
-        <% else %>
-          <div class="form-inputs col-sm-6">
-            <%= f.label "Your Name" %>
-            <%= f.text_field :name, class: "form-control", required: true, placeholder: "e.g. Warren Buffett" %>
-          </div>
-          <div class="form-inputs col-sm-6">
-            <%= f.label "Your Email (Not Displayed)" %>
-            <%= f.text_field :email, class: "form-control", required: true, placeholder: "e.g. wbuffett@gmail.com" %>
-          </div>
-        <% end %>
-
-        <div class="form-actions text-right">
-          <%= f.button :submit, "Submit Comment", onclick: "ga('send',{'hitType': 'event','eventCategory': 'contribute', 'eventAction': 'Create Blog Comment'})" %>
-        </div>
-      <% end %>
-    </div>
-
-    <h2><%= pluralize(@comments.count, "Comment") %></h2>
-    <div class="old-comment">
-      <% @comments.each do |comment| %>
-        <p style="margin-top: 10px"><strong><%= comment.body %></strong>
-          <%= link_to blog_comment_path(@blog, comment), method: :delete, data: {confirm: "Are you sure you want to delete that comment?"} do %><span class="glyphicon glyphicon-remove"></span><% end %><br />
-          <em>by <%= comment.name %> on <%= comment.created_at.to_formatted_s(:long) %></em></p>
-      <% end %>
     </div>
 
   </div></div> <!-- padding box and card -->
