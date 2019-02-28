@@ -22,7 +22,7 @@
   </script>
 <!-- end page specific content -->
 
-<div class="frame" style="background-image: url(<%= url_for(@blog.image) if @blog.image.attached? %>)"></div>
+<div class="frame" style="background-image: url(<%= rails_blob_url(@blog.image) if @blog.image.attached? %>)"></div>
 
 <div class="overlap-image text-center">
   <div class="gradient-bottom slideRight">
