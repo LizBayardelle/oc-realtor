@@ -22,36 +22,35 @@
   </script>
 <!-- end page specific content -->
 
-<div class="image-container">
-    <%= image_tag @blog.image, style: "bottom: 0", alt: @blog.teaser if @blog.image.attached? %>
-</div>
+<div class="frame" style="background-image: url(<%= url_for(@blog.image) if @blog.image.attached? %>)"></div>
 
 <div class="overlap-image text-center">
   <div class="gradient-bottom slideRight">
-    <h2 class="font-sans"><%= @blog.teaser %></h2>
+    <h1><%= @blog.title %></h1>
   </div> <!-- absolute-bottom-transparent -->
 </div> <!-- overlap-image -->
 
+
 <div class="container blog-page">
+  <div class="text-right">
+    <% if current_user && current_user.admin %>
+      <%= link_to 'Edit Blog', edit_blog_path(@blog) %>
+    <% end %>
+  </div> <!-- centered -->
+
+  <div class="text-center">
+    <h2><%= @blog.teaser %></h2>
+    <% if @blog.pillars_id && @pillar.name != " " %>
+      <h3 style="margin-top: 0px"> In <%= @pillar.name %>, by <%= @blog.user.first_name %> <%= @blog.user.last_name %></h3>
+    <% end %>
+    <% if @blog.image.attached? %>
+      <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: url_for(@blog.image), 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+    <% end %>
+  </div> <!-- centered -->
 
   <div class="card no-hover full-width blog"><div class="padding-box">
-    <div class="text-center">
-      <h4>
-        <% if current_user && current_user.admin %>
-          <%= link_to 'Edit', edit_blog_path(@blog) %> |
-        <% end %>
-        <%= link_to 'Back', blogs_path %>
-      </h4>
-    </div> <!-- centered -->
 
     <div class="header-row">
-      <h1><%= @blog.title %></h1>
-      <% if @blog.pillars_id && @pillar.name != " " %>
-        <h3 style="margin-top: 0px"><%= @pillar.name %></h3>
-      <% end %>
-      <% if @blog.image.attached? %>
-        <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: url_for(@blog.image), 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
-      <% end %>
       <% if @blog.link_filename %>
         <h3 class="linkish" style="padding: 0px 40px 0 40px">
           <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
@@ -59,45 +58,43 @@
           <% end %>
         </h3>
       <% end %>
-      <h3>By <%= @blog.user.first_name %> <%= @blog.user.last_name %></h3>
-      <div class="row"><hr class="col-xs-6 col-xs-push-3" /></div>
-      <!-- <h4>Tags: <%= raw @blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4> -->
     </div> <!-- header row -->
+
     <%= @blog.body.html_safe %>
-
-    <div class="row">
-      <hr class="col-xs-6 col-xs-push-3" style="border-color: #c0c0c0" />
-    </div>
-
-    <div class="comments">
-      <div id="disqus_thread"></div>
-      <script>
-
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-      /*
-      var disqus_config = function () {
-      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      */
-      (function() { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://linchpin-realty.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-      })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    </div>
 
   </div></div> <!-- padding box and card -->
 
   <div class="buffer"></div>
 
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://linchpin-realty.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div> <!-- comments -->
+
+</div> <!-- container -->
+
+
   <% if @related.any? && @blog.pillars_id && @pillar.name != " " %>
+    <div class="buffer"></div>
+
     <div class="row blue-stripe">
       <div class="container">
         <h2 class="text-center">Other Blogs about <%= @pillar.name %></h2>
@@ -115,7 +112,6 @@
     </div> <!-- row -->
   <% end %>
 
-</div> <!-- container -->
 
 <div class="row bottom-buffer"></div>
 
