@@ -21,40 +21,49 @@
 
 </div> <!-- responsive hero div -->
 
-<div class="blue-stripe">
-	<div class="container text-center">
+<div class="marble stripe">
+	<div class="text-center" style="padding: 25px 25px 25px 20px">
     <div class="row">
+      <h2 class="pseudo-h1 color-red">I want to...</h2>
 
       <div class="col-xs-6 col-sm-3">
-        <div class="new-card">
-          <h2 class="new-card-header">Buy a Home</h2>
-          <i class="icon ion-key"></i><br />
-          <%= link_to page_path('buy'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Buy a Home'})" do %>Find Your Home<% end %>
-        </div><!-- new card -->
+        <%= link_to page_path('buy') do %>
+          <div class="new-card hover">
+            <h2 class="new-card-header">Buy a Home</h2>
+            <i class="icon ion-key"></i><br />
+            <%= link_to page_path('buy'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Buy a Home'})" do %>Find Your Home<% end %>
+          </div><!-- new card -->
+        <% end %>
       </div> <!-- col -->
 
       <div class="col-xs-6 col-sm-3">
-        <div class="new-card">
-          <h2 class="new-card-header">Sell a Home</h2>
-          <i class="icon ion-cash"></i><br />
-          <%= link_to page_path('sell'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Sell a Home'})" do %>Get Started<% end %>
-        </div><!-- new card -->
+        <%= link_to page_path('sell') do %>
+          <div class="new-card hover">
+            <h2 class="new-card-header no-underline">Sell a Home</h2>
+            <i class="icon ion-cash"></i><br />
+            <%= link_to page_path('sell'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Sell a Home'})" do %>Get Started<% end %>
+          </div><!-- new card -->
+        <% end %>
       </div> <!-- col -->
 
       <div class="col-xs-6 col-sm-3">
-        <div class="new-card">
-          <h2 class="new-card-header">Get a Home Loan</h2>
-          <i class="icon ion-card"></i><br />
-          <%= link_to page_path('loan'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Get a Home Loan'})" do %>Get Prequalified<% end %>
-        </div><!-- new card -->
+        <%= link_to page_path('loan') do %>
+          <div class="new-card hover">
+            <h2 class="new-card-header no-underline">Get a Home Loan</h2>
+            <i class="icon ion-card"></i><br />
+            <%= link_to page_path('loan'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Get a Home Loan'})" do %>Get Prequalified<% end %>
+          </div><!-- new card -->
+        <% end %>
       </div> <!-- col -->
 
       <div class="col-xs-6 col-sm-3">
-        <div class="new-card">
-          <h2 class="new-card-header">Refinance Mortgage</h2>
-          <i class="icon ion-briefcase"></i><br />
-          <%= link_to page_path('mortgage'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Refinance Mortgage'})" do %>Explore Savings<% end %>
-        </div><!-- new card -->
+        <%= link_to page_path('mortgage') do %>
+          <div class="new-card hover">
+            <h2 class="new-card-header no-underline">Refinance Mortgage</h2>
+            <i class="icon ion-briefcase"></i><br />
+            <%= link_to page_path('mortgage'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Refinance Mortgage'})" do %>Explore Savings<% end %>
+          </div><!-- new card -->
+        <% end %>
       </div> <!-- col -->
 
 

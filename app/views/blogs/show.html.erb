@@ -2,6 +2,13 @@
   <% title @blog.title %>
   <%= content_for :head do %>
     <meta name="description" content="<%= @blog.teaser %>" />
+    <meta property="og:url" content="<%= polymorphic_url(@blog) %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<%= @blog.title %>" />
+    <meta property="og:description" content="<%= @blog.teaser %>" />
+    <meta property="og:image" content="<%= rails_blob_url(@blog.image) if @blog.image.attached? %>" />
+    <meta property="article:published_time" content="<%= @blog.updated_at.strftime('%FT%T') %>" />
+    <meta property="article:author" content="<%= @blog.user.first_name %> <%= @blog.user.last_name %>" />
   <% end %>
   <!-- page-specific content -->
 
@@ -26,7 +33,7 @@
 
 <div class="overlap-image text-center">
   <div class="gradient-bottom slideRight">
-    <h1><%= @blog.title %></h1>
+    <h1 class="color-blue-dark"><%= @blog.title %></h1>
   </div> <!-- absolute-bottom-transparent -->
 </div> <!-- overlap-image -->
 
@@ -39,9 +46,9 @@
   </div> <!-- centered -->
 
   <div class="text-center">
-    <h2><%= @blog.teaser %></h2>
+    <h2 class="color-blue-dark"><%= @blog.teaser %></h2>
     <% if @blog.pillars_id && @pillar.name != " " %>
-      <h3 style="margin-top: 0px"> In <%= @pillar.name %>, by <%= @blog.user.first_name %> <%= @blog.user.last_name %></h3>
+      <h4 style="margin-top: 0px"> In <%= @pillar.name %>, by <%= @blog.user.first_name %> <%= @blog.user.last_name %></h4>
     <% end %>
     <% if @blog.image.attached? %>
       <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: url_for(@blog.image), 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>

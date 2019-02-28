@@ -47,7 +47,7 @@ $grey-dark: #393939;
 $grey-light: #A2A2A2;
 $creme: #C0C0C0;
 $creme-background: #acacac;
-$text-shadow: 1px 2px 2px $blue-light;
+$text-shadow: 1px 2px 2px $creme;
 $transparent-white: rgba(255, 255, 255, 0.6);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
@@ -68,6 +68,8 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .color-blue-light { color: $blue-light }
 .color-blue-dark { color: $blue-dark }
 .color-grey-dark { color: $grey-dark }
+.color-black { color: black }
+.color-red { color: $red }
 
 .extreme-callout { font-family: $font-sans; font-weight: bolder }
 
@@ -81,23 +83,24 @@ Basics
 ==============================================
 */
 
-body { font-family: $font-serif; color: $blue-dark; max-width: 100%; overflow-x: hidden;}
-h1 { font-family: $font-sans; font-weight: 900; text-shadow: $text-shadow; font-size: 50px; }
-h3 { font-family: $font-sans; font-weight: 200 }
+body { font-family: $font-sans; max-width: 100%; overflow-x: hidden;}
+h1, .pseudo-h1 { font-family: $font-sans; font-weight: 900; text-shadow: $text-shadow; font-size: 40px; }
+h2 { color: $blue-dark }
+h3 { font-family: $font-sans; font-weight: 200; color: $blue-dark; }
 @media screen and (max-width: 768px) { h1 { font-size: 30px }}
-.linkish { cursor: pointer; text-decoration: underline; color: $red; }
-a { color: $grey-dark }
+a { color: $blue-light; font-weight: bolder; }
+a:hover, .linkish { cursor: pointer; text-decoration: none; color: $blue-dark; font-weight: bolder; }
 hr { border-color: $blue-dark }
 img { width: 100% }
 .bottom-buffer { height: 70px }
 .buffer { height: 50px }
 .half-buffer { height: 25px }
 td { padding: 5px}
-.blue-stripe { background-color: $blue-dark; 		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
+.blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
-p { font-family: $font-sans }
+p { font-family: $font-sans; }
 .padding-10 { padding: 10px }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
@@ -108,8 +111,10 @@ label { font-family: $font-sans; font-weight: 800}
 
 .photo-fill { object-fit: fill }
 
-
-
+.container.background-transparent {
+	padding-left: 25px;
+	padding-right: 25px;
+}
 
 
 /* ------------------------*/
@@ -151,6 +156,18 @@ label { font-family: $font-sans; font-weight: 800}
 
 
 
+/* marble */
+.marble {
+	background-image: url(marble.jpg);
+	background-size: cover;
+}
+
+.marble.stripe {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin-bottom: 20px;
+}
+
+
 
 /** NEW CARD **/
 .page-header-2 { width: 80%; margin-left: auto; margin-right: auto; }
@@ -162,6 +179,10 @@ label { font-family: $font-sans; font-weight: 800}
 	padding: 10px;
 	margin: 10px;
 	width: 100%;
+}
+
+.new-card.hover:hover {
+	 box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .new-card.border {
@@ -200,13 +221,19 @@ label { font-family: $font-sans; font-weight: 800}
 	border: solid 1px $blue-dark;
 }
 
-.card *:hover {
+
+.card *:hover, .new-card *:hover {
 	text-decoration: none !important;
 }
 
 .card .image-box {
 	max-height: 250px;
 	overflow: hidden;
+}
+
+.card a p {
+	color: black;
+	font-weight: 400;
 }
 
 .card .padding-box, .card.padding-box {
@@ -222,7 +249,7 @@ label { font-family: $font-sans; font-weight: 800}
 	color: $blue-dark !important;
 }
 
-.card h4, p {
+.card h4 {
 	color: $blue-dark !important;
 }
 
@@ -278,7 +305,7 @@ label { font-family: $font-sans; font-weight: 800}
 	font-size: 20px;
 	background-color: $red;
 	color: white;
-	font-weight: 900;
+	font-weight: 400;
 	text-transform: capitalize;
   	display: inline-block;
   	vertical-align: middle;
@@ -1023,7 +1050,7 @@ Pages
 }
 
 .property-details h2 {
-	font-family: $font-serif;
+	font-family: $font-sans;
 	margin-left: 15px;
 }
 
@@ -1057,6 +1084,7 @@ Pages
 
 /* Blog */
 #tag_cloud {
+	font-weight: 400 !important;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -1084,7 +1112,7 @@ $size: 31px;
 
 .blog-page h1 {
 	font-size: 30px !important;
-	font-family: $font-serif;
+	font-family: $font-sans;
 }
 
 

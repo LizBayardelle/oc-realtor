@@ -10,13 +10,13 @@
 
 	<div class="overlap-responsive-image text-center slideRight">
 		<div class="gradient-overlay">
-			<h1>What You Need to Know</h1>
+			<h1 class="color-blue-dark">What You Need to Know</h1>
 			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
 
 			<% if current_user %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), class: "btn", method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% else %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
+				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path, class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% end %>
 		</div> <!-- absolute box -->
 	</div> <!-- overlap image -->
@@ -43,17 +43,19 @@
           <div class="image-box">
 	            <%= image_tag url_for(blog.image), alt: blog.teaser if blog.image.attached?  %>
           </div> <!-- padding box -->
+
           <div class="padding-box">
-						<h2><%= blog.title %></h2>
-            <p><%= blog.teaser %></p>
-						<p><strong><%= raw blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></strong></p>
-            <h5><em>By <%= blog.user.first_name %> <%= blog.user.last_name %></em></h5>
-	          <h5>
-							<% if current_user && current_user.admin %>
-	              <%= link_to('Edit', edit_blog_path(blog), data: { turbolinks: false }) %>,
-	              <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-	            <% end %>
-						</h5>
+            <div class="top-text">
+              <h2><%= blog.title %></h2>
+              <p><%= blog.teaser %></p>
+              <p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+            </div> <!-- top text -->
+            <% if current_user && current_user.admin %>
+              <div class="bottom-text text-center">
+                <%= link_to('Edit', edit_blog_path(blog), data: { turbolinks: false }) %>
+                |&nbsp;<%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
           </div> <!-- padding box -->
         </div> <!-- card -->
       <% end %> <!-- link -->
@@ -66,7 +68,8 @@
 
 
 <script>
-  $(function() {
+  $(document).ready(function() {
       $('.card').matchHeight();
+      $('.top-text').matchHeight();
   });
 </script>

@@ -20,31 +20,31 @@
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "What type of loan do you want?" %>
-      <%= f.input :goal, collection: %w[Refinance\ My\ Home New\ Home\ Loan], label: false %>
+      <%= f.input :goal, class: "form-control", collection: %w[Refinance\ My\ Home New\ Home\ Loan], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "What type of home will the loan be for?" %>
-      <%= f.input :residence_type, collection: %w[Single\ Family Multi-Family Condominium Townhouse], label: false %>
+      <%= f.input :residence_type, class: "form-control", collection: %w[Single\ Family Multi-Family Condominium Townhouse], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "What type of residence is this for?" %>
-      <%= f.input :residence_use, collection: %w[Primary\ Residence Secondary\ Home Investment\ Property], label: false %>
+      <%= f.input :residence_use, class: "form-control", collection: %w[Primary\ Residence Secondary\ Home Investment\ Property], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "What's the timeframe for your loan?" %>
-      <%= f.input :timeframe, collection: %w[Immediately\ (Purchase Agreement Already Signed) ASAP\ (Found\ a\ House/Offer\ Pending Within\ 30\ Days 2-3\ Months 3-6\ Months 6+\ Months No\ Time\ Frame)], label: false %>
+      <%= f.input :timeframe, class: "form-control", collection: %w[Immediately\ (Purchase Agreement Already Signed) ASAP\ (Found\ a\ House/Offer\ Pending Within\ 30\ Days 2-3\ Months 3-6\ Months 6+\ Months No\ Time\ Frame)], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "Is this your first time buying a home?" %>
-      <%= f.input :first_time, collection: %w[Yes No], label: false %>
+      <%= f.input :first_time, class: "form-control", collection: %w[Yes No], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "Are you now or have you ever served in the US military?" %>
-      <%= f.input :military, collection: %w[Yes No], label: false %>
+      <%= f.input :military, class: "form-control", collection: %w[Yes No], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "Are you currently working with a realtor?" %>
-      <%= f.input :agent, collection: %w[Yes No], label: false %>
+      <%= f.input :agent, class: "form-control", collection: %w[Yes No], label: false %>
     </div>
     <div class="form-group col-xs-12">
       <%= f.label "What's the purchase price of your new home?" %>
