@@ -3,7 +3,7 @@
     <div class="half-buffer"></div>
     <div class="page-header-2">
       <h1>Get a Loan</h1>
-      <h3 class="font-sans text-center">Follow these 3 simple steps to know exactly where you stand in the home buying process.</h4>
+      <h3 class="font-sans text-center">Follow these 3 simple steps to know exactly where you stand in the home buying process.</h3>
       <div class="text-center"><%= link_to "Get Prequalified Today", new_info_path, class: "btn background-grey-hover" %></div>
     </div>
     <div class="half-buffer"></div>
@@ -15,22 +15,29 @@
 
     <div class="row">
       <div class="col-sm-12 background-transparent">
-        <h2>Step 1: Take Our Prequalification Quiz</h2>
-        <p>This basic information allows us to start researching what loans you qualify for financially.</p>
-        <div class="text-center"><%= link_to "Take the Quiz Now", new_info_path, class: "btn background-blue background-red-hover" %></div>
+        <div class="col-lg-4">
+          <h2>Step 1: Take Our Prequalification Quiz</h2>
+          <p>This basic information allows us to start researching what loans you qualify for financially.</p>
+          <div class="text-center"><%= link_to "Take the Quiz Now", new_info_path, class: "btn background-blue background-red-hover" %></div>
+        </div> <!-- mini col -->
 
-        <h2>Step 2: Provide Financial Information</h2>
-        <p>To make the process as fast as possible, I need documents to verify your financial standing:
-          <ul class="font-sans">
-            <li>W2 forms for the past two years</li>
-            <li>Current bank statements</li>
-            <li>Any other relevant information about assets (the more documentation, the easier the process)</li>
-            <li>Information to access credit score</li>
-          </ul>
-        </p>
+        <div class="col-lg-4">
+          <h2>Step 2: Provide Financial Information</h2>
+          <p>To make the process as fast as possible, I need documents to verify your financial standing:
+            <ul class="font-sans">
+              <li>W2 forms for the past two years</li>
+              <li>Current bank statements</li>
+              <li>Any other relevant information about assets (the more documentation, the easier the process)</li>
+              <li>Information to access credit score</li>
+            </ul>
+          </p>
+        </div> <!-- mini col -->
 
-        <h2>Step 3: Get Your Loan Preapproval</h2>
-        <p>This gives you the ability to go shop for houses knowing exactly what amount the bank will qualify you for.  No surprises!</p>
+        <div class="col-lg-4">
+          <h2>Step 3: Get Your Loan Preapproval</h2>
+          <p>This gives you the ability to go shop for houses knowing exactly what amount the bank will qualify you for.  No surprises!</p>
+        </div> <!-- mini col -->
+
       </div> <!-- form -->
 
       <!-- <div class="col-sm-4">

@@ -59,6 +59,8 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .background-blue { background-color: $blue-dark !important }
 .background-red-hover:hover { background-color: $red !important }
 .background-grey-hover:hover { background-color: $grey-dark !important }
+.background-grey-light { background-color: $grey-light !important }
+.background-grey-light * { color: white }
 
 
 .border-grey { border-color: $grey-dark }
@@ -67,6 +69,7 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .color-creme { color: $creme }
 .color-blue-light { color: $blue-light }
 .color-blue-dark { color: $blue-dark }
+.color-grey-dark { color: $grey-dark }
 
 .extreme-callout { font-family: $font-sans; font-weight: bolder }
 

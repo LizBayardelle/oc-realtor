@@ -37,6 +37,9 @@
   <!-- page-specific content -->
     <%= yield :head %>
   <!-- end page specific content -->
+
+  <!-- mailchimp -->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/bc00f71fdadc313ed5c731ab5/d96d26b62e932a0d876a60abb.js");</script>
 </head>
 
 <body>
@@ -46,63 +49,11 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="page-minus-footer">
-    <!-- <%= image_tag "background.jpg", class: "bg" %> -->
+    <%#= image_tag "background.jpg", class: "bg" %>
 
 
     <!-- MENU GOES HERE -->
-    <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            	<%= link_to root_path, class:"navbar-brand", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Header Logo Home'})" do %>
-                  <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
-                  <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
-              <% end %>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-              <div class="text-right" style="padding: 10px 5px 0 0">
-                <span class="color-blue-light font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
-              </div>
-              <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to "Home", root_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Home'})" %></li>
-                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
-
-                  <li class="dropdown">
-                    <%= link_to 'For Buyers', class: "center-ul-hover" %>
-                    <ul class="dropdown-menu">
-                      <% @pillars = Pillar.where(active: true, menu: true, buyer: true).order('created_at ASC') %>
-                      <% @pillars.each do |pillar| %>
-                        <li><%= link_to pillar.name, pillar_path(pillar) %></li>
-                      <% end %>
-                      <li role="separator" class="divider"></li>
-                      <li><%= link_to 'TOOL: Online Home Search', page_path('search'), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Search'})" %></li>
-                    </ul>
-                  </li>
-
-                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Contact Me'})" %></li>
-
-                  <% if current_user %>
-                  	<li class="dropdown"><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to 'Pillars', pillars_path %></li>
-                      </ul>
-                    </li>
-                  <% else %>
-                    <li class="dropdown">
-                      <%= link_to 'My Account', new_user_registration_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav My Account'})" %>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to 'Sign In', new_user_session_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Sign In'})" %></li>
-                        <li role="separator" class="divider"></li>
-                        <li><%= link_to 'Create an Account', new_user_registration_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Create Account'})" %></li>
-                      </ul>
-                    </li>
-                  <% end %>
-              </ul>
-            </div>
-        </div>
-    </div>
-
+    <%= render "layouts/navbar" %>
 
 
     <!-- flash notice area -->
@@ -125,44 +76,11 @@
       <% end %>
     </div> <!-- flash notice area -->
 
-
     <%= yield %>
+
   </div> <!-- page minus footer -->
 
-<footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
-  <div class="container text-center">
-    <%= image_tag "logo_light.png", alt: "Linchpin Realty Logo", class: "footer-logo" %>
-    <h2>Your guide to the California housing market.</h2>
-    <div class="row social-row">
-      <a href="tel:+1-949-524-1246" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Phone'})"><span class="icon glyphicon glyphicon-earphone" style="font-size: 30px"></a>
-      <a href="mailto:anthony@linchpinrealty.com" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Email'})"><i class="icon ion-email"></i></a>
-      <a href="https://www.facebook.com/LinchpinRealty" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Facebook'})"><i class="icon ion-social-facebook" target="_blank"></i></a>
-      <a href="https://www.instagram.com/linchpinrealty/" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Instagram'})"><i class="icon ion-social-instagram" target="_blank"></i></a>
-      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="icon ion-social-linkedin" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer LinkedIn'})"></i></a>
-      <a href="https://twitter.com/LinchpinRealty" target="_blank"><i class="icon ion-social-twitter" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Twitter'})"></i></a>
-      <a href="https://plus.google.com/u/2/106755620722304807106" target="_blank"><i class="icon ion-social-googleplus" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Google'})"></i></a>
-      <a href="https://www.youtube.com/channel/UCWgiHPtxXbwJbp7b_EX-QYg" target="_blank"><i class="icon ion-social-youtube" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer YouTube'})"></i></a>
-      <a href="https://www.pinterest.com/LinchpinRealtyCA/" target="_blank"><i class="icon ion-social-pinterest" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Pinterest'})"></i></a>
-    </div> <!-- social row -->
-    <a href="https://www.facebook.com/LinchpinRealty/reviews/" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Zillow Rate'})">
-      <div class="btn btn-cta" style="margin-bottom: 35px; margin-right: 10px">Rate me on Facebook!</div>
-    </a>
-    <a href="https://www.zillow.com/reviews/write/?s=X1-ZU11qjqez6ipiq1_4zss5" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Zillow Rate'})">
-      <div class="btn btn-cta" style="margin-bottom: 35px; margin-left: 10px">Review me on Zillow!</div>
-    </a>
-    <h4 style="color: white; position: relative z-index: 100">BRE #02018158  |  NMLS #1649295</h4>
-  </div> <!-- container -->
-</footer>
-
-<div class="row text-center" style="padding: 30px 0 30px 0; background-color: none">
-  <div class="container">
-    <div style="width: 90%; margin-left: 5%">
-      <%= image_tag "logo_ocar.png", alt: "Orange County Association of Realtors", class: "footer-logo" %>
-      <%= image_tag "logo_pm_certificate.png", alt: "Property Management Certification", class: "footer-logo" %>
-    </div>
-  </div>
-</div>
-
+  <%= render "layouts/footer" %>
 
 
 <script>
