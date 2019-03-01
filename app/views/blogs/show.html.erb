@@ -51,7 +51,15 @@
       <h4 style="margin-top: 0px"> In <%= @pillar.name %>, by <%= @blog.user.first_name %> <%= @blog.user.last_name %></h4>
     <% end %>
     <% if @blog.image.attached? %>
-      <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})"><%= social_share_button_tag(@blog.title, image: url_for(@blog.image), 'data-title' => @blog.title, 'data-url' => blog_url(@blog), 'data-quote' => @blog.teaser) %></div>
+      <div class="text-center" onclick="ga('send',{'hitType': 'event','eventCategory': 'share', 'eventAction': 'Blogs Social Share'})">
+        <!-- sharing links -->
+        <div class="fb-share-button"
+          data-href="<%= polymorphic_url(@blog) %>"
+          data-layout="button_count">
+        </div>
+        <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"></a>
+      <!-- end sharing links -->
+      </div>
     <% end %>
   </div> <!-- centered -->
 
@@ -70,6 +78,30 @@
     <%= @blog.body.html_safe %>
 
   </div></div> <!-- padding box and card -->
+
+  <!-- sharing links -->
+  <div class="container padded text-center">
+    <h2 class="font-script">Care to Share?</h2>
+    <div class="fb-share-button"
+      data-href="<%= polymorphic_url(@blog) %>"
+      data-layout="button_count">
+    </div>
+    <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"></a>
+
+    <div class="half-buffer"></div>
+
+    <% if @blog.pins.attached? %>
+      <div class="pinterest-image row padded pin-image-stripe">
+        <div class="container">
+          <% @blog.pins.each do |image| %>
+            <%= image_tag url_for(image)%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- text center container -->
+<!-- end sharing links -->
+
 
   <div class="buffer"></div>
 

@@ -28,6 +28,10 @@
       <%= f.label "Picture" %>
       <%= f.file_field :image %>
     </div>
+    <div class="form-group">
+      <%= f.label "Pins" %>
+      <%= f.file_field :pins, multiple: true %>
+    </div>
     <!-- <div class="form-group">
       <%= f.label "Picture" %>
       <%= f.file_field :image, as: :file %>
