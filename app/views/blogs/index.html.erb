@@ -14,9 +14,9 @@
 			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
 
 			<% if current_user %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", subscribe_to_blog_path(@user), class: "btn", method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
+				<h3 class="text-center"><%= link_to "Alert Me to New Blogs!", subscribe_to_blog_path(@user), class: "btn", method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% else %>
-				<h3 class="text-center"><%= link_to "Tell me whenever a new blog comes online!", new_user_registration_path, class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
+				<h3 class="text-center"><%= link_to "Alert Me to New Blogs!", new_user_registration_path, class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
 			<% end %>
 		</div> <!-- absolute box -->
 	</div> <!-- overlap image -->
