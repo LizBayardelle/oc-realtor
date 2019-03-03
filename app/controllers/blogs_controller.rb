@@ -48,14 +48,13 @@ class BlogsController < ApplicationController
     # @pillars = Pillar.all
     @blog = Blog.new(blog_params)
     @blog.image.attach(params[:blog][:image])
-    @blog.pins.attach(params[:pins])
-    # if current_user.id == 1
-    #   @blog.user_id = 2
-    # else
-      @blog.user = current_user
-    # end
+    @blog.user = current_user
+
+    image = blog_params[:image]
+    pin_images = params[:blog][:pins]
 
     if @blog.save
+      @blog.pins.attach(pin_images)
       redirect_to @blog, notice: 'Blog was successfully created.'
     else
       render :new

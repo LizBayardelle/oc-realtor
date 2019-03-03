@@ -1,15 +1,15 @@
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Cinzel+Decorative:400,900|Playfair+Display:400,900" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet" type='text/css'>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1 style="'Cinzel Decorative', cursive"><%= @blog.title %></h1>
+    <h1 style="'Poppins', sans-serif">There's a new blog<% if @blog.pillars_id && Pillar.where(id: @blog.pillars_id).first.name != " " %> about <%= Pillar.where(id: @blog.pillars_id).first.name %><% end %> live on Linchpin Realty!</h1>
 
-    <h3 style="'Playfair Display', serif; padding-bottom: 0; margin-bottom: 0"><%= @blog.teaser %></h3>
+    <p style="'Poppins', sans-serif"><%= @blog.title %></p>
 
-    <p style="'Nunito Sans', sans-serif"><%= @blog.body.html_safe %></p>
+    <p style="'Poppins', sans-serif"><%= @blog.teaser %> <%= link_to "Read More...", blog_url(@blog)%></p>
 
-    <p><small>You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails you can <%= link_to "unsubscribe", edit_user_registration_url(@user) %> here.</small></p>
+    <p><small>You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails just reply with "UNSUBSCRIBE" in the subject line.</small></p>
   </body>
 </html>
