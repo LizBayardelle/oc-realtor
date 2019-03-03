@@ -1,0 +1,25 @@
+<% if current_user && current_user.admin %>
+  <% @blogs = Blog.order("created_at DESC") %>
+
+  <div class="container">
+    <h1 class="text-center">All Blogs Written</h1>
+
+    <table>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.id %></td>
+          <td><strong><%= blog.title %></strong> (
+            <%= link_to 'Show', blog_path(blog) %>
+            &nbsp;|&nbsp;
+            <%= link_to 'Edit', edit_blog_path(blog) %>
+            &nbsp;|&nbsp;
+            <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            )</td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div class="buffer"></div>
+  </div> <!-- container -->
+
+<% end %>

@@ -13,6 +13,13 @@
   	<div class="gradient-overlay slideRight">
 			<h1 class="text-center" style="margin: 0; padding: 0; border: none"><%= @user.first_name %>'s Dashboard</h1>
 			<h4 class="text-center"><%= link_to "Edit My Info", edit_user_registration_path %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></h4>
+      <% if current_user.admin %>
+        <p class="text-center">
+          <%= link_to "Blogs Admin Index", page_path(:blogs_list) %>
+          &nbsp;|&nbsp;
+          <%= link_to "Subscribers", subscribers_path %>
+        </p>
+      <% end %>
   	</div> <!-- absolute box -->
   </div> <!-- overlap image -->
 

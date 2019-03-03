@@ -1,6 +1,12 @@
-<h1>Editing Subscriber</h1>
+<div class="container">
+  <h1 class="text-center">Subscriber Information</h1>
 
-<%= render 'form', subscriber: @subscriber %>
+  <%= render 'form', subscriber: @subscriber %>
 
-<%= link_to 'Show', @subscriber %> |
-<%= link_to 'Back', subscribers_path %>
+  <div class="text-center">
+    <%= link_to 'Subscriber Page', @subscriber %> |
+    <%= link_to 'Back to Subscribers List', subscribers_path %>
+  </div>
+
+  <div class="buffer"></div>
+</div>
