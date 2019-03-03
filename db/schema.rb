@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_060340) do
+ActiveRecord::Schema.define(version: 2019_03_03_021924) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "blogs", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "teaser"
     t.text "body"
@@ -62,13 +65,13 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.string "slug"
     t.string "link_text"
     t.string "link_filename"
-    t.integer "pillars_id"
+    t.bigint "pillars_id"
     t.index ["pillars_id"], name: "index_blogs_on_pillars_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
-  create_table "buyers", force: :cascade do |t|
+  create_table "buyers", id: :serial, force: :cascade do |t|
     t.string "buyer_name"
     t.string "phone_mobile"
     t.string "phone_home"
@@ -113,7 +116,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.boolean "read", default: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: :serial, force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
     t.integer "blog_id"
@@ -127,7 +130,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -141,7 +144,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.boolean "read", default: false
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -177,7 +180,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "intakes", force: :cascade do |t|
+  create_table "intakes", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.boolean "current_own", default: false
     t.boolean "current_rent", default: false
@@ -209,7 +212,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["user_id"], name: "index_intakes_on_user_id"
   end
 
-  create_table "listings", force: :cascade do |t|
+  create_table "listings", id: :serial, force: :cascade do |t|
     t.string "zpid"
     t.string "status"
     t.string "location"
@@ -227,7 +230,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["slug"], name: "index_listings_on_slug", unique: true
   end
 
-  create_table "pillars", force: :cascade do |t|
+  create_table "pillars", id: :serial, force: :cascade do |t|
     t.string "name"
     t.boolean "buyer"
     t.boolean "seller"
@@ -241,7 +244,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["slug"], name: "index_pillars_on_slug", unique: true
   end
 
-  create_table "quicks", force: :cascade do |t|
+  create_table "quicks", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.string "email"
@@ -260,7 +263,20 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.boolean "read", default: false
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "subscribers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.text "tags", default: [], array: true
+    t.text "admin_notes"
+    t.boolean "unsubscribe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tag_string"
+  end
+
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.integer "taggable_id"
     t.string "taggable_type"
@@ -279,7 +295,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
@@ -313,7 +329,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "values", force: :cascade do |t|
+  create_table "values", id: :serial, force: :cascade do |t|
     t.string "address"
     t.string "citystatezip"
     t.integer "user_id"
@@ -326,4 +342,9 @@ ActiveRecord::Schema.define(version: 2019_03_01_060340) do
     t.index ["user_id"], name: "index_values_on_user_id"
   end
 
+  add_foreign_key "blogs", "users"
+  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "users"
+  add_foreign_key "intakes", "users"
+  add_foreign_key "values", "users"
 end

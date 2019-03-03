@@ -1,0 +1,17 @@
+<%= simple_form_for(@subscriber) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name, required: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :phone, required: true %>
+    <%= f.input :email, required: true %>
+    <%= f.input :tags %>
+    <%= f.input :admin_notes %>
+    <%= f.input :unsubscribe %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

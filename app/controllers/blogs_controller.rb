@@ -64,6 +64,11 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   def update
     @pillars = Pillar.all
+    pin_images = params[:blog][:pins]
+
+    if pin_images
+      @blog.pins.purge
+    end
     if @blog.update(blog_params)
       redirect_to @blog, notice: 'Blog was successfully updated.'
     else

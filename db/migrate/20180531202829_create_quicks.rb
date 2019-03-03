@@ -1,4 +1,4 @@
-class CreateQuicks < ActiveRecord::Migration
+class CreateQuicks < ActiveRecord::Migration[5.2]
   def change
     create_table :quicks do |t|
       t.string :name

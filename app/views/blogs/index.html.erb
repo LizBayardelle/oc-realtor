@@ -12,12 +12,7 @@
 		<div class="gradient-overlay">
 			<h1 class="color-blue-dark">What You Need to Know</h1>
 			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
-
-			<% if current_user %>
-				<h3 class="text-center"><%= link_to "Alert Me to New Blogs!", subscribe_to_blog_path(@user), class: "btn", method: :post, onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
-			<% else %>
-				<h3 class="text-center"><%= link_to "Alert Me to New Blogs!", new_user_registration_path, class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})" %></h3>
-			<% end %>
+      <h3 class="text-center"><a href="#subscriptionPopup" class="open-popup-link btn" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Alert Me for New Blogs!</a></h3>
 		</div> <!-- absolute box -->
 	</div> <!-- overlap image -->
 
@@ -67,9 +62,25 @@
 <div class="bottom-buffer"></div>
 
 
+
+
+<!-- new person popup itself -->
+<div id="subscriptionPopup" class="white-popup mfp-hide">
+  <h2 class="text-center">Get Wisdom in Your Inbox</h2>
+  <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-blog, index-subscription" } %>
+</div>
+
+
+
+
 <script>
   $(document).ready(function() {
       $('.card').matchHeight();
       $('.top-text').matchHeight();
+
+      $('.open-popup-link').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+      });
   });
 </script>

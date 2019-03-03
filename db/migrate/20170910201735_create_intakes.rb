@@ -1,4 +1,4 @@
-class CreateIntakes < ActiveRecord::Migration
+class CreateIntakes < ActiveRecord::Migration[5.2]
   def change
     create_table :intakes do |t|
       t.references :user, index: true, foreign_key: true

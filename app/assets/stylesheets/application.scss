@@ -13,6 +13,7 @@
  *= require_tree .
  *= require social-share-button
  *= require simple_form_extension
+ *= require magnific-popup
  *= require_self
  */
 
@@ -55,8 +56,10 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .background-creme { background-color: $creme }
 .background-transparent { background-color: $transparent-white }
 .background-blue { background-color: $blue-dark !important }
+.background-red { background-color: $red !important }
 .background-red-hover:hover { background-color: $red !important }
 .background-grey-hover:hover { background-color: $grey-dark !important }
+.background-grey-dark { background-color: $grey-dark !important }
 .background-grey-light { background-color: $grey-light !important }
 .background-grey-light * { color: white }
 .color-white { color: white }
@@ -74,7 +77,14 @@ $transparent-blue: rgba(3,29,68, 0.5);
 
 .extreme-callout { font-family: $font-sans; font-weight: bolder }
 
-
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
 
 
 
@@ -115,6 +125,17 @@ label { font-family: $font-sans; font-weight: 800}
 .container.background-transparent {
 	padding-left: 25px;
 	padding-right: 25px;
+}
+
+.tag {
+	display: inline-block;
+	font-weight: 400;
+	color: white;
+	background-color: $blue-dark;
+	padding: 5px 10px 5px 10px;
+	border-radius: 5px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 
@@ -372,7 +393,12 @@ input:active,
 
 
 
+/* TABLES */
 
+table.basic-table td {
+	vertical-align: top;
+	padding: 5px 10px 5px 10px;
+}
 
 
 

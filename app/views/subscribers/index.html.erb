@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 class="text-center">Subscribers</h1>
+
+  <h2><%= pluralize(@subscribers.count, "Active Subscriber") %></h2>
+  <table class="basic-table">
+    <tbody>
+      <% @subscribers.each do |subscriber| %>
+        <tr>
+          <td>
+            <strong><%= subscriber.first_name %> <%= subscriber.last_name %></strong><br />
+            <%= subscriber.phone %><br />
+            <%= mail_to subscriber.email %><br />
+            <% if subscriber.tag_string %>
+              <% subscriber.tag_string.split(',').each do |tag| %>
+                <div class="tag"><%= tag %></div>
+              <% end %>
+            <% end %>
+            <% if subscriber.unsubscribe %><div class="tag background-red">Unsubscribed</div><% end %>
+            <% if subscriber.unsubscribe == false %><div class="tag background-grey-dark">Resubscribed</div><% end %>
+            <%= subscriber.admin_notes %>
+          </td>
+          <td><%= link_to 'Show', subscriber %>  |  <%= link_to 'Edit', edit_subscriber_path(subscriber) %>  |  <%= link_to 'Destroy', subscriber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2><%= @unsubscribers.count %> Unsubscribed</h2>
+  <table>
+    <tbody>
+      <% @unsubscribers.each do |subscriber| %>
+        <tr>
+          <td>
+            <strong><%= subscriber.first_name %> <%= subscriber.last_name %></strong><br />
+            <%= subscriber.phone %><br />
+            <%= mail_to subscriber.email %>
+          </td>
+          <td><%= subscriber.tag_string %></td>
+          <td><%= subscriber.admin_notes %></td>
+          <td><%= link_to 'Show', subscriber %>  |  <%= link_to 'Edit', edit_subscriber_path(subscriber) %>  |  <%= link_to 'Destroy', subscriber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div> <!-- container -->
+
+<div class="buffer"></div>

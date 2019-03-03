@@ -1,4 +1,4 @@
-class EditUserFields < ActiveRecord::Migration
+class EditUserFields < ActiveRecord::Migration[5.2]
   def change
     remove_column :users, :busy
     remove_column :users, :stressed

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="text-center">
+    <h1><%= @subscriber.first_name %> <%= @subscriber.last_name %></h1>
+    <% if @subscriber.tag_string %>
+      <% @subscriber.tag_string.split(',').each do |tag| %>
+        <div class="tag"><%= tag %></div>
+      <% end %>
+    <% end %>
+    <% if @subscriber.unsubscribe %><div class="tag background-red">Unsubscribed</div><% end %>
+    <% if @subscriber.unsubscribe == false %><div class="tag background-grey-dark">Resubscribed</div><% end %>
+  </div> <!-- text center -->
+
+  <div class="buffer"></div>
+
+  <p>
+    <strong>Phone:</strong> <%= @subscriber.phone %>
+  </p>
+
+  <p>
+    <strong>Email:</strong> <%= mail_to @subscriber.email %>
+  </p>
+
+  <p>
+    <strong>Admin notes:</strong>
+    <%= @subscriber.admin_notes ? @subscriber.admin_notes : "None" %>
+  </p>
+
+  <div class="text-center">
+    <%= link_to 'Edit', edit_subscriber_path(@subscriber) %> |
+    <%= link_to 'Back', subscribers_path %>
+  </div> <!-- text center -->
+
+</div> <!-- container -->

@@ -1,0 +1,19 @@
+<%= simple_form_for(@new_subscriber) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required: true, class: "form-control" %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, required: true, class: "form-control" %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone, required: true, class: "form-control" %>
+    <%= f.label :email %>
+    <%= f.text_field :email, required: true, class: "form-control" %>
+    <%= f.hidden_field :tag_string, value: tags %>
+  </div>
+
+  <div class="form-actions text-center">
+    <%= f.submit "Let's Go", class: "btn" %>
+  </div>
+<% end %>

@@ -16,6 +16,7 @@
 //= require ckeditor-jquery
 //= require social-share-button
 //= require typed
+//= require magnific-popup
 //= require simple_form_extension
 //= require activestorage
 //= require_tree .

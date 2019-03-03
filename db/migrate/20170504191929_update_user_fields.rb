@@ -1,4 +1,4 @@
-class UpdateUserFields < ActiveRecord::Migration
+class UpdateUserFields < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :buyer, :boolean, default:false
     add_column :users, :seller, :boolean, default:false
