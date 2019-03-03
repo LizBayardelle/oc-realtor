@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, except: [:show, :index]
 
   # GET /blogs
   def index

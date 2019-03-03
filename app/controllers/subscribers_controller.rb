@@ -1,5 +1,6 @@
 class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, except: [:new, :create]
 
   # GET /subscribers
   def index

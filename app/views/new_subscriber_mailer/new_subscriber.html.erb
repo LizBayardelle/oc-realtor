@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1 style="'Poppins', sans-serif; padding-bottom: 0; margin-bottom: 0"><%= @subscriber.first_name %> <%= @subscriber.last_name %> just subscribed!</h1>
+
+    <h3 style="'Poppins', sans-serif"><%= mail_to @subscriber.email %> &nbsp;&nbsp;|&nbsp;&nbsp; <%= @subscriber.phone %></h3>
+
+    <p style="'Poppins', sans-serif"><%= @subscriber.admin_notes %></p>
+
+    <% if @subscriber.tag_string %>
+      <h3 style="'Poppins', sans-serif">Tags
+        <ul>
+        <% @subscriber.tag_string.split(',').each do |tag| %>
+          <li><%= tag %></li>
+        <% end %>
+        </ul>
+      </h3>
+    <% end %>
+
+  </body>
+</html>
