@@ -26,7 +26,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
 
     if @subscriber.save
-      redirect_to root_path, notice: 'All set! Check your email for your next step!'
+      redirect_to root_path, notice: 'All set! Check your email for the next step!'
     else
       render :new
     end

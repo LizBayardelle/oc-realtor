@@ -11,6 +11,7 @@
 	<div class="overlap-responsive-image">
   	<div class="gradient-overlay slideRight text-center">
 			<h2 class="pseudo-h1 color-blue-dark">Your guide to the<br class="hidden-lg" /> California housing market</h2>
+      <h3 class="text-center"><a href="#subscriptionPopup" class="open-popup-link btn" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Get a Free 15 Minute Consultation Call</a></h3>
   	</div> <!-- absolute box -->
   </div> <!-- overlap image -->
 </div>
@@ -42,3 +43,25 @@
 
   <div class="buffer"></div>
 </div> <!-- marble -->
+
+
+
+
+<!-- new person popup itself -->
+<div id="subscriptionPopup" class="white-popup mfp-hide">
+  <h3 class="text-center">Get a Free 15 Minute Consultation Call</h3>
+  <%= render partial: "layouts/new_subscriber", locals: { tags: "contact-me, LM-15-minute-consultation" } %>
+</div>
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+      $('.open-popup-link').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+      });
+  });
+</script>
