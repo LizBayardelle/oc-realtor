@@ -1,9 +1,8 @@
+There's a new blog<% if @blog.pillars_id && Pillar.where(id: @blog.pillars_id).first.name != " " %> about <%= Pillar.where(id: @blog.pillars_id).first.name %><% end %> live on Linchpin Realty!
+
 <%= @blog.title %>
-<%= @blog.teaser %>
 
-=================
+<%= @blog.teaser %> <%= link_to "Read More...", blog_url(@blog)%>
 
-<%= @blog.body.html_safe %>
-
-=================
-You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails you can <%= link_to "unsubscribe", edit_user_registration_url(@user) %> here.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You are receiving this email because you asked to be notified when new blog articles were posted.  If you no longer wish to receive these emails just reply with "UNSUBSCRIBE" in the subject line.

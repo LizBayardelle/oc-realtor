@@ -11,7 +11,7 @@
     <p style="'Poppins', sans-serif"><%= @subscriber.admin_notes %></p>
 
     <% if @subscriber.tag_string %>
-      <h3 style="'Poppins', sans-serif">Tags
+      <h3 style="'Poppins', sans-serif">
         <ul>
         <% @subscriber.tag_string.split(',').each do |tag| %>
           <li><%= tag %></li>

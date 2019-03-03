@@ -19,6 +19,9 @@ class Subscriber < ApplicationRecord
     if self.tag_string.include? 'LM-house-tour-checklist'
       SendHouseTourChecklistMailer.send_house_tour_checklist(self).deliver_now
     end
+    if self.tag_string.include? 'LM-mistakes-sellers-make'
+      SendSellerMistakesMailer.send_seller_mistakes(self).deliver_now
+    end
     if self.tag_string.include? 'LM-15-minute-consultation'
       SendConsultationSchedulingMailer.send_consultation_scheduling(self).deliver_now
     end
