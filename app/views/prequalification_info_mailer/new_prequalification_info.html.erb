@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1 style="'Poppins', sans-serif">Someone Filled Out the Prequalification Questionnaire!</h1>
+
+    <h3 style="'Poppins', sans-serif; padding-bottom: 0; margin-bottom: 0">From: <%= @info.first_name %> <%= @info.last_name %></h3>
+    <p><%= @info.phone %> &nbsp;| &nbsp;<%= mail_to @info.email %></p>
+
+    <p style="'Poppins', sans-serif"><%= @info.message %></p>
+
+  </body>
+</html>

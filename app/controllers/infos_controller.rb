@@ -24,7 +24,7 @@ class InfosController < ApplicationController
     @info = Info.new(info_params)
 
     if @info.save
-      redirect_to @info, notice: 'Info was successfully created.'
+      redirect_to root_path, notice: 'Congratulations!  Your results will be sent to your email address!'
     else
       render :new
     end

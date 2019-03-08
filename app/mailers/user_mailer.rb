@@ -3,6 +3,6 @@ class UserMailer < ApplicationMailer
 
   def new_user(user)
     @user = user
-    mail(to: "anthony@bayardellehomes.com", subject: "New Client Registered on Linchpin Realty")
+    mail(to: "anthony@LinchpinRealty.com", subject: "New Client Registered on Linchpin Realty")
   end
 end

@@ -42,7 +42,11 @@
           <div class="padding-box">
             <div class="top-text">
               <h2><%= blog.title %></h2>
-              <p><%= blog.teaser %></p>
+              <p>
+                <%= blog.teaser %>
+                <!-- <br />
+                <em><span class="disqus-comment-count" data-disqus-identifier="<%#= blog.id %>" data-disqus-url="<%#= polymorphic_url(blog) %>">See Comments</span></em> -->
+              </p>
               <p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
             </div> <!-- top text -->
             <% if current_user && current_user.admin %>

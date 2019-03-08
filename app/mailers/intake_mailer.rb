@@ -3,6 +3,6 @@ class IntakeMailer < ApplicationMailer
 
   def new_intake(intake)
     @intake = intake
-    mail(to: "anthony@bayardellehomes.com", subject: "Full Buyer Interview Submitted on Linchpin Realty")
+    mail(to: "anthony@LinchpinRealty.com", subject: "Full Buyer Interview Submitted on Linchpin Realty")
   end
 end

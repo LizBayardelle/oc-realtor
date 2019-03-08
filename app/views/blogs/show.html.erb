@@ -66,6 +66,11 @@
   <div class="card no-hover full-width blog"><div class="padding-box">
 
     <div class="header-row">
+      <!-- <div class="new-card border">
+        <h3 class="text-center">Get Your <span style="font-weight: 400">Things to Look for When Touring a House</span></h3>
+        <%#= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying LM-house-tour-checklist" } %>
+      </div> <!-- card -->
+
       <% if @blog.link_filename %>
         <h3 class="linkish" style="padding: 0px 40px 0 40px">
           <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
@@ -109,15 +114,11 @@
     <div id="disqus_thread"></div>
     <script>
 
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    /*
     var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "<%= polymorphic_url(@blog) %>";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "<%= @blog.id %>"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    */
+
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = 'https://linchpin-realty.disqus.com/embed.js';

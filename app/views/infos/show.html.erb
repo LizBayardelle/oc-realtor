@@ -1,99 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="text-center">
+    <h1><%= @info.first_name %> <%= @info.last_name %></h1>
+    <p><%= mail_to @info.email %> &nbsp;|&nbsp; <%= @info.phone %></p>
+  </div> <!-- text-center -->
 
-<p>
-  <strong>First name:</strong>
-  <%= @info.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @info.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @info.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @info.phone %>
-</p>
-
-<p>
-  <strong>Goal:</strong>
-  <%= @info.goal %>
-</p>
-
-<p>
-  <strong>Residence type:</strong>
-  <%= @info.residence_type %>
-</p>
-
-<p>
-  <strong>Residence use:</strong>
-  <%= @info.residence_use %>
-</p>
-
-<p>
-  <strong>Timeframe:</strong>
-  <%= @info.timeframe %>
-</p>
-
-<p>
-  <strong>First time:</strong>
-  <%= @info.first_time %>
-</p>
-
-<p>
-  <strong>Military:</strong>
-  <%= @info.military %>
-</p>
-
-<p>
-  <strong>Agent:</strong>
-  <%= @info.agent %>
-</p>
-
-<p>
-  <strong>Purchase price:</strong>
-  <%= @info.purchase_price %>
-</p>
-
-<p>
-  <strong>Downpayment:</strong>
-  <%= @info.downpayment %>
-</p>
-
-<p>
-  <strong>Credit score:</strong>
-  <%= @info.credit_score %>
-</p>
-
-<p>
-  <strong>Late payments:</strong>
-  <%= @info.late_payments %>
-</p>
-
-<p>
-  <strong>Foreclosures:</strong>
-  <%= @info.foreclosures %>
-</p>
-
-<p>
-  <strong>Bankruptcy:</strong>
-  <%= @info.bankruptcy %>
-</p>
-
-<p>
-  <strong>Read:</strong>
-  <%= @info.read %>
-</p>
-
-<p>
-  <strong>Archived:</strong>
-  <%= @info.archived %>
-</p>
-
-<%= link_to 'Edit', edit_info_path(@info) %> |
-<%= link_to 'Back', infos_path %>
+  <p><strong>Goal:</strong> <%= @info.goal %></p>
+  <p><strong>Residence type:</strong> <%= @info.residence_type %></p>
+  <p><strong>Residence use:</strong> <%= @info.residence_use %></p>
+  <p><strong>Timeframe:</strong> <%= @info.timeframe %></p>
+  <p><strong>First time buying a house? </strong> <%= @info.first_time %></p>
+  <p><strong>Military:</strong> <%= @info.military %></p>
+  <p><strong>Agent:</strong> <%= @info.agent %></p>
+  <p><strong>Purchase price:</strong> <%= @info.purchase_price %></p>
+  <p><strong>Downpayment:</strong> <%= @info.downpayment %></p>
+  <p><strong>Credit score:</strong> <%= @info.credit_score %></p>
+  <p><strong>Late payments:</strong> <%= @info.late_payments %></p>
+  <p><strong>Foreclosures:</strong> <%= @info.foreclosures %></p>
+  <p><strong>Bankruptcy:</strong> <%= @info.bankruptcy %></p>
+  <p><strong>Read:</strong> <%= @info.read %></p>
+  <p><strong>Archived:</strong> <%= @info.archived %></p>
+  
+  <div class="text-center">
+    <%= link_to 'Edit', edit_info_path(@info) %> |
+    <%= link_to 'Back', infos_path %>
+    <div class="buffer"></div>
+  </div>
+</div>

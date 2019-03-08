@@ -2,77 +2,272 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <div class="form-group col-xs-12 col-sm-6">
-      <%= f.label "First Name" %>
-      <%= f.text_field :first_name, class: "form-control", required: true %>
-    </div>
-    <div class="form-group col-xs-12 col-sm-6">
-      <%= f.label "Last Name" %>
-      <%= f.text_field :last_name, class: "form-control", required: true %>
-    </div>
-    <div class="form-group col-xs-12 col-sm-6">
-      <%= f.label "Email" %>
-      <%= f.text_field :email, class: "form-control", required: true %>
-    </div>
-    <div class="form-group col-xs-12 col-sm-6">
-      <%= f.label "Phone" %>
-      <%= f.text_field :phone, class: "form-control", required: true %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What type of loan do you want?" %>
-      <%= f.input :goal, class: "form-control", collection: %w[Refinance\ My\ Home New\ Home\ Loan], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What type of home will the loan be for?" %>
-      <%= f.input :residence_type, class: "form-control", collection: %w[Single\ Family Multi-Family Condominium Townhouse], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What type of residence is this for?" %>
-      <%= f.input :residence_use, class: "form-control", collection: %w[Primary\ Residence Secondary\ Home Investment\ Property], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What's the timeframe for your loan?" %>
-      <%= f.input :timeframe, class: "form-control", collection: %w[Immediately\ (Purchase Agreement Already Signed) ASAP\ (Found\ a\ House/Offer\ Pending Within\ 30\ Days 2-3\ Months 3-6\ Months 6+\ Months No\ Time\ Frame)], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "Is this your first time buying a home?" %>
-      <%= f.input :first_time, class: "form-control", collection: %w[Yes No], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "Are you now or have you ever served in the US military?" %>
-      <%= f.input :military, class: "form-control", collection: %w[Yes No], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "Are you currently working with a realtor?" %>
-      <%= f.input :agent, class: "form-control", collection: %w[Yes No], label: false %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What's the purchase price of your new home?" %>
-      <%= f.text_field :purchase_price, class: "form-control" %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What's your estimated downpayment?" %>
-      <%= f.text_field :downpayment, class: "form-control" %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "What's your credit score?" %>
-      <%= f.text_field :credit_score, class: "form-control" %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "How many late mortgage payments have you made in the last 12 months?" %>
-      <%= f.text_field :late_payments, class: "form-control" %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "Have you had any foreclosures in the last 3 years?" %>
-      <%= f.text_field :foreclosures, class: "form-control" %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.label "Have you had any bankruptcy in the last 3 years?" %>
-      <%= f.text_field :bankruptcy, class: "form-control" %>
-    </div>
-  </div>
 
-  <div class="form-actions text-center">
-    <%= f.button :submit %>
-  </div>
+    <div class="question-group">
+      <div class="row">
+        <h4>What type of loan are you looking for?</h4>
+        <%= f.hidden_field :goal, id: "hf-goal" %>
+        <div class="col-xs-6"><div class="select-box loan-type" id="refinance">Refinance My Home</div></div>
+        <div class="col-xs-6"><div class="select-box loan-type" id="new-loan">New Home Loan</div></div>
+      </div> <!-- row -->
+    </div> <!-- question group -->
+
+    <div class="question-group">
+      <div class="row">
+        <h4>What are the financial details for your new home?</h4>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Purchase Price" %>
+          <%= f.text_field :purchase_price, class: "form-control" %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Estimated Downpayment" %>
+          <%= f.text_field :downpayment, class: "form-control" %>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>What type of residence is this for?</h4>
+        <div class="col-xs-12 col-sm-4"><div class="select-box residence-use" id="residence-use-primary">Primary Residence</div></div>
+        <div class="col-xs-12 col-sm-4"><div class="select-box residence-use" id="residence-use-secondary">Secondary Residence</div></div>
+        <div class="col-xs-12 col-sm-4"><div class="select-box residence-use" id="residence-use-investment">Investment Property</div></div>
+        <%= f.hidden_field :residence_use, id: "hf-residence-use" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row text-center">
+        <h4 class="text-left">What's the timeframe for your loan?</h4>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-immediate">Immediately (Purchase Agreement Signed)</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-ASAP">ASAP (Found a House or Offer Pending)</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-30">Within 30 Days</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-1-3">Within 1-3 Months</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-3-6">Within 3-6 Months</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-6-or-more">Over 6 Months from Now</div></div>
+        <div class="col-xs-12 col-sm-4 col-md-3"><div class="select-box timeframe" id="timeframe-none">No Time Frame</div></div>
+        <%= f.hidden_field :timeframe, id: "hf-timeframe" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Is this your first time buying a home?</h4>
+        <div class="col-xs-6"><div class="select-box first-time" id="first-time-yes">Yes</div></div>
+        <div class="col-xs-6"><div class="select-box first-time" id="first-time-no">No</div></div>
+        <%= f.hidden_field :first_time, id: "hf-first-time" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Are you now or have you ever served in the US military?</h4>
+        <div class="col-xs-6"><div class="select-box military" id="military-yes">Yes</div></div>
+        <div class="col-xs-6"><div class="select-box military" id="military-no">No</div></div>
+        <%= f.hidden_field :military, id: "hf-military" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Are you currently working with a realtor?</h4>
+        <div class="col-xs-6"><div class="select-box agent" id="agent-yes">Yes</div></div>
+        <div class="col-xs-6"><div class="select-box agent" id="agent-no">No</div></div>
+        <%= f.hidden_field :agent, id: "hf-agent" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>What's your financial history like?</h4>
+        <div class="form-group col-xs-6">
+          <%= f.label "Credit score" %>
+          <%= f.text_field :credit_score, class: "form-control", placeholder: "Feel free to estimate if you aren't sure." %>
+        </div>
+        <div class="form-group col-xs-6">
+          <%= f.label "# of Late mortgage payments" %>
+          <%= f.text_field :late_payments, class: "form-control", placeholder: "# in the last 12 months" %>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Have you had any <strong>foreclosures</strong> in the last 3 years?"</h4>
+        <div class="col-xs-6"><div class="select-box foreclosures" id="foreclosures-yes">Yes</div></div>
+        <div class="col-xs-6"><div class="select-box foreclosures" id="foreclosures-no">No</div></div>
+        <%= f.hidden_field :foreclosures, id: "hf-foreclosures" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Have you had any <strong>bankruptcies</strong> in the last 3 years?"</h4>
+        <div class="col-xs-6"><div class="select-box bankruptcy" id="bankruptcy-yes">Yes</div></div>
+        <div class="col-xs-6"><div class="select-box bankruptcy" id="bankruptcy-no">No</div></div>
+        <%= f.hidden_field :bankruptcy, id: "hf-bankruptcy" %>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+
+
+    <div class="question-group">
+      <div class="row">
+        <h4>Where can we send your results?</h4>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "First Name" %>
+          <%= f.text_field :first_name, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Last Name" %>
+          <%= f.text_field :last_name, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Email" %>
+          <%= f.text_field :email, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label "Phone" %>
+          <%= f.text_field :phone, class: "form-control", required: true %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.submit "Get My Results", class: "btn" %>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- question-group -->
+  </div> <!-- form inputs -->
 <% end %>
+
+
+<script>
+  $(document).ready(function(){
+
+    $(".select-box").matchHeight();
+
+    $(".loan-type").click(function(){
+      $(".loan-type").removeClass("active");
+    });
+    $("#refinance").click(function(){
+      $("#refinance").addClass("active");
+      $('#hf-goal').val('Refinance My Home')
+    });
+    $("#new-loan").click(function(){
+      $("#new-loan").addClass("active");
+      $('#hf-goal').val('New Home Loan')
+    });
+
+    $(".residence-use").click(function(){
+      $(".residence-use").removeClass("active");
+    });
+    $("#residence-use-primary").click(function(){
+      $("#residence-use-primary").addClass("active");
+      $('#hf-residence-use').val('Primary Residence')
+    });
+    $("#residence-use-secondary").click(function(){
+      $("#residence-use-secondary").addClass("active");
+      $('#hf-residence-use').val('Secondary Residence')
+    });
+    $("#residence-use-investment").click(function(){
+      $("#residence-use-investment").addClass("active");
+      $('#hf-residence-use').val('Investment Property')
+    });
+
+    $(".timeframe").click(function(){
+      $(".timeframe").removeClass("active");
+    });
+    $("#timeframe-immediate").click(function(){
+      $("#timeframe-immediate").addClass("active");
+      $('#hf-timeframe').val('Immediately (Purchase Agreement Signed)')
+    });
+    $("#timeframe-ASAP").click(function(){
+      $("#timeframe-ASAP").addClass("active");
+      $('#hf-timeframe').val('ASAP (Found a House or Offer Pending)')
+    });
+    $("#timeframe-30").click(function(){
+      $("#timeframe-30").addClass("active");
+      $('#hf-timeframe').val('Within 30 Days')
+    });
+    $("#timeframe-1-3").click(function(){
+      $("#timeframe-1-3").addClass("active");
+      $('#hf-timeframe').val('Within 1-3 Months')
+    });
+    $("#timeframe-3-6").click(function(){
+      $("#timeframe-3-6").addClass("active");
+      $('#hf-timeframe').val('Within 3-6 Months')
+    });
+    $("#timeframe-6-or-more").click(function(){
+      $("#timeframe-6-or-more").addClass("active");
+      $('#hf-timeframe').val('Over 6 Months from Now')
+    });
+    $("#timeframe-none").click(function(){
+      $("#timeframe-none").addClass("active");
+      $('#hf-timeframe').val('No Time Frame')
+    });
+
+    $(".first-time").click(function(){
+      $(".first-time").removeClass("active");
+    });
+    $("#first-time-yes").click(function(){
+      $("#first-time-yes").addClass("active");
+      $('#hf-first-time').val('Yes')
+    });
+    $("#first-time-no").click(function(){
+      $("#first-time-no").addClass("active");
+      $('#hf-first-time').val('No')
+    });
+
+    $(".military").click(function(){
+      $(".military").removeClass("active");
+    });
+    $("#military-yes").click(function(){
+      $("#military-yes").addClass("active");
+      $('#hf-military').val('Yes')
+    });
+    $("#military-no").click(function(){
+      $("#military-no").addClass("active");
+      $('#hf-military').val('No')
+    });
+
+    $(".agent").click(function(){
+      $(".agent").removeClass("active");
+    });
+    $("#agent-yes").click(function(){
+      $("#agent-yes").addClass("active");
+      $('#hf-agent').val('Yes')
+    });
+    $("#agent-no").click(function(){
+      $("#agent-no").addClass("active");
+      $('#hf-agent').val('No')
+    });
+
+    $(".foreclosures").click(function(){
+      $(".foreclosures").removeClass("active");
+    });
+    $("#foreclosures-yes").click(function(){
+      $("#foreclosures-yes").addClass("active");
+      $('#hf-foreclosures').val('Yes')
+    });
+    $("#foreclosures-no").click(function(){
+      $("#foreclosures-no").addClass("active");
+      $('#hf-foreclosures').val('No')
+    });
+
+    $(".bankruptcy").click(function(){
+      $(".bankruptcy").removeClass("active");
+    });
+    $("#bankruptcy-yes").click(function(){
+      $("#bankruptcy-yes").addClass("active");
+      $('#hf-bankruptcy').val('Yes')
+    });
+    $("#bankruptcy-no").click(function(){
+      $("#bankruptcy-no").addClass("active");
+      $('#hf-bankruptcy').val('No')
+    });
+
+  });
+</script>
