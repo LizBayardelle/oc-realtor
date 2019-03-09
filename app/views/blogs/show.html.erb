@@ -62,30 +62,62 @@
       </div>
     <% end %>
   </div> <!-- centered -->
+</div> <!-- container -->
 
-  <div class="card no-hover full-width blog"><div class="padding-box">
 
-    <div class="header-row">
-      <!-- <div class="new-card border">
-        <h3 class="text-center">Get Your <span style="font-weight: 400">Things to Look for When Touring a House</span></h3>
-        <%#= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying LM-house-tour-checklist" } %>
-      </div> <!-- card -->
+<% if @blog.optin %>
+  <div class="half-buffer"></div>
 
-      <% if @blog.link_filename %>
-        <h3 class="linkish" style="padding: 0px 40px 0 40px">
-          <%= link_to download_pdf_path(@blog), type: "application/pdf", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Download Blog PDF'}); gtag_report_conversion();" do %>
-            <%= @blog.link_text %>
-          <% end %>
-        </h3>
+  <div class="blue-stripe text-center">
+    <h2>Want to Cut to the Chase?</h2>
+    <div class="container">
+      <% if current_user %>
+        <h3>Get Your <%= @blog.link_text %> Now</h3>
+        <%= link_to "Download Now", @blog.link_filename, class: "btn hover-grey", target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
+      <% else %>
+        <div class="new-card border">
+          <h3>Get Your <%= @blog.link_text %> Now</h3>
+          <%= render partial: "layouts/new_subscriber_wide", locals: { tags: @blog.optin_tags } %>
+        </div> <!-- card -->
       <% end %>
     </div> <!-- header row -->
+  </div> <!-- blue stripe -->
 
+  <div class="half-buffer"></div>
+<% end %>
+
+
+
+<div class="container">
+  <div class="card no-hover full-width blog"><div class="padding-box">
     <%= @blog.body.html_safe %>
-
   </div></div> <!-- padding box and card -->
 
+
+  <% if @blog.optin %>
+    <div class="half-buffer"></div>
+
+      <div class="text-center">
+        <h2>Want More Information?</h2>
+        <% if current_user %>
+          <h3>Get Your <%= @blog.link_text %> Now</h3>
+          <%= link_to "Download Now", @blog.link_filename, target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
+        <% else %>
+          <div class="">
+            <h3 class="text-center">Get Your <%= @blog.link_text %> Now</h3>
+            <%= render partial: "layouts/new_subscriber_wide", locals: { tags: @blog.optin_tags } %>
+          </div> <!-- card -->
+        <% end %>
+      </div> <!-- header row -->
+
+    <div class="half-buffer"></div>
+  <% end %>
+</div> <!-- container -->
+
+
+<div class="blue-stripe">
   <!-- sharing links -->
-  <div class="container padded text-center">
+  <div class="container text-center">
     <h2 class="font-script">Care to Share?</h2>
     <div class="fb-share-button"
       data-href="<%= polymorphic_url(@blog) %>"
@@ -105,9 +137,12 @@
       </div>
     <% end %>
   </div> <!-- text center container -->
-<!-- end sharing links -->
+  <div class="half-buffer"></div>
+
+</div> <!-- blue stripe -->
 
 
+<div class="container">
   <div class="buffer"></div>
 
   <div class="comments">

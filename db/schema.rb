@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_021924) do
+ActiveRecord::Schema.define(version: 2019_03_09_224659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 2019_03_03_021924) do
     t.string "link_text"
     t.string "link_filename"
     t.bigint "pillars_id"
+    t.boolean "optin", default: false
+    t.string "optin_tags", default: "LM-blog"
+    t.boolean "published", default: false
+    t.datetime "published_at"
     t.index ["pillars_id"], name: "index_blogs_on_pillars_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"

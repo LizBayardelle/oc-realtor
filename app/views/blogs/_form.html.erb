@@ -10,14 +10,6 @@
       <%= f.text_field :teaser, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label "Text for Linked PDF" %>
-      <%= f.text_field :link_text, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Exact Filename for Linked PDF (No quotes; Start with 'app/assets/images/')" %>
-      <%= f.text_field :link_filename, class: "form-control" %>
-    </div>
-    <div class="form-group">
       <%= f.input :tag_list, :label => "Tags (seperated by commas)", :input_html => { :class => "form-control", :value => @blog.tag_list.join(", ") } %>
     </div>
     <div class="form-group">
@@ -39,6 +31,28 @@
     <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body, class: "ckeditor" %>
+    </div>
+    <h2>Lead Magnet Information</h2>
+    <div class="form-group" style="padding-left: 20px;">
+      <%= f.input :optin, label: false %>
+      <%= f.label "Does this blog have a lead magnet?" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Text for Lead Magnet" %>
+      <%= f.text_field :link_text, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Lead Magnet URL (S3)" %>
+      <%= f.text_field :link_filename, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Lead Magnet Tags (Comma Separated)" %>
+      <%= f.text_field :optin_tags, class: "form-control" %>
+    </div>
+    <h2>Published</h2>
+    <div class="form-group" style="padding-left: 25px;">
+      <%= f.input :published, label: false %>
+      <%= f.label "Published" %>
     </div>
   </div>
 

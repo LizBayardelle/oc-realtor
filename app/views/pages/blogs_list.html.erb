@@ -2,19 +2,24 @@
   <% @blogs = Blog.order("created_at DESC") %>
 
   <div class="container">
-    <h1 class="text-center">All Blogs Written</h1>
+    <h1 class="text-center">All Blogs</h1>
 
     <table>
       <% @blogs.each do |blog| %>
         <tr>
           <td><%= blog.id %></td>
-          <td><strong><%= blog.title %></strong> (
+          <td>
+            <strong><%= blog.title %></strong> (
             <%= link_to 'Show', blog_path(blog) %>
             &nbsp;|&nbsp;
             <%= link_to 'Edit', edit_blog_path(blog) %>
             &nbsp;|&nbsp;
             <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-            )</td>
+            )<br />
+            <% if blog.optin %>
+              Optin: <%= blog.link_text %> (<%= blog.optin_tags %>)
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>
