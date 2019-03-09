@@ -73,7 +73,7 @@
     <div class="container">
       <% if current_user %>
         <h3>Get Your <%= @blog.link_text %> Now</h3>
-        <%= link_to "Download Now", @blog.link_filename, class: "btn hover-grey", target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
+        <%= link_to "Let's Go", @blog.link_filename, class: "btn hover-grey", target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
       <% else %>
         <div class="new-card border">
           <h3>Get Your <%= @blog.link_text %> Now</h3>
@@ -101,7 +101,7 @@
         <h2>Want More Information?</h2>
         <% if current_user %>
           <h3>Get Your <%= @blog.link_text %> Now</h3>
-          <%= link_to "Download Now", @blog.link_filename, target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
+          <%= link_to "Let's Go", @blog.link_filename, target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
         <% else %>
           <div class="">
             <h3 class="text-center">Get Your <%= @blog.link_text %> Now</h3>
