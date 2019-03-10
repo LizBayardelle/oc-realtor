@@ -32,7 +32,7 @@ Variables
 ==============================================
 */
 
-$font-serif: 'Playfair Display', serif;
+$font-serif: 'Cardo', serif;
 $font-cursive: 'Playball', cursive;
 $font-sans: 'Poppins', sans-serif;
 $font-typewriter: 'Inconsolata', monospace;
@@ -1033,6 +1033,10 @@ Pages
 
 .blog h1 {
 	margin-bottom: 5px !important;
+}
+
+.blog p {
+  font-size: 16px;
 }
 
 .blog-list-links {
