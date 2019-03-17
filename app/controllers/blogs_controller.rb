@@ -50,11 +50,8 @@ class BlogsController < ApplicationController
     @blog.image.attach(params[:blog][:image])
     @blog.user = current_user
 
-    image = blog_params[:image]
-    pin_images = params[:blog][:pins]
-
     if @blog.save
-      @blog.pins.attach(pin_images)
+      # @blog.pins.attach(pin_images)
       redirect_to @blog, notice: 'Blog was successfully created.'
     else
       render :new

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900|Playfair+Display:400,900" rel="stylesheet" type='text/css'>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New Loan Info Submission</h1>
+
+    <h2>User Info:</h2>
+    <p>
+      <strong><%= info.first_name %> <%= info.last_name %></strong><br />
+      <%= mail_to info.email %><br />
+      <%= info.phone %>
+    </p>
+
+    <h2>Loan Info:</h2>
+    <p><strong>Goal:</strong> <%= @info.goal %></p>
+    <p><strong>Residence type:</strong> <%= @info.residence_type %></p>
+    <p><strong>Residence use:</strong> <%= @info.residence_use %></p>
+    <p><strong>Timeframe:</strong> <%= @info.timeframe %></p>
+    <p><strong>First time buying a house? </strong> <%= @info.first_time %></p>
+    <p><strong>Military:</strong> <%= @info.military %></p>
+    <p><strong>Agent:</strong> <%= @info.agent %></p>
+    <p><strong>Purchase price:</strong> <%= @info.purchase_price %></p>
+    <p><strong>Downpayment:</strong> <%= @info.downpayment %></p>
+    <p><strong>Credit score:</strong> <%= @info.credit_score %></p>
+    <p><strong>Late payments:</strong> <%= @info.late_payments %></p>
+    <p><strong>Foreclosures:</strong> <%= @info.foreclosures %></p>
+    <p><strong>Bankruptcy:</strong> <%= @info.bankruptcy %></p>
+    <p><strong>Read:</strong> <%= @info.read %></p>
+    <p><strong>Archived:</strong> <%= @info.archived %></p>
+
+    <h3 style="'Playfair Display', serif"><%= link_to "View Property", listing_url(@listing) %></h3>
+  </body>
+</html>
