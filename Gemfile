@@ -51,3 +51,4 @@ gem 'high_voltage'
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'invisible_captcha'

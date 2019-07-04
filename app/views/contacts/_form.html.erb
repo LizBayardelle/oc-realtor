@@ -9,6 +9,7 @@
   <% end %>
 
   <div class="form-inputs row text-left">
+    <%= f.invisible_captcha :subtitle %>
     <div class="form-group col-sm-6">
       <%= f.label :first_name %>
       <%= f.text_field :first_name , class: "form-control", oninput: "ga('send',{'hitType': 'event','eventCategory': 'typing', 'eventAction': 'Contact Typing First Name'})" %>

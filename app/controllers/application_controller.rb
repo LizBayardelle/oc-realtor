@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :new_subscriber
+  invisible_captcha only: [:new_subscriber], honeypot: :subtitle
 
   def new_subscriber
     @new_subscriber = Subscriber.new
