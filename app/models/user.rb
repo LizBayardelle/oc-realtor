@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   def send_email
     UserMailer.new_user(self).deliver_now
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+  
 end

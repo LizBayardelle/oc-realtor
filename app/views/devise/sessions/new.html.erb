@@ -1,30 +1,65 @@
-<div class="container">
-	<div class="bottom-buffer"></div>
-	<div class="card full-width padding-box">
+<div class="view jarallax" style="height: 100vh;">
+	<img class="jarallax-img" src="<%= asset_path("houses-road.jpg") %>" alt="Log In Page">
+	<div class="mask rgba-blue-slight">
+		<div class="container flex-center">
+			<div class="card px-5 py-3">
 
-		<h1 class="text-center">Log in</h1>
+				<h1 class="text-center pt-5">Log In</h1>
 
-		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-		  <div class="form-inputs">
-		  	<div class="row">
-			  	<div class="col-sm-6 col-sm-push-3">
-			  		<%= f.label :email %>
-				    <%= f.email_field :email, required: false, autofocus: true, class: "form-control" %>
-			    	<%= f.label :password %>
-			    	<%= f.password_field :password, required: false, class: "form-control" %>
-		    	</div> <!-- col -->
-	    	</div> <!-- row -->
-		    <div class="text-center">
-			    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-		    </div>
-		  </div> <!-- form inputs -->
+				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<div class="form-inputs form-row row justify-content-center">
+						<div class="col-lg-6">
+							<div class="form-group md-form">
+								<%= f.email_field :email, id: "email", required: true, class: "form-control" %>
+								<%= f.label "Email Address", for: "email" %>
+							</div> <!-- form-group -->
+						</div> <!-- col -->
+						<div class="col-lg-6">
+							<div class="form-group md-form">
+					    	<%= f.label :password %>
+					    	<%= f.password_field :password, required: false, class: "form-control" %>
+				    	</div> <!-- form group -->
+						</div> <!-- col -->
 
-		  <div class="form-actions text-center">
-		    <%= f.button :submit, "Log in" %><br />
-		    <%= render "devise/shared/links" %>
-		  </div>
-		<% end %>
+						<div class="row">
+              <div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+                <%= f.check_box :remember_me, class: "form-check-input", id: "remember_me" %>
+                <%= f.label :remember_me, class: "form-check-label", for: "remember_me" %>
+              </div>
+            </div> <!-- row -->
 
-	</div> <!-- card -->
-	<div class="bottom-buffer"></div>
-</div> <!-- container -->
+				  </div> <!-- form inputs -->
+
+				  <div class="form-actions text-center">
+				    <%= f.button :submit, "Log in", class: "btn btn-primary" %><br />
+				    <%= render "devise/shared/links" %>
+				  </div> <!-- form actions -->
+				<% end %>
+
+			</div> <!-- card -->
+		</div> <!-- container -->
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
+  });
+</script>

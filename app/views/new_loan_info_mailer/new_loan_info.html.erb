@@ -8,9 +8,9 @@
 
     <h2>User Info:</h2>
     <p>
-      <strong><%= info.first_name %> <%= info.last_name %></strong><br />
-      <%= mail_to info.email %><br />
-      <%= info.phone %>
+      <strong><%= @info.first_name %> <%= @info.last_name %></strong><br />
+      <%= mail_to @info.email %><br />
+      <%= @info.phone %>
     </p>
 
     <h2>Loan Info:</h2>
@@ -30,6 +30,6 @@
     <p><strong>Read:</strong> <%= @info.read %></p>
     <p><strong>Archived:</strong> <%= @info.archived %></p>
 
-    <h3 style="'Playfair Display', serif"><%= link_to "View Property", listing_url(@listing) %></h3>
+    <h3 style="'Playfair Display', serif"><%= link_to "View Information", info_url(@info) %></h3>
   </body>
 </html>

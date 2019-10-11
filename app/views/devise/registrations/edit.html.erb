@@ -1,92 +1,139 @@
-<div class="container">
-    <div class="bottom-buffer"></div>
-    <div class="card full-width padding-box">
-      <h1 class="text-center">Edit My Information</h1>
+<div class="view jarallax" style="height: 100vh;">
+	<img class="jarallax-img" src="<%= asset_path("houses-road.jpg") %>" alt="Log In Page">
+	<div class="mask rgba-blue-slight">
+		<div class="container flex-center">
+			<div class="card px-5 py-3 my-5">
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.error_notification %>
+				<h1 class="text-center py-3">Edit My Information</h1>
 
-          <div class="form-inputs">
-            <div class="form-group col-sm-6 col-md-4 col-xs-12">
-                <%= f.label :first_name %>
-                <%= f.text_field :first_name, class: "form-control" %>
-            </div>
-            <div class="form-group col-sm-6 col-md-4 col-xs-12">
-                <%= f.label :last_name %>
-                <%= f.text_field :last_name, class: "form-control" %>
-            </div>
-            <div class="form-group col-sm-6 col-md-4 col-xs-12">
-                <%= f.label :email %>
-                <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
-                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-                <% end %>
-            </div>
-            <div class="form-group col-sm-6 col-md-4 col-xs-12">
-                <%= f.label :phone %>
-                <%= f.text_field :phone, required: true, class: "form-control" %>
-            </div>
-            <div class="form-group col-sm-12">
-              <div class="row">
-                <div class="col-sm-12">
-                  <%= f.label "I'm interested in..." %>
-                </div> <!-- col -->
-              </div>
-              <div class="row">
-                <div class="col-xs-5 col-xs-push-1">
-                  <%= f.input :buyer, label: "Buying a House" %>
-                </div> <!-- col -->
-                <div class="col-xs-5 col-xs-push-1">
-                  <%= f.input :seller, label: "Selling a House"  %>
-                </div> <!-- col -->
-              </div> <!-- row -->
-            </div> <!-- form group -->
-            <div class="form-group col-sm-12 col-md-4 col-xs-12">
-                <%= f.label :current_password %>
-                <%= f.password_field :current_password, class: "form-control", required: true %>
-            </div>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+					<div class="form-inputs">
+						<div class="form-row row justify-content-center">
+							<div class="form-group my-2 md-form col-sm-6 col-xs-12">
+									<%= f.label :first_name %>
+									<%= f.text_field :first_name, class: "form-control", required: true %>
+							</div>
+							<div class="form-group my-2 md-form col-sm-6 col-xs-12">
+									<%= f.label :last_name %>
+									<%= f.text_field :last_name, class: "form-control", required: true %>
+							</div>
+							<div class="form-group my-2 md-form col-sm-6 col-xs-12">
+									<%= f.label :email %>
+									<%= f.text_field :email, required: true, autofocus: true, class: "form-control" %>
+									<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+											<p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+									<% end %>
+							</div>
+							<div class="form-group my-2 md-form col-sm-6 col-xs-12">
+									<%= f.label :phone %>
+									<%= f.text_field :phone, required: true, class: "form-control" %>
+							</div> <!-- row -->
+						</div> <!-- form-inputs -->
+
+
+
+            <hr>
+
+
+
             <div class="row">
-              <p class="passwordChangeHeader1 linkish text-center">Change My Password</p>
-              <p class="passwordChangeHeader2 linkish hidden text-center">Keep My Current Password</p>
-              <div class="passwordChangeDiv hidden">
-                  <div class="form-group col-sm-6 col-md-4">
-                      <%= f.label "New Password" %>
-                      <%= f.password_field :password, autocomplete: "off", class: "form-control", required: false %>
-                  </div>
-                  <div class="form-group col-sm-6 col-md-4">
-                      <%= f.label "Confirm New Password" %>
-                      <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
-                  </div>
+              <div class="form-group md-form my-2 col-12">
+                  <%= f.label :current_password %>
+                  <%= f.password_field :current_password, class: "form-control", required: true %>
+              </div>
+            </div> <!-- row -->
+
+
+            <div class="row">
+              <div class="col-12">
+                <p class="passwordChangeHeader1 linkish text-center">Change My Password</p>
+                <p class="passwordChangeHeader2 linkish hidden text-center">Keep My Current Password</p>
+              </div> <!-- col -->
+              <div class="passwordChangeDiv hidden form-group md-form my-2 col-sm-6">
+                  <%= f.label "New Password" %>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control", required: false %>
+              </div>
+              <div class="passwordChangeDiv hidden form-group md-form my-2 col-sm-6">
+                  <%= f.label "Confirm New Password" %>
+                  <%= f.password_field :password_confirmation, class: "form-control" %>
               </div> <!-- password change -->
             </div> <!-- row -->
-            <div class="row text-center">
-              <%= f.input :blog_emails, label: "Email me when a new blog post comes out" %>
-            </div>
-          </div> <!-- form inputs -->
 
-          <div class="form-actions text-center">
-              <%= f.button :submit, "Update" %><br />
-              <%= link_to "Back", :back %>
-          </div> <!-- form actions -->
 
-      <% end %>
-    </div> <!-- card -->
-</div> <!-- container -->
 
-<div class="bottom-buffer"></div>
+						<hr>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".passwordChangeHeader1").click(function(){
-            $(".passwordChangeHeader1").addClass("hidden");
-            $(".passwordChangeHeader2").removeClass("hidden");
-            $(".passwordChangeDiv").removeClass("hidden");
-        });
-        $(".passwordChangeHeader2").click(function(){
-            $(".passwordChangeHeader2").addClass("hidden");
-            $(".passwordChangeHeader1").removeClass("hidden");
-            $(".passwordChangeDiv").addClass("hidden");
-        });
+
+						<div class="row">
+							<div class="col-sm-12">
+								<%= f.label "I'm interested in..." %>
+							</div> <!-- col -->
+						</div>
+
+						<div class="row">
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :buyer, class: "form-check-input", id: "buyer" %>
+								<%= f.label "Buying a House", class: "form-check-label", for: "buyer" %>
+							</div>
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :seller, class: "form-check-input", id: "seller" %>
+								<%= f.label "Selling a House", class: "form-check-label", for: "seller" %>
+							</div>
+						</div> <!-- row -->
+
+
+						<hr>
+
+
+						<div class="row text-center">
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :blog_emails, class: "form-check-input", id: "blog_emails" %>
+								<%= f.label "Email me when a new blog post comes out", class: "form-check-label", for: "blog_emails" %>
+							</div> <!-- form field -->
+						</div> <!-- row -->
+
+				  </div> <!-- form inputs -->
+
+				  <div class="form-actions text-center">
+						<%= f.button :submit, "Update My Info", class: "btn btn-primary", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Create Account Submission'})" %><br />
+				  </div> <!-- form actions -->
+				<% end %>
+
+			</div> <!-- card -->
+		</div> <!-- container -->
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
     });
+    $(".passwordChangeHeader1").click(function(){
+        $(".passwordChangeHeader1").addClass("hidden");
+        $(".passwordChangeHeader2").removeClass("hidden");
+        $(".passwordChangeDiv").removeClass("hidden");
+    });
+    $(".passwordChangeHeader2").click(function(){
+        $(".passwordChangeHeader2").addClass("hidden");
+        $(".passwordChangeHeader1").removeClass("hidden");
+        $(".passwordChangeDiv").addClass("hidden");
+    });
+  });
 
-</script>
+  </script>

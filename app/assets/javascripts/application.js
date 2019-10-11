@@ -10,17 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require bootstrap-sprockets
+//= require jquery3
 //= require jquery_ujs
+//= require jquery-ui
+//= require popper
+//= require bootstrap
+//= require rails_sortable
+//= require activestorage
+//= require font_awesome5
+//= require perfect-scrollbar
+//= require tinymce
 //= require ckeditor-jquery
 //= require social-share-button
 //= require typed
 //= require magnific-popup
 //= require simple_form_extension
-//= require activestorage
-//= require_tree .
-//= require_self
+
 
 
 

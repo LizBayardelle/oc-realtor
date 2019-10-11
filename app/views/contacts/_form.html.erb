@@ -30,12 +30,13 @@
 
     <div class="form-group col-sm-6">
       <%= f.label "Preferred Contact Method" %>
-      <%= f.input :preferred_contact , class: "form-control", collection: ["Phone", "Email"], label: false %>
-    </div> <!-- form group -->
+      <%= f.input :preferred_contact, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: ["Phone", "Email"], required: true %>
+    </div>
+
     <div class="form-group col-sm-6">
-      <%= f.label "Buying or Selling" %>
-      <%= f.input :purpose , class: "form-control", collection: ["Buying", "Selling"], label: false %>
-    </div> <!-- form group -->
+      <%= f.label "What Is This About?" %>
+      <%= f.input :purpose, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: [["Buying a House", "Buying a House"], ["Buying a House", "Buying a House"], ["Selling My House", "Selling My House"], ["Refinancing My Mortgage", "Refinancing My Mortgage"], ["Other", "Other"]], required: true %>
+    </div>
 
     <div class="form-group col-sm-12">
       <%= f.label :message %>
@@ -49,7 +50,18 @@
     <% end %>
   </div>
 
-  <div class="form-actions row">
-    <%= f.button :submit, "Send Message", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Contact Us Submission'})" %>
+  <div class="form-actions justify-content-center row">
+    <%= f.button :submit, "Send Message", class: "btn btn-primary", onclick: "ga('send',{'hitType': 'event','eventCategory': 'submit', 'eventAction': 'Contact Us Submission'})" %>
   </div>
 <% end %>
+
+
+
+
+
+<script>
+  // Material Select Initialization
+  $(document).ready(function() {
+    $('.mdb-select').materialSelect();
+  });
+</script>

@@ -1,24 +1,41 @@
-<div class="landing-page marble">
-  <div class="blue-stripe text-center">
-    <div class="half-buffer"></div>
-    <div class="page-header-2">
-      <h1>Need a Loan?  Want to Refinance?</h1>
-      <h3 class="font-sans text-center">Follow these 3 simple steps to know exactly where you stand in the home buying process.</h3>
-      <div class="text-center"><%= link_to "Get Prequalified Today", new_info_path, class: "btn background-grey-hover" %></div>
+<main>
+
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("loan-house.jpg") %>" alt="Buy a House">
+    <div class="mask rgba-black-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">
+              Need a Home Loan?
+            </h1>
+            <h3 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">
+              Follow these 3 simple steps to know exactly where you stand in the home&nbsp;buying&nbsp;process.
+            </h3>
+            <%= link_to "Get Prequalified Today", new_info_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="half-buffer"></div>
-  </div> <!-- page header -->
+  </div>
 
 
-  <div class="container background-transparent">
-    <div class="half-buffer"></div>
 
-    <div class="row">
-      <div class="col-sm-12 background-transparent">
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h2 class="h1 font-weight-bold color-blue-dark text-center">
+          How Do I Get a Home Loan?
+        </h2>
+        <div class="text-center pb-4">
+          <a class="btn btn-loan text-white text-white-hover" href="#optin" >
+            Free 15-Minute Consultation
+          </a>
+        </div>
         <div class="col-lg-4">
           <h2>Step 1: Take Our Prequalification Quiz</h2>
-          <p>This basic information allows us to start researching what loans you qualify for financially.</p>
-          <div class="text-center"><%= link_to "Take the Quiz Now", new_info_path, class: "btn background-blue background-red-hover" %></div>
+          <p class="mb-0">This basic information allows us to start researching what loans you qualify for financially.</p>
+          <div class="text-center"><%= link_to "Take the Quiz Now", new_info_path, class: "btn btn-loan mb-4" %></div>
         </div> <!-- mini col -->
 
         <div class="col-lg-4">
@@ -38,57 +55,78 @@
           <p>This gives you the ability to go shop for houses knowing exactly what amount the bank will qualify you for.  No surprises!</p>
         </div> <!-- mini col -->
 
-      </div> <!-- form -->
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container-->
 
-      <!-- <div class="col-sm-4">
-        <div class="new-card border">
-          <h3 class="text-center">Get Preapproved Today</h3>
 
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-            	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-            	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-            	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-            </style>
-            <div id="mc_embed_signup">
-            <form action="https://LinchpinRealty.us20.list-manage.com/subscribe/post?u=bc00f71fdadc313ed5c731ab5&amp;id=3188394d50" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
 
-            <div class="mc-field-group">
-            	<label for="mce-FNAME">First Name  <span class="asterisk">*</span>
-            </label>
-            	<input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
-            </div>
-            <div class="mc-field-group">
-            	<label for="mce-LNAME">Last Name </label>
-            	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-            </div>
-            <div class="mc-field-group">
-            	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-            </label>
-            	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-            </div>
-            <div class="mc-field-group">
-            	<label for="mce-PHONE">Phone Number  <span class="asterisk">*</span>
-            </label>
-            	<input type="text" name="PHONE" class="required" value="" id="mce-PHONE">
-              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 
-            </div>
-            	<div id="mce-responses" class="clear">
-            		<div class="response" id="mce-error-response" style="display:none"></div>
-            		<div class="response" id="mce-success-response" style="display:none"></div>
-            	</div>
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_bc00f71fdadc313ed5c731ab5_3188394d50" tabindex="-1" value=""></div>
-                <div class="clear text-center"><input type="submit" value="Get Started" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-            </div>
 
-        </div>
-      </div>  -->
 
-    </div> <!-- row -->
-    <div class="buffer"></div>
-  </div> <!-- container -->
-</div> <!-- landing page -->
+
+
+
+  <div class="view jarallax" id="optin" style="min-height: 400px; height: auto">
+    <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-stylish-slight">
+      <div class="container flex-center text-center">
+        <div class="row pt-3">
+          <div class="col-12">
+            <h2>
+              Get a <span class="font-weight-bold">Free 15 Minute Consultation Call</span>
+            </h2>
+          </div>
+          <div class="col-12">
+            <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-loan, LM-15-minute-consultation" } %>
+          </div>
+        </div> <!-- row -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</main> <!-- Main layout -->
+
+
+
+
+
+
+
+<!-- new person popup itself -->
+<div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-4 mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="text-center mt-4">Get a Free 15 Minute Consultation&nbsp;Call</h3>
+        <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-loan, loan-page, LM-15-minute-consultation" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
+  });
+</script>

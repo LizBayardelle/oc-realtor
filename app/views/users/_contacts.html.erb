@@ -2,88 +2,90 @@
 <div class="messagesDiv">
   <h3 class="newHeader">New Messages</h3>
   <div class="newDiv">
-  <% if @contacts.count == 0 %>
-    <p>You currently have no messages.</p>
-  <% else %>
-    <table>
-      <tbody>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <td class="read-td">
-              <% if contact.read %>
-                <%= link_to contact_unread_path(contact), method: :post do %>
-                  <span class="glyphicon glyphicon-ok"></span>
+    <% if @contacts.count == 0 %>
+      <p>You currently have no messages.</p>
+    <% else %>
+      <table>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td class="read-td">
+                <% if contact.read %>
+                  <%= link_to contact_unread_path(contact), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to contact_read_path(contact), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to contact_read_path(contact), method: :post do %>
-                  <span class="glyphicon glyphicon-comment"></span>
+              </td>
+              <td>
+                <%= contact.first_name %> <%= contact.last_name %><br />
+                <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td>
+                <strong>Purpose: <%= contact.purpose %></strong><br />
+                <%= contact.message %><br />
+                <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
                 <% end %>
-              <% end %>
-            </td>
-            <td>
-              <%= contact.first_name %> <%= contact.last_name %><br />
-              <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
-              <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
-            </td>
-            <td>
-              <strong>Purpose: <%= contact.purpose %></strong><br />
-              <%= contact.message %><br />
-              <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <i class="icon ion-trash-a"></i>
-              <% end %>
-              <%= link_to archive_contact_path(contact), method: :post do %>
-                <i class="icon ion-folder"></i>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+                <%= link_to archive_contact_path(contact), method: :post do %>
+                  <i class="icon ion-folder"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div> <!-- new messages div -->
 
-    <% if @archived_contacts.count != 0 %>
-      <h3 class="archivedHeader">Archived Messages</h3>
-      <div class="archivedDiv hidden">
-        <table>
-          <tbody>
-            <% @archived_contacts.each do |contact| %>
-              <tr>
-                <td class="read-td">
-                  <% if contact.read %>
-                    <%= link_to contact_unread_path(contact), method: :post do %>
-                      <span class="glyphicon glyphicon-ok"></span>
-                    <% end %>
-                  <% else %>
-                    <%= link_to contact_read_path(contact), method: :post do %>
-                      <span class="glyphicon glyphicon-comment"></span>
-                    <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= contact.first_name %> <%= contact.last_name %><br />
-                  <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
-                  <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
-                </td>
-                <td>
-                  <strong>Purpose: <%= contact.purpose %></strong><br />
-                  <%= contact.message %><br />
-                  <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                    <i class="icon ion-trash-a"></i>
-                  <% end %>
-                  <%= link_to unarchive_contact_path(contact), method: :post do %>
-                    <i class="icon ion-ios-color-wand"></i>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div> <!-- archived div -->
-    <% end %>
 
 
-  <% end %>
 
+
+  <% if @archived_contacts.count != 0 %>
+    <h3 class="archivedHeader">Archived Messages</h3>
+    <div class="archivedDiv hidden">
+      <table>
+        <tbody>
+          <% @archived_contacts.each do |contact| %>
+            <tr>
+              <td class="read-td">
+                <% if contact.read %>
+                  <%= link_to contact_unread_path(contact), method: :post do %>
+                    <span class="glyphicon glyphicon-ok"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to contact_read_path(contact), method: :post do %>
+                    <span class="glyphicon glyphicon-comment"></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <%= contact.first_name %> <%= contact.last_name %><br />
+                <%= contact.phone %> <% if contact.preferred_contact == "Phone" %>(Preferred)<% end %><br />
+                <%= mail_to contact.email %> <% if contact.preferred_contact == "Email" %>(Preferred)<% end %>
+              </td>
+              <td>
+                <strong>Purpose: <%= contact.purpose %></strong><br />
+                <%= contact.message %><br />
+                <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon ion-trash-a"></i>
+                <% end %>
+                <%= link_to unarchive_contact_path(contact), method: :post do %>
+                  <i class="icon ion-ios-color-wand"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %> <!-- archived each -->
+        </tbody>
+      </table>
+    </div> <!-- archived div -->
+
+  <% end %> <!-- if archived contacts != 0 -->
 
 </div> <!-- messages div -->
 

@@ -1,0 +1,25 @@
+<div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to root_path, class:"navbar-brand", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Header Logo Home'})" do %>
+              <%= image_tag "portrait-square.jpg", alt: "Anthony Bayardelle", style: "height: 60px; display: inline-block" %>
+              <%= image_tag "logo_words.png", alt: "Linchpin Realty Logo", style: "height: 60px; display: inline-block; box-shadow: none" %><br />
+          <% end %>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+          <div class="text-right" style="padding: 10px 5px 0 0">
+            <span class="color-red font-sans text-right"><strong>Your guide to the OC housing market.</strong></span>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Buy", page_path("buy"), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+            <li><%= link_to "Sell", page_path("sell"), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+            <li><%= link_to "Get a Loan", page_path("loan"), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+            <li><%= link_to "Refinance", page_path("mortgage"), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+            <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %></li>
+            <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Contact Me'})" %></li>
+          </ul>
+        </div>
+    </div>
+</div>

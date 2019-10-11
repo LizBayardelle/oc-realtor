@@ -1,19 +1,32 @@
-<div class="landing-page marble">
-  <div class="blue-stripe text-center">
-    <div class="half-buffer"></div>
-    <div class="page-header-2">
-      <h1>Refinance Your Mortgage</h1>
-      <h3 class="font-sans text-center">Leverage your money wisely.</h3>
+<main>
+
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("img_home_pool_view.jpg") %>" alt="Buy a House">
+    <div class="mask rgba-stylish-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">
+              Refinance Your Mortgage
+            </h1>
+            <h3 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">
+              Leverage your money wisely
+            </h3>
+            <%= link_to "Get Prequalified Today", new_info_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="half-buffer"></div>
-  </div> <!-- page header -->
+  </div>
 
 
-  <div class="container background-transparent">
-    <div class="half-buffer"></div>
 
-    <div class="row">
-      <div class="col-sm-8 background-transparent">
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h2 class="h1 font-weight-bold color-blue-dark text-center">
+          How Do I Refinance My House?
+        </h2>
         <div class="col-lg-4">
           <h2>Step 1: Free 15 Minute Consultation Call</h2>
           <p>Talk to one of our mortgage experts to assess all of the options currently available to you.  Easy, no sales or comittment, and 100% confidential.</p>
@@ -36,16 +49,78 @@
           <p>This gives you the ability to go shop for houses knowing exactly what amount the bank will qualify you for.  No surprises!</p>
         </div> <!-- mini col -->
 
-      </div> <!-- form -->
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container-->
 
-      <div class="col-sm-4">
-        <div class="new-card border">
-          <h3 class="text-center">Get a Free 15 Minute Consultation</h3>
-          <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-refinance, LM-15-minute-consultation" } %>
-        </div>
+
+
+
+
+
+
+
+
+  <div class="view jarallax" id="optin" style="min-height: 400px; height: auto">
+    <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-stylish-slight">
+      <div class="container flex-center text-center">
+        <div class="row pt-3">
+          <div class="col-12">
+            <h2>
+              Get a <span class="font-weight-bold">Free 15 Minute Consultation Call</span>
+            </h2>
+          </div>
+          <div class="col-12">
+            <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-loan, LM-15-minute-consultation" } %>
+          </div>
+        </div> <!-- row -->
       </div>
+    </div>
+  </div>
 
-    </div> <!-- row -->
-    <div class="buffer"></div>
-  </div> <!-- container -->
-</div> <!-- landing page -->
+
+
+
+
+
+</main> <!-- Main layout -->
+
+
+
+
+
+
+
+<!-- new person popup itself -->
+<div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-4 mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="text-center mt-4">Get a Free 15 Minute Consultation&nbsp;Call</h3>
+        <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-refinance, refinance-page LM-15-minute-consultation" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
+  });
+</script>

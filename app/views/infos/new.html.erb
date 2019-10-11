@@ -1,8 +1,14 @@
-<div class="container">
-  <h1 class="text-center color-blue">Get Prequalified</h1>
+<main class="py-5">
+  <div class="container">
+    <!-- Section heading -->
+    <h2 class="h1-responsive text-center font-weight-bold my-3">Get Prequalified</h2>
+    <!-- Section description -->
+    <p class="grey-text text-center w-responsive mx-auto mb-5">
+      Fill out this quick form to see exactly what home loans you qualify for. Someone will get back to you with your options within 24 hours and it's completely free.
+    </p>
+    <%= render 'form', info: @info %>
 
-  <%= render 'form', info: @info %>
+    <div class="buffer"></div>
 
-  <div class="buffer"></div>
-
-</div> <!-- container -->
+  </div> <!-- container -->
+</main>

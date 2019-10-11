@@ -5,53 +5,106 @@
   <% end %>
 <!-- page-specific content -->
 
-<div class="responsive-hero-div">
-	<%= image_tag "aerial.jpg", class: "responsive-hero-img", alt: "Aerial view of a suburb at the foot of the Porter Ranch hills." %>
 
-	<div class="overlap-responsive-image">
-  	<div class="gradient-overlay slideRight text-center">
-			<h2 class="pseudo-h1 color-blue-dark">Your guide to the<br class="hidden-lg" /> California housing market</h2>
-      <h3 class="text-center"><a href="#subscriptionPopup" class="open-popup-link btn" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Get a Free 15 Minute Consultation Call</a></h3>
-  	</div> <!-- absolute box -->
-  </div> <!-- overlap image -->
-</div>
 
-<div class="blue-stripe">
-	<div class="container">
-		<div class="col-sm-3 text-center">
-			<%= image_tag "portrait.jpg", alt: "Anthony Bayardelle", class: "fancy-border", style: "max-width: 200px; margin: 0 0 15px 0" %>
-		</div>
-		<div class="col-sm-9">
-			<p>Anthony Bayardelle has worked in real estate, investing, and client relations for over 15 years across several states and has a wealth of knowledge and experience to bring to the table.  A born and raised New Yorker who relocated to the West coast, he now brings the skills he cultivated to Orange County.</p>
-			<p>Anthony is interested in all facets of real estate, from sales and financing to renovations and restoration of old or rundown houses.  In his free time Anthony likes working out, mountain biking, and spending time with his wife and two beautiful daughters.</p>
-		</div>
+
+
+
+<!-- Main layout -->
+<main>
+
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("beach-houses.jpg") %>" alt="Linchpin Realty Blog">
+    <div class="mask rgba-stylish-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">
+              Your guide to the<br class="hidden-lg" /> California housing market
+            </h1>
+            <!-- <h5 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">Real estate is a complex and changing field. In this blog we cover topics from homebuying 101 to recent news events.</h5> -->
+            <a class="btn btn-primary" data-toggle="modal" data-target="#subscriptionPopup" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Get a Free 15 Minute Consultation Call</a>
+            <!-- <a class="btn btn-light-blue btn-lg wow fadeIn" data-wow-delay="0.4s">portfolio</a> <a class="btn btn-indigo btn-lg wow fadeIn" data-wow-delay="0.4s">About me</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container py-5">
+    <div class="row">
+  		<div class="col-sm-3 text-center">
+  			<%= image_tag "portrait.jpg", alt: "Anthony Bayardelle", class: "fancy-border", style: "max-width: 200px; margin: 0 0 15px 0" %>
+  		</div>
+  		<div class="col-sm-9">
+  			<p>Anthony Bayardelle has worked in real estate, investing, and client relations for over 15 years across several states and has a wealth of knowledge and experience to bring to the table.  A born and raised New Yorker who relocated to the West coast, he now brings the skills he cultivated to Orange County.</p>
+  			<p>Anthony is interested in all facets of real estate, from sales and financing to renovations and restoration of old or rundown houses.  In his free time Anthony likes working out, mountain biking, and spending time with his wife and two beautiful daughters.</p>
+  		</div>
+    </div> <!-- row -->
 	</div> <!-- container -->
-</div> <!-- blue stripe -->
 
-<div class="marble">
-  <div class="buffer"></div>
 
-  <div class="card full-width">
-  	<div class="container text-center">
-  	  <h1>Contact Us</h1>
 
-  	  <%= render 'form' %>
 
-  	  <div class="half-buffer"></div>
-  	</div> <!-- container -->
-  </div> <!-- card -->
 
-  <div class="buffer"></div>
-</div> <!-- marble -->
+
+
+
+
+  <div class="view jarallax">
+    <img class="jarallax-img" src="https://s3-us-west-1.amazonaws.com/ocrphotobucket/marble.jpg" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-white-strong">
+      <div class="container text-center my-5">
+    	  <h1>Contact Us</h1>
+
+    	  <%= render 'form' %>
+
+    	  <div class="half-buffer"></div>
+    	</div> <!-- container -->
+    </div>
+  </div>
+
+
+
+
+
+</main> <!-- Main layout -->
+
 
 
 
 
 <!-- new person popup itself -->
-<div id="subscriptionPopup" class="white-popup mfp-hide">
-  <h3 class="text-center">Get a Free 15 Minute Consultation Call</h3>
-  <%= render partial: "layouts/new_subscriber", locals: { tags: "contact-me, LM-15-minute-consultation" } %>
+<div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-4 mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="text-center mt-4">Get a Free 15 Minute Consultation&nbsp;Call</h3>
+        <%= render partial: "layouts/new_subscriber", locals: { tags: "contact-me, LM-15-minute-consultation" } %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -59,9 +112,12 @@
 
 <script>
   $(document).ready(function() {
-      $('.open-popup-link').magnificPopup({
-        type:'inline',
-        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-      });
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+      keepImg: true,
+    });
   });
 </script>

@@ -5,86 +5,101 @@
   <% end %>
 <!-- page-specific content -->
 
-<div class="responsive-hero-div">
-	<%= image_tag "cliff.jpg", class: "responsive-hero-img", alt: "Houses on a hill overlooking the ocean in Laguna Beach, California." %>
 
-	<div class="overlap-responsive-image text-center slideRight">
-		<div class="gradient-overlay">
-			<h1 class="color-blue-dark">What You Need to Know</h1>
-			<h4>Real estate is a complex and changing field.  In this blog we cover topics from homebuying 101 to recent news events.</h4>
-      <h3 class="text-center"><a href="#subscriptionPopup" class="open-popup-link btn" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Alert Me for New Blogs!</a></h3>
-		</div> <!-- absolute box -->
-	</div> <!-- overlap image -->
 
-</div> <!-- responsive-hero-div -->
 
-<div class="row blue-stripe text-center">
-	<div id="tag_cloud">
-		<% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
-		<%= link_to tag.name, tag_path(tag.name), class: css_class, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blog Tag'})" %>
-		<% end %>
-	</div> <!-- col -->
-</div> <!-- row w id -->
 
-<div class="container" data-no-turbolink>
-  <% if current_user && current_user.admin %>
-    <div class="text-right" style="margin-top: 15px"><%= link_to 'New Blog', new_blog_path %></div>
-  <% end %>
 
-  <div class="row">
-    <% @blogs.each do |blog| %>
-      <%= link_to blog do %>
-        <div class="card" onclick="ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blogs Individual Blog'})">
-          <div class="image-box">
-	            <%= image_tag url_for(blog.image), alt: blog.teaser if blog.image.attached?  %>
-          </div> <!-- padding box -->
+<!-- Main layout -->
+<main>
 
-          <div class="padding-box">
-            <div class="top-text">
-              <h2><%= blog.title %></h2>
-              <p>
-                <%= blog.teaser %>
-                <!-- <br />
-                <em><span class="disqus-comment-count" data-disqus-identifier="<%#= blog.id %>" data-disqus-url="<%#= polymorphic_url(blog) %>">See Comments</span></em> -->
-              </p>
-              <p><%= raw blog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-            </div> <!-- top text -->
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("cliff.jpg") %>" alt="Linchpin Realty Blog">
+    <div class="mask rgba-stylish-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">What You Need to&nbsp;Know</h1>
+            <!-- <h5 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">Real estate is a complex and changing field. In this blog we cover topics from homebuying 101 to recent news events.</h5> -->
+            <a href="#blogs" class="btn btn-primary btn-lg wow fadeIn" data-wow-delay="0.4s">Browse the Blog</a>
             <% if current_user && current_user.admin %>
-              <div class="bottom-text text-center">
-                <%= link_to('Edit', edit_blog_path(blog), data: { turbolinks: false }) %>
-                |&nbsp;<%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
+              <%= link_to 'New Blog', new_blog_path, class: "btn btn-primary btn-lg wow fadeIn" %>
             <% end %>
-          </div> <!-- padding box -->
-        </div> <!-- card -->
-      <% end %> <!-- link -->
-    <% end %> <!-- blog each do -->
-  </div> <!-- row -->
-
-</div> <!-- container -->
-
-<div class="bottom-buffer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-md-12 text-center">
+        <h2 class="h1 font-weight-bold color-blue-dark pb-2">
+          Browse Blogs by Subject
+        </h2>
+        <div id="tag_cloud">
+          <% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Blog Tag'})" %>
+          <% end %>
+        </div> <!-- col -->
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container-->
 
-<!-- new person popup itself -->
-<div id="subscriptionPopup" class="white-popup mfp-hide">
-  <h2 class="text-center">Get Wisdom in Your Inbox</h2>
-  <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-blog, index-subscription" } %>
-</div>
+
+
+
+
+
+
+
+
+  <div class="view jarallax" style="min-height: 300px; height: auto">
+    <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-stylish-strong">
+      <div class="container flex-center text-center">
+        <div class="row pt-3">
+          <div class="col-12">
+            <h2 class="font-weight-bold text-white">Never Miss a Thing</h2>
+          </div>
+          <div class="col-12">
+            <%= render partial: "subscribers/mini_form", locals: { subscriber: @new_subscriber, tag_string: "blog-index-subscribe" } %>
+          </div>
+        </div> <!-- row -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="blogs" class="container py-3">
+    <div class="row">
+      <% @blogs.each do |blog| %>
+      <%= render partial: "layouts/blog_card", locals: { blog: blog } %>
+      <% end %> <!-- blog each do -->
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+
+
+
+</main> <!-- Main layout -->
+
 
 
 
 
 <script>
   $(document).ready(function() {
-      $('.card').matchHeight();
-      $('.top-text').matchHeight();
-
-      $('.open-popup-link').magnificPopup({
-        type:'inline',
-        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-      });
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
   });
 </script>

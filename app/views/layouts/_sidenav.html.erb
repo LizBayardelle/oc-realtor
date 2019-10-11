@@ -1,0 +1,106 @@
+<!-- Sidebar navigation -->
+<div id="slide-out" class="side-nav fixed side-nav-light color-white">
+  <ul class="custom-scrollbar">
+
+
+
+
+    <!-- Logo -->
+    <li>
+      <div class="logo-wrapper waves-light">
+        <%= link_to root_path do %>
+          <%= image_tag "logo_house.png", class: "img-fluid flex-center" %>
+          <% end %>
+      </div>
+    </li>
+    <!--/. Logo -->
+
+
+
+    <!--Search Form-->
+    <li>
+      <form class="search-form" role="search">
+        <div class="form-group md-form mt-0 pt-1 waves-light">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+    </li>
+    <!--/.Search Form-->
+
+
+
+    <!-- Side navigation links -->
+    <li>
+      <ul class="collapsible collapsible-accordion">
+
+        <li><%= link_to "The Blog", blogs_path, class: "waves-effect arrow-r" %></li>
+
+        <li><a class="collapsible-header waves-effect arrow-r">
+            How To
+            <i class="fas fa-angle-down rotate-icon"></i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><%= link_to "Buy a Home", page_path("buy"), class: "waves-effect" %></li>
+              <li><%= link_to "Sell My Home", page_path("sell"), class: "waves-effect" %></li>
+              <li><%= link_to "Get a Loan", page_path("loan"), class: "waves-effect" %></li>
+              <li><%= link_to "Refinance My Mortgage", page_path("mortgage"), class: "waves-effect" %></li>
+            </ul>
+          </div>
+        </li>
+
+        <li><%= link_to "Contact Us", new_contact_path, class: "waves-effect arrow-r" %></li>
+
+        <li>
+          <a class="waves-effect arrow-r">
+            Real Estate Resources
+          </a>
+        </li>
+
+        <% if current_user %>
+          <li><a class="collapsible-header waves-effect arrow-r">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;<%= current_user.full_name %>
+              <i class="fas fa-angle-down rotate-icon"></i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><%= link_to 'My Account', user_path(current_user), class: "waves-effect" %>
+                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "waves-effect" %></li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <li><a class="collapsible-header waves-effect arrow-r">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;My Account
+              <i class="fas fa-angle-down rotate-icon"></i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><%= link_to 'Sign Up', new_user_registration_path, class: "waves-effect" %></li>
+                <li><%= link_to 'Sign In', new_user_session_path, class: "waves-effect" %></li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
+    </li>
+    <!--/. Side navigation links -->
+
+
+
+    <!--Social-->
+    <li>
+      <ul class="social">
+        <li><a target="_blank" href="https://www.facebook.com/LinchpinRealty" class="icons-sm px-2"><i class="fab fa-facebook-f"> </i></a></li>
+        <li><a target="_blank" href="https://www.pinterest.com/LinchpinRealty" class="icons-sm px-2"><i class="fab fa-pinterest"> </i></a></li>
+        <li><a target="_blank" href="https://twitter.com/LinchpinRealty" class="icons-sm px-2"><i class="fab fa-twitter"> </i></a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/anthonybayardelle/" class="icons-sm px-2"><i class="fab fa-linkedin"> </i></a></li>
+        <li><a target="_blank" href="mailto:anthony@linchpinrealty.com" class="icons-sm px-2"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </li>
+    <!--/Social-->
+
+
+
+  </ul>
+  <div class="sidenav-bg"></div>
+</div>
+<!--/. Sidebar navigation -->

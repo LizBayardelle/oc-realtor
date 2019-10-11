@@ -1,0 +1,31 @@
+<div class="mini-subscriber-form dark">
+  <%= simple_form_for(subscriber) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs form-row row">
+      <div class="form-group md-form col-sm-6 col-lg-3 my-2">
+        <%= f.text_field :first_name, id: "firstName", required: true, class: "form-control" %>
+        <%= f.label "First Name", for: "firstName" %>
+      </div> <!-- form-group md-form -->
+      <div class="form-group md-form col-sm-6 col-lg-3 my-2">
+        <%= f.text_field :last_name, id: "lastName", required: true, class: "form-control" %>
+        <%= f.label "Last Name", for: "lastName" %>
+      </div> <!-- form-group md-form -->
+      <div class="form-group md-form col-sm-6 col-lg-3 my-2">
+        <%= f.text_field :phone, id: "phone", class: "form-control" %>
+        <%= f.label "Phone #", for: "phone" %>
+      </div> <!-- form-group md-form -->
+      <div class="form-group md-form col-sm-6 col-lg-3 my-2">
+        <%= f.text_field :email, id: "email", required: true, class: "form-control" %>
+        <%= f.label "Email", for: "email" %>
+      </div> <!-- form-group md-form -->
+      <%= f.hidden_field :tag_string, value: tag %>
+
+    </div>
+
+    <div class="form-actions text-center">
+      <%= f.submit "Subscribe", class: "btn btn-outline-white btn-rounded btn-block my-4 waves-effect z-depth-0" %>
+    </div>
+
+  <% end %>
+</div> <!-- mini-subscriber-form dark -->

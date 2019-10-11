@@ -1,75 +1,148 @@
-<div class="landing-page marble">
-  <div class="blue-stripe text-center">
-    <div class="half-buffer"></div>
-    <div class="page-header-2">
-      <h1>Buy a Home</h1>
-      <h3 class="font-sans text-center">Get started on the path to your dream home.</h3>
+
+<!-- Main layout -->
+<main>
+
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("buy-house.jpg") %>" alt="Buy a House">
+    <div class="mask rgba-black-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">
+              Buy a Home
+            </h1>
+            <h3 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">
+              Get started on the path to your&nbsp;dream&nbsp;home.
+            </h3>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#subscriptionPopup" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">Get a Free 15 Minute Consultation Call</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="half-buffer"></div>
-  </div> <!-- page header -->
+  </div>
 
-  <div class="container background-transparent">
-    <div class="half-buffer"></div>
 
-    <div class="row">
 
-      <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
-        <div class="new-card border">
-          <h3 class="text-center">Get a Free Printable Checklist of <span style="font-weight: 400">Things to Look for When Touring a House</span></h3>
-          <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying LM-house-tour-checklist" } %>
-        </div> <!-- card -->
-      </div> <!-- col -->
-
-      <div class="col-xs-12 col-sm-8">
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h2 class="h1 font-weight-bold color-blue-dark pb-2 text-center">
+          How Do I Buy a House?
+        </h2>
+        <div class="text-center">
+          <a class="btn btn-buy text-white text-white-hover" data-toggle="modal" data-target="#optin" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Subscribe'})">
+            Free Printable Home Tour Checklist
+          </a>
+        </div>
         <ol>
-          <h2><li>Find a Realtor</li></h2>
-          <p>A good REALTOR® is more than just a person with keys to the lockbox.  Your REALTOR® (yes, we do have to write it that way) is going to be your source of knowledge about your future neighborhood.</p>
+          <h3 class="mt-3 mb-0"><li>Find a Realtor</li></h3>
+          <p class="mb-0">A good REALTOR® is more than just a person with keys to the lockbox.  Your REALTOR® (yes, we do have to write it that way) is going to be your source of knowledge about your future neighborhood.</p>
           <ul>
             <li><a href="http://www.linchpinrealty.com/blogs/8-questions-to-ask-when-interviewing-a-realtor" target="_blank">8 Questions to Ask When Interviewing a Realtor</a></li>
           </ul>
 
-          <h2><li>Financing Your Home Purchase</li></h2>
-          <p>Getting your finances in order isn't just a good idea. It can also give you a huge boost in power when negotiating the price of your future home. It may seem daunting at first, but we'll help guide you through the whole process.</p>
+          <h3 class="mt-3 mb-0"><li>Financing Your Home Purchase</li></h3>
+          <p class="mb-0">Getting your finances in order isn't just a good idea. It can also give you a huge boost in power when negotiating the price of your future home. It may seem daunting at first, but we'll help guide you through the whole process.</p>
           <ul>
             <li><a href="http://www.linchpinrealty.com/blogs/what-credit-score-do-i-need-to-buy-a-house" target="_blank">What Credit Score Do I Need to Buy a House?</a></li>
             <li><a href="http://www.linchpinrealty.com/blogs/mortgages-101-the-vocabulary" target="_blank">Mortgages 101: The Vocabulary</a></li>
           </ul>
 
-          <h2><li>Your Home Search</li></h2>
-          <p>Discovering the right home should be an exciting event. Here's how to make it as stress-free and efficient for you as possible. You don't want to buy just any house.  We'll help you get into the right house for you.</p>
+          <h3 class="mt-3 mb-0"><li>Your Home Search</li></h3>
+          <p class="mb-0">Discovering the right home should be an exciting event. Here's how to make it as stress-free and efficient for you as possible. You don't want to buy just any house.  We'll help you get into the right house for you.</p>
           <ul>
             <li><a href="http://www.linchpinrealty.com/blogs/6-keys-to-looking-at-houses" target="_blank">6 Keys to Looking at Houses</a></li>
           </ul>
 
-          <h2><li>Making an Offer</li></h2>
-          <p>This is the most important part of the process and can save (or cost) you huge amounts of money in the long run. This process can be complicated, stressful, and emotional.  We'll arm you with the right information so you come out on top.</p>
+          <h3 class="mt-3 mb-0"><li>Making an Offer</li></h3>
+          <p class="mb-0">This is the most important part of the process and can save (or cost) you huge amounts of money in the long run. This process can be complicated, stressful, and emotional.  We'll arm you with the right information so you come out on top.</p>
           <ul>
             <li><a href="http://www.linchpinrealty.com/blogs/6-common-mistakes-when-making-an-offer-on-a-house" target="_blank">6 Common Mistakes When Making an Offer</a></li>
           </ul>
 
-          <h2><li>Escrow Services</li></h2>
-          <p>We know all you want is just to get the keys to your new home. However, Escrow isn't just a waiting period. What you do during this critical window could seriously benefit your life in your new home.</p>
+          <h3 class="mt-3 mb-0"><li>Escrow Services</li></h3>
+          <p class="mb-0">We know all you want is just to get the keys to your new home. However, Escrow isn't just a waiting period. What you do during this critical window could seriously benefit your life in your new home.</p>
           <ul>
             <li><a href="http://www.linchpinrealty.com/blogs/what-you-don-t-know-about-your-time-in-escrow" target="_blank">What You Don't Know About Escrow</a></li>
           </ul>
 
-          <h2><li>After Closing</li></h2>
-          <p>After your escrow period closes, your home is officially yours! We'll help make your transition into your new home easy and painless.</p>
+          <h3 class="mt-3 mb-0"><li>After Closing</li></h3>
+          <p class="mb-0">After your escrow period closes, your home is officially yours! We'll help make your transition into your new home easy and painless.</p>
 
         </ol>
-      </div> <!-- form -->
 
-      <div class="col-sm-4 hidden-xs">
-        <div class="new-card border">
-          <h3 class="text-center">Get a Free Printable Checklist of <span style="font-weight: 400">Things to Look for When Touring a House</span></h3>
-          <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying, LM-house-tour-checklist" } %>
-        </div> <!-- card -->
-      </div> <!-- col -->
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container-->
 
-    </div> <!-- row -->
 
-    <div class="buffer"></div>
 
-  </div> <!-- container -->
 
-</div> <!-- landing page -->
+
+
+
+
+
+  <div class="view jarallax" id="optin" style="min-height: 400px; height: auto">
+    <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-stylish-slight">
+      <div class="container flex-center text-center">
+        <div class="row pt-3">
+          <div class="col-12">
+            <h2>
+              Get a <span class="font-weight-bold">Free Printable Checklist</span> of Things to Look for When Touring a House
+            </h2>
+          </div>
+          <div class="col-12">
+            <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying, LM-house-tour-checklist" } %>
+          </div>
+        </div> <!-- row -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</main> <!-- Main layout -->
+
+
+
+
+
+
+
+<!-- new person popup itself -->
+<div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-4 mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="text-center mt-4">Get a Free 15 Minute Consultation&nbsp;Call</h3>
+        <%= render partial: "layouts/new_subscriber", locals: { tags: "contact-me, LM-15-minute-consultation" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
+  });
+</script>

@@ -1,0 +1,60 @@
+<footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
+  <div class="container text-center">
+    <%= image_tag "logo_light.png", alt: "Linchpin Realty Logo", class: "footer-logo" %>
+    <h2 class="color-white">Your guide to the California housing market.</h2>
+    <div class="row social-row">
+      <a href="tel:+1-949-524-1246" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Phone'})"><span class="icon glyphicon glyphicon-earphone" style="font-size: 30px; color: white"></a>
+      <a href="mailto:anthony@linchpinrealty.com" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Email'})"><i class="color-white icon ion-email"></i></a>
+      <a href="https://www.facebook.com/LinchpinRealty" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Facebook'})"><i class="color-white icon ion-social-facebook" target="_blank"></i></a>
+      <a href="https://www.instagram.com/linchpinrealty/" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Instagram'})"><i class="color-white icon ion-social-instagram" target="_blank"></i></a>
+      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="color-white icon ion-social-linkedin" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer LinkedIn'})"></i></a>
+      <a href="https://twitter.com/LinchpinRealty" target="_blank"><i class="color-white icon ion-social-twitter" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Twitter'})"></i></a>
+      <a href="https://plus.google.com/u/2/106755620722304807106" target="_blank"><i class="color-white icon ion-social-googleplus" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Google'})"></i></a>
+      <a href="https://www.youtube.com/channel/UCWgiHPtxXbwJbp7b_EX-QYg" target="_blank"><i class="color-white icon ion-social-youtube" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer YouTube'})"></i></a>
+      <a href="https://www.pinterest.com/LinchpinRealty" target="_blank"><i class="color-white icon ion-social-pinterest" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Pinterest'})"></i></a>
+    </div> <!-- social row -->
+    <a href="https://www.facebook.com/LinchpinRealty/reviews/" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Zillow Rate'})">
+      <div class="btn btn-cta background-grey-hover" style="margin-bottom: 35px; margin-right: 10px">Rate me on Facebook!</div>
+    </a>
+    <a href="https://www.zillow.com/reviews/write/?s=X1-ZU11qjqez6ipiq1_4zss5" target="_blank" onclick="ga('send',{'hitType': 'event','eventCategory': 'social', 'eventAction': 'Footer Zillow Rate'})">
+      <div class="btn btn-cta background-grey-hover" style="margin-bottom: 35px; margin-left: 10px">Review me on Zillow!</div>
+    </a>
+
+    <h4 style="color: white; position: relative z-index: 100">DRE #02018158  |  NMLS #1649295</h4>
+  </div> <!-- container -->
+</footer>
+
+<div class="text-center" style="padding: 30px 0 30px 0; background-color: none">
+  <div class="container">
+    <div class="col-sm-6">
+      <img src="https://www.1stplatinumrealty.com/briefcase/144265_532019120840PM65536.png" style="height: 50px; width: auto" >
+    </div>
+    <div class="col-sm-6">
+      <img src="https://www.gwgolden.com/briefcase/144160_422201983331AM46337.jpg" style="height: 40px; width: auto" >
+    </div>
+  </div>
+  <div class="container">
+    <%= image_tag "logo_ocar.png", alt: "Orange County Association of Realtors", class: "footer-logo" %>
+    <%= image_tag "logo_pm_certificate.png", alt: "Property Management Certification", class: "footer-logo" %>
+  </div>
+</div>
+
+<div class="text-center background-grey-light" style="padding: 10px 0 10px 0">
+  <div class="container">
+    <% if current_user && current_user.admin %>
+      <h4 class="text-center font-sans">
+        <%= link_to "Admin Dashboard", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %>&nbsp | &nbsp
+        <%= link_to 'Pillars', pillars_path %>
+      </h4>
+    <% elsif current_user && !current_user.admin %>
+      <h4 class="text-center font-sans">
+        <%= link_to "My Account", user_path(current_user), class: "center-ul-hover", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Dashboard'})" %>
+      </h4>
+    <% else %>
+      <h4 class="text-center">
+        <%= link_to 'Sign In', new_user_session_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Sign In'})" %>&nbsp | &nbsp
+        <%= link_to 'Create an Account', new_user_registration_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Create Account'})" %>
+      </h4>
+    <% end %>
+  </div>
+</div>

@@ -1,71 +1,115 @@
-<div class="container">
-	<div class="bottom-buffer"></div>
-	<div class="card full-width padding-box">
-		<h1 class="text-center">Create an Account</h1>
-		<h3 class="text-center"><%= link_to('Already have an account?', new_user_session_path)  %></h3>
+<div class="view jarallax" style="height: 100vh;">
+	<img class="jarallax-img" src="<%= asset_path("houses-road.jpg") %>" alt="Log In Page">
+	<div class="mask rgba-blue-slight">
+		<div class="container flex-center">
+			<div class="card px-5 py-3">
 
-		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-			<%= f.error_notification %>
+				<h1 class="text-center pt-3">Create an Account</h1>
+				<p class="text-center"><%= link_to('Already have an account?', new_user_session_path)  %></p>
 
-			<div class="form-inputs">
-				<div class="row">
-					<%= f.invisible_captcha :subtitle %>
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :first_name %>
-							<%= f.text_field :first_name, class: "form-control", required: true %>
-					</div>
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :last_name %>
-							<%= f.text_field :last_name, class: "form-control", required: true %>
-					</div>
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :email %>
-							<%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
-							<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-									<p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-							<% end %>
-					</div>
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :phone %>
-							<%= f.text_field :phone, required: true, class: "form-control" %>
-					</div>
-				</div> <!-- row -->
+				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<div class="form-inputs">
+						<div class="form-row row justify-content-center">
+							<%= f.invisible_captcha :subtitle %>
+							<div class="form-group md-form col-sm-6 col-xs-12">
+									<%= f.label :first_name %>
+									<%= f.text_field :first_name, class: "form-control", required: true %>
+							</div>
+							<div class="form-group md-form col-sm-6 col-xs-12">
+									<%= f.label :last_name %>
+									<%= f.text_field :last_name, class: "form-control", required: true %>
+							</div>
+							<div class="form-group md-form col-sm-6 col-xs-12">
+									<%= f.label :email %>
+									<%= f.text_field :email, required: true, autofocus: true, class: "form-control" %>
+									<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+											<p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+									<% end %>
+							</div>
+							<div class="form-group md-form col-sm-6 col-xs-12">
+									<%= f.label :phone %>
+									<%= f.text_field :phone, required: true, class: "form-control" %>
+							</div> <!-- row -->
+						</div> <!-- form-inputs -->
 
-				<div class="row">
-					<div class="col-sm-12">
-						<%= f.label "I'm interested in..." %>
-					</div> <!-- col -->
-				</div>
 
-				<div class="row">
-					<div class="col-xs-5 col-xs-push-1">
-						<%= f.input :buyer, label: "Buying a House" %>
-						<%= f.input :seller, label: "Selling a House"  %>
-					</div> <!-- col -->
-				</div> <!-- row -->
 
-				<div class="row">
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :password %>
-							<%= f.password_field :password, class: "form-control", required: true %>
-					</div>
-					<div class="form-group col-sm-6 col-xs-12">
-							<%= f.label :confirm_password %>
-							<%= f.password_field :confirm_password, class: "form-control", required: true %>
-					</div>
-				</div> <!-- row -->
-				<div class="row text-center">
-					<%= f.input :blog_emails, label: "Email me when a new blog post comes out" %>
-				</div>
-			</div> <!-- form inputs -->
 
-		    <div class="form-actions text-center">
-		    	<%= f.button :submit, "Sign up", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Create Account Submission'})" %><br />
-		    	<%= render "devise/shared/links" %>
-		    </div>
-		<% end %>
-	</div> <!-- card full width -->
+						<div class="row">
+							<div class="form-group md-form col-sm-6">
+									<%= f.label :password %>
+									<%= f.password_field :password, class: "form-control", required: true %>
+							</div>
+							<div class="form-group md-form col-sm-6">
+									<%= f.label :confirm_password %>
+									<%= f.password_field :confirm_password, class: "form-control", required: true %>
+							</div>
+						</div> <!-- row -->
 
-</div> <!-- container -->
 
-<div class="bottom-buffer"></div>
+						<hr>
+
+
+						<div class="row">
+							<div class="col-sm-12">
+								<%= f.label "I'm interested in..." %>
+							</div> <!-- col -->
+						</div>
+
+						<div class="row">
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :buyer, class: "form-check-input", id: "buyer" %>
+								<%= f.label "Buying a House", class: "form-check-label", for: "buyer" %>
+							</div>
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :seller, class: "form-check-input", id: "seller" %>
+								<%= f.label "Selling a House", class: "form-check-label", for: "seller" %>
+							</div>
+						</div> <!-- row -->
+
+
+						<hr>
+
+
+						<div class="row text-center">
+							<div class="mb-3 field form-check" style="margin-left: auto; margin-right: auto;">
+								<%= f.check_box :blog_emails, class: "form-check-input", id: "blog_emails" %>
+								<%= f.label "Email me when a new blog post comes out", class: "form-check-label", for: "blog_emails" %>
+							</div> <!-- form field -->
+						</div> <!-- row -->
+
+				  </div> <!-- form inputs -->
+
+				  <div class="form-actions text-center">
+						<%= f.button :submit, "Sign up", class: "btn btn-primary", onclick: "ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Create Account Submission'})" %><br />
+				    <%= render "devise/shared/links" %>
+				  </div> <!-- form actions -->
+				<% end %>
+
+			</div> <!-- card -->
+		</div> <!-- container -->
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // object-fit polyfill run
+    objectFitImages();
+    /* init Jarallax */
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
+  });
+</script>

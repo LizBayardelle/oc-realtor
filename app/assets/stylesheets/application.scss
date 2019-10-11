@@ -14,12 +14,16 @@
  *= require social-share-button
  *= require simple_form_extension
  *= require magnific-popup
+ *= require perfect-scrollbar
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import 'ionicons';
+ @import 'bootstrap';
+ @import 'mdb/mdb';
+ @import 'font-awesome';
+ @import 'font_awesome5_webfont';
+ @import 'font_awesome5.css';
+ @import 'ionicons';
 
 
 
@@ -32,7 +36,7 @@ Variables
 ==============================================
 */
 
-$font-serif: 'Cardo', serif;
+$font-serif: 'EB Garamond', serif;
 $font-cursive: 'Playball', cursive;
 $font-sans: 'Poppins', sans-serif;
 $font-typewriter: 'Inconsolata', monospace;
@@ -40,18 +44,45 @@ $font-typewriter: 'Inconsolata', monospace;
 .font-serif { font-family: $font-serif }
 .font-cursive { font-family: $font-cursive }
 
-$white: #FFFFFF;
-$blue-dark: #031D55;
-$blue-light: #4D7EA8;
-$red: #890E05;
-$grey-dark: #393939;
-$grey-light: #A2A2A2;
-$creme: #C0C0C0;
-$creme-background: #acacac;
+$white: #FFFFFF !important;
+$blue-dark: #031D55 !important;
+$blue-light: #4D7EA8 !important;
+$red: #890E05 !important;
+$grey-dark: #393939 !important;
+$grey-light: #A2A2A2 !important;
+$creme: #C0C0C0 !important;
+$creme-background: #acacac !important;
 $text-shadow: 1px 2px 2px $creme;
 $transparent-white: rgba(255, 255, 255, 0.6);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
 $transparent-blue: rgba(3,29,68, 0.5);
+
+$color-buy: #243147 !important;
+$color-sell: #78909c !important;
+$color-loan: #59698d !important;
+$color-refinance: #5B7BB2 !important;
+
+.bg-buy { background-color: $color-buy; }
+.bg-sell { background-color: $color-sell; }
+.bg-loan { background-color: $color-loan; }
+.bg-refinance { background-color: $color-refinance; }
+
+.btn { font-weight: 700; }
+.btn-primary { background-color: $grey-dark; color: white !important; }
+.btn-buy { background-color: $color-buy; color: white !important; }
+.btn-sell { background-color: $color-sell; color: white !important; }
+.btn-loan { background-color: $color-loan; color: white !important; }
+.btn-refinance { background-color: $color-refinance; color: white !important; }
+.btn-grey { background-color: $grey-light; color: black !important; }
+.btn-red { background-color: $red; color: white !important; }
+
+
+.text-buy { color: $color-buy; }
+.text-sell { color: $color-sell; }
+.text-loan { color: $color-loan; }
+.text-refinance { color: $color-refinance; }
+
+.text-white-hover:hover { color: white !important; }
 
 .background-creme { background-color: $creme }
 .background-transparent { background-color: $transparent-white }
@@ -61,8 +92,8 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .background-grey-hover:hover { background-color: $grey-dark !important }
 .background-grey-dark { background-color: $grey-dark !important }
 .background-grey-light { background-color: $grey-light !important }
-.background-grey-light * { color: white }
-.color-white { color: white }
+.background-grey-light * { color: white !important }
+.color-white { color: white !important }
 
 
 .border-grey { border-color: $grey-dark }
@@ -75,7 +106,7 @@ $transparent-blue: rgba(3,29,68, 0.5);
 .color-black { color: black }
 .color-red { color: $red }
 
-.extreme-callout { font-family: $font-sans; font-weight: bolder }
+.extreme-callout {  font-weight: bolder }
 
 .white-popup {
   position: relative;
@@ -88,37 +119,53 @@ $transparent-blue: rgba(3,29,68, 0.5);
 
 
 
+
+
+
+
+
 /*
 ==============================================
 Basics
 ==============================================
 */
 
-body { font-family: $font-sans; max-width: 100%; overflow-x: hidden;}
-h1, .pseudo-h1 { font-family: $font-sans; font-weight: 900; text-shadow: $text-shadow; font-size: 40px; }
+.hidden { display: none; }
+html { scroll-behavior: smooth; }
+
+body, li { font-family: $font-serif; }
+body { max-width: 100%; overflow-x: hidden;}
+h1, .pseudo-h1 {  font-weight: 900; text-shadow: $text-shadow; font-size: 40px; }
 h2 { color: $blue-dark }
-h3 { font-family: $font-sans; font-weight: 200; color: $blue-dark; }
-@media screen and (max-width: 768px) { h1 { font-size: 30px }}
-a { color: $blue-light; font-weight: bolder; }
-a:hover, .linkish { cursor: pointer; text-decoration: none; color: $blue-dark; font-weight: bolder; }
-hr { border-color: $blue-dark }
+h3 {  font-weight: 200; color: $blue-dark; }
+@media screen and (max-width: 768px) { h1 { font-size: 30px } }
+p, li { font-size: 1.1rem; }
+
+p a, .social a, a.button-collapse { color: $blue-dark; font-weight: bolder; }
+p a:hover, .linkish { cursor: pointer; text-decoration: none; color: $blue-dark; font-weight: bolder; }
+
+footer.page-footer { background-color: $blue-dark; }
+footer .footer-social i { padding: 0 10px; font-size: 30px; }
+
 img { width: 100% }
+
+.hr-grey { border-color: $grey-dark; }
+
 .bottom-buffer { height: 70px }
 .buffer { height: 50px }
 .half-buffer { height: 25px }
+.padding-10 { padding: 10px }
+
 td { padding: 5px}
 .blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
 .blue-stripe * { color: white !important; }
 @media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
 .header-row { text-align: center; }
-p { font-family: $font-sans; }
-.padding-10 { padding: 10px }
 
 @media screen and (min-width: 1600px) { .container.lg-white { background-color: $transparent-white; z-index: 5} }
 .container.bg-white { background-color: $transparent-white }
 
-label { font-family: $font-sans; font-weight: 800; text-transform: uppercase;}
-::placeholder { font-family: $font-sans; font-weight: 200}
+label { text-transform: capitalize; }
 
 .photo-fill { object-fit: fill }
 
@@ -139,6 +186,11 @@ label { font-family: $font-sans; font-weight: 800; text-transform: uppercase;}
 }
 
 
+
+
+
+
+
 /* ------------------------*/
 /* ------------------------*/
 /* -----LANDING PAGE ------*/
@@ -146,19 +198,18 @@ label { font-family: $font-sans; font-weight: 800; text-transform: uppercase;}
 /* ------------------------*/
 
 .landing-page .btn {
-	font-family: $font-sans;
+
 	font-weight: bold;
 }
 
 .landing-page h2 {
-	font-family: $font-sans;
+
 	font-weight: bold;
 	color: $red;
 }
 
 .landing-page p, .landing-page ul {
 	font-size: 1.6rem;
-	font-style: $font-sans;
 }
 
 
@@ -167,39 +218,18 @@ label { font-family: $font-sans; font-weight: 800; text-transform: uppercase;}
 
 
 
-
-
-/* TEXT */
-.paragraph-spacing {
-	padding-bottom: 15px;
-}
 
 
 
 /* INFOS and SELECTY BOXES */
 
-.select-box {
-	background-color: $creme;
-	border: medium solid $blue-dark;
-	border-radius: 5px;
-	text-align: center;
-	padding: 15px;
-	margin-bottom: 10px;
-	font-weight: 700;
-	color: $blue-dark;
-	cursor: pointer;
+
+#prequalification-quiz .select-box.btn-grey.active {
+  background-color: $color-refinance ;
+  color: white !important;
 }
 
-.select-box.active {
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	background-color: white;
-	border-color: $red;
-	color: $red;
-}
 
-.question-group {
-	padding-top: 10px;
-}
 
 
 
@@ -217,175 +247,6 @@ label { font-family: $font-sans; font-weight: 800; text-transform: uppercase;}
 
 
 
-/** NEW CARD **/
-.page-header-2 { width: 80%; margin-left: auto; margin-right: auto; }
-
-.new-card {
-	position: relative;
-	background-color: white;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	padding: 10px;
-	margin: 10px;
-	width: 100%;
-}
-
-.new-card.hover:hover {
-	 box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-.new-card.border {
-	border: solid thin $blue-dark;
-}
-
-.new-card h2 {
-	color: black !important;
-	font-family: $font-sans;
-	font-weight: bolder;
-	font-size: 2.3rem;
-}
-
-.blue-stripe .new-card * {
-  color: $blue-dark !important;
-}
-
-.blue-stripe .new-card .btn {
-  color: white !important;
-}
-
-.new-card i {
-	color: $red !important;
-	font-size: 50px;
-}
-
-.new-card .btn {
-	max-width: 100%;
-	font-size: 1.4rem;
-	font-family: $font-sans;
-	font-weight: bold;
-}
-
-/* CARDS */
-.card {
-	position: relative;
-	background-color: white;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	margin: 25px;
-	width: calc(50% - 60px);
-	box-sizing: border-box;
-	display: inline-block;
-	vertical-align: top;
-	border: solid 1px $blue-dark;
-}
-
-
-.card *:hover, .new-card *:hover {
-	text-decoration: none !important;
-}
-
-.card .image-box {
-	max-height: 250px;
-	overflow: hidden;
-}
-
-.card a p {
-	color: black;
-	font-weight: 400;
-}
-
-.card .padding-box, .card.padding-box {
-	padding: 15px;
-}
-
-.card:hover {
-	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-.card h1 {
-	font-size: 30px;
-	color: $blue-dark !important;
-}
-
-.card h4 {
-	color: $blue-dark !important;
-}
-
-.card.full-width h1 {
-	font-size: 50px;
-}
-
-@media screen and (max-width: 768px) {
-	.card {
-		width: calc(100% - 60px);
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	.card {
-		width: calc(33% - 60px);
-	}
-}
-
-	/* Card Variations */
-	.no-hover.card:hover {
-		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	}
-
-	.card.full-width {
-		width: 90%;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.card.full-width .padding-box {
-		padding: 35px;
-	}
-
-	.show-cards .card h1 {
-		margin: 0;
-		text-align: center;
-		font-size: 35px;
-	}
-
-	.show-cards .card {
-		margin-bottom: 50px;
-	}
-
-	.show-cards .card h3 {
-		margin: 10px;
-	}
-
-/* BUTTONS */
-.btn, button {
-	border-radius: 1px;
-	font-size: 20px;
-	background-color: $red;
-	color: white;
-	font-weight: 400;
-	text-transform: capitalize;
-  	display: inline-block;
-  	vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-  	transform: perspective(1px) translateZ(0);
-  	box-shadow: 0 0 1px transparent;
-    -webkit-transition-duration: 0.3s;
-  	transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-  	transition-property: transform;
-  	margin: 10px 0 10px 0;
-}
-
-.btn:hover, .btn:focus, .btn:active, button:hover, button:focus, button:active {
-	background-color: $blue-dark;
-	color: white;
-    -webkit-transform: scale(1.1);
-  	transform: scale(1.1);
-  font-weight: 400;
-}
-
-.btn.hover-grey:hover {
-  background-color: $grey-dark;
-}
 
 
 
@@ -432,6 +293,7 @@ input:active,
 
 
 
+
 /* TABLES */
 
 table.basic-table td {
@@ -453,163 +315,23 @@ table.lined-table td {
 
 
 
-/*
-==============================================
-Full Page Background
-==============================================
-*/
-// .container { position: relative; }
-// footer { position: relative }
-//
-// img.bg {
-//   /* Set rules to fill background */
-//   min-height: 100%;
-//   min-width: 1024px;
-//
-//   /* Set up proportionate scaling */
-//   width: 100%;
-//   height: auto;
-//
-//   /* Set up positioning */
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 0;
-// }
-//
-// @media screen and (max-width: 1024px) { /* Specific to this particular image */
-//   img.bg {
-//     left: 50%;
-//     margin-left: -512px;   /* 50% */
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 /*
 ==============================================
-Main Nav
+Main Nav (MDB)
 ==============================================
 */
 
-#main-nav.navbar-default {
-	height: 95px;
-	z-index: 30;
+.navbar * {
+
+  font-weight: 200;
 }
 
-#main-nav.navbar-default .navbar-brand {
-		z-index: 20;
-}
-
-#main-nav.navbar-default .navbar-brand img {
-	width: auto;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-@media screen and (max-width: 768px) {
-	#main-nav.navbar-default .navbar-brand img {
-		height: 40px;
-	}
-}
-
-#main-nav.navbar-default {
-    font-size: 16px;
-		font-weight: 200;
-		font-family: $font-sans;
-    background-color: $white;
-    border: none;
-		margin-bottom: 0px;
-		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-#main-nav.navbar-default .navbar-nav>li>a {
-    color: $blue-dark;
-		height: 50px;
-		margin-bottom: -35px;
-}
-
-@media screen and (max-width: 768px) {
-	#main-nav.navbar-default .navbar-nav>li>a {
-		background-color: $transparent-white-overlay;
-		color: $blue-dark;
-		margin-bottom: 0px;
-	}
-}
-
-
-#main-nav.navbar-default .navbar-nav>.active>a,
-#main-nav.navbar-default .navbar-nav>.active>a:hover,
-#main-nav.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(85, 85, 85, 1);
-}
-#main-nav.navbar-default .navbar-toggle {
-    border-color: $blue-dark;
-}
-#main-nav.navbar-default .navbar-toggle:hover,
-#main-nav.navbar-default .navbar-toggle:focus {
-    background-color: $blue-dark;
-}
-#main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: $blue-dark;
-}
-#main-nav.navbar-default .navbar-toggle:hover .icon-bar,
-#main-nav.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: $white;
-}
-
-#main-nav .dropdown-menu:li {
-    text-align: left;
-}
-
-@media screen and (min-width: 768px) {
-  #main-nav .dropdown:hover .dropdown-menu,
-  #main-nav .dropdown .dropdown-menu:hover {
-      display: block;
-      margin-top: 30px;
-			background-color: $transparent-white-overlay;
-   }
-}
-
-/* Underline From Center */
-.center-ul-hover {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  position: relative;
-  overflow: hidden;
-}
-.center-ul-hover:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  right: 50%;
-  bottom: 0;
-  background: $blue-light;
-  height: 1px;
-  -webkit-transition-property: left, right;
-  transition-property: left, right;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.center-ul-hover:hover:before, .center-ul-hover:focus:before, .center-ul-hover:active:before {
-  left: 0;
-  right: 0;
+.nav-item {
+  padding: 0 10px;
 }
 
 
@@ -617,337 +339,6 @@ Main Nav
 
 
 
-
-
-
-
-
-
-
-
-
-/*
-==============================================
-Responsive Hero
-==============================================
-*/
-
-
-.responsive-hero-div {
-	width: 100%;
-	height: 400px;
-	position:relative;
-	display:inline-block;
-	overflow:hidden;
-	margin-bottom: -10px;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.responsive-hero-img {
-	position:absolute;
-	top:50%;
-	width: auto;
-	min-height:100%;
-	max-width: 150%;
-	display:block;
-	left:50%;
-	-webkit-transform: translate(-50%, -50%);
-	min-width:100%;
-	z-index: 10;
-}
-
-.overlap-responsive-image {
-	position: absolute;
-	width: 100%;
-	top: 0;
-	z-index: 15;
-}
-
-@media screen and (max-width: 768px) {
-	.responsive-hero-img {
-		max-width: none;
-		height: 400px;
-	}
-}
-
-.scroll-div {
-	position: absolute;
-	bottom: 0;
-	z-index: 15;
-	width: 100%
-}
-
-.scroll-div .icon {
-	text-align: center;
-	color: white;
-	font-size: 150px;
-	padding-bottom: 300px;
-}
-
-
-
-
-/*
-==============================================
-IMAGES
-==============================================
-*/
-
-.frame {
-  background: transparent no-repeat center;
-  background-size: cover;
-  margin-left: auto;
-  margin-right: auto;
-	height: 400px;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.image-overlay {
-	position: relative;
-	width: 100%;
-	height: 100% }
-
-.image-overlay-white {
-	background-color: $transparent-white;
-	width: 100%;
-	height: 100%; }
-
-.over-frame-text {
-  position: relative;
-  margin-top: -400px;
-  height: 400px;
-  z-index: 100;
-}
-
-
-
-
-/* OLD */
-.image-container {
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-	height: 400px;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	z-index: 10;
-}
-
-.image-container img {
-	max-width: 100%;
-	position: absolute;
-	bottom: 0;
-}
-
-.overlap-image {
-	position: relative;
-	margin-top: -400px;
-	margin-bottom: 15px;
-	height: 400px;
-	z-index: 15;
-}
-
-@media screen and (max-width: 768px) {
-	.image-container {
-			height: 300px;
-	}
-
-	.overlap-image {
-		margin-top: -300px;
-		height: 300px;
-	}
-
-}
-
-@media screen and (min-width: 1500px) {
-	.image-container {
-			height: 600px;
-	}
-	.overlap-image {
-		margin-top: -600px;
-		height: 600px;
-		padding-top: 100px;
-	}
-}
-
-.overlap-image .absolute-bottom-transparent {
-	background: $transparent-white-overlay;
-	width: 100%;
-	position: absolute;
-	margin: 0px;
-	padding: 25px;
-	bottom: 0;
-}
-
-@media screen and (max-width: 768px) {
-	.image-container {
-		text-align: center;
-		width: 300%;
-		margin-left: -100%;
-	}
-
-	.image-container img {
-		display: inline-block;
-		height: 300px;
-		width: auto;
-		position: relative;
-	}
-
-	.overlap-image {
-		margin-top: -300px;
-		height: 300px;
-	}
-}
-
-.gradient-bottom {
-	width: 100%;
-	position: absolute;
-	margin: 0px;
-	padding: 25px;
-	bottom: 0;
-	background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Safari 5.1 to 6.0.4 */
-	background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Opera 11.1 to 12.0.1 */
-	background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.4)); /* Standard syntax (must be last) */
-}
-
-.gradient-overlay {
-	width: 70%;
-	max-width: 900px;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 25px;
-	margin-top: 50px;
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Safari 5.2 to 6.0.2 */
-    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Opera 11.2 to 12.0.2 */
-    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* Standard syntax (must be last) */
-}
-
-.gradient-overlay h1 {
-	font-size: 30px;
-}
-
-.gradient-overlay .text {
-	width: 60%;
-	display: inline-block;
-	padding-left: 25px;
-	vertical-align: middle;
-}
-
-.gradient-overlay img {
-	border: solid $blue-dark;
-	border-radius: 50%;
-	width: 125px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-@media screen and (max-width: 768px) {
-	.gradient-overlay {
-		width: 80%;
-		position: absolute;
-		margin-left: 10%;
-		padding: 25px;
-		top: 0;
-		height: auto;
-	    background: -webkit-linear-gradient(left, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Safari 5.1 to 6.0.2 */
-	    background: -o-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Opera 11.1 to 12.0.2 */
-	    background: -moz-linear-gradient(right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* For Firefox 3.6 to 15 */
-	    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.7)); /* Standard syntax (must be last) */
-	}
-
-	.gradient-overlay .text {
-		width: 100%;
-		padding-left: 0px;
-	}
-}
-
-.profile-pic {
-	max-width: 200px;
-	margin: 0 !important;
-	vertical-align: top;
-}
-
-
-
-
-
-/*
-==============================================
-Footer
-==============================================
-*/
-
-footer {
-	background-color: $blue-dark;
-	color: $white;
-	padding: 30px 0 30px 0;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.page-minus-footer {
-	min-height: calc(100vh - 300px);
-}
-
-footer h1 {
-	color: white;
-}
-
-.social-row {
-	margin: 15px 0 15px 0;
-}
-
-footer .icon {
-	font-size: 40px;
-	padding: 0 10px 0 10px;
-	color: white !important;
-}
-
-footer .icon:hover {
-	color: $blue-light !important;
-}
-
-.social-row {
-	margin-bottom: 25px;
-}
-
-.footer-logo {
-	max-width: 250px;
-	width: 45%;
-	padding: 10px 5% 10px 5%;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-@media screen and (max-width: 768px) {
-	.footer-logo {
-		width: 90%;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-/*
-==============================================
-Login Pages
-==============================================
-*/
-
-.basic-info label {
-	padding-top: 10px;
-}
-
-.problems-area label {
-	padding-left: 25px !important;
-}
 
 
 
@@ -957,7 +348,7 @@ Login Pages
 
 /*
 ===============================================
-HOME
+Index
 ===============================================
 */
 
@@ -1017,7 +408,25 @@ select#contact_preferred_contact, select#contact_purpose, select#value_sell_time
 	padding-top: 10px !important;
 }
 
+.dark label {
+  color: white;
+}
 
+.mini-subscriber-form.dark .md-form label {
+  color: white;
+}
+
+.mini-subscriber-form.dark .md-form input[type=text]:focus:not([readonly]) + label, .md-form input[type=password]:focus:not([readonly]) + label, .md-form input[type=email]:focus:not([readonly]) + label, .md-form input[type=url]:focus:not([readonly]) + label, .md-form input[type=time]:focus:not([readonly]) + label, .md-form input[type=date]:focus:not([readonly]) + label, .md-form input[type=datetime-local]:focus:not([readonly]) + label, .md-form input[type=tel]:focus:not([readonly]) + label, .md-form input[type=number]:focus:not([readonly]) + label, .md-form input[type=search-md]:focus:not([readonly]) + label, .md-form input[type=search]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label {
+  color: white;
+}
+
+.mini-subscriber-form.dark .md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea {
+  border-bottom-color: white !important;
+}
+
+.mini-subscriber-form.dark .md-form .form-control {
+  color: white !important;
+}
 
 
 
@@ -1028,72 +437,6 @@ select#contact_preferred_contact, select#contact_purpose, select#value_sell_time
 Pages
 ===============================================
 */
-
-/* INDEX */
-
-.blog h1 {
-	margin-bottom: 5px !important;
-}
-
-.blog p {
-  font-size: 16px;
-}
-
-.blog-list-links {
-	padding: 15px 0 15px 0;
-}
-
-.blog-list-links p {
-	color: black;
-	font-weight: 400;
-}
-
-.blog-list-links:hover * {
-	text-decoration: none !important;
-}
-
-.blog-list-links:hover {
-	border: solid thin $transparent-blue !important;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.container h1 {
-	margin: 30px 0 25px 0;
-}
-
-/* User#show */
-.users .icon {
-	font-size: 30px;
-	padding: 0 10px 0 0;
-}
-
-.users h1 {
-	margin-top: 50px;
-	border-bottom: thin $grey-dark solid;
-}
-
-@media screen and (max-width: 435px) {
-	.users .icon {
-		font-size: 20px;
-		padding: 0 5px 0 0;
-	}
-}
-
-.icon:hover {
-	text-decoration: none;
-}
-
-.archivedDiv {
-	color: $grey-dark;
-}
-
-.pin-image-stripe img {
-  width: 18%;
-  max-width: 200px;
-  min-width: 75px;
-  padding: 0 10px 0 10px;
-}
-
 
 
 /* listings */
@@ -1150,7 +493,7 @@ Pages
 }
 
 .property-details h2 {
-	font-family: $font-sans;
+
 	margin-left: 15px;
 }
 
@@ -1195,6 +538,10 @@ Pages
   .l { font-size: 1.8em; }
 }
 
+#tag_cloud a { color: $grey-dark; }
+#tag_cloud a:hover { color: $blue-dark; }
+
+
 $size: 31px;
 
 .social-share-button {
@@ -1207,61 +554,16 @@ $size: 31px;
 }
 
 .blog-page p {
-	font-family: $font-sans;
+
 }
 
 .blog-page h1 {
 	font-size: 30px !important;
-	font-family: $font-sans;
+
 }
 
 
 
-
-/* Landing Pages */
-
-.fake-form-control {
-	margin-top: 10px;
-}
-
-.fake-form-control select {
-  height: 35px;
-  background: white;
-  width: 100%;
-}
-
-/* Quicks */
-.quick-form h2 {
-	margin-bottom: 20px;
-}
-
-.progress-bar-item {
-	width: 18%;
-	display: inline-block;
-	padding: 10px;
-}
-
-.progress-bar-item h1 {
-	margin-bottom: 5px;
-	color: $grey-light !important;
-	text-shadow: 1px 2px 2px $grey-light;
-}
-
-.progress-bar-item p {
-	margin-bottom: 5px;
-	color: $grey-light !important;
-}
-
-.progress-bar-item.active h1 {
-	margin-bottom: 5px;
-	color: $blue-dark !important;
-	text-shadow: 1px 2px 2px $blue-light;
-}
-
-.progress-bar-item.active p {
-	margin-bottom: 5px;
-	color: $blue-dark !important;
-}
 
 
 
@@ -1293,6 +595,12 @@ Users#show
 
 
 
+
+
+
+
+
+
 /*
 ==============================================
 Users#show
@@ -1311,35 +619,56 @@ td.read-td i {
 
 
 
+
+
+
+
+
+
+
 /*
 ==============================================
-slideRight
+MDB Overrides
 ==============================================
 */
-
-
-.slideRight{
-	animation-name: slideRight;
-	-webkit-animation-name: slideRight;
-
-	animation-duration: 1s;
-	-webkit-animation-duration: 1s;
-
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
-
-	visibility: visible !important;
+.dropdown .dropdown-menu.dropdown-info .dropdown-item:hover, .dropdown .dropdown-menu.dropdown-info .dropdown-item:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item.active, .dropup .dropdown-menu.dropdown-info .dropdown-item:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item:active, .dropup .dropdown-menu.dropdown-info .dropdown-item.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.active, .dropright .dropdown-menu.dropdown-info .dropdown-item:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item:active, .dropright .dropdown-menu.dropdown-info .dropdown-item.active {
+  background-color: $blue-dark;
+  color: white !important;
 }
 
-@keyframes slideRight {
-	0% { transform: translateX(-150%); }
-	100% { transform: translateX(0%); }
+.dropdown .dropdown-menu.dropdown-info .dropdown-item.buy:hover, .dropdown .dropdown-menu.dropdown-info .dropdown-item.buy:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item.buy.active, .dropup .dropdown-menu.dropdown-info .dropdown-item.buy:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item.buy:active, .dropup .dropdown-menu.dropdown-info .dropdown-item.buy.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.buy:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item.buy:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.buy.active, .dropright .dropdown-menu.dropdown-info .dropdown-item.buy:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item.buy:active, .dropright .dropdown-menu.dropdown-info .dropdown-item.buy.active {
+    background-color: $color-buy;
+  }
+
+.dropdown .dropdown-menu.dropdown-info .dropdown-item.sell:hover, .dropdown .dropdown-menu.dropdown-info .dropdown-item.sell:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item.sell.active, .dropup .dropdown-menu.dropdown-info .dropdown-item.sell:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item.sell:active, .dropup .dropdown-menu.dropdown-info .dropdown-item.sell.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.sell:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item.sell:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.sell.active, .dropright .dropdown-menu.dropdown-info .dropdown-item.sell:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item.sell:active, .dropright .dropdown-menu.dropdown-info .dropdown-item.sell.active {
+    background-color: $color-sell;
+  }
+
+.dropdown .dropdown-menu.dropdown-info .dropdown-item.loan:hover, .dropdown .dropdown-menu.dropdown-info .dropdown-item.loan:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item.loan.active, .dropup .dropdown-menu.dropdown-info .dropdown-item.loan:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item.loan:active, .dropup .dropdown-menu.dropdown-info .dropdown-item.loan.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.loan:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item.loan:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.loan.active, .dropright .dropdown-menu.dropdown-info .dropdown-item.loan:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item.loan:active, .dropright .dropdown-menu.dropdown-info .dropdown-item.loan.active {
+    background-color: $color-loan;
+  }
+.dropdown .dropdown-menu.dropdown-info .dropdown-item.refinance:hover, .dropdown .dropdown-menu.dropdown-info .dropdown-item.refinance:active, .dropdown .dropdown-menu.dropdown-info .dropdown-item.refinance.active, .dropup .dropdown-menu.dropdown-info .dropdown-item.refinance:hover, .dropup .dropdown-menu.dropdown-info .dropdown-item.refinance:active, .dropup .dropdown-menu.dropdown-info .dropdown-item.refinance.active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.refinance:hover, .dropleft .dropdown-menu.dropdown-info .dropdown-item.refinance:active, .dropleft .dropdown-menu.dropdown-info .dropdown-item.refinance.active, .dropright .dropdown-menu.dropdown-info .dropdown-item.refinance:hover, .dropright .dropdown-menu.dropdown-info .dropdown-item.refinance:active, .dropright .dropdown-menu.dropdown-info .dropdown-item.refinance.active {
+    background-color: $color-refinance;
+  }
+
+.side-nav .logo-wrapper {
+  height: 180px !important;
 }
 
-@-webkit-keyframes slideRight {
-	0% { -webkit-transform: translateX(-150%); }
-	100% { -webkit-transform: translateX(0%); }
+body { padding-left: 240px; }
+@media only screen and (max-width : 1441px) {
+  body {
+    padding-left: 0;
+  }
 }
+
+
+
+
+
+
+
+
 
 
 

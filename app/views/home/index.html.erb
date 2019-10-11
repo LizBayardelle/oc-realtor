@@ -5,102 +5,143 @@
   <% end %>
 <!-- page-specific content -->
 
-<div class="responsive-hero-div">
 
-	<%= image_tag "home_aerial.jpg", class: "responsive-hero-img", alt: "Aerial view of an Orange County neighborhood." %>
+<!-- Main layout -->
+<main>
 
-  <div class="overlap-responsive-image text-center">
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path('hill.jpg') %>" alt="">
+    <div class="mask rgba-indigo-slight">
+      <div class="container flex-center text-center">
+        <div class="row">
+          <div class="typed-type-header">
+      			<div class="typed_wrap" style="min-height: 120px">
+      				<h2 class="color-white">Anthony Bayardelle</h2>
+      				<h3><span class="typed color-white"></span></h3>
+      			</div>
+      		</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		<div class="typed-type-header text-center" style="margin-top: 100px">
-			<div class="typed_wrap" style="min-height: 120px">
-				<h2 class="color-white">Anthony Bayardelle</h2>
-				<h3><span class="typed color-white"></span></h3>
-			</div>
-		</div>
-  </div> <!-- overlap image -->
 
-</div> <!-- responsive hero div -->
 
-<div class="marble stripe">
-	<div class="text-center" style="padding: 25px 25px 25px 20px">
+
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-md-12 text-center">
+
+        <section class="text-center">
+          <div class="row">
+
+            <div class="col-md-3 col-sm-6">
+              <i class="fas fa-home fa-3x text-buy"></i>
+              <h5 class="font-weight-bold my-4">Buy a House</h5>
+              <p class="grey-text mb-md-3 mb-5">
+                Get started on the path to your dream home.
+              </p>
+              <%= link_to "More", page_path('buy'), class: "btn bg-buy text-white-hover" %>
+            </div> <!-- Grid column -->
+
+            <div class="col-md-3 col-sm-6">
+              <i class="fas fa-money-check-alt fa-3x text-sell"></i>
+              <h5 class="font-weight-bold my-4">Sell My House</h5>
+              <p class="grey-text mb-md-3 mb-5">
+                Make sure you get the most for your home.
+              </p>
+              <%= link_to "More", page_path('sell'), class: "btn bg-sell text-white-hover" %>
+            </div> <!-- Grid column -->
+
+            <div class="col-md-3 col-sm-6">
+              <i class="fas fa-money-bill-wave fa-3x text-loan"></i>
+              <h5 class="font-weight-bold my-4">Get a Loan</h5>
+              <p class="grey-text mb-md-3 mb-5">
+                Find out how much buying power you have.
+              </p>
+              <%= link_to "More", page_path('loan'), class: "btn bg-loan text-white-hover" %>
+            </div> <!-- Grid column -->
+
+            <div class="col-md-3 col-sm-6">
+              <i class="fas fa-money-check fa-3x text-refinance"></i>
+              <h5 class="font-weight-bold my-4">Refinance</h5>
+              <p class="grey-text mb-md-3 mb-5">
+                Lower your interest and monthly payments.
+              </p>
+              <%= link_to "More", page_path('mortgage'), class: "btn bg-refinance text-white-hover" %>
+            </div> <!-- Grid column -->
+
+          </div> <!-- Grid row -->
+
+        </section>
+
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container -->
+
+
+
+
+
+
+  <div class="view jarallax" style="min-height: 100px">
+    <img class="jarallax-img" src="https://s3-us-west-1.amazonaws.com/ocrphotobucket/marble.jpg" alt="">
+
+    <div class="container py-5">
+      <div class="row mt-lg-5">
+        <div class="mt-5 white-text text-center wow fadeInLeft"
+          data-wow-delay="0.3s">
+          <h2 class="display-4 font-weight-bold color-blue-dark">Get the Inside Scoop</h2>
+          <hr class="hr-dark">
+          <h5 class="mb-3 color-blue-dark">
+            Real estate is a complex and changing field. In our blog we cover topics from homebuying 101 to recent news events.
+          </h5>
+          <a class="btn btn-elegant">Learn More</a>
+        </div> <!-- column -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </div> <!-- jarallax -->
+
+
+
+
+
+
+  <div class="container py-5">
+    <h2 class="display-5 text-center font-weight-bold color-blue-dark">From the Blog</h2>
     <div class="row">
-      <h2 class="pseudo-h1 color-red">I want to...</h2>
-
-      <div class="col-xs-6 col-sm-3">
-        <%= link_to page_path('buy') do %>
-          <div class="new-card hover">
-            <h2 class="new-card-header">Buy a Home</h2>
-            <i class="icon ion-key"></i><br />
-            <%= link_to page_path('buy'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Buy a Home'})" do %>Find Your Home<% end %>
-          </div><!-- new card -->
-        <% end %>
-      </div> <!-- col -->
-
-      <div class="col-xs-6 col-sm-3">
-        <%= link_to page_path('sell') do %>
-          <div class="new-card hover">
-            <h2 class="new-card-header no-underline">Sell a Home</h2>
-            <i class="icon ion-cash"></i><br />
-            <%= link_to page_path('sell'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Sell a Home'})" do %>Get Started<% end %>
-          </div><!-- new card -->
-        <% end %>
-      </div> <!-- col -->
-
-      <div class="col-xs-6 col-sm-3">
-        <%= link_to page_path('loan') do %>
-          <div class="new-card hover">
-            <h2 class="new-card-header no-underline">Get a Home Loan</h2>
-            <i class="icon ion-card"></i><br />
-            <%= link_to page_path('loan'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Get a Home Loan'})" do %>Get Prequalified<% end %>
-          </div><!-- new card -->
-        <% end %>
-      </div> <!-- col -->
-
-      <div class="col-xs-6 col-sm-3">
-        <%= link_to page_path('mortgage') do %>
-          <div class="new-card hover">
-            <h2 class="new-card-header no-underline">Refinance Mortgage</h2>
-            <i class="icon ion-briefcase"></i><br />
-            <%= link_to page_path('mortgage'), class: "btn", onclick: "ga('send',{'hitType': 'event','eventCategory': 'cta', 'eventAction': 'Refinance Mortgage'})" do %>Explore Savings<% end %>
-          </div><!-- new card -->
-        <% end %>
-      </div> <!-- col -->
-
-
+      <% @blogs.each do |blog| %>
+        <%= render partial: "layouts/blog_card", locals: { blog: blog } %>
+      <% end %>
     </div> <!-- row -->
-	</div> <!-- container -->
-</div> <!-- blue stripe -->
-
-<div class="container bg-white">
-	<div> <!-- left side -->
-		<h1 class="text-center color-blue-dark">The Inside Scoop</h1>
-		<% @blogs.each do |blog| %>
-			<%= link_to blog_path(blog), onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage Single Blog Link'})" do %>
-				<div class="row blog-list-links">
-					<div class="col-sm-3">
-						<%= image_tag url_for(blog.image), alt: blog.title %>
-					</div> <!-- col image -->
-					<div class="col-sm-9">
-						<h3 style="margin-top: 0; padding-top: 0"><%= blog.title %></h3>
-						<p><%= blog.teaser %></p>
-						<p><%= link_to "Read More", blog_path(blog) %></p>
-					</div> <!-- col blog text -->
-				</div> <!-- row -->
-			<% end %>
-		<% end %>
-		<h3 class="text-center"><%= link_to "Get more real estate tips and tricks on our blog...", blogs_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage All Blogs Link'})" %>
-	</div> <!-- left side -->
+    <h3 class="text-center"><%= link_to "Get more real estate tips and tricks on our blog...", blogs_path, onclick: "ga('send',{'hitType': 'event','eventCategory': 'click', 'eventAction': 'Click Homepage All Blogs Link'})" %>
+  </div> <!-- container -->
 
 
 
 
-	<div class="bottom-buffer"></div>
 
-</div> <!-- container -->
+
+</main> <!-- Main layout -->
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
 	$(document).ready(function(){
+    objectFitImages();
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
 		$(function(){
 			$(".typed").typed({
 				strings: ["Expert.", "Advisor.", "REALTOR®.", "Your guide to OC housing and investments."],
@@ -136,8 +177,5 @@
 				resetCallback: function() {}
 			});
 		});
-		$('.fancy-border').matchHeight();
-    $('.new-card-header').matchHeight();
-    $('.new-card-icon').matchHeight();
 	})
 </script>
