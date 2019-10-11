@@ -21,9 +21,9 @@
           <div class="col-md-12 wow fadeIn mb-3">
             <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">What You Need to&nbsp;Know</h1>
             <!-- <h5 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">Real estate is a complex and changing field. In this blog we cover topics from homebuying 101 to recent news events.</h5> -->
-            <a href="#blogs" class="btn btn-primary btn-lg wow fadeIn" data-wow-delay="0.4s">Browse the Blog</a>
+            <a href="#blogs" class="btn btn-grey btn-lg wow fadeIn" data-wow-delay="0.4s">Browse the Blog</a>
             <% if current_user && current_user.admin %>
-              <%= link_to 'New Blog', new_blog_path, class: "btn btn-primary btn-lg wow fadeIn" %>
+              <%= link_to 'New Blog', new_blog_path, class: "btn btn-grey btn-lg wow fadeIn" %>
             <% end %>
           </div>
         </div>
@@ -56,7 +56,7 @@
 
 
 
-  <div class="view jarallax" style="min-height: 300px; height: auto">
+  <div class="view jarallax big-mobile">
     <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
     <div class="mask rgba-stylish-strong">
       <div class="container flex-center text-center">

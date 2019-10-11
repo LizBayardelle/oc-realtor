@@ -334,7 +334,9 @@ Main Nav (MDB)
   padding: 0 10px;
 }
 
-
+.navbar-toggler-icon {
+  display: none;
+}
 
 
 
@@ -532,6 +534,7 @@ Pages
 	margin-left: auto;
 	margin-right: auto;
   width: 400px;
+  max-width: 100%;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
@@ -662,11 +665,27 @@ body { padding-left: 240px; }
   }
 }
 
+.jarallax.big-mobile {
+  min-height: 400px;
+  height: auto;
+}
 
+@media only screen and (max-width : 768px) {
+  .jarallax.big-mobile {
+    min-height: 600px;
+  }
+}
 
+.jarallax.really-big-mobile {
+  min-height: 600px;
+  height: auto;
+}
 
-
-
+@media only screen and (max-width : 768px) {
+  .jarallax.really-big-mobile {
+    min-height: 800px;
+  }
+}
 
 
 

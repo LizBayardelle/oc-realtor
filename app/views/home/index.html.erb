@@ -35,37 +35,37 @@
         <section class="text-center">
           <div class="row">
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 my-4">
               <i class="fas fa-home fa-3x text-buy"></i>
-              <h5 class="font-weight-bold my-4">Buy a House</h5>
-              <p class="grey-text mb-md-3 mb-5">
+              <h5 class="font-weight-bold mt-2">Buy a House</h5>
+              <p class="grey-text mb-2 category-text">
                 Get started on the path to your dream home.
               </p>
               <%= link_to "More", page_path('buy'), class: "btn bg-buy text-white-hover" %>
             </div> <!-- Grid column -->
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 my-4">
               <i class="fas fa-money-check-alt fa-3x text-sell"></i>
-              <h5 class="font-weight-bold my-4">Sell My House</h5>
-              <p class="grey-text mb-md-3 mb-5">
+              <h5 class="font-weight-bold mt-2">Sell My House</h5>
+              <p class="grey-text mb-2 category-text">
                 Make sure you get the most for your home.
               </p>
               <%= link_to "More", page_path('sell'), class: "btn bg-sell text-white-hover" %>
             </div> <!-- Grid column -->
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 my-4">
               <i class="fas fa-money-bill-wave fa-3x text-loan"></i>
-              <h5 class="font-weight-bold my-4">Get a Loan</h5>
-              <p class="grey-text mb-md-3 mb-5">
+              <h5 class="font-weight-bold mt-2">Get a Loan</h5>
+              <p class="grey-text mb-2 category-text">
                 Find out how much buying power you have.
               </p>
               <%= link_to "More", page_path('loan'), class: "btn bg-loan text-white-hover" %>
             </div> <!-- Grid column -->
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 my-4">
               <i class="fas fa-money-check fa-3x text-refinance"></i>
-              <h5 class="font-weight-bold my-4">Refinance</h5>
-              <p class="grey-text mb-md-3 mb-5">
+              <h5 class="font-weight-bold mt-2">Refinance</h5>
+              <p class="grey-text mb-2 category-text">
                 Lower your interest and monthly payments.
               </p>
               <%= link_to "More", page_path('mortgage'), class: "btn bg-refinance text-white-hover" %>
@@ -137,6 +137,7 @@
 
 <script>
 	$(document).ready(function(){
+    $('.category-text').matchHeight();
     objectFitImages();
     jarallax(document.querySelectorAll('.jarallax'));
     jarallax(document.querySelectorAll('.jarallax-keep-img'), {
