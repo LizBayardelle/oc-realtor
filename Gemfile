@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.5.0'
 
 gem 'rails', '~> 5.2'
 gem 'sass-rails'
@@ -45,7 +48,7 @@ gem 'acts_as_list'
 gem 'puma', '~> 3.11'
 gem 'puma_worker_killer'
 gem 'rack-tracker'
-gem 'dotenv-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'faraday'
 gem 'scout_apm'
 
@@ -62,7 +65,6 @@ gem 'typedjq-rails'
 gem 'httpclient'
 gem 'rets'
 gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
-gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 
 group :production do
