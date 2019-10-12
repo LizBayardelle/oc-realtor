@@ -1,0 +1,52 @@
+<main class="container-fluid px-5 mb-5">
+
+  <% if current_user && current_user.admin %>
+    <section class="row pt-2">
+      <div class="text-left text-grey col">
+        <% if !@resource.active %>
+          INACTIVE
+        <% end %>
+      </div> <!-- col -->
+      <div class="text-right col">
+        <%= link_to 'Edit Resource', edit_resource_path(@resource) %> |
+        <%= link_to 'Resources Home', resources_path %>
+      </div> <!-- col -->
+    </section>
+  <% end %>
+
+  <% categories = [] %>
+  <% if @resource.general %><% categories << "General Resources" %><% end %>
+  <% if @resource.buying %><% categories << "Buying a House" %><% end %>
+  <% if @resource.selling %><% categories << "Selling a House" %><% end %>
+  <% if @resource.loan %><% categories << "Getting a Loan" %><% end %>
+  <% if @resource.refinance %><% categories << "Refinancing Your Mortgage" %><% end %>
+  <% if @resource.investing %><% categories << "Real Estate Investing" %><% end %>
+
+  <heading class="text-center row justify-content-center">
+    <div class="col-12">
+      <h1 class="h1-responsive font-weight-bold mt-5"><%= @resource.title %></h1>
+      <p><small>
+        <% if @resource.whatisit %>
+          <%= @resource.whatisit %>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+        <% end %>
+        Created by <%= @resource.user.full_name %>
+      </small></p>
+      <img src="<%= rails_blob_path(@resource.image) %>" class="thumbnail mt-2 mb-4" alt="Sample <%= @resource.title %> Image">
+      <h5 class="w-responsive text-<%= @resource.primary_category %> mx-auto font-weight-bold">
+        <%= categories.join(", ") %>
+      </h5>
+      <p class="grey-text w-responsive mx-auto mb-4">
+        <%= @resource.description %>
+      </p>
+      <div class="text-center">
+        <% if @resource.resource_type == "Download" %>
+          <a href="<%= rails_blob_path(@resource.download) %>" class="btn btn-<%= @resource.primary_category %> btn-md" target="_blank">Download</a>
+        <% elsif @resource.resource_type == "Link" %>
+          <a href="<%= @resource.link_url %>" class="btn btn-<%= @resource.primary_category %> btn-md" target="_blank">Get It Now</a>
+        <% end %>
+      </div> <!-- center -->
+    </div> <!-- col -->
+  </heading>
+
+</main>

@@ -1,4 +1,4 @@
-<div class="view jarallax" style="height: 100vh;">
+<div class="view jarallax" style="height: 100vh; overflow: scroll">
 	<img class="jarallax-img" src="<%= asset_path("houses-road.jpg") %>" alt="Log In Page">
 	<div class="mask rgba-blue-slight">
 		<div class="container flex-center">
@@ -11,22 +11,22 @@
 					<div class="form-inputs">
 						<div class="form-row row justify-content-center">
 							<%= f.invisible_captcha :subtitle %>
-							<div class="form-group md-form col-sm-6 col-xs-12">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6 col-12">
 									<%= f.label :first_name %>
 									<%= f.text_field :first_name, class: "form-control", required: true %>
 							</div>
-							<div class="form-group md-form col-sm-6 col-xs-12">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6 col-12">
 									<%= f.label :last_name %>
 									<%= f.text_field :last_name, class: "form-control", required: true %>
 							</div>
-							<div class="form-group md-form col-sm-6 col-xs-12">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6 col-12">
 									<%= f.label :email %>
 									<%= f.text_field :email, required: true, autofocus: true, class: "form-control" %>
 									<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 											<p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
 									<% end %>
 							</div>
-							<div class="form-group md-form col-sm-6 col-xs-12">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6 col-xs-12">
 									<%= f.label :phone %>
 									<%= f.text_field :phone, required: true, class: "form-control" %>
 							</div> <!-- row -->
@@ -35,12 +35,12 @@
 
 
 
-						<div class="row">
-							<div class="form-group md-form col-sm-6">
+						<div class="form-row row">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6">
 									<%= f.label :password %>
 									<%= f.password_field :password, class: "form-control", required: true %>
 							</div>
-							<div class="form-group md-form col-sm-6">
+							<div class="form-group my-1 my-sm-3 md-form col-sm-6">
 									<%= f.label :confirm_password %>
 									<%= f.password_field :confirm_password, class: "form-control", required: true %>
 							</div>

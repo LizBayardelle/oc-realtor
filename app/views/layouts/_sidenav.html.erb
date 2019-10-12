@@ -50,11 +50,9 @@
 
         <li><%= link_to "Contact Us", new_contact_path, class: "waves-effect arrow-r" %></li>
 
-        <li>
-          <a class="waves-effect arrow-r">
-            Real Estate Resources
-          </a>
-        </li>
+
+        <li><%= link_to "Real Estate Resources", resources_path, class: "waves-effect arrow-r" %></li>
+
 
         <% if current_user %>
           <li><a class="collapsible-header waves-effect arrow-r">

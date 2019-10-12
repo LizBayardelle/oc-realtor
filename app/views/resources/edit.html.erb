@@ -1,0 +1,10 @@
+<div class="container py-5">
+  <h1 class="text-center pb-4">Edit Resource</h1>
+
+  <%= render 'form', resource: @resource %>
+
+  <div class="text-center">
+    <%= link_to 'See Resource Page', @resource, class: "btn btn-grey btn-sm" %>
+    <%= link_to 'Back to Index', resources_path, class: "btn btn-grey btn-sm" %>
+  </div>
+</div> <!-- container -->

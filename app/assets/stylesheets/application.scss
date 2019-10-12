@@ -61,11 +61,14 @@ $color-buy: #243147 !important;
 $color-sell: #78909c !important;
 $color-loan: #59698d !important;
 $color-refinance: #5B7BB2 !important;
+$color-invest: #3E547A !important;
 
+.bg-navy { background-color: $blue-dark; }
 .bg-buy { background-color: $color-buy; }
 .bg-sell { background-color: $color-sell; }
 .bg-loan { background-color: $color-loan; }
 .bg-refinance { background-color: $color-refinance; }
+.bg-invest { background-color: $color-invest; }
 
 .btn { font-weight: 700; }
 .btn-primary { background-color: $grey-dark; color: white !important; }
@@ -73,14 +76,18 @@ $color-refinance: #5B7BB2 !important;
 .btn-sell { background-color: $color-sell; color: white !important; }
 .btn-loan { background-color: $color-loan; color: white !important; }
 .btn-refinance { background-color: $color-refinance; color: white !important; }
+.btn-invest { background-color: $color-invest; color: white !important; }
+
 .btn-grey { background-color: $grey-light; color: black !important; }
 .btn-red { background-color: $red; color: white !important; }
 
-
+.text-black { color: black !important; }
+.text-general { color: $blue-dark; }
 .text-buy { color: $color-buy; }
 .text-sell { color: $color-sell; }
 .text-loan { color: $color-loan; }
 .text-refinance { color: $color-refinance; }
+.text-invest { color: $color-invest; }
 
 .text-white-hover:hover { color: white !important; }
 
@@ -147,7 +154,7 @@ p a:hover, .linkish { cursor: pointer; text-decoration: none; color: $blue-dark;
 footer.page-footer { background-color: $blue-dark; }
 footer .footer-social i { padding: 0 10px; font-size: 30px; }
 
-img { width: 100% }
+img { max-width: 100%; width: 100%; }
 
 .hr-grey { border-color: $grey-dark; }
 
@@ -185,6 +192,16 @@ label { text-transform: capitalize; }
 	margin-bottom: 3px;
 }
 
+.thumbnail {
+  height: 250px;
+  width: auto;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.pin-image {
+  width: 20%;
+  max-width: 300px;
+}
 
 
 
@@ -317,8 +334,6 @@ table.lined-table td {
 
 
 
-
-
 /*
 ==============================================
 Main Nav (MDB)
@@ -331,7 +346,7 @@ Main Nav (MDB)
 }
 
 .nav-item {
-  padding: 0 10px;
+  padding: 0 6px;
 }
 
 .navbar-toggler-icon {

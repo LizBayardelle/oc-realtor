@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_224659) do
+ActiveRecord::Schema.define(version: 2019_10_12_130938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,6 +267,27 @@ ActiveRecord::Schema.define(version: 2019_03_09_224659) do
     t.boolean "read", default: false
   end
 
+  create_table "resources", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.boolean "general", default: false
+    t.boolean "buying", default: false
+    t.boolean "selling", default: false
+    t.boolean "loan", default: false
+    t.boolean "refinance", default: false
+    t.boolean "investing", default: false
+    t.string "resource_type"
+    t.string "link_url"
+    t.boolean "active", default: true
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "primary_category"
+    t.string "csv_tags"
+    t.string "whatisit"
+    t.index ["user_id"], name: "index_resources_on_user_id"
+  end
+
   create_table "subscribers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -350,5 +371,6 @@ ActiveRecord::Schema.define(version: 2019_03_09_224659) do
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
   add_foreign_key "intakes", "users"
+  add_foreign_key "resources", "users"
   add_foreign_key "values", "users"
 end

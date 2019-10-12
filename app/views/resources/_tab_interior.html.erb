@@ -1,0 +1,59 @@
+<div class="row d-flex justify-content-center">
+
+  <% if resources.count == 0 %>
+    <p>There are currently no resources in this category.  Check back soon!</p>
+  <% else %>
+    <% resources.each do |resource| %>
+      <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
+        <div class="text-center">
+          <small><%= resource.whatisit.upcase %></small><br>
+          <img src="<%= rails_blob_path(resource.image) %>" class="thumbnail mt-2" alt="Sample project image">
+        </div> <!-- view overlay (image) -->
+        <div class="card-body">
+          <div class="card-text">
+            <% case resource.primary_category
+            when "general" %>
+              <%= link_to page_path("general"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">General</h5>
+              <% end %>
+            <% when "buy" %>
+              <%= link_to page_path("buy"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">Buying a House</h5>
+              <% end %>
+            <% when "sell" %>
+              <%= link_to page_path("sell"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">Selling a House</h5>
+              <% end %>
+            <% when "loan" %>
+              <%= link_to page_path("loan"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">Getting a Loan</h5>
+              <% end %>
+            <% when "refinance" %>
+              <%= link_to page_path("mortgage"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">Refinance Your Mortgage</h5>
+              <% end %>
+            <% when "invest" %>
+              <%= link_to page_path("investing"), class: "text-#{resource.primary_category}" do %>
+                <h5 class="font-weight-bold text-center mt-2 mb-3">Real Estate Investments</h5>
+              <% end %>
+            <% end %>
+            <h4 class="font-weight-bold mb-3 text-black text-center">
+              <%= resource.title %>
+            </h4>
+            <p class="pb-2">
+              <%= resource.description %>
+              <% if current_user && current_user.admin %>
+                <br>( <%= link_to 'Edit', edit_resource_path(resource) %> |
+                <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' } %> )
+              <% end %>
+            </p>
+          </div> <!-- card text -->
+          <div class="text-center">
+              <%= link_to "Get it Now", resource, class: "btn btn-#{resource.primary_category.downcase} btn-md" %>
+          </div> <!-- center -->
+        </div> <!-- card body -->
+      </div> <!-- Grid column -->
+    <% end %>
+  <% end %>
+
+</div> <!-- Grid row -->

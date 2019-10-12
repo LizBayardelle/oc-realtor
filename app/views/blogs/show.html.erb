@@ -122,15 +122,29 @@
   <% end %>
 
 
+
+
+
   <div id="blogs" class="container my-5">
     <%= @blog.body.html_safe %>
+
+    <% if @related.any? && @blog.pillars_id && @pillar.name != " " %>
+      <hr>
+      <h2>Related Articles</h2>
+        <ul>
+          <% @related.each do |blog| %>
+            <li><%= link_to blog.title, blog_path(blog) %></li>
+          <% end %> <!-- blogs each -->
+        </ul>
+    <% end %>
+
   </div> <!-- container -->
 
 
 
 
 
-  <div class="view jarallax" style="min-height: 300px; height: auto">
+  <div class="view jarallax big-mobile">
     <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
     <div class="mask rgba-stylish-strong">
       <div class="container flex-center text-center">
@@ -148,9 +162,9 @@
 
 
 
-  <div class="container py-5">
+  <div class="container">
     <% if @blog.optin %>
-      <div class="text-center">
+      <div class="text-center py-5">
         <h2 class="font-weight-bold">Want More Information?</h2>
         <% if current_user %>
           <h3>Get Your <%= @blog.link_text %> Now</h3>
@@ -181,10 +195,10 @@
 
 
       <% if @blog.pins.attached? %>
-        <div class="pinterest-image row padded pin-image-stripe my-4">
+        <div class="row padded pin-image-stripe my-4">
           <div class="container">
             <% @blog.pins.each do |image| %>
-              <%= image_tag url_for(image)%>
+              <%= image_tag url_for(image), class: "pin-image z-depth-3 mx-2" %>
             <% end %>
           </div>
         </div>
@@ -223,31 +237,12 @@
 
 
 
-
-
-    <% if @related.any? && @blog.pillars_id && @pillar.name != " " %>
-      <div class="row blue-stripe my-5">
-        <div class="container">
-          <h2 class="text-center">Other Blogs about <%= @pillar.name %></h2>
-          <% @related.each do |blog| %>
-            <%= link_to blog_path(blog) do %>
-              <div class="card blog-card col-xs-6 col-md-3">
-                  <%= image_tag url_for(blog.image), alt: blog.title if blog.image.attached? %>
-                  <h3><%= blog.title %></h3>
-                  <p><%= blog.teaser %></p>
-                  <p><em><%= link_to "Read More", blog_path(blog) %>...</em></p>
-              </div> <!-- card -->
-            <% end %> <!-- link -->
-          <% end %> <!-- blogs each -->
-        </div> <!-- container -->
-      </div> <!-- row -->
-    <% end %>
-
-
-
-
-
 </main> <!-- Main layout -->
+
+
+
+
+
 
 
 

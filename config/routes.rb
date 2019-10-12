@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :subscribers
-  resources :infos
-  resources :affords
-  resources :pillars
   resources :home, only: [:index]
   root "home#index"
 
@@ -44,10 +40,10 @@ Rails.application.routes.draw do
   post "contact/:id/contact_read" => "contacts#contact_read", as: "contact_read"
   post "contact/:id/contact_unread" => "contacts#contact_unread", as: "contact_unread"
 
-
   resources :blogs do
     resources :comments
   end
+
   get 'tags/:tag', to: 'blogs#index', as: :tag
   post "users/:id/subscribe_to_blog" => "users#subscribe_to_blog", as: "subscribe_to_blog"
   post "comment/:id/approve" => "comments#approve_comment", as: "approve_comment"
@@ -62,5 +58,10 @@ Rails.application.routes.draw do
   post "value/:id/value_read" => "values#value_read", as: "value_read"
   post "value/:id/value_unread" => "values#value_unread", as: "value_unread"
 
+  resources :resources
+  resources :subscribers
+  resources :infos
+  resources :affords
+  resources :pillars
 
 end

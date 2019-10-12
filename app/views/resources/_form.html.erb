@@ -1,0 +1,101 @@
+<%= simple_form_for(@resource) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs form-row row">
+
+    <div class="form-group md-form col-12 my-2">
+      <%= f.text_field :title, id: "title", required: true, class: "form-control" %>
+      <%= f.label "Resource Title", for: "title" %>
+    </div> <!-- form-group md-form -->
+
+    <div class="form-group md-form col-12 my-2">
+      <%= f.text_field :whatisit, id: "whatisit", required: true, class: "form-control" %>
+      <%= f.label "Type of Resource", for: "whatisit" %>
+    </div> <!-- form-group md-form -->
+
+    <div class="form-group col-12 my-2">
+      <%= f.label "Resource Description", for: "description" %>
+      <%= f.text_area :description, id: "description", required: true, class: "form-control" %>
+    </div> <!-- form-group md-form -->
+
+     <div class="col-12 col-sm-6 mb-3 mt-2">
+        <label>Upload a Sample Image</label><br>
+        <%= f.file_field :image %>
+     </div> <!-- col-12 -->
+
+    <div class="form-group md-form col-12 mt-4 mb-2">
+      <%= f.text_field :csv_tags, id: "csv_tags", required: true, class: "form-control" %>
+      <%= f.label "Subscription Tags (Comma Separated)", for: "csv_tags" %>
+    </div> <!-- form-group md-form -->
+
+    <div class="form-group col-sm-6">
+      <%= f.label "Primary Category" %>
+      <%= f.input :primary_category, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: [["General", "general"], ["Buying a House", "buy"], ["Selling a House", "sell"], ["Home Loans", "loan"], ["Refinancing", "refinance"], ["Real Estate Investing", "invest"]], required: true %>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <%= f.label "All Topics" %>
+      </div> <!-- col -->
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :general, class: "form-check-input", id: "general" %>
+        <%= f.label "General", class: "form-check-label", for: "general" %>
+      </div>
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :buying, class: "form-check-input", id: "buying" %>
+        <%= f.label "Buy a House", class: "form-check-label", for: "buying" %>
+      </div>
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :selling, class: "form-check-input", id: "selling" %>
+        <%= f.label "Sell a House", class: "form-check-label", for: "selling" %>
+      </div>
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :loan, class: "form-check-input", id: "loan" %>
+        <%= f.label "Getting a Loan", class: "form-check-label", for: "loan" %>
+      </div>
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :refinance, class: "form-check-input", id: "refinance" %>
+        <%= f.label "Refinancing a Mortgage", class: "form-check-label", for: "refinance" %>
+      </div>
+
+      <div class="col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :investing, class: "form-check-input", id: "investing" %>
+        <%= f.label "Real Estate Investing", class: "form-check-label", for: "investing" %>
+      </div>
+    </div> <!-- row -->
+
+    <div class="form-group col-12">
+      <%= f.label "Resource Type" %>
+      <%= f.input :resource_type, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: ["Link", "Download"], required: true %>
+    </div>
+
+    <div class="row form-row text-left">
+       <div class="col-12 col-sm-6">
+          <label>Upload a File (if Download)</label><br>
+          <%= f.file_field :download %>
+       </div> <!-- col-12 -->
+
+      <div class="form-group md-form col-12 col-sm-6 my-2">
+        <%= f.text_field :link_url, id: "link_url", class: "form-control" %>
+        <%= f.label "Resource URL (if Link)", for: "link_url" %>
+      </div> <!-- form-group md-form -->
+    </div> <!-- form row -->
+
+
+    <div class="row mt-3 justify-content-center">
+      <div class="mb-3 col-12 field form-check" style="margin-left: auto; margin-right: auto;">
+        <%= f.check_box :active, class: "form-check-input", id: "active" %>
+        <%= f.label "Actively Display Resource", class: "form-check-label", for: "active" %>
+      </div>
+    </div> <!-- row -->
+  </div>
+
+  <div class="form-actions text-center mt-3">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

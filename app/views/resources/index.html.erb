@@ -1,0 +1,92 @@
+<main class="container-fluid px-5">
+
+  <% if current_user && current_user.admin %>
+    <section class="text-right pt-2">
+      <%= link_to 'Add a New Resource', new_resource_path %>
+    </section>
+  <% end %>
+
+  <heading class="text-center">
+    <h1 class="h1-responsive font-weight-bold mt-5">Real Estate Resources</h1>
+    <p class="grey-text w-responsive mx-auto mb-4">
+      Our members get access to our entire stockpile of real estate resources.
+    </p>
+  </heading>
+
+
+
+  <!-- Classic tabs -->
+<div class="classic-tabs mx-2 mb-5">
+
+  <ul class="nav bg-navy" id="myClassicTabShadow" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link  waves-light active show" id="tab-all" data-toggle="tab" href="#area-all"
+        role="tab" aria-controls="area-all" aria-selected="true">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link  waves-light" id="tab-general" data-toggle="tab" href="#area-general"
+        role="tab" aria-controls="area-general" aria-selected="true">General</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="tab-buying" data-toggle="tab" href="#area-buying"
+        role="tab" aria-controls="area-buying" aria-selected="false">Buying</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="tab-selling" data-toggle="tab" href="#area-selling"
+        role="tab" aria-controls="area-selling" aria-selected="false">Selling</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="tab-loans" data-toggle="tab" href="#area-loans"
+        role="tab" aria-controls="area-loans" aria-selected="false">Loans</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="tab-refinance" data-toggle="tab" href="#area-refinance"
+        role="tab" aria-controls="area-refinance" aria-selected="false">Refinancing</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link waves-light" id="tab-investing" data-toggle="tab" href="#area-investing"
+        role="tab" aria-controls="area-investing" aria-selected="false">Investing</a>
+    </li>
+  </ul>
+
+  <div class="tab-content card" id="myClassicTabContentShadow">
+    <div class="tab-pane fade active show" id="area-all" role="tabpanel" aria-labelledby="tab-all">
+      <%= render partial: "resources/tab_interior", locals: { resources: @resources } %>
+    </div>
+    <div class="tab-pane fade" id="area-general" role="tabpanel" aria-labelledby="tab-general">
+      <%= render partial: "resources/tab_interior", locals: { resources: @general } %>
+    </div>
+    <div class="tab-pane fade" id="area-buying" role="tabpanel" aria-labelledby="tab-buying">
+      <%= render partial: "resources/tab_interior", locals: { resources: @buying } %>
+    </div>
+    <div class="tab-pane fade" id="area-selling" role="tabpanel" aria-labelledby="tab-selling">
+      <%= render partial: "resources/tab_interior", locals: { resources: @selling } %>
+    </div>
+    <div class="tab-pane fade" id="area-loans" role="tabpanel" aria-labelledby="tab-loans">
+      <%= render partial: "resources/tab_interior", locals: { resources: @loans } %>
+    </div>
+    <div class="tab-pane fade" id="area-refinancing" role="tabpanel" aria-labelledby="tab-refinancing">
+      <%= render partial: "resources/tab_interior", locals: { resources: @refinancing } %>
+    </div>
+    <div class="tab-pane fade" id="area-investing" role="tabpanel" aria-labelledby="tab-investing">
+      <%= render partial: "resources/tab_interior", locals: { resources: @investing } %>
+    </div>
+  </div>
+
+</div>
+<!-- Classic tabs -->
+
+
+
+
+
+</main>
+
+
+
+
+<script>
+	$(document).ready(function(){
+    $('.card-text').matchHeight();
+	})
+</script>
