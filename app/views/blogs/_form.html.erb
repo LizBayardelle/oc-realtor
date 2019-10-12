@@ -1,62 +1,61 @@
 <%= simple_form_for @blog, html: { multipart: true } do |f| %>
 
-  <div class="form-inputs" data-no-turbolink>
-    <div class="form-group">
+  <div class="form-inputs form-row row">
+    <div class="form-group col-12">
       <%= f.label :title %>
       <%= f.text_field :title, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div class="form-group col-12">
       <%= f.label :teaser %>
-      <%= f.text_field :teaser, class: "form-control" %>
+      <%= f.text_area :teaser, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div class="form-group col-12">
       <%= f.input :tag_list, :label => "Tags (seperated by commas)", :input_html => { :class => "form-control", :value => @blog.tag_list.join(", ") } %>
     </div>
-    <div class="form-group">
+    <div class="form-group col-12">
       <%= f.label "Which category is this for?" %><br />
-      <%= f.collection_select(:pillars_id, Pillar.all, :id, :name) %>
+      <% pillars_collection = [] %>
+      <% Pillar.order("id ASC").each do |pillar| %>
+        <% pillars_collection << [ pillar.name, pillar.id ] %>
+      <% end %>
+      <%= f.input :pillars_id, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: pillars_collection, required: true %>
     </div>
-    <div class="form-group">
-      <%= f.label "Picture" %>
+
+    <div class="form-group col-12">
+      <%= f.label "Picture" %><br>
       <%= f.file_field :image %>
     </div>
-    <div class="form-group">
-      <%= f.label "Pins" %>
+    <div class="form-group col-12">
+      <%= f.label "Pins" %><br>
       <%= f.file_field :pins, multiple: true %>
     </div>
-    <!-- <div class="form-group">
-      <%= f.label "Picture" %>
-      <%= f.file_field :image, as: :file %>
-    </div> -->
-    <div class="form-group">
+    <div class="form-group col-12">
       <%= f.label :body %>
       <%= f.text_area :body, class: "ckeditor" %>
     </div>
-    <h2>Lead Magnet Information</h2>
-    <div class="form-group" style="padding-left: 20px;">
-      <%= f.input :optin, label: false %>
-      <%= f.label "Does this blog have a lead magnet?" %>
+
+    <h2 class="mt-3">Lead Magnet Information</h2>
+    <div class="col-12 field form-check pb-3">
+      <%= f.check_box :optin, class: "form-check-input", id: "optin" %>
+      <%= f.label "Has a Lead Magnet", class: "form-check-label", for: "optin" %>
     </div>
-    <div class="form-group">
-      <%= f.label "Text for Lead Magnet" %>
-      <%= f.text_field :link_text, class: "form-control" %>
+
+    <div class="form-group col-12">
+      <% resources_collection = [] %>
+      <% Resource.order("id ASC").each do |resource| %>
+        <% resources_collection << [ resource.title, resource.id ] %>
+      <% end %>
+      <%= f.input :resource_id, label: false, prompt: "Select One", input_html: { class: 'browser-default custom-select custom-select-lg' }, collection: resources_collection %>
     </div>
-    <div class="form-group">
-      <%= f.label "Lead Magnet URL (S3)" %>
-      <%= f.text_field :link_filename, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Lead Magnet Tags (Comma Separated)" %>
-      <%= f.text_field :optin_tags, class: "form-control" %>
-    </div>
-    <h2>Published</h2>
-    <div class="form-group" style="padding-left: 25px;">
-      <%= f.input :published, label: false %>
-      <%= f.label "Published" %>
+
+    <h2 class="mt-3">Published</h2>
+    <div class="col-12 field form-check">
+      <%= f.check_box :published, class: "form-check-input", id: "published" %>
+      <%= f.label "Published", class: "form-check-label", for: "published" %>
     </div>
   </div>
 
   <div class="form-actions text-center">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary mb-2" %>
   </div>
 <% end %>

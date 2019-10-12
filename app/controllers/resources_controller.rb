@@ -92,7 +92,10 @@ class ResourcesController < ApplicationController
 
 
   def members_only
-    unless current_user
+    if params[:subscriber_sent] == "yes"
+      flash[:alert] = "If you want permanent to access all of our resources, consider creating a free account."
+    end
+    unless current_user || params[:subscriber_sent] == "yes"
       flash[:alert] = "Sorry, you have to be a member to do that.  Create a free account to get access to our entire resource library."
       redirect_to new_user_registration_path
     end

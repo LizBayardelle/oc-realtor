@@ -20,6 +20,8 @@
       <%= f.text_field :email, required: true, class: "form-control" %>
     </div> <!-- form group -->
     <%= f.hidden_field :tag_string, value: tags %>
+    <%= hidden_field_tag(:resource_id, resource_id) %>
+    <%= hidden_field_tag(:subscriber_sent, true) %>
   </div>
 
   <div class="form-actions text-center">

@@ -198,6 +198,12 @@ label { text-transform: capitalize; }
   box-shadow: 10px 10px 5px grey;
 }
 
+@media screen and (max-width: 992px) {
+  .thumbnail {
+    height: 250px;
+  }
+}
+
 .pin-image {
   width: 20%;
   max-width: 300px;
@@ -702,6 +708,16 @@ body { padding-left: 240px; }
   }
 }
 
+.jarallax.small-mid {
+  min-height: 550px;
+  height: auto;
+}
+
+@media only screen and (min-width : 576px) and (max-width: 991px) {
+  .jarallax.small-mid {
+    min-height: 400px;
+  }
+}
 
 
 

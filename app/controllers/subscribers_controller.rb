@@ -24,9 +24,15 @@ class SubscribersController < ApplicationController
   # POST /subscribers
   def create
     @subscriber = Subscriber.new(subscriber_params)
-
+    if params[:resource_id] != nil
+      @subscriber.resource_id_array << params[:resource_id]
+    end
     if @subscriber.save
-      redirect_to root_path, notice: 'All set! Check your email for the next step!'
+      if params[:resource_id]
+        redirect_to resource_path(params[:resource_id].to_i, params: { subscriber_sent: "yes" } )
+      else
+        redirect_to root_path, notice: 'All set! Check your email for the next step!'
+      end
     else
       render :new
     end
@@ -55,6 +61,18 @@ class SubscribersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def subscriber_params
-      params.require(:subscriber).permit(:user_id, :first_name, :last_name, :last_name, :phone, :email, :tags, :tag_string, :admin_notes, :unsubscribe)
+      params.require(:subscriber).permit(
+        :user_id,
+        :first_name,
+        :last_name,
+        :last_name,
+        :phone,
+        :email,
+        :tags,
+        :tag_string,
+        :admin_notes,
+        :unsubscribe,
+        resource_id_array: []
+      )
     end
 end

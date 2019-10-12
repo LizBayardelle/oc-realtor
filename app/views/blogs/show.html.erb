@@ -83,17 +83,25 @@
 
   <% if current_user %>
     <% if @blog.optin %>
-      <div class="view jarallax big-mobile">
+      <div class="view jarallax small-mid">
         <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
         <div class="mask rgba-stylish-slight">
           <div class="container flex-center text-center">
-            <div class="row pt-3">
+            <div class="row pt-3 d-flex justify-contents-center">
               <div class="col-12">
                 <h2 class="font-weight-bold">Want to Cut to the Chase?</h2>
               </div>
-              <div class="col-12">
-                <h3>Get Your <%= @blog.link_text %> Now</h3>
-                <%= link_to "Let's Go", @blog.link_filename, class: "btn btn-outline-white", target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
+              <div class="col-12 col-sm-5 col-lg-12 justify-content-center align-self-center">
+                <img src="<%= rails_blob_path(@blog.resource.image) %>" class="thumbnail mt-2 mb-4" style="margin-left: auto; margin-right: auto;" alt="Sample <%= @blog.resource.title %> Image">
+              </div>
+              <div class="col-12 col-sm-7 col-lg-12 align-self-center">
+                <h3><%= @blog.resource.title %></h3>
+                <h3>Get Your <span class="font-weight-bold"><%= @blog.resource.whatisit %></span> Now</h3>
+                <% if @blog.resource.resource_type == "Download" %>
+                  <a href="<%= rails_blob_path(@blog.resource.download) %>" class="btn btn-outline-black btn-md" target="_blank">Download</a>
+                <% elsif @blog.resource.resource_type == "Link" %>
+                  <a href="<%= @blog.resource.link_url %>" class="btn btn-outline-black btn-md" target="_blank">Get It Now</a>
+                <% end %>
               </div>
             </div> <!-- row -->
           </div>
@@ -102,22 +110,26 @@
     <% end %>
   <% else %>
     <% if @blog.optin %>
-      <div class="view jarallax big-mobile">
-        <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
-        <div class="mask rgba-stylish-slight">
-          <div class="container flex-center text-center">
-            <div class="row pt-3">
-              <div class="col-12">
-                <h2 class="font-weight-bold">Want to Cut to the Chase?</h2>
-              </div>
-              <div class="col-12">
-                <h3>Get Your <%= @blog.link_text %> Now</h3>
-                <%= render partial: "layouts/new_subscriber_wide", locals: { tags: @blog.optin_tags } %>
-              </div>
-            </div> <!-- row -->
-          </div>
+    <div class="view jarallax small-mid">
+      <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+      <div class="mask rgba-stylish-slight">
+        <div class="container flex-center text-center">
+          <div class="row pt-3 d-flex justify-contents-center">
+            <div class="col-12">
+              <h2 class="font-weight-bold">Want to Cut to the Chase?</h2>
+            </div>
+            <div class="col-12 col-sm-5 col-lg-12 justify-content-center align-self-center">
+              <img src="<%= rails_blob_path(@blog.resource.image) %>" class="thumbnail mt-2 mb-4" style="margin-left: auto; margin-right: auto;" alt="Sample <%= @blog.resource.title %> Image">
+            </div>
+            <div class="col-12 col-sm-7 col-lg-12 align-self-center">
+              <h3><%= @blog.resource.title %></h3>
+              <h3>Get Your <span class="font-weight-bold"><%= @blog.resource.whatisit %></span> Now</h3>
+              <a class="btn btn-primary" data-toggle="modal" data-target="#subscriptionPopup" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Blog Show Subscribe'})">Get it Now</a>
+            </div>
+          </div> <!-- row -->
         </div>
       </div>
+    </div>
     <% end %>
   <% end %>
 
@@ -150,7 +162,7 @@
       <div class="container flex-center text-center">
         <div class="row pt-3">
           <div class="col-12">
-            <h2 class="font-weight-bold text-white">Subscribe</h2>
+            <h2 class="font-weight-bold text-white">Get Real Estate Tips and Tools to Your Inbox</h2>
           </div>
           <div class="col-12">
             <%= render partial: "subscribers/mini_form", locals: { subscriber: @new_subscriber, tag_string: "blog-show-subscribe" } %>
@@ -161,23 +173,28 @@
   </div>
 
 
-
-  <div class="container">
-    <% if @blog.optin %>
-      <div class="text-center py-5">
-        <h2 class="font-weight-bold">Want More Information?</h2>
-        <% if current_user %>
-          <h3>Get Your <%= @blog.link_text %> Now</h3>
-          <%= link_to "Let's Go", @blog.link_filename, target: "_blank", onclick: "ga('send',{'hitType': 'event','eventCategory': 'downloads', 'eventAction': 'Member Download Blog PDF'}); gtag_report_conversion();" %>
-        <% else %>
-          <div class="">
-            <h3 class="text-center">Get Your <%= @blog.link_text %> Now</h3>
-            <%= render partial: "layouts/new_subscriber_wide", locals: { tags: @blog.optin_tags } %>
-          </div> <!-- card -->
-        <% end %>
-      </div> <!-- header row -->
-    <% end %>
-  </div> <!-- container -->
+  <% if @blog.optin %>
+    <div class="container">
+      <% if @blog.optin %>
+        <div class="text-center py-5">
+          <h2 class="font-weight-bold">Want More Information?</h2>
+          <% if current_user %>
+            <h3>Get Your <span class="font-weight-bold"><%= @blog.resource.whatisit %></span> Now</h3>
+            <% if @blog.resource.resource_type == "Download" %>
+              <a href="<%= rails_blob_path(@blog.resource.download) %>" class="btn btn-outline-black btn-md" target="_blank">Download</a>
+            <% elsif @blog.resource.resource_type == "Link" %>
+              <a href="<%= @blog.resource.link_url %>" class="btn btn-outline-black btn-md" target="_blank">Get It Now</a>
+            <% end %>
+          <% else %>
+            <div class="">
+              <h3 class="text-center">Get Your <span class="font-weight-bold"><%= @blog.resource.title %></span> Now</h3>
+              <%= render partial: "layouts/new_subscriber_wide", locals: { tags: @blog.resource.csv_tags, resource_id: @blog.resource.id } %>
+            </div> <!-- card -->
+          <% end %>
+        </div> <!-- header row -->
+      <% end %>
+    </div> <!-- container -->
+  <% end %>
 
 
 
@@ -241,6 +258,24 @@
 
 
 
+
+<% if @blog.optin %>
+  <!-- subscriber popup itself -->
+  <div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body mx-4 mb-4">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="text-center mt-4">Subscribe to Get Your <span class="font-weight-bold"><%= @blog.resource.whatisit %></span></h3>
+          <%= render partial: "layouts/new_subscriber", locals: { tags: "optin, lm-blog-#{@blog.title}", resource_id: @blog.resource.id } %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 
 

@@ -4,6 +4,7 @@ class Blog < ActiveRecord::Base
   has_one_attached :image
   has_many_attached :pins
   belongs_to :user
+  belongs_to :resource, optional: true
   has_one :pillar
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -19,5 +20,5 @@ class Blog < ActiveRecord::Base
       end
     end
   end
-  
+
 end

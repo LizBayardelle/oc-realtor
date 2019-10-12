@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_130938) do
+ActiveRecord::Schema.define(version: 2019_10_12_181143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,9 @@ ActiveRecord::Schema.define(version: 2019_10_12_130938) do
     t.string "optin_tags", default: "LM-blog"
     t.boolean "published", default: false
     t.datetime "published_at"
+    t.bigint "resource_id"
     t.index ["pillars_id"], name: "index_blogs_on_pillars_id"
+    t.index ["resource_id"], name: "index_blogs_on_resource_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
@@ -299,6 +301,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_130938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tag_string"
+    t.string "resource_id_array", default: [], array: true
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -367,6 +370,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_130938) do
     t.index ["user_id"], name: "index_values_on_user_id"
   end
 
+  add_foreign_key "blogs", "resources"
   add_foreign_key "blogs", "users"
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
