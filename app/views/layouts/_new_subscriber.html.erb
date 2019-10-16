@@ -24,9 +24,9 @@
       <%= f.text_field :email, required: true, class: "form-control" %>
     </div> <!-- col -->
 
-    <%= hidden_field_tag(:resource_id, resource_id) %>
+    <%= hidden_field_tag(:resource_id, @resource_id) %>
     <%= hidden_field_tag(:subscriber_sent, true) %>
-    <%= f.hidden_field :tag_string, value: tags %>
+    <%= f.hidden_field :tag_string, value: @tags %>
   </div>
 
   <div class="form-actions text-center mt-3">
