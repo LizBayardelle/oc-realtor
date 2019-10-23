@@ -41,6 +41,7 @@
           <div class="collapsible-body">
             <ul>
               <li><%= link_to "Buy a Home", page_path("buy"), class: "waves-effect" %></li>
+              <li><%= link_to "Rent a Home", page_path("rent"), class: "waves-effect" %></li>
               <li><%= link_to "Sell My Home", page_path("sell"), class: "waves-effect" %></li>
               <li><%= link_to "Get a Loan", page_path("loan"), class: "waves-effect" %></li>
               <li><%= link_to "Refinance My Mortgage", page_path("mortgage"), class: "waves-effect" %></li>
@@ -50,9 +51,9 @@
 
         <li><%= link_to "Contact Us", new_contact_path, class: "waves-effect arrow-r" %></li>
 
-
         <li><%= link_to "Real Estate Resources", resources_path, class: "waves-effect arrow-r" %></li>
 
+        <li><%= link_to "For Realtors: Build My Business", page_path("agents"), class: "waves-effect arrow-r" %></li>
 
         <% if current_user %>
           <li><a class="collapsible-header waves-effect arrow-r">

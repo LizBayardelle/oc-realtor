@@ -22,10 +22,12 @@
           aria-haspopup="true" aria-expanded="false">
           How To</a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <%= link_to "Buy a House", page_path("buy"), class: "dropdown-item buy", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %>
-          <%= link_to "Sell My House", page_path("sell"), class: "dropdown-item sell", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %>
-          <%= link_to "Get a Loan", page_path("loan"), class: "dropdown-item loan", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %>
-          <%= link_to "Refinance My Mortgage", page_path("mortgage"), class: "dropdown-item refinance", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Blog'})" %>
+          <%= link_to "Buy a House", page_path("buy"), class: "dropdown-item buy", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Buy a House'})" %>
+          <%= link_to "Rent a House", page_path("rent"), class: "dropdown-item rent", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Rent a House'})" %>
+          <%= link_to "Sell My House", page_path("sell"), class: "dropdown-item sell", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Sell a House'})" %>
+          <%= link_to "Get a Loan", page_path("loan"), class: "dropdown-item loan", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Get a Loan'})" %>
+          <%= link_to "Refinance My Mortgage", page_path("mortgage"), class: "dropdown-item refinance", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav Refinance'})" %>
+          <%= link_to "For Realtors: Build My Business", page_path("agents"), class: "dropdown-item agent", onclick: "ga('send',{'hitType': 'event','eventCategory': 'nav', 'eventAction': 'Click Main Nav For Agents'})" %>
         </div>
       </li>
 

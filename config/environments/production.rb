@@ -14,6 +14,8 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  
+
   # Mailer
   config.action_mailer.default_url_options = { host: 'linchpin-realty.herokuapp.com' }
 

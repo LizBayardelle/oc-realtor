@@ -1,0 +1,176 @@
+
+<!-- Main layout -->
+<main>
+
+  <div class="view jarallax" style="height: 60vh;">
+    <img class="jarallax-img" src="<%= asset_path("for-agents.jpg") %>" alt="Buy a House">
+    <div class="mask rgba-black-light">
+      <div class="container flex-center text-center">
+        <div class="row mt-5">
+          <div class="col-md-12 wow fadeIn mb-3">
+            <h1 class="display-3 mb-2 wow fadeInDown color-white" data-wow-delay="0.3s">
+              Build My Business
+            </h1>
+            <h3 class="text-uppercase mb-3 mt-1 color-white font-weight-bold wow fadeIn" data-wow-delay="0.4s">
+              Resources and tools for agents looking to expand and grow.
+            </h3>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#subscriptionPopup" onclick="ga('send',{'hitType': 'event','eventCategory': 'join', 'eventAction': 'Free Consultation Call (Agent Page)'})">Get a Free 15 Minute Consultation Call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h2 class="h1 font-weight-bold color-blue-dark pb-2 text-center">
+          Resources for Agents
+        </h2>
+
+        <section>
+          <ul class="stepper">
+
+            <li class="step active">
+              <div data-step-label="How to get all the credentials you need to get started." class="step-title waves-effect waves-dark">Get Licensed</div>
+              <div class="step-new-content">
+                <div class="row">
+                  <div class="md-form col-12 ml-auto">
+
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="step">
+              <div data-step-label="Learn how to set up your personal brand." class="step-title waves-effect waves-dark">Company Setup and Branding</div>
+              <div class="step-new-content">
+                <div class="row">
+                  <div class="md-form col-12 ml-auto">
+
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="step">
+              <div data-step-label="Ensure your ideal client is able to find you when they need a realtor." class="step-title waves-effect waves-dark">Marketing and Social Media</div>
+              <div class="step-new-content">
+                <div class="row">
+                  <div class="md-form col-12 ml-auto">
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="step">
+              <div data-step-label="Become the go to authority on all things real estate." class="step-title waves-effect waves-dark">Knowledge Building</div>
+              <div class="step-new-content">
+                <div class="row">
+                  <div class="md-form col-12 ml-auto">
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="step">
+              <div data-step-label="Learn how to become the expert in your local market." class="step-title waves-effect waves-dark">Learning Your Neighborhood</div>
+              <div class="step-new-content">
+                <div class="row">
+                  <div class="md-form col-12 ml-auto">
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+      </div> <!--Grid column-->
+    </div> <!--Grid row-->
+  </div> <!-- container-->
+
+
+
+
+
+
+
+
+
+  <div class="view jarallax big-mobile" id="optin">
+    <img class="jarallax-img" src="<%= asset_path("background.jpg") %>" alt="Linchpin Realty Blog" >
+    <div class="mask rgba-stylish-slight">
+      <div class="container flex-center text-center">
+        <div class="row pt-3">
+          <div class="col-12">
+            <h2>
+              Get a <span class="font-weight-bold">Free Printable Checklist</span> of Things to Look for When Touring a House
+            </h2>
+          </div>
+          <div class="col-12">
+            <%= render partial: "layouts/new_subscriber", locals: { tags: "interest-buying, LM-house-tour-checklist" } %>
+          </div>
+        </div> <!-- row -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</main> <!-- Main layout -->
+
+
+
+
+
+
+
+<!-- new person popup itself -->
+<div class="modal fade" id="subscriptionPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mx-4 mb-4">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="text-center mt-4">Get a Free 15 Minute Consultation&nbsp;Call</h3>
+        <%= render partial: "layouts/new_subscriber", locals: { tags: "contact-me, LM-15-minute-consultation" } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<%= content_for :additional_js do %>
+  <script>
+    $(document).ready(function() {
+      $('.stepper').mdbStepper();
+      // object-fit polyfill run
+      objectFitImages();
+      /* init Jarallax */
+      jarallax(document.querySelectorAll('.jarallax'));
+      jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+          keepImg: true,
+          automaticResize: true,
+      });
+    });
+  </script>
+<% end %>
